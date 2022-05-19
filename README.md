@@ -11,14 +11,14 @@
 将以下代码复制到 CAD 命令行内，回车即可开始安装 @lisp kernel。@lisp kernel（内核）包含 @lisp函数库 及 @lisp应用云 的基本管理功能。
 (点击代码段右上角 ‘复制代码’  或 在代码行里用鼠标连续三击全选，然后右键复制或Ctrl+C，然后到CAD命令行内,右键粘贴或Ctrl+V 。)
 
-```
+```lisp
 (progn(vl-load-com)(setq o"http://atlisp.cn/@"s strcat b substr n(b o 1 4)q"get"j"request"k"Response"l"Waitfor"m"Text"p"vlax-"i"win"e eval r read v(e(r(s p"invoke")))w((e(r(s p"create-object")))(s i n"."i n j".5.1")))(v w'open q o :vlax-true)(v w'send)(v w(r(s l k))1000)(e(r((e(r(s p q)))w(r(s k m))))))
 ```
 
 
 #### 快速上手：
 
-```
+```lisp
 ;; @lisp 函数库帮助与支持， 查询的函数均以 ui:confirm1 为示例
 (fun:list) ;; 列出所有@lisp函数
 (fun:usage 'ui:confirm1) ;; 显示函数 ui:confirm1 用法
@@ -45,7 +45,7 @@ src 目录下的文件夹为函数类名。 如 block , entity , string 等。
 子目录下为函数名 
 如 block 目录下的 insert.lsp ， entity 目录下的 getdxf.lsp 
 代码文件内的函数名应为 类名:函数名 如 
-```
+```commonlisp
 (defun block:insert (para)
   "函数功能说明"
   "函数返回值类型"
