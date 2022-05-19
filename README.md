@@ -5,22 +5,36 @@
 
 @lisp函数库功能涉及 图元、 图块、 实体对象、 选择集、 Excel、 剪贴板、 曲线、 颜色、 编组、 图层、 布局、 点线、 字符串、 数学运算、 矩阵运算、 界面等。更多内容持续迭代中 …
 
-#### 软件架构
-软件架构说明
-
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+将以下代码复制到 CAD 命令行内，回车即可开始安装 @lisp kernel。@lisp kernel（内核）包含 @lisp函数库 及 @lisp应用云 的基本管理功能。
+(点击代码段右上角 ‘复制代码’  或 在代码行里用鼠标连续三击全选，然后右键复制或Ctrl+C，然后到CAD命令行内,右键粘贴或Ctrl+V 。)
+···
+(progn(vl-load-com)(setq o"http://atlisp.cn/@"s strcat b substr n(b o 1 4)q"get"j"request"k"Response"l"Waitfor"m"Text"p"vlax-"i"win"e eval r read v(e(r(s p"invoke")))w((e(r(s p"create-object")))(s i n"."i n j".5.1")))(v w'open q o :vlax-true)(v w'send)(v w(r(s l k))1000)(e(r((e(r(s p q)))w(r(s k m))))))
+···
 
-#### 使用说明
+#### 快速上手：
+···
+;; @lisp 函数库帮助与支持， 查询的函数均以 ui:confirm1 为示例
+(fun:list) ;; 列出所有@lisp函数
+(fun:usage 'ui:confirm1) ;; 显示函数 ui:confirm1 用法
+(fun:help 'ui:confirm1) ;; 显示函数 ui:confirm1 用法
+(fun:src 'ui:confirm1) ;; 显示函数 ui:confirm1 的定义源码
+(fun:search "ui:");; 搜索 函数库 中 ui: 相关的函数
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+;; 调用示例
+(require 'ui:confirm1) ;; 加载 用户确认对话框函数
+(ui:confirm1 '("你家门口有两双鞋。" "一双是你的。" "另一双也是你的。" ) "是-否")
+···
 
+#### More:
+函数库详细内容请至  
+http://bbs.mjtd.com/thread-184383-1-1.html
+或
+https://atlisp.cn/doc/function-lib.html
+
+@lisp应用云  https://atlisp.cn1.  xxxx
 #### 参与贡献
 
 1.  Fork 本仓库
@@ -28,12 +42,3 @@
 3.  提交代码
 4.  新建 Pull Request
 
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
