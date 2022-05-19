@@ -1,0 +1,13 @@
+(defun vectra:number-padding-last (number len / p r)
+  (setq r (rtos number 2 len))
+  (if (/= len 0)
+    (progn (setq p (vl-string-search "."
+          r))
+      (if (null p)
+        (setq p (strlen r)
+          r (strcat r ".")))
+      (repeat (- len (strlen r)
+          (- p)
+          -1)
+        (setq r (strcat r "0")))))
+  r)

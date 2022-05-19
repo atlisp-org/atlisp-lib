@@ -1,0 +1,6 @@
+(defun vectra:angle-include (a1 a2 / r)
+  (setq r (abs (rem (- a1 a2)
+        $2pi)))
+  (if (> r pi)
+    (- $2pi r)
+    r))

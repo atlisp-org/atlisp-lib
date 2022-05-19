@@ -1,0 +1,5 @@
+(defun vectra:angle-normal (a)
+  (setq a (rem a $2pi))
+  (if (< a 0)
+    (setq a (+ a $2pi)))
+  a)

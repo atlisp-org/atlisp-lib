@@ -1,0 +1,11 @@
+(defun entity:dimaligned (p1 p2 txtpt)
+  "创建对齐标注"
+  (entmakex (list (quote (0 . "DIMENSION"))
+      (quote (100 . "AcDbEntity"))
+      (quote (100 . "AcDbDimension"))
+      (cons 10 txtpt)
+      (quote (70 . 33))
+      (quote (1 . ""))
+      (quote (100 . "AcDbAlignedDimension"))
+      (cons 13 p1)
+      (cons 14 p2))))

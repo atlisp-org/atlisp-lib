@@ -1,0 +1,6 @@
+(defun std:removemenuitem (popname / menubar menuitem)
+    (setq menubar (vla-get-menubar (vlax-get-acad-object)))
+    (setq menuitem (std:catchapply (quote vla-item)
+            (list menubar popname)))
+    (if menuitem (std:catchapply (quote vla-removefrommenubar)
+            (list menuitem))))

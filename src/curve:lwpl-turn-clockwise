@@ -1,0 +1,17 @@
+(defun curve:lwpl-turn-clockwise (ent / pts convexity)
+  "反转多段线，调整顺时针或逆时针方向。"
+  "新多段线图元"
+  (setq pts (curve:pline-3dpoints ent))
+  (setq convexity (curve:pline-convexity ent))
+  (if (> (length pts)
+      (entity:getdxf ent 90))
+    (setq pts (reverse (cdr (reverse pts)))))
+  (if (> (length convexity)
+      (entity:getdxf ent 90))
+    (setq convexity (reverse (cdr (reverse convexity)))))
+  (setq pts (reverse pts))
+  (setq convexity (mapcar (quote -)
+      (reverse convexity)))
+  (setq convexity (append (cdr convexity)
+      (list (car convexity))))
+  (entity:make-lwpline-bold pts convexity nil 1 0))

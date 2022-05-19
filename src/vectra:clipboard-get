@@ -1,0 +1,8 @@
+(defun vectra:clipboard-get (/ html result)
+  (and (setq html (vlax-create-object "htmlfile"))
+    (setq result (vlax-invoke (vlax-get (vlax-get html (quote parentwindow))
+          (quote clipboarddata))
+        (quote getdata)
+        "Text"))
+    (vlax-release-object html))
+  result)

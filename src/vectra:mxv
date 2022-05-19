@@ -1,0 +1,6 @@
+(defun vectra:mxv (m v)
+  (mapcar (quote (lambda (r)
+        (apply (quote +)
+          (mapcar (quote *)
+            r v))))
+    m))

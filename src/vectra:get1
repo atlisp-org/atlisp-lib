@@ -1,0 +1,5 @@
+(defun vectra:get1 (lst keys / e)
+  (if (atom keys)
+    (cons keys (vectra:get lst keys))
+    (mapcar (quote cons)
+      keys (vectra:get lst keys))))

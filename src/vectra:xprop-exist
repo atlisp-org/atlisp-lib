@@ -1,0 +1,7 @@
+(defun vectra:xprop-exist (ename appname names / rv)
+  (setq rv (vectra:xprop-get ename appname names))
+  (cond ((atom names)
+      rv)
+    ((vl-consp names)
+      (= (length names)
+        (length rv)))))

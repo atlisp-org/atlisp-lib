@@ -1,0 +1,11 @@
+(defun list:rm-m2n (lst m n / len i)
+    "删除列表的第m至n项，索引值从0计算"
+    (cond ((< m 0)
+            (setq m 0))
+        ((> n (setq len (length lst)))
+            (setq n len)))
+    (setq i -1)
+    (vl-remove-if (quote (lambda (x)
+                (and (<= m (setq i (1+ i)))
+                    (<= i n))))
+        lst))

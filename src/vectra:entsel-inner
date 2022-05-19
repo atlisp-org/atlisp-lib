@@ -1,0 +1,25 @@
+(defun vectra:entsel-inner (msg filter nested / ent kword)
+  (if (and msg (setq kword (mapcar (quote car)
+          (vl-remove-if-not (quote vl-consp)
+            (vectra:template-parse-inner msg "("
+                ")")))))
+    (setq kword (vectra:string-connect kword "
+        ")
+      kword (strcat kword "
+         "))
+    (setq kword "
+       "))
+  (while (null ent)
+    (initget kword)
+    (if nested (setq ent (nentsel msg))
+      (setq ent (entsel msg)))
+    (cond ((null ent)
+        (princ "未选择对象。"))
+      ((= (type ent)
+          (quote list))
+        (if (and filter (not (wcmatch (vectra:dxf (car ent)
+                  0)
+                filter)))
+          (progn (princ "选择对象已被过滤。")
+            (setq ent nil))))))
+  ent)

@@ -1,0 +1,21 @@
+(defun excel:utils-index-range->cells (var / index str->list)
+  "工具函数，将A1格式的引用转换成行号、列标表\n参数:var:A1格式的字符串"
+  "行号、列标表"
+  "(excel:Utils-index-range->cells \"DD23:EE44\")"
+  (defun str->list (str)
+    (list (read (vl-list->string (vl-remove-if-not (quote (lambda (x)
+                (<= 48 x 57)))
+            (vl-string->list str))))
+      ((lambda (f)
+          (f (reverse (vl-remove-if (quote (lambda (x)
+                    (<= 48 x 57)))
+                (vl-string->list str)))))
+        (lambda (l)
+          (if l (+ (* 26 (f (cdr l)))
+              (- (car l)
+                64))
+            0)))))
+  (if (setq index (vl-string-position 58 var))
+    (append (str->list (substr var 1 index))
+      (str->list (substr var (+ 2 index))))
+    (str->list var)))

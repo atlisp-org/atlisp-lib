@@ -1,0 +1,6 @@
+(defun vectra:make-arc (point radius start end /)
+  (vectra:entmake (list (quote (0 . "ARC"))
+      (cons 10 point)
+      (cons 40 radius)
+      (cons 50 start)
+      (cons 51 end))))

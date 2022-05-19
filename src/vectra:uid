@@ -1,0 +1,5 @@
+(defun vectra:uid (/)
+  (if (null $p-uid-base)
+    (setq $p-uid-base 1))
+  (setq $p-uid-base (abs (vectra:hash-1 (getvar (quote millisecs))
+        $p-uid-base))))

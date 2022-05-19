@@ -1,0 +1,5 @@
+(defun vectra:timer-stop (/ el)
+  (setq el (- (vectra:timestamp)
+      $p-timestart))
+  (setq $p-timestart (vectra:timestamp))
+  el)

@@ -1,0 +1,7 @@
+(defun vectra:string-connect (lst delim / e str)
+  (setq str (car lst)
+    lst (cdr lst))
+  (while (setq e (car lst))
+    (setq str (strcat str delim e))
+    (setq lst (cdr lst)))
+  str)

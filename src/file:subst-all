@@ -1,0 +1,15 @@
+(defun file:subst-all (newstr oldstr lspfile new-suffix / newfile vf zf text)
+    "替换文件中的字符串。"
+    (setq newfile (strcat (vl-filename-directory lspfile)
+            "\\"
+            (vl-filename-base lspfile)
+            new-suffix (vl-filename-extension lspfile)))
+    (if (findfile newfile)
+        (vl-file-delete (findfile newfile)))
+    (setq vf (open lspfile "r"))
+    (setq zf (open newfile "w"))
+    (while (setq text (read-line vf))
+        (write-line (string:subst-all newstr oldstr text)
+            zf))
+    (close vf)
+    (close zf))

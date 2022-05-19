@@ -1,0 +1,17 @@
+(defun table:write-csv (lst file / fp *error*)
+  "将 二维表 写入 csv 文件。"
+  ""
+  (defun *error* (msg)
+    (if (= (quote file)
+        (type fp))
+      (close fp))
+    (@:*error* msg))
+  (setq fp (open file "w"))
+  (foreach str-line (mapcar (quote (lambda (x)
+          (string:from-list (mapcar (quote @:to-string)
+              x)
+            ",")))
+      lst)
+    (write-line str-line fp))
+  (close fp)
+  t)

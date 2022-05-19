@@ -1,0 +1,6 @@
+(defun vectra:angle-regular (a)
+  (if (> a $pi/2)
+    (- a pi)
+    (if (< a (- $pi/2))
+      (+ a pi)
+      a)))

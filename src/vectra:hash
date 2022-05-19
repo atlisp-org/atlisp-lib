@@ -1,0 +1,5 @@
+(defun vectra:hash (lst /)
+  (setq h (getvar (quote millisecs)))
+  (if (atom lst)
+    (setq h (vectra:hash-1 lst h))
+    (foreach e lst (setq h (vectra:hash-1 e h)))))

@@ -1,0 +1,12 @@
+(defun text:gettextwidth (str edata / box1 bo2)
+    (if (not str)
+        (setq str (cdr (assoc 1 edata))))
+    (setq box1 (textbox (list-substassoc (list (cons 1 (strcat "m"
+                            str "m")))
+                edata t)))
+    (setq box2 (textbox (list-substassoc (list (cons 1 "mm"))
+                edata t)))
+    (- (- (caadr box1)
+            (caar box1))
+        (- (caadr box2)
+            (caar box2))))

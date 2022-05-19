@@ -1,0 +1,12 @@
+(defun block:set-attributes (blk lst / n atts)
+  "设置块属性值"
+  (if (= (quote ename)
+      (type blk))
+    (if (safearray-value (setq atts (vlax-variant-value (vla-getattributes (vlax-ename->vla-object blk)))))
+      (progn (foreach n lst (mapcar (quote (lambda (x)
+                (if (= (strcase (car n))
+                    (strcase (vla-get-tagstring x)))
+                  (vla-put-textstring x (cdr n)))))
+            (vlax-safearray->list atts)))
+        (vla-update (vlax-ename->vla-object blk))))
+    nil))

@@ -1,0 +1,5 @@
+(defun vectra:csvread-get (csv key /)
+  (mapcar (function cons)
+    (car csv)
+    (vectra:get1 (cdr csv)
+      key)))

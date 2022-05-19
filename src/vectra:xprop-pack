@@ -1,0 +1,7 @@
+(defun vectra:xprop-pack (properties xdatatypes / enc rv)
+  (foreach e properties (setq enc (vectra:xprop-pack1 e xdatatypes))
+    (setq rv (cons (car enc)
+        rv)
+      rv (cons (cadr enc)
+        rv)))
+  (reverse rv))

@@ -1,0 +1,7 @@
+(defun vectra:string-subst (str find repl / pos len)
+  (setq len (strlen repl)
+    pos 0)
+  (while (setq pos (vl-string-search find str pos))
+    (setq str (vl-string-subst repl find str pos)
+      pos (+ pos len)))
+  str)

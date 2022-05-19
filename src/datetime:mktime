@@ -1,0 +1,20 @@
+(defun datetime:mktime (lst /)
+  "计算某一时间(列表)到1970年01月01日经过的秒数,适合转换vl-file-systime的结果"
+  "Timestamp"
+  "(datetime:mktime (vl-file-systime (findfile \"acad.pgp\")))"
+  (setq days-of-month (if (datetime:leap-yearp (nth 0 lst))
+      (quote (0 31 60 91 121 152 182 213 244 274 305 335 366))
+      (quote (0 31 59 90 120 151 181 212 243 273 304 334 365))))
+  (+ (* 60.0 (+ (* 60.0 (+ (* 24.0 (+ (* (- (nth 0 lst)
+                    1970.0)
+                  365.0)
+                (fix (/ (- (nth 0 lst)
+                      1970)
+                    4))
+                (nth (1- (nth 1 lst))
+                  days-of-month)
+                (nth 3 lst)))
+            (nth 4 lst)
+            (- 8)))
+        (nth 5 lst)))
+    (nth 6 lst)))

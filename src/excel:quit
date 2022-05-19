@@ -1,0 +1,11 @@
+(defun excel:quit (exlobj saveyn)
+  "退出excel\n参数:ExlObj:打开的excel对象\n参数:SaveYN:是否保存，t为保存，nil为不保存"
+  (if saveyn (vlax-invoke (vlax-get-property exlobj "ActiveWorkbook")
+      (quote close))
+    (vlax-invoke (vlax-get-property exlobj "ActiveWorkbook")
+      (quote close)
+      :vlax-false))
+  (vlax-invoke exlobj (quote quit))
+  (vlax-release-object exlobj)
+  (setq exlobj nil)
+  (gc))

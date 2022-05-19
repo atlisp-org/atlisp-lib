@@ -1,0 +1,8 @@
+(defun vectra:line-getendnear (line p / pts)
+  (setq pts (vectra:dxf1 line (quote (10 11))))
+  (if (< (distance (cdar pts)
+        p)
+      (distance (cdadr pts)
+        p))
+    (car pts)
+    (cadr pts)))

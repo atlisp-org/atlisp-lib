@@ -1,0 +1,5 @@
+(defun vectra:string-setnotempty (symbol value /)
+  (if (or (null (vl-symbol-value symbol))
+      (equal (vl-symbol-value symbol)
+        ""))
+    (set symbol value)))

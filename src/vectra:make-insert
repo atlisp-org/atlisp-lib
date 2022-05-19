@@ -1,0 +1,8 @@
+(defun vectra:make-insert (name point sx sy sz ang)
+  (vectra:entmake (list (quote (0 . "INSERT"))
+      (cons 2 name)
+      (cons 10 point)
+      (cons 41 sx)
+      (cons 42 sy)
+      (cons 43 sz)
+      (cons 50 ang))))

@@ -1,0 +1,6 @@
+(defun vectra:get (lst keys /)
+  (if (atom keys)
+    (cdr (assoc keys lst))
+    (mapcar (function (lambda (e)
+          (cdr (assoc e lst))))
+      keys)))

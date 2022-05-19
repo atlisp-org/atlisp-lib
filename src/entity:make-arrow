@@ -1,0 +1,13 @@
+(defun entity:make-arrow (startpt endpt width)
+  "生成箭头,一端宽，一端窄的多段线。\n参数:\n   startpt:箭头尖坐标\n   endpt:箭头尾坐标\n   width:箭头尾宽度\n返回值:\n  箭头图元名\n"
+  (entmakex (list (quote (0 . "LWPOLYLINE"))
+      (quote (100 . "AcDbEntity"))
+      (quote (100 . "AcDbPolyline"))
+      (quote (90 . 2))
+      (quote (70 . 0))
+      (cons 10 startpt)
+      (quote (40 . 0))
+      (cons 41 width)
+      (cons 10 endpt)
+      (cons 40 width)
+      (cons 41 width))))

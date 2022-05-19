@@ -1,0 +1,6 @@
+(defun std:reset-system-variable nil (mapcar (quote setvar)
+        (mapcar (quote car)
+            *user-system-variable*)
+        (mapcar (quote cdr)
+            *user-system-variable*))
+    (setq *user-system-variable* nil))

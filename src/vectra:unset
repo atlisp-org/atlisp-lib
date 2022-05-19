@@ -1,0 +1,7 @@
+(defun vectra:unset (lst keys /)
+  (if (atom keys)
+    (setq keys (list keys)))
+  (vl-remove-if (function (lambda (e)
+        (member (car e)
+          keys)))
+    lst))

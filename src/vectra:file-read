@@ -1,0 +1,7 @@
+(defun vectra:file-read (filename / content file line)
+  (if (and (setq filename (findfile filename))
+      (setq file (open filename "r")))
+    (progn (while (setq line (read-line file))
+        (setq content (cons line content)))
+      (close file)))
+  (reverse content))

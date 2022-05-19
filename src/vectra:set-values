@@ -1,0 +1,7 @@
+(defun vectra:set-values (lst / old)
+  (foreach e lst (setq old (cons (cons (car e)
+          (vl-symbol-value (car e)))
+        old))
+    (set (car e)
+      (cdr e)))
+  (reverse old))

@@ -1,0 +1,6 @@
+(defun vectra:string-right (str n / s sl)
+  (setq sl (strlen str)
+    s (- sl n -1))
+  (if (< s 1)
+    (setq s 1))
+  (substr str s n))

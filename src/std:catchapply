@@ -1,0 +1,6 @@
+(defun std:catchapply (fun args / result)
+    (if (not (vl-catch-all-error-p (setq result (vl-catch-all-apply (if (= (quote sym)
+                                (type fun))
+                            fun (function fun))
+                        args))))
+        result))

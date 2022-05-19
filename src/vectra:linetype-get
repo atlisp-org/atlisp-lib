@@ -1,0 +1,7 @@
+(defun vectra:linetype-get (name / lt)
+  (setq lt (vl-catch-all-apply (quote vla-item)
+      (list (vla-get-linetypes (vla-get-activedocument (vlax-get-acad-object)))
+        name)))
+  (if (vl-catch-all-error-p lt)
+    (setq lt (vectra:linetype-load name "acad.lin")))
+  lt)

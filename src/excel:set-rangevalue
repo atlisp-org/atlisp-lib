@@ -1,0 +1,10 @@
+(defun excel:set-rangevalue (xlapp index value / range)
+  "设置单元格或区域的值\n参数:XLApp:已打开的excel文件对象\n参数:index:位置信息，如\"A1\"或者'(1 1), \"A1:B2\"或者'(1 1 2 2)\n参数:value:要设置的值列表或者字符串/数字等"
+  (setq range (excel:get-range xlapp index))
+  (if (= (quote list)
+      (type value))
+    (progn (vlax-for it range (vlax-put-property it (quote value2)
+          (car value))
+        (setq value (cdr value))))
+    (progn (vlax-for it range (vlax-put-property it (quote value2)
+          value)))))

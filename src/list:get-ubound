@@ -1,0 +1,12 @@
+(defun list:get-ubound (lst)
+    "得到表的各维数长度，最多支持到三维"
+    (if (atom lst)
+        (quote (0 0 0))
+        (list (vl-list-length lst)
+            (apply (quote max)
+                (mapcar (quote vl-list-length)
+                    lst))
+            (apply (quote max)
+                (mapcar (quote vl-list-length)
+                    (apply (quote append)
+                        lst))))))

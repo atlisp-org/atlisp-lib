@@ -1,0 +1,16 @@
+(defun entity:make-polyline-ax (pts-3d closed? / acadobj doc modelspace pntlst2 points polyobj)
+  "根据点表生成polyline，三维多段线。参数:closed? T or nil.ActiveX 方法。"
+  "三维POLYLINE图元"
+  (setq pntlst2 (quote nil))
+  (if pts-3d (progn (foreach e pts-3d (setq pntlst2 (append pntlst2 e)))
+      (setq acadobj (vlax-get-acad-object))
+      (setq doc (vla-get-activedocument acadobj))
+      (setq points (vlax-make-safearray vlax-vbdouble (cons 0 (- (length pntlst2)
+              1))))
+      (vlax-safearray-fill points pntlst2)
+      (setq modelspace (vla-get-modelspace doc))
+      (setq polyobj (vla-add3dpoly modelspace points))
+      (if (= closed? t)
+        (vla-put-closed (vlax-ename->vla-object (entlast))
+          :vlax-true))))
+  (entlast))

@@ -1,0 +1,5 @@
+(defun vectra:mxm (m q)
+  (mapcar (quote (lambda (r)
+        (vectra:mxv (vectra:trp q)
+          r)))
+    m))

@@ -1,0 +1,10 @@
+(defun line:get-lwpoints (en0 / ddlist dd1 tmplist)
+    "生成多段线的点序"
+    (setq ddlist nil)
+    (setq tmplist (entget en0))
+    (repeat (cdr (assoc 90 (entget en0)))
+        (setq dd1 (cdr (assoc 10 tmplist)))
+        (setq tmplist (member (assoc 10 tmplist)
+                tmplist))
+        (setq tmplist (cdr tmplist))
+        (setq ddlist (append ddlist (list dd1)))))

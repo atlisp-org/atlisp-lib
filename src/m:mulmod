@@ -1,0 +1,11 @@
+(defun m:mulmod (a b m / ret)
+    "快速积求模"
+    (setq ret 0)
+    (while (not (zerop b))
+        (if (not (zerop (rem b 2)))
+            (setq ret (rem (+ a ret)
+                    m)))
+        (setq b (fix (/ b 2))
+            a (rem (* a 2.0)
+                m)))
+    (fix ret))

@@ -1,0 +1,8 @@
+(defun vectra:line-getinters (l1 l2 / dx1 dx2)
+  (setq dx1 (entget l1)
+    dx2 (entget l2))
+  (inters (cdr (assoc 10 dx1))
+    (cdr (assoc 11 dx1))
+    (cdr (assoc 10 dx2))
+    (cdr (assoc 11 dx2))
+    nil))

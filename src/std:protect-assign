@@ -1,0 +1,5 @@
+(defun std:protect-assign (syms)
+    (eval (list (quote pragma)
+            (list (quote quote)
+                (list (cons (quote protect-assign)
+                        syms))))))

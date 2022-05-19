@@ -1,0 +1,13 @@
+(defun list:same-num (lst / l2 tmp)
+    "表中相同元素及数量"
+    (while (setq tmp (vl-remove (car lst)
+                lst)
+            l2 (if (member (car lst)
+                    (cdr lst))
+                (cons (list (car lst)
+                        (- (length lst)
+                            (length tmp)))
+                    l2)
+                l2)
+            lst tmp))
+    (reverse l2))

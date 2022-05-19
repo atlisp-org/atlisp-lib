@@ -1,0 +1,6 @@
+(defun vectra:vector-normal (v / len)
+  (setq len (vectra:vector-len v))
+  (if (equal len 0.0 1.0e-06)
+    v (mapcar (function (lambda (e)
+          (/ e len)))
+      v)))
