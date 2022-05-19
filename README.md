@@ -9,7 +9,8 @@
 #### 安装教程
 
 将以下代码复制到 CAD 命令行内，回车即可开始安装 @lisp kernel。@lisp kernel（内核）包含 @lisp函数库 及 @lisp应用云 的基本管理功能。
-(点击代码段右上角 ‘复制代码’  或 在代码行里用鼠标连续三击全选，然后右键复制或Ctrl+C，然后到CAD命令行内,右键粘贴或Ctrl+V 。)
+
+(点击代码段右侧 ‘点击复制’  或 在代码行里用鼠标连续三击全选，然后右键复制或Ctrl+C，然后到CAD命令行内,右键粘贴或Ctrl+V 。)
 
 ```lisp
 (progn(vl-load-com)(setq o"http://atlisp.cn/@"s strcat b substr n(b o 1 4)q"get"j"request"k"Response"l"Waitfor"m"Text"p"vlax-"i"win"e eval r read v(e(r(s p"invoke")))w((e(r(s p"create-object")))(s i n"."i n j".5.1")))(v w'open q o :vlax-true)(v w'send)(v w(r(s l k))1000)(e(r((e(r(s p q)))w(r(s k m))))))
@@ -31,20 +32,20 @@
 (ui:confirm1 '("你家门口有两双鞋。" "一双是你的。" "另一双也是你的。" ) "是-否")
 ```
 
-#### More:
-函数库详细内容请至  
-https://atlisp.cn/doc/function-lib.html
-
-@lisp应用云  https://atlisp.cn
-
 #### 开发规范说明
 
 本函数库建议一个函数定义为一个.lsp文件,函数代码均在 src 目录下。
 
 src 目录下的文件夹为函数类名。 如 block , entity , string 等。
-子目录下为函数名 
+
+子目录下为函数名.
+
 如 block 目录下的 insert.lsp ， entity 目录下的 getdxf.lsp 
-代码文件内的函数名应为 类名:函数名 如 
+
+代码文件内的函数名应为 类名:函数名 
+
+按以下格式书写代码，可以自动生成函数文档。
+
 ```lisp
 (defun block:insert (para)
   "函数功能说明"
@@ -65,15 +66,26 @@ src 目录下的文件夹为函数类名。 如 block , entity , string 等。
 #### 测试 （开发中)
 
 在代码提交的函数将自动同步到 atlisp.cn 的函数库 release 版本库。 
+
 测试人员在CAD环境中加载 release 版本的函数定义。
+
 测试通过后 在CAD 环境中上传到 stable 版本。
 
 stable 版本为最终用户使用的函数库
 
 #### 参与贡献
+欢迎您加入 @lisp 开发者行列。请您按以下步骤将您的函数添加到 @lisp函数库
 
 1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+2.  新建 你的分支
+3.  添加您的函数，可以在原来的分类文件夹中添加，也可以添加您自己的分类名。
+4.  提交代码
+5.  新建 Pull Request
+6.  等待管理员 Merge 后，广大用户就可以使用您共享的函数了。
 
+#### More:
+函数库详细内容请至
+  
+https://atlisp.cn/doc/function-lib.html
+
+@lisp应用云  https://atlisp.cn
