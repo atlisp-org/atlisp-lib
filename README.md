@@ -45,7 +45,7 @@ src 目录下的文件夹为函数类名。 如 block , entity , string 等。
 子目录下为函数名 
 如 block 目录下的 insert.lsp ， entity 目录下的 getdxf.lsp 
 代码文件内的函数名应为 类名:函数名 如 
-```commonlisp
+```lisp
 (defun block:insert (para)
   "函数功能说明"
   "函数返回值类型"
