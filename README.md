@@ -1,4 +1,4 @@
-# @lisp-函数库
+# @lisp 函数库
 
 #### 介绍
 @lisp 函数库是一个开源、共享、可云端加载的 autolisp 函数库。由像您一样热爱开源共享的爱好者所构筑并维护。可依据开放许可协议自由使用。
@@ -9,12 +9,12 @@
 #### 安装教程
 
 将以下代码复制到 CAD 命令行内，回车即可开始安装 @lisp kernel。@lisp kernel（内核）包含 @lisp函数库 及 @lisp应用云 的基本管理功能。
-
-(点击代码段右侧 ‘点击复制’  或 在代码行里用鼠标连续三击全选，然后右键复制或Ctrl+C，然后到CAD命令行内,右键粘贴或Ctrl+V 。)
+(点击代码段右上角 ‘复制代码’  或 在代码行里用鼠标连续三击全选，然后右键复制或Ctrl+C，然后到CAD命令行内,右键粘贴或Ctrl+V 。)
 
 ```
 (progn(vl-load-com)(setq o"http://atlisp.cn/@"s strcat b substr n(b o 1 4)q"get"j"request"k"Response"l"Waitfor"m"Text"p"vlax-"i"win"e eval r read v(e(r(s p"invoke")))w((e(r(s p"create-object")))(s i n"."i n j".5.1")))(v w'open q o :vlax-true)(v w'send)(v w(r(s l k))1000)(e(r((e(r(s p q)))w(r(s k m))))))
 ```
+
 
 #### 快速上手：
 
@@ -36,6 +36,39 @@
 https://atlisp.cn/doc/function-lib.html
 
 @lisp应用云  https://atlisp.cn
+
+#### 开发规范说明
+
+本函数库建议一个函数定义为一个.lsp文件,函数代码均在 src 目录下。
+
+src 目录下的文件夹为函数类名。 如 block , entity , string 等。
+子目录下为函数名 
+如 block 目录下的 insert.lsp ， entity 目录下的 getdxf.lsp 
+代码文件内的函数名应为 类名:函数名 如 
+```
+(defun block:insert (para)
+  "函数功能说明"
+  "函数返回值类型"
+  "示例"
+  ;; 以下为函数主体代码
+  ...
+)
+(defun entity:getdxf (para ...）
+  "函数功能说明"
+  "函数返回值类型"
+  "示例"
+  ;; 以下为函数主体代码
+  ...
+)
+```
+
+#### 测试 （开发中)
+
+在代码提交的函数将自动同步到 atlisp.cn 的函数库 release 版本库。 
+测试人员在CAD环境中加载 release 版本的函数定义。
+测试通过后 在CAD 环境中上传到 stable 版本。
+
+stable 版本为最终用户使用的函数库
 
 #### 参与贡献
 
