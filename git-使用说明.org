@@ -85,3 +85,41 @@ $ git commit -m "更改内容说明"
 $ git push 
 #+END_SRC
 
+* Git fork 指南
+  fork @lisp 的仓库并作为贡献者提交代码
+
+** 流程A  克隆项目，增加代码
+
+   在 Github/Gitee 上 fork 想要参与的项目仓库 @lisp/@lisp函数库(atlisp/atlisp-lib.git), 
+   fork后会生成自己的项目 you/@lisp函数库(you/atlisp-lib.git)
+   
+   git clone 自己的项目
+#+BEGIN_SRC 
+$  git add * 
+$  git commit -m "message" 
+#+END_SRC
+
+   进行更新，提交推送到自己的远程仓库 you/@lisp函数库
+#+BEGIN_SRC 
+$ git push origin main 
+#+END_SRC
+
+   在 github 上新建 Pull Request 请求
+   项目管理员会审核你提交的代码，如果合适就会同意合并，这样你的代码就会出现在源项目中。
+
+** 流程B  获取最新代码
+   经过一段时间以后，@lisp/@lisp函数库 仓库可能已经更新，我们要同步最新代码
+   
+   给远程的上游仓库 @lisp/@lisp函数库 配置一个 remote 。
+
+#+BEGIN_SRC 
+$ git remote -v # 查看远程状态
+$ git remote add upstream https://gitee.com/atlisp/atlisp-lib.git
+$ git fetch upstream # 将远程所有的分支fetch下来
+$ git merge upstream/master # 合并非master分支的代码
+$ git pull upstream master # 可以代替流程B 的步骤 2+3。 git pull = fetch + merge
+#+END_SRC
+   此时自己本地的代码就是最新的了，修改完代码后，重复A流程中的步骤 3-5
+
+
+
