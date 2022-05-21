@@ -1,0 +1,78 @@
+#+title: Git 使用说明-极简版
+
+* Git
+  Git（读音为/gɪt/）是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。
+* 下载安装
+  链接：https://pan.baidu.com/s/1rpfm3pLYIU3wS1V4gXLN0w?pwd=zgl5
+  提取码：zgl5
+
+  双击安装 Git，记住安装位置。
+* 使用
+  以下均以 @lisp 函数库 为例。
+
+  进入 PortableGit 文件夹，双击 git-bash.exe 打开 终端命令行。
+
+  $ 是命令提示符，不需要输入这个 $ , 直接输入后面的命令。
+
+  输入命令 =cd= 回车，进入你的用户文件夹。
+
+#+BEGIN_SRC 
+$ cd
+#+END_SRC
+
+**  设置你的 Git 用户名和邮箱
+
+#+BEGIN_SRC 
+$ git config --global user.email "你的邮箱"
+$ git config --global user.name  "你的名字"
+#+END_SRC
+
+** 从网络下载项目代码(克隆) =clone=
+#+BEGIN_SRC 
+$ cd
+$ git clone https://gitee.com/atlisp/atlisp-lib.git 
+#+END_SRC
+
+一系列提示后。在你的用户主文件夹下，会出现一个 atlisp-lib 的文件夹。
+
+这个文件夹下的内容就是 @lisp函数库 的所有源代码和说明文件。
+
+自行打开资源管理器查看。或打开 vscode, notepad++ 等编辑器，查改代码。
+
+
+** 进入代码目录
+#+BEGIN_SRC 
+$ cd atlisp-lib
+#+END_SRC
+** 查看 代码更改记录
+   按 空格 向后翻页 ， 按 q 退出。
+#+BEGIN_SRC 
+$ git log
+#+END_SRC
+
+** 从网络更新代码版本
+#+BEGIN_SRC 
+$ git pull 
+#+END_SRC
+** 更改代码
+打开 vscode, notepad++ 等编辑器，查改代码。保存。
+
+** 管理代码仓库
+   查看更改的文件
+#+BEGIN_SRC 
+$ git status
+#+END_SRC
+
+** 将更改的文件加入代码仓库
+#+BEGIN_SRC 
+$ git add . 
+$ git commit -m "更改内容说明"
+#+END_SRC
+
+** 将新版本的代码提交到网络仓库。
+   按提示输入 Gitee 的账户名和密码。
+
+#+BEGIN_SRC 
+$ git push 
+#+END_SRC
+
