@@ -30,7 +30,7 @@ $ git config --global user.name  "你的名字"
 ** 从网络下载项目代码(克隆) =clone=
    以下命令中 atlisp 是代码主仓库名。 
 
-   如果不是主仓库的开发者。需要先在浏览器中 fork @lisp/@lisp函数库 到你的账号下。
+   如果不是主仓库的开发者。需要先在浏览器中 *fork*  /@lisp/@lisp函数库/ 到你的账号下。
    见网页(右上角)
 
    以下的命令中 https://gitee.com/atlisp/ 需改为 https://gitee.com/yourname/ 
