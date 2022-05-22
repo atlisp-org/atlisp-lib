@@ -5,21 +5,6 @@
 
 @lisp函数库功能涉及 图元、 图块、 实体对象、 选择集、 Excel、 剪贴板、 曲线、 颜色、 编组、 图层、 布局、 点线、 字符串、 数学运算、 矩阵运算、 界面等。更多内容持续迭代中 …
 
-### Git 使用(无fork)
-#### 首先 clone
-```lisp
-git clone git:gitee.com:atlisp/atlisp-lib.git
-```
-```mermaid
-graph TD;
-A[Gitee:atlisp/atlisp-lib]--> | git clone | C(本地仓库 atlisp-lib);
-```
-#### 持续交付  pull 开发 push
-```mermaid
-graph TD;
-A[Gitee:atlisp/atlisp-lib]--> | git pull | C(本地仓库 atlisp-lib);
-C-->|git push|A;
-```
 ### 安装教程
 
 将以下代码复制到 CAD 命令行内，回车即可开始安装 @lisp kernel。@lisp kernel（内核）包含 @lisp函数库 及 @lisp应用云 的基本管理功能。
@@ -54,6 +39,66 @@ C-->|git push|A;
 Git（读音为/gɪt/）是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。
 链接：https://pan.baidu.com/s/1rpfm3pLYIU3wS1V4gXLN0w?pwd=zgl5
 提取码：zgl5
+
+### Git 使用(无fork)
+#### 首先 clone
+```lisp
+git clone git:gitee.com:atlisp/atlisp-lib.git
+```
+```mermaid
+graph TD;
+A[Gitee:atlisp/atlisp-lib]--> | git clone | C(本地仓库 atlisp-lib);
+```
+#### 持续交付  pull 开发 push
+```mermaid
+graph TD;
+A[Gitee:atlisp/atlisp-lib]--> | git pull | C(本地仓库 atlisp-lib);
+C-->|git push|A;
+```
+### Git 使用(fork)
+#### fork me
+在 https://gitee.com/atlisp/atlisp-lib 右上角 fork .
+
+#### 首先 clone
+```lisp
+git clone git:gitee.com:yourname/atlisp-lib.git
+cd atlisp-lib
+git remote add upstream http://gitee.com/atlisp/atlisp-lib.git
+```
+```mermaid
+graph TD;
+A[Gitee:atlisp/atlisp-lib]-->|fork|B[Gitee:yourname/atlisp-lib]
+B --> | git clone | C(本地仓库 atlisp-lib);
+```
+#### 持续交付  pull 开发 push 
+本过程为交付到你的 Gitee 远程仓库 yourname/atlisp-lib
+```lisp
+cd atlisp-lib
+git pull 
+# 修改
+git push
+```
+
+```mermaid
+graph TD;
+A[Gitee:yourname/atlisp-lib]--> | git pull | C(本地仓库 atlisp-lib);
+C-->|git push|A;
+```
+#### 持续交付 Pull Requests
+本过程为交付 (Pull Requests) 到 @lisp 上游仓库 atlisp/atlisp-lib
+```lisp
+cd atlisp-lib
+git pull upstream main
+# 修改
+git push upstream main
+```
+
+```mermaid
+graph TD;
+A[Gitee:atlisp/atlisp-lib] --> | git pull upstream main| C(本地仓库 atlisp-lib);
+C-->|git push upstream main| A;
+```
+
 
 ### 开发规范说明
 
