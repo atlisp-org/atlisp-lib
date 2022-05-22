@@ -43,7 +43,7 @@ Git（读音为/gɪt/）是一个开源的分布式版本控制系统，可以�
 ### 使用 git 交付代码为@lisp提供贡献 (无 fork)
 #### 首先 clone
 ```lisp
-git clone git:gitee.com:atlisp/atlisp-lib.git
+git clone git@gitee.com:atlisp/atlisp-lib.git
 ```
 ```mermaid
 graph TD;
@@ -61,7 +61,7 @@ C-->|git push|A;
 
 #### 首先 clone
 ```lisp
-git clone git:gitee.com:yourname/atlisp-lib.git
+git clone git@gitee.com:yourname/atlisp-lib.git
 cd atlisp-lib
 git remote add upstream http://gitee.com/atlisp/atlisp-lib.git
 ```
