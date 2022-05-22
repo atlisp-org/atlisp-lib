@@ -50,6 +50,15 @@ graph TD;
 A[Gitee:atlisp/atlisp-lib]--> | git clone | C(本地仓库 atlisp-lib);
 ```
 #### 持续交付  pull 开发 push
+```lisp
+cd atlisp-lib
+git pull 
+# 修改
+git add .
+git commit -m "message"
+git push
+```
+
 ```mermaid
 graph TD;
 A[Gitee:atlisp/atlisp-lib]--> | git pull | C(本地仓库 atlisp-lib);
@@ -76,6 +85,8 @@ B --> | git clone | C(本地仓库 atlisp-lib);
 cd atlisp-lib
 git pull 
 # 修改
+git add .
+git commit -m "message"
 git push
 ```
 
