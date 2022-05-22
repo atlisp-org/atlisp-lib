@@ -6,16 +6,19 @@
 @lisp函数库功能涉及 图元、 图块、 实体对象、 选择集、 Excel、 剪贴板、 曲线、 颜色、 编组、 图层、 布局、 点线、 字符串、 数学运算、 矩阵运算、 界面等。更多内容持续迭代中 …
 
 ### Git 使用(无fork)
-#### 第一步 clone
+#### 首先 clone
+```lisp
+git clone git:gitee.com:atlisp/atlisp-lib.git
+```
 ```mermaid
 graph TD;
 A[Gitee:atlisp/atlisp-lib]--> | git clone | C(本地仓库 atlisp-lib);
 ```
-#### pull & push
+#### 持续交付  pull 开发 push
 ```mermaid
 graph TD;
 A[Gitee:atlisp/atlisp-lib]--> | git pull | C(本地仓库 atlisp-lib);
-C-->|push|A;
+C-->|git push|A;
 ```
 ### 安装教程
 
