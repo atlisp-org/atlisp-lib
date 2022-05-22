@@ -104,7 +104,7 @@ $ git merge upstream/main
 $ git pull upstream main 
 #+END_SRC
     
-   直接克隆/拉取(clone/pull)的本地仓库，不用输入 upstream 及后面的内容
+   直接从 @lisp (无fork) 克隆/拉取(clone/pull)的本地仓库，不用输入 upstream 及后面的内容
 #+BEGIN_SRC 
 $ git pull
 #+END_SRC
