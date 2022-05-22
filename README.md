@@ -40,7 +40,7 @@ Git（读音为/gɪt/）是一个开源的分布式版本控制系统，可以�
 链接：https://pan.baidu.com/s/1rpfm3pLYIU3wS1V4gXLN0w?pwd=zgl5
 提取码：zgl5
 
-### Git 使用(无fork)
+### 使用 git 交付代码为@lisp提供贡献 (无 fork)
 #### 首先 clone
 ```lisp
 git clone git:gitee.com:atlisp/atlisp-lib.git
@@ -55,7 +55,7 @@ graph TD;
 A[Gitee:atlisp/atlisp-lib]--> | git pull | C(本地仓库 atlisp-lib);
 C-->|git push|A;
 ```
-### Git 使用(fork)
+### 使用 git 交付代码为@lisp提供贡献 (fork)
 #### fork me
 在 https://gitee.com/atlisp/atlisp-lib 右上角 fork .
 
