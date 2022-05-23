@@ -1,4 +1,4 @@
-(defun Ureal (bit kwd msg def / inp)
+(defun xyp:Ureal (bit kwd msg def / inp)
   "实型数输入格式化"
   "real"
   "(setq no1 (Ureal 1 \"\" \"实数\" no1))"
@@ -13,7 +13,7 @@
   (if inp inp def)
 )
 
-(defun Ustr (bit msg def spflag / inp nval)
+(defun xyp:Ustr (bit msg def spflag / inp nval)
   "字符串输入格式化"
   "string"
   "(setq txt1 (Ustr 1 \"字符串\" txt1 nil))"
@@ -33,7 +33,7 @@
   (if inp inp def)
 )
 
-(defun Udist (bit kwd msg def bpt / inp)
+(defun xyp:Udist (bit kwd msg def bpt / inp)
   "距离输入格式化"
   "real"
   "(setq dist1 (Udist 1 \"\" \"距离\" dist1 '(0 0)))"
@@ -46,7 +46,7 @@
   (if inp inp def)
 )
 
-(defun Ukword (bit kwd msg def / inp)
+(defun xyp:Ukword (bit kwd msg def / inp)
   "关键字输入格式化"
   "int"
   "(setq tx1 (Ukword 1 \"1 2\" \"1-任意点/2-中心点\" tx1))"
@@ -59,7 +59,7 @@
   (if inp inp def)
 )
 
-(defun Uint (bit kwd msg def / inp)
+(defun xyp:Uint (bit kwd msg def / inp)
   "整型数输入格式化"
   ""
   "(setq no1 (Uint 1 \"\" \"整数\" no1))"
@@ -72,7 +72,7 @@
   (if inp inp def)
   )
 
-(defun Upoint (bit kwd msg def bpt / inp)
+(defun xyp:Upoint (bit kwd msg def bpt / inp)
   "输入点格式化"
   ""
   "(setq pt (Upoint 1 \"\" \"点\" pt '(0 0)))"
@@ -95,7 +95,7 @@
   (if inp inp def)
 )
 
-(defun Uangle (bit kwd msg def bpt / inp)
+(defun xyp:Uangle (bit kwd msg def bpt / inp)
   "格式化输入角度然后返回以弧度表示的角度"
   "ang"
   "(setq ang (Uangle 1 \"\" \"角度\" ang '(0 0)))"
