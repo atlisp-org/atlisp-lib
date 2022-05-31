@@ -34,7 +34,7 @@
 ### 必备工具
 #### git 源码管理工具
 
-请先阅读： [git-使用说明.org](https://gitee.com/atlisp/atlisp-lib/blob/main/git-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.org) 
+请先阅读： [git-使用说明.org](https://gitee.com/atlisp/atlisp-docs/blob/main/Git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.org)
 
 Git（读音为/gɪt/）是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。
 链接：https://pan.baidu.com/s/1rpfm3pLYIU3wS1V4gXLN0w?pwd=zgl5
