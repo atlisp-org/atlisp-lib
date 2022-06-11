@@ -133,7 +133,7 @@ src 目录下的文件夹为函数类名。 如 block , entity , string 等。
   ;; 以下为函数主体代码
   ...
 )
-(defun entity:getdxf (para ...）
+(defun entity:getdxf (para ...)
   "函数功能说明"
   "函数返回值类型"
   "示例"
