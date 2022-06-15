@@ -25,6 +25,8 @@
 (fun:help 'ui:confirm1) ;; 显示函数 ui:confirm1 用法
 (fun:src 'ui:confirm1) ;; 显示函数 ui:confirm1 的定义源码
 (fun:search "ui:");; 搜索 函数库 中 ui: 相关的函数
+(fun:run-example funname) ;; 如果函数有示例代码，则运行示例,待开发
+(fun:e.g funname)  ;; 如果函数有示例代码，则运行示例,待开发
 
 ;; 调用示例
 (require 'ui:confirm1) ;; 加载 用户确认对话框函数
