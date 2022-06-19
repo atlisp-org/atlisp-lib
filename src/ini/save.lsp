@@ -1,4 +1,4 @@
-(defun ini:save (lst-ini filename / *error* fp)
+(defun-q ini:save (lst-ini filename / *error* fp)
   "保存 lst-ini 表 到 ini 文件。"
   "T or nil"
   (defun *error* (msg)
