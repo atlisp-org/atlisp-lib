@@ -1,9 +1,15 @@
 #+title: ini 配置文件相关函数
 
+* ini:read
+功能同 ini:parse 
 * ini:parse
-解析 .ini 文件为表。以下称为 ini表
+解析 .ini 文件内容并返回相应格式的表。以下称为 ini表
 
-格式:
+#+begin_src
+ (ini:parse "D:\\aaa.ini")
+#+end_src
+
+ini表格式:
 #+begin_src lisp
   (("节点1" ("属性项1" . "值1")("属性项2" . "值2")("属性项3" . "值3"))
    ("节点2" ("属性项1" . "值1")("属性项2" . "值2")("属性项3" . "值3"))
@@ -12,8 +18,19 @@
 * ini:save
 保存 ini表到指定的文件中
 
+#+begin_src lisp
+  (ini:save lst-ini "D:\\aaa.ini")
+#+end_src
+
 * ini:get
 获取 某节点中的某个属性项的值。
-
+#+begin_src lisp
+  ;; 获取 ini表中 节点 node 下 属性项 attr 的值
+  (ini:get lst-ini node attr)
+#+end_src
 * ini:set
 设置 某节点中的某个属性项的值。
+#+begin_src lisp
+  ;; 设置 ini表中 节点 node 下 属性项 attr 的值为 value
+  (ini:set lst-ini node attr value)
+#+end_src
