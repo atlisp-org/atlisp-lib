@@ -2,7 +2,7 @@
   "保存 lst-ini 表 到 ini 文件。"
   "T or nil"
   (defun *error* (msg)
-    (if (= 'file fp)(close fp))
+    (if (= 'file (type fp))(close fp))
     (@:*error* msg)
     )
   (setq fp (open filename "w"))
