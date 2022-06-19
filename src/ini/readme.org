@@ -1,36 +1,70 @@
 #+title: ini 配置文件相关函数
 
+
+* 示例
+** ini 文件内容
+
+d:/example.ini 文件内容如下：
+#+begin_src ini
+[aac a]
+a=1 
+b=2 
+[bb]
+image=C:\mmm.png
+b=示例
+#+end_src
+
 * ini:read
-功能同 ini:parse 
+功能同 ini:parse
+#+begin_src lisp
+  (setq lst-ini (ini:read "D:\\example.ini"))
+#+end_src
+返回值:
+#+begin_src lisp
+  (("[aac a]" ("a" . "1") ("b" . "2")) ("[bb]" ("image" . "C:\\mmm.png") ("b" . "示例")))
+#+end_src
 * ini:parse
 解析 .ini 文件内容并返回相应格式的表。以下称为 ini表
 
-#+begin_src
- (ini:parse "D:\\aaa.ini")
+#+begin_src lisp
+  (setq lst-ini (ini:parse "D:\\example.ini"))
 #+end_src
 
-ini表格式:
+lst-ini 表格式:
 #+begin_src lisp
   (("节点1" ("属性项1" . "值1")("属性项2" . "值2")("属性项3" . "值3"))
    ("节点2" ("属性项1" . "值1")("属性项2" . "值2")("属性项3" . "值3"))
    ("节点3" ("属性项1" . "值1")("属性项2" . "值2")("属性项3" . "值3")))
 #+end_src
+
+
 * ini:save
-保存 ini表到指定的文件中
+保存 ini表 到指定的ini文件中
 
 #+begin_src lisp
-  (ini:save lst-ini "D:\\aaa.ini")
+  (ini:save lst-ini "D:/example.ini")
 #+end_src
 
 * ini:get
-获取 某节点中的某个属性项的值。
+获取 某节点中的某个属性项的值。node 字符串前后可不加 []。
 #+begin_src lisp
   ;; 获取 ini表中 节点 node 下 属性项 attr 的值
   (ini:get lst-ini node attr)
+
+  ;;示例
+  (ini:get lst-ini "bb" "image") ;; 返回结果 "C:\\mmm.png"
+  (ini:get lst-ini "[bb]" "image") ;; 与上一句等效，返回结果 "C:\\mmm.png"
 #+end_src
 * ini:set
 设置 某节点中的某个属性项的值。
+
+注意，本函数中返回修改后的结果，不会修改原 lst-ini。所以，如果需要，需将结果用 setq 赋值给 lst-ini。
+
 #+begin_src lisp
   ;; 设置 ini表中 节点 node 下 属性项 attr 的值为 value
   (ini:set lst-ini node attr value)
+  ;;示例
+  (setq lst-ini (ini:set lst-ini "bb" "image" "C:\\nnn.jpg")) ;; 返回结果 "C:\\mmm.png"
+  (setq lst-ini (ini:set lst-ini "[bb]" "image" "C:\\nnn.jpg")) ;; 与上一句等效，返回结果 "C:\\mmm.png"
+
 #+end_src
