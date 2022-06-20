@@ -1,10 +1,11 @@
-(defun-q ini:parse ( filename / fp  result *error*)
+(defun ini:parse ( filename / fp  result *error*)
   "解析 ini 文件。"
   "list"
   
   (defun *error* (msg)
     (if (= 'file (type fp)) (close fp))
     (@:*error* msg))
+  (require '(p:* string:*))
   (setq fp (open filename "r"))
   (setq result '())
   (setq sub '())
