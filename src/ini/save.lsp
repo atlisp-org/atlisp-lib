@@ -1,10 +1,11 @@
-(defun-q ini:save (lst-ini filename / *error* fp)
+(defun ini:save (lst-ini filename / *error* fp)
   "保存 lst-ini 表 到 ini 文件。"
   "T or nil"
   (defun *error* (msg)
     (if (= 'file (type fp))(close fp))
     (@:*error* msg)
     )
+  (require 'p:*)
   (setq fp (open filename "w"))
   (if (= 'file (type fp))
       (progn
