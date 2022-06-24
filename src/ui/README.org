@@ -1,0 +1,16 @@
+* 交互函数
+
+** ui:confirm
+确认对话框,返回 t or nil 。
+#+begin_src lisp
+  (ui:confirm "要确认的信息内容。") ;; 单行
+  (ui:confirm '("要确认的信息内容第一行。" "要确认的信息内容第一行。")) ;;多行
+#+end_src
+
+示例：
+
+#+begin_src lisp
+  (if (ui:confirm "请点击 确定 或 取消。")
+      (alert "您点击了确定.")
+      (alert "您点击了取消."))
+#+end_src
