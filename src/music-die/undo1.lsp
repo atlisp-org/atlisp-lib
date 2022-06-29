@@ -4,7 +4,7 @@
   (setq ctr (trans (getvar "VIEWCTR") 1 0))
   (setq vsize (getvar "VIEWSIZE"))
   (vl-cmdf "UNDO" 1)
-  (vla-ZoomCenter (*acad*) (vlax-make-variant(music-die:list-to-var (list ctr))) vsize)
+  (vla-ZoomCenter *acad* (vlax-make-variant(music-die:list-to-var (list ctr))) vsize)
   )
 (defun UndoBegin()
 	(vla-StartUndoMark (*DOC*))
