@@ -1,4 +1,4 @@
-(defun-q ext:anchor-hiddenfun (fun prefix / dat file fo len fun1 )
+(defun ext:anchor-hiddenfun (fun prefix / dat file fo len fun1 )
   "显化AutoCAD 隐藏的函数, fun 隐藏函数名；prefix 显化函数的前缀"
   ""
   "(ext:anchor-hiddenfun 'beep 'at-) "
