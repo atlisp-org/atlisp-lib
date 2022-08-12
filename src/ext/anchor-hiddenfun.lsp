@@ -1,14 +1,12 @@
 (defun ext:anchor-hiddenfun (fun prefix / dat file fo len fun1 )
-  "æ˜¾åŒ–AutoCAD éšè—çš„å‡½æ•°, fun éšè—å‡½æ•°åï¼›prefix æ˜¾åŒ–å‡½æ•°çš„å‰ç¼€"
+  "ÏÔ»¯AutoCAD Òş²ØµÄº¯Êı, fun Òş²Øº¯ÊıÃû£»prefix ÏÔ»¯º¯ÊıµÄÇ°×º."
   ""
-  "(ext:anchor-hiddenfun 'beep 'at-) "
+  "(ext:anchor-hiddenfun 'beep 'at-)"
   (if (= (type fun) 'sym)(setq fun (strcase (vl-symbol-name fun) t)))
   (cond
-   ((= (type prefix) 'sym)(setq prefix (strcase (vl-symbol-name prefix) t)))
    ((null prefix) (setq prefix ""))
-   ((= 'str (type prefix))
-    (princ)
-    )
+   ((= (type prefix) 'sym)(setq prefix (strcase (vl-symbol-name prefix) t)))
+   ((/= 'str (type prefix)) (setq prefix ""))
    (t (setq prefix ""))
    )
   (setq fun1 (strcat prefix fun))
