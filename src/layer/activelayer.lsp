@@ -4,7 +4,7 @@
     "(entity:activelayer \"layer1\")"
     (if (and (tblsearch "layer"
                 name)
-            (setq iloc (vl-position name (layer:layers))))
+            (setq iloc (vl-position name (layer:list))))
         (progn (vla-put-activelayer (std:active-document)
                 (vla-item (std:layers)
                     iloc))
