@@ -1,5 +1,5 @@
 (defun ext:anchor-hiddenfun (fun prefix / dat file fo len fun1 )
-  "ÏÔ»¯AutoCAD Òş²ØµÄº¯Êı, fun Òş²Øº¯ÊıÃû£»prefix ÏÔ»¯º¯ÊıµÄÇ°×º."
+  "æ˜¾åŒ–AutoCAD éšè—çš„å‡½æ•°, fun éšè—å‡½æ•°åï¼›prefix æ˜¾åŒ–å‡½æ•°çš„å‰ç¼€."
   ""
   "(ext:anchor-hiddenfun 'beep 'at-)"
   (if (= (type fun) 'sym)(setq fun (strcase (vl-symbol-name fun) t)))
@@ -11,7 +11,7 @@
    )
   (setq fun1 (strcat prefix fun))
   (setq len(+ (strlen fun) (strlen fun1) 28))
-  (setq file (strcat @:*prefix* ".cache\\" fun ".fas"))
+  (setq file (strcat @:*prefix* ".cache\\" (string:subst-all "-" ":" fun) ".fas"))
   (setq dat
         (append
          '(13 266 32)
