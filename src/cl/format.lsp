@@ -119,7 +119,7 @@
 	  ;; 迭代
 	  (setq ctrl-string (substr ctrl-string 2))
 	  (setq sub-ctrl-string "")
-	  (while (and (>= 2 (strlen ctrl-string))
+	  (while (and (<= 2 (strlen ctrl-string))
 		      (/= "~}" (substr ctrl-string 1 2)))
 	    (setq sub-ctrl-string (strcat sub-ctrl-string (substr ctrl-string 1 1)))
 	    (setq ctrl-string (substr ctrl-string 2)))
