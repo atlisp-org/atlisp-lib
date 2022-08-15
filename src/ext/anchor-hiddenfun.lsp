@@ -1,5 +1,5 @@
 (defun ext:anchor-hiddenfun (fun prefix / dat file fo len fun1 )
-  "显化AutoCAD 隐藏的函数, fun 隐藏函数名；prefix 显化函数的前缀。"
+  "显化AutoCAD 隐藏的函数, fun 隐藏函数名；prefix 显化函数的前缀。不支持2021+。"
   ""
   "(ext:anchor-hiddenfun 'beep 'at-)"
   (if (= (type fun) 'sym)(setq fun (strcase (vl-symbol-name fun) t)))
@@ -11,7 +11,7 @@
    )
   (setq fun1 (strcat prefix fun))
   (setq len(+ (strlen fun) (strlen fun1) 28))
-  (setq file (strcat @:*prefix* ".cache\\" (string:subst-all "-" ":" fun) ".fas"))
+  (setq file (strcat @:*prefix* ".cache" (chr 92)  (string:subst-all "-" ":" fun) ".fas"))
   (setq dat
         (append
          '(13 266 32)
@@ -27,12 +27,13 @@
 	 (vl-string->list "@lisp")
 	 )
         )
+  (setq dat (mapcar '(lambda (x)(if (= x 0)(+ 256 x) x)) dat))
   (if (setq fo (open file "w"))
       (progn
 	(foreach x dat (write-char x fo))
 	(close fo)
 	(load file)
-	(eval(read fun)))
+	(read fun1))
     (princ (strcat "Manifest faile."))
     )
   )
