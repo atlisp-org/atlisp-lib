@@ -6,7 +6,9 @@
   (if (= 'subr (type (eval (read fun))))
       (eval(read fun))
     (progn
-      (setq out (strcat @:*prefix* ".cache" (chr 92) "interior-" (string:subst-all "-" ":" fun) ".fas"))
+      (setq out (strcat @:*prefix* ".cache" (chr 92) "interior-"
+			(filename:replace-special fun)
+			".fas"))
       (if (findfile out)
 	  (load out)
 	(progn
