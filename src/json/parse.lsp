@@ -18,10 +18,12 @@
       )
      ((and (= (ascii "\"") curr-char)
 	   (null flag-escape))
+      (setq flag-escape nil)
       (setq flag-quote (not flag-quote))
       (setq atom-str-lst (cons curr-char atom-str-lst))
       )
      (t
+      (setq flag-escape nil)
       (if flag-quote
 	  (setq atom-str-lst (cons curr-char atom-str-lst))
 	  (cond
