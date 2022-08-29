@@ -1,4 +1,4 @@
-(defun ext:probe-fun (fun / *error* args iter iter-depth)
+(defun ext:probe-fun (fun / args iter iter-depth)
   "探测函数的参数个数(最小)及参数类型。"
   "expr or nil"
   "(ext:probe-fun 'boole)"
@@ -10,8 +10,17 @@
 	ent (entity:make-circle '(0 0 0) 100)
 	vlaobj (e2o ent)
 	ss (ssadd ent)
-	pt '(0 0 0)
+	pt '(1 1 0)
 	)
+  (defun get-type (x)
+    (cond
+     ((listp x)
+      (cond
+       ((equal x '(1 1 0))
+	'point)
+       (t 'lst)))
+     (t (type x))
+    ))
   (defun iter ()
     ;;(princ args)
     (setq iter-depth (1+ iter-depth))
@@ -47,7 +56,7 @@
 	       ((wcmatch (cadr typeerr) "VLA-OBJECT*")
 		(setq args (subst vlaobj (read (last typeerr)) args)))
 	       ((wcmatch (cadr typeerr) "二维/三维点*")
-		(setq args (subst 'pt (read (last typeerr)) args)))
+		(setq args (subst pt (read (last typeerr)) args)))
 	       ;; TODO 参数类型错误扩展
 	       )
 	      (iter))
@@ -57,11 +66,11 @@
 	     (t
 	      (princ errmsg)
 	      (princ "  near completed \n")
-	      (cons fun (mapcar 'type (reverse args)))
+	      (cons fun (mapcar 'get-type (reverse args)))
 	      )))
       (progn
 	(princ "probe completed!\n")
-	(cons fun (mapcar 'type (reverse args)))
+	(cons fun (mapcar 'get-type (reverse args)))
 	)
       )
     )
