@@ -20,7 +20,7 @@
 	'point)
        (t 'lst)))
      (t (type x))
-    ))
+     ))
   (defun iter ()
     ;;(princ args)
     (setq iter-depth (1+ iter-depth))
@@ -42,7 +42,7 @@
 	      (@:log "INFO" (vl-prin1-to-string typeerr))
 	      (cond
 	       ((wcmatch (cadr typeerr) "stringp*")
-		(setq args (subst str (read (last typeerr)) args)))
+		(setq args (subst (last typeerr) (read (last typeerr)) args)))
 	       ((wcmatch (cadr typeerr) "listp*")
 		(setq args (subst '(L I S T) (read (last typeerr)) args)))
 	       ((wcmatch (cadr typeerr) "numberp*")
@@ -63,6 +63,12 @@
 	     ((wcmatch errmsg "no function definition*")
 	      (setq args (subst 'princ (read (caddr typeerr)) args))
 	      (iter))
+	     ((wcmatch errmsg "未知的开放模式*")
+	      (@:log "INFO" "  near completed \n")
+	      (princ args)
+	      (setq args (subst 'keyword (last typeerr) args))
+	      (cons fun (mapcar 'get-type (reverse args))))
+
 	     (t
 	      (princ errmsg)
 	      (princ "  near completed \n")
