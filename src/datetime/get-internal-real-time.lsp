@@ -1,4 +1,6 @@
-(defun datetime:get-internal-real-time (/ cdate)
+(defun datetime:get-internal-real-time (/ cdate year mon day h m s)
+  "获取本地实时时间，单位为秒"
+  "Int"
   (setq cdate (getvar "cdate"))
   (datetime:mktime
    (list
