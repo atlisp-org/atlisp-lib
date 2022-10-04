@@ -1,9 +1,11 @@
-(defun m:dec->base (n b)
-    "进制转换"
-    (if (< n b)
-        (chr (+ n (if (< n 10)
+(defun m:dec2base (fixnum int-b)
+  "进制转换,fixnum 整数值, int-b 进制(2-36)"
+  "string"
+  "(m:dec2base 3323 16)"
+  (if (< fixnum int-b)
+      (chr (+ fixnum (if (< fixnum 10)
                     48 55)))
-        (strcat (m:dec->base (/ n b)
-                b)
-            (m:dec->base (rem n b)
-                b))))
+    (strcat (m:dec2base (/ fixnum int-b)
+			 int-b)
+            (m:dec2base (rem fixnum int-b)
+			 int-b))))
