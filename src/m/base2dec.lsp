@@ -1,11 +1,14 @@
-(defun m:base->dec (n b / l)
-    "进制转换"
-    (if (= 1 (setq l (strlen n)))
-        (- (ascii n)
-            (if (< (ascii n)
-                    65)
-                48 55))
-        (+ (* b (m:base->dec (substr n 1 (1- l))
-                    b))
-            (m:base->dec (substr n l)
-                b))))
+(defun m:base2dec (strnum int-b / l)
+  "进制转换,strnum 字符串表示的数, int-b 进制(2-36)"
+  "fixnum"
+  "(m:base2dec \"B0A1\" 16)"
+  (setq strnum (strcase strnum))
+  (if (= 1 (setq l (strlen strnum)))
+      (- (ascii strnum)
+         (if (< (ascii strnum)
+                65)
+             48 55))
+    (+ (* int-b (m:base2dec (substr strnum 1 (1- l))
+			 int-b))
+       (m:base2dec (substr strnum l)
+                    int-b))))
