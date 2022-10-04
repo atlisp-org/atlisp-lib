@@ -5,9 +5,11 @@
     \"abc\"
     \"mabcpoildabce\")
   => \"mqwepoildqwee\""
-  (setq len (strlen str-new)
-    inc 0)
-  (while (setq inc (vl-string-search str-old str inc))
-    (setq str (vl-string-subst str-new str-old str inc)
-      inc (+ inc len)))
+  (if (> (strlen str-old) 0)
+      (progn
+	(setq len (strlen str-new)
+	      inc 0)
+	(while (setq inc (vl-string-search str-old str inc))
+	  (setq str (vl-string-subst str-new str-old str inc)
+		inc (+ inc len)))))
   str)
