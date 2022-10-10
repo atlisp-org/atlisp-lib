@@ -1,5 +1,5 @@
 (defun hdinfo:get-hd-serial (/ lccon lox objw ret serx sn)
-  "获取硬盘序列号,不一定有用。"
+  "获取硬盘序列号"
   (setq serx (quote nil))
   (if (setq objw (vlax-create-object "wbemscripting.swbemlocator"))
     (progn (setq lccon (vlax-invoke objw (quote connectserver)

@@ -1,5 +1,5 @@
 (defun layer:list (/ sll layer)
-    "返回图层列表 list"
+    "返回图层列表"
     (setq layer nil)
     (setq sll (tblnext "layer"
             t))

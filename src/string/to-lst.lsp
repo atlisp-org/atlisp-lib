@@ -1,5 +1,5 @@
 (defun string:to-lst (str separator / pos)
-  "字符串转成列表"
+  "字符串分隔成列表"
   (if (= ""
       separator)
     (mapcar (quote (lambda (x)

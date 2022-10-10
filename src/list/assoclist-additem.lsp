@@ -1,5 +1,5 @@
 (defun list:assoclist-additem (lst value)
-    "添加关联表的元素,无替换"
+    "添加关联表的元素.无替换"
     "关联表，无相同的key"
     "(list:assoclist-additem '((1 11)
             (2 22)

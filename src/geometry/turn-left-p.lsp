@@ -1,5 +1,5 @@
 (defun geometry:turn-left-p (pt1 pt2 pt3 / det2 det x)
-  "判断三点的转角方向。"
+  "测试三点的转角方向为逆时针。"
   "顺时针方向的夹角为正值，反之为负, 0为直线。"
   (defun det2 (p1 p2)
     "矢量叉积"

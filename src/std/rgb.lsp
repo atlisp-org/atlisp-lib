@@ -1,5 +1,5 @@
 (defun std:rgb (red green blue)
-    "计算rgb颜色对应的整数值。red green blue 取值范围为 [0,255]的整数或[0,1)的小数。"
+    "计算rgb颜色对应的整数值.\nred green blue 取值范围为 [0,255]的整数或[0,1)的小数。"
 "rgb颜色值"
 "(std:rgb 255 0 0)
 or (std:rgb 0.999 0 0);红色"

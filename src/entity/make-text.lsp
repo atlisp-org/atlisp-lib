@@ -1,5 +1,5 @@
 (defun entity:make-text (str pt1 fontsize ang kgb qx dqys / y1 y2)
-  "生成一个TEXT实体,单行文本,\n参数说明：\nfontsize: 字高\nang: 角度\nkgb: 宽高比\nqx: 倾斜角\ndqys: 对齐方式，L 左 M 中 R 右，T 上 M 中 B 下。\n"
+  "生成一个TEXT单行文本.\n参数说明：\nfontsize: 字高\nang: 角度\nkgb: 宽高比\nqx: 倾斜角\ndqys: 对齐方式，L 左 M 中 R 右，T 上 M 中 B 下。\n"
   "return:文字图元名"
   "example:(entity:make-text \"文字\"
     (getpoint)

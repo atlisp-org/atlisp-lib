@@ -1,5 +1,5 @@
 (defun ini:parse ( filename / fp  result *error*)
-  "解析 ini 文件。"
+  "解析ini文件。"
   "list"
   
   (defun *error* (msg)

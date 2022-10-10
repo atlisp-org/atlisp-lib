@@ -1,5 +1,5 @@
 (defun list:sublist (lst idx len / rtn)
-    "获取子列表,leemac"
+    "获取子列表\n from leemac"
     "子列表"
     (setq len (if len (min len (- (length lst)
                     idx))

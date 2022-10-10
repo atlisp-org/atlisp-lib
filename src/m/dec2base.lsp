@@ -1,5 +1,5 @@
 (defun m:dec2base (fixnum int-b)
-  "进制转换,fixnum 整数值, int-b 进制(2-36)"
+  "10进制转换为指定进制\n fixnum 整数值, int-b 进制(2-36)"
   "string"
   "(m:dec2base 3323 16)"
   (if (< fixnum int-b)

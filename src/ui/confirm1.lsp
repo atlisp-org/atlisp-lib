@@ -1,5 +1,5 @@
 (defun ui:confirm1 (lst-str str-yes-no / *error* result dcl-fp dcl-tmp)
-  "确认对话框. 参数：lst-str 单个字符串，或字符串列表。\n参数 str-Yes-No 字符串用 - 分隔成两部分，前面为accept,后面为 Cancel.如 是-否，愿意-不愿意。"
+  "确认对话框1.\n 参数：lst-str 单个字符串，或字符串列表。\n参数 str-Yes-No 字符串用 - 分隔成两部分，前面为accept,后面为 Cancel.如 是-否，愿意-不愿意。"
   "T or nil"
   "(ui:confirm1 '(\"你家门口有两双鞋。\"
       \"一双是你的。\"
