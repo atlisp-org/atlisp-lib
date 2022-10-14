@@ -1,5 +1,6 @@
 (defun string:from-list (lst separator)
-  "列表转成字符串"
+  "合并连接字符串表"
+  "String"
   (if (cdr lst)
     (strcat (car lst)
       separator (string:from-lst (cdr lst)
