@@ -27,4 +27,5 @@
         (geometry:turn-right-p (caddr pt-hull)
           (cadr pt-hull)
           curpt))
-      (setq pt-hull (cons curpt (cddr pt-hull))))))
+      (setq pt-hull (cons curpt (cddr pt-hull)))))
+  pt-hull)
