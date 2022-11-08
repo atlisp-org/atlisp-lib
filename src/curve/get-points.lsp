@@ -4,7 +4,7 @@
   "(curve:get-points (car (entsel)))"
   (if (= (quote ename) (type ent))
       (cond
-       ((wcmatch (entity:getdxf ent 0) "*POLYLINE,CIRCLE,SPLINE,REGION")
+       ((wcmatch (entity:getdxf ent 0) "*POLYLINE,LINE,CIRCLE,SPLINE,REGION")
 	(mapcar 'cdr 
 		(vl-remove-if-not '(lambda(x)
 				     (or
