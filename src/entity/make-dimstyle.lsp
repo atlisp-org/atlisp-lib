@@ -35,7 +35,7 @@
   (entmake (list (quote (0 . "ENDBLK"))))
   (entupd (tblobjname "Block"
       "_Oblique"))
-  (setq my_dimscale 40)
+  (setq my_dimscale 100)
   (setq my_dimasz 2.5)
   (setq my_dimexo 1)
   (setq my_dimdli 3.75)
