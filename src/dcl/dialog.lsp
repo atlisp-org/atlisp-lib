@@ -7,5 +7,5 @@
   (setq dcl-fp (open dcl-tmp "w"))
   (write-line (strcat name ":dialog {"
       "label = \""
-      name "\";key=title;")
+      name "\";key=\"title\";")
     dcl-fp))
