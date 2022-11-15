@@ -3,7 +3,7 @@
   "优化后的新图元"
   (if (numberp tmp-fuzz)
       (setq fuzz tmp-fuzz)
-    (setq fuzz  1.0e-08))
+    (setq fuzz  1.0e-06))
   (setq segs (mapcar (quote (lambda (x y)
           (cons x y)))
       (curve:pline-3dpoints ent)
@@ -49,7 +49,7 @@
     (setq n2 (car res))
     (setq segs (cdr segs)))
   (if (= 1 (entity:getdxf ent 70))
-      ;;闭合时，最后一点
+      ;;闭合时，检测最后一点,
       (progn
 	(setq n3 (last res))
 	(cond
@@ -81,6 +81,7 @@
 	 )
 	(setq n1 (car res))
 	(setq n2 (last res))
+	;; 检测第一点
 	(setq n3 (cadr (reverse res)))
 	(cond
 	 ((and (= 0 (cdr n1))
