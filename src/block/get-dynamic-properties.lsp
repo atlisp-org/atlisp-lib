@@ -1,5 +1,5 @@
 (defun block:get-dynamic-properties (blk / oblk props)
-  "获取动态块的动态特性(自定义)列表：属性名，当前值，只读性，是否显示，允许值"
+  "获取动态块的动态特性(自定义)列表：特性名，当前值，只读性，是否显示，允许值"
   (if (= (quote ename)
       (type blk))
     (progn (setq oblk (vlax-ename->vla-object blk))
