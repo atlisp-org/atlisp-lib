@@ -1,7 +1,7 @@
 (defun curve:pline-convexity (ent / i lst v)
-  "多段线端点列表，返回三维点坐标"
-  "三维点坐标列表"
-  "(curve:pline-3dpoints (car (entsel)))"
+  "多段线凸度列表。"
+  "数值列表"
+  "(curve:pline-convexity (car (entsel)))"
   (cond ((and (= (quote ename)
           (type ent))
         (= "LINE"
