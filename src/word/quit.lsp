@@ -1,0 +1,13 @@
+(defun word:quit (ax-word saveyn)
+  "退出Word\n参数:ax-word:打开的word对象\n参数:SaveYN:是否保存，t为保存，nil为不保存"
+  (if (> (vlax-get-property (vlax-get-property ax-word 'documents) 'count)
+     0)
+      (if saveyn (vlax-invoke (vlax-get-property ax-word "ActiveDocument")
+			      (quote close))
+	(vlax-invoke (vlax-get-property ax-word "ActiveDocument")
+		     (quote close)
+		     :vlax-false)))
+  (vlax-invoke ax-word (quote quit))
+  (vlax-release-object ax-word)
+  (setq ax-word nil)
+  (gc))
