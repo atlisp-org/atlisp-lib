@@ -1,6 +1,7 @@
 (defun curve:arc2lwpl (ent-arc int / pt-center r pts bulge convexity ent i)
   "将圆弧转换成 由 int 段组成的多段线, int 不小于 1"
   "多段线图元"
+  (if (< (fix int) 1)(setq int 1))
   (setq pt-center (entity:getdxf ent-arc 10)
 	r (entity:getdxf ent-arc 40))
   (setq pts (quote nil))
