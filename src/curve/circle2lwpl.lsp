@@ -1,6 +1,7 @@
 (defun curve:circle2lwpl (ent-circle int / pt-center r pts bulge convexity ent i)
   "将圆转换成 由 int 段组成的多段线。"
   "多段线图元"
+  (setq int (fix int))
   (if (< (fix int) 2)(setq int 2))
   (setq pt-center (entity:getdxf ent-circle 10)
     r (entity:getdxf ent-circle 40))
