@@ -1,6 +1,8 @@
 # Change Log
 @lisp 函数库更新日志
 
+## 1.1.5
+- @lisp函数语法说明中，返回值换行。
 ## 1.1.4
 - 更新 README
 - autlisp基本函数
