@@ -1,0 +1,58 @@
+{
+	"name": "atlisp-funlib",
+	"displayName": "@lisp函数库",
+	"description": "@lisp函数库,用于 autolisp 开发 的函数自动完成 显示函数用法帮助。",
+	"version": "1.0.2",
+	"license": "SEE LICENSE IN LICENSE.md",
+	"bugs": {
+		"url": "https://gitee.com/atlisp/atlisp-lib/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://gitee.com/atlisp/atlisp-lib.git"
+	},
+	"homepage": "https://atlisp.cn",
+	"engines": {
+		"vscode": "^1.20.0"
+	},
+	"publisher": "VitalGG",
+	"pricing": "Free",
+	"keywords": [
+		"atlisp",
+		"autolisp",
+		"dcl"
+	],
+	"categories": [
+		"Snippets"
+	],
+	"icon": "images/atlisp.png",
+	"contributes": {
+		"languages": [
+			{
+				"id": "autolisp",
+				"aliases": [
+					"AutoLISP",
+					"autolisp"
+				],
+				"extensions": [
+					".lsp",
+					".mnl"
+				]
+			}
+		],
+		"snippets": [
+			{
+				"language": "autolisp",
+				"path": "./snippets/snippets.atlisp.json"
+			},
+			{
+				"language": "autolisp",
+				"path": "./snippets/snippets.autolisp.json"
+			}
+		]
+	},
+	"__metadata": {
+		"isApplicationScoped": false,
+		"installedTimestamp": 1670889883032
+	}
+}
