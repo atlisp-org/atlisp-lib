@@ -11,21 +11,21 @@
 "body": [
 "(base64:decode ${1:str-base64})"
 ],
-"description":"Decode base64 string. 返回值:list of unsigned 8bit integer."
+"description":"Decode base64 string.\n 返回值:list of unsigned 8bit integer."
 },
 "base64:encode": {
 "prefix" : "base64:encode",
 "body": [
 "(base64:encode ${1:lst-uint8})"
 ],
-"description":"将字节列表内容转为 base64 编码。 返回值:String"
+"description":"将字节列表内容转为 base64 编码。\n 返回值:String"
 },
 "base64:encode-from-file": {
 "prefix" : "base64:encode-from-file",
 "body": [
 "(base64:encode-from-file ${1:file})"
 ],
-"description":"将文件 file 转为 base64 编码。文件过大会转换失败。 返回值:String"
+"description":"将文件 file 转为 base64 编码。文件过大会转换失败。\n 返回值:String"
 },
 "base:init": {
 "prefix" : "base:init",
@@ -46,7 +46,7 @@
 "body": [
 "(block:ent-list ${1:blkname})"
 ],
-"description":"返回块内各图元的列表 返回值:图元列表"
+"description":"返回块内各图元的列表\n 返回值:图元列表"
 },
 "block:get-attributes": {
 "prefix" : "block:get-attributes",
@@ -81,21 +81,21 @@
 "body": [
 "(block:insert ${1:blkname} ${2:path} ${3:pt} ${4:ang} ${5:scale})"
 ],
-"description":"插入块参照，\n blkname 块名，\n path 块文件路径(以/结尾,不含块文件名)， \n pt 插入点, \n ang 旋转角度，\n scale 比例。 返回值:块实体"
+"description":"插入块参照，\n blkname 块名，\n path 块文件路径(以/结尾,不含块文件名)， \n pt 插入点, \n ang 旋转角度，\n scale 比例。\n 返回值:块实体"
 },
 "block:list-blk-objs": {
 "prefix" : "block:list-blk-objs",
 "body": [
 "(block:list-blk-objs)"
 ],
-"description":"获取块对象列表 返回值:获取块及外部参照对象列表"
+"description":"获取块对象列表\n 返回值:获取块及外部参照对象列表"
 },
 "block:list-xref-objs": {
 "prefix" : "block:list-xref-objs",
 "body": [
 "(block:list-xref-objs)"
 ],
-"description":"获取外部参照对象列表 返回值:外部参照对象列表"
+"description":"获取外部参照对象列表\n 返回值:外部参照对象列表"
 },
 "block:readme": {
 "prefix" : "block:readme",
@@ -123,14 +123,14 @@
 "body": [
 "(block:ssget ${1:blknames} ${2:lst-attr})"
 ],
-"description":"选择满足指定属性标记及对应值的块\n 参数: blknames 块名，或块名列表\n 参数: lst-attr 属性名与值的点对表 返回值:满足条件的选择集"
+"description":"选择满足指定属性标记及对应值的块\n 参数: blknames 块名，或块名列表\n 参数: lst-attr 属性名与值的点对表\n 返回值:满足条件的选择集"
 },
 "cl:format": {
 "prefix" : "cl:format",
 "body": [
 "(cl:format ${1:stream} ${2:ctrl-string} ${3:variables})"
 ],
-"description":"common lisp 中 功能强大的格式化输出字符串函数。 返回值:String"
+"description":"common lisp 中 功能强大的格式化输出字符串函数。\n 返回值:String"
 },
 "cl:handle-keywords": {
 "prefix" : "cl:handle-keywords",
@@ -144,14 +144,14 @@
 "body": [
 "(clipboard:cleardata)"
 ],
-"description":"清空剪贴板内容 返回值:-1"
+"description":"清空剪贴板内容\n 返回值:-1"
 },
 "clipboard:getdata": {
 "prefix" : "clipboard:getdata",
 "body": [
 "(clipboard:getdata)"
 ],
-"description":"获取剪贴板内容 返回值:string or nil"
+"description":"获取剪贴板内容\n 返回值:string or nil"
 },
 "clipboard:init": {
 "prefix" : "clipboard:init",
@@ -165,7 +165,7 @@
 "body": [
 "(clipboard:setdata ${1:str})"
 ],
-"description":"设置剪贴板内容为 str. 返回值:-1"
+"description":"设置剪贴板内容为 str.\n 返回值:-1"
 },
 "color:aci2rgb": {
 "prefix" : "color:aci2rgb",
@@ -179,14 +179,14 @@
 "body": [
 "(color:rgb ${1:red} ${2:green} ${3:blue})"
 ],
-"description":"计算rgb颜色对应的整数值。red green blue 取值范围为 [0,255]的整数或[0,1)的小数。 返回值:rgb颜色值"
+"description":"计算rgb颜色对应的整数值。red green blue 取值范围为 [0,255]的整数或[0,1)的小数。\n 返回值:rgb颜色值"
 },
 "curve:arc2lwpl": {
 "prefix" : "curve:arc2lwpl",
 "body": [
 "(curve:arc2lwpl ${1:ent-arc} ${2:int})"
 ],
-"description":"将圆弧转换成 由 int 段组成的多段线, int 不小于 1 返回值:多段线图元"
+"description":"将圆弧转换成 由 int 段组成的多段线, int 不小于 1\n 返回值:多段线图元"
 },
 "curve:bulge2o": {
 "prefix" : "curve:bulge2o",
@@ -214,63 +214,63 @@
 "body": [
 "(curve:circle2lwpl ${1:ent-circle} ${2:int})"
 ],
-"description":"将圆转换成 由 int 段组成的多段线。 返回值:多段线图元"
+"description":"将圆转换成 由 int 段组成的多段线。\n 返回值:多段线图元"
 },
 "curve:clockwisep": {
 "prefix" : "curve:clockwisep",
 "body": [
 "(curve:clockwisep ${1:ent})"
 ],
-"description":"判断多段线方向 返回值:顺时针返回t，反之nil"
+"description":"判断多段线方向\n 返回值:顺时针返回t，反之nil"
 },
 "curve:get-points": {
 "prefix" : "curve:get-points",
 "body": [
 "(curve:get-points ${1:ent})"
 ],
-"description":"曲线控制点及端点列表，返回点坐标。 返回值:点坐标列表"
+"description":"曲线控制点及端点列表，返回点坐标。\n 返回值:点坐标列表"
 },
 "curve:inters": {
 "prefix" : "curve:inters",
 "body": [
 "(curve:inters ${1:obj1} ${2:obj2} ${3:mode})"
 ],
-"description":"获取对象交点列表\n 参数 obj1 obj2 : 选择集，vla对象，图元名，vla对象表，图元表，nil\n 参数 mode: 该参数只有obj1、obj2为图元或vla对象时，服从下列设置，其他情况均默认对象不延伸\n            obj1 和 obj2 参数可任意组合，但不能全为nil\n            acExtendNone 对象不延伸\n            acExtendThisEntity 延伸obj1\n            acExtendOtherEntity 延伸obj2\n            acExtendBoth 对象都延伸\n            nil = acExtendNone 对象不延伸 返回值:对象交点列表"
+"description":"获取对象交点列表\n 参数 obj1 obj2 : 选择集，vla对象，图元名，vla对象表，图元表，nil\n 参数 mode: 该参数只有obj1、obj2为图元或vla对象时，服从下列设置，其他情况均默认对象不延伸\n            obj1 和 obj2 参数可任意组合，但不能全为nil\n            acExtendNone 对象不延伸\n            acExtendThisEntity 延伸obj1\n            acExtendOtherEntity 延伸obj2\n            acExtendBoth 对象都延伸\n            nil = acExtendNone 对象不延伸\n 返回值:对象交点列表"
 },
 "curve:join": {
 "prefix" : "curve:join",
 "body": [
 "(curve:join ${1:entlst} ${2:fuzz})"
 ],
-"description":"合并多段线函数 返回值:return:合并后的多段线图元名"
+"description":"合并多段线函数\n 返回值:return:合并后的多段线图元名"
 },
 "curve:length": {
 "prefix" : "curve:length",
 "body": [
 "(curve:length ${1:curve})"
 ],
-"description":"参数curve:曲线，直线、圆弧、圆、多段线、优化多段线、样条曲线等图元 返回值:曲线的长度"
+"description":"参数curve:曲线，直线、圆弧、圆、多段线、优化多段线、样条曲线等图元\n 返回值:曲线的长度"
 },
 "curve:lwpl-is-circle-p": {
 "prefix" : "curve:lwpl-is-circle-p",
 "body": [
 "(curve:lwpl-is-circle-p ${1:ent})"
 ],
-"description":"检测多段线是否为圆 返回值:T or nil"
+"description":"检测多段线是否为圆\n 返回值:T or nil"
 },
 "curve:lwpl-turn-clockwise": {
 "prefix" : "curve:lwpl-turn-clockwise",
 "body": [
 "(curve:lwpl-turn-clockwise ${1:ent})"
 ],
-"description":"反转多段线，调整顺时针或逆时针方向。 返回值:新多段线图元"
+"description":"反转多段线，调整顺时针或逆时针方向。\n 返回值:新多段线图元"
 },
 "curve:midpoint": {
 "prefix" : "curve:midpoint",
 "body": [
 "(curve:midpoint ${1:curve})"
 ],
-"description":"求曲线中点 返回值:中点坐标"
+"description":"求曲线中点\n 返回值:中点坐标"
 },
 "curve:o2bulge": {
 "prefix" : "curve:o2bulge",
@@ -284,7 +284,7 @@
 "body": [
 "(curve:optimize-lwpl ${1:ent})"
 ],
-"description":"优化多段线顶点。当连续多点共线或共圆时，减少顶点。优化顺时针的多段线有问题待修复。优化会丢失宽度信息！！ 返回值:优化后的新图元"
+"description":"优化多段线顶点。当连续多点共线或共圆时，减少顶点。优化顺时针的多段线有问题待修复。优化会丢失宽度信息！！\n 返回值:优化后的新图元"
 },
 "curve:param-firstangle": {
 "prefix" : "curve:param-firstangle",
@@ -312,21 +312,21 @@
 "body": [
 "(curve:pline-2dpoints ${1:ent})"
 ],
-"description":"多段线端点列表，返回二维点坐标,LWPOLYLINE组码本来就是二维点。 返回值:二维点坐标列表"
+"description":"多段线端点列表，返回二维点坐标,LWPOLYLINE组码本来就是二维点。\n 返回值:二维点坐标列表"
 },
 "curve:pline-3dpoints": {
 "prefix" : "curve:pline-3dpoints",
 "body": [
 "(curve:pline-3dpoints ${1:ent})"
 ],
-"description":"多段线端点列表，返回三维点坐标。注意：当多段线为闭合时，最终点为起始点，比图元多一个点。 返回值:三维点坐标列表"
+"description":"多段线端点列表，返回三维点坐标。注意：当多段线为闭合时，最终点为起始点，比图元多一个点。\n 返回值:三维点坐标列表"
 },
 "curve:pline-convexity": {
 "prefix" : "curve:pline-convexity",
 "body": [
 "(curve:pline-convexity ${1:ent})"
 ],
-"description":"多段线凸度列表。 返回值:数值列表"
+"description":"多段线凸度列表。\n 返回值:数值列表"
 },
 "curve:point-firstangle": {
 "prefix" : "curve:point-firstangle",
@@ -354,14 +354,14 @@
 "body": [
 "(curve:ptoncurve ${1:pt} ${2:curve})"
 ],
-"description":"判断点是否在曲线上 返回值:T or nil"
+"description":"判断点是否在曲线上\n 返回值:T or nil"
 },
 "curve:putclosed": {
 "prefix" : "curve:putclosed",
 "body": [
 "(curve:putclosed ${1:obj})"
 ],
-"description":"使多段线封闭 返回值:无"
+"description":"使多段线封闭\n 返回值:无"
 },
 "curve:readme": {
 "prefix" : "curve:readme",
@@ -431,7 +431,7 @@
 "body": [
 "(datetime:current-time ${1:str-fmt})"
 ],
-"description":"格式化日期时间，yyyy 年 mo 月 dd 日 hh 时 mm 分 ss 秒 返回值:日期时间字符串"
+"description":"格式化日期时间，yyyy 年 mo 月 dd 日 hh 时 mm 分 ss 秒\n 返回值:日期时间字符串"
 },
 "datetime:get-current-day": {
 "prefix" : "datetime:get-current-day",
@@ -459,7 +459,7 @@
 "body": [
 "(datetime:get-universal-time)"
 ],
-"description":"返回世界时，格林维治时间.自1900年1月1日到现在的秒数 返回值:Int"
+"description":"返回世界时，格林维治时间.自1900年1月1日到现在的秒数\n 返回值:Int"
 },
 "datetime:leap-yearp": {
 "prefix" : "datetime:leap-yearp",
@@ -473,21 +473,21 @@
 "body": [
 "(datetime:mktime ${1:lst})"
 ],
-"description":"计算某一时间(列表)到1970年01月01日经过的秒数,适合转换vl-file-systime的结果 返回值:Timestamp"
+"description":"计算某一时间(列表)到1970年01月01日经过的秒数,适合转换vl-file-systime的结果\n 返回值:Timestamp"
 },
 "datetime:mktime1900": {
 "prefix" : "datetime:mktime1900",
 "body": [
 "(datetime:mktime1900 ${1:timestamp})"
 ],
-"description":"unix timestamp 转 到1900年01月01日经过的秒数. 返回值:real"
+"description":"unix timestamp 转 到1900年01月01日经过的秒数.\n 返回值:real"
 },
 "datetime:rfc1123-to-lisp": {
 "prefix" : "datetime:rfc1123-to-lisp",
 "body": [
 "(datetime:rfc1123-to-lisp ${1:str})"
 ],
-"description":"将RFC1123格式转化为 autolisp 表格式 返回值:list"
+"description":"将RFC1123格式转化为 autolisp 表格式\n 返回值:list"
 },
 "dcl:accept": {
 "prefix" : "dcl:accept",
@@ -515,7 +515,7 @@
 "body": [
 "(dcl:cell ${1:key} ${2:rows} ${3:columns} ${4:show-line-number?} ${5:show-column-number?} ${6:show-scrollbar?} ${7:header-title?})"
 ],
-"description":"创建 DCL 可编辑表格.\n 参数: 1. key: 标识\n       2. rows:显示行数，\n       3. columns 显示列数(不大于26), \n       4. show-line-number? : 是否显示行号， \n       5. show-column-number?  : 是否显示列号A~Z，\n       6. show-scrollbar? : 是否显示竖向滚动条. \n       7. fixed-title? ,在第一行固定显示标题。\n \n tile-key: scrollbar header1 header2 headern, A1 B1 ... Z1 , A2 B2 ... Z2 , A99 B99 ... Z99 ......\n Model部: tbl-widths: 列宽表;cell-data 列表数据;\n Control部: (cb-scrollbar) 返回值:DCL格式字符串"
+"description":"创建 DCL 可编辑表格.\n 参数: 1. key: 标识\n       2. rows:显示行数，\n       3. columns 显示列数(不大于26), \n       4. show-line-number? : 是否显示行号， \n       5. show-column-number?  : 是否显示列号A~Z，\n       6. show-scrollbar? : 是否显示竖向滚动条. \n       7. fixed-title? ,在第一行固定显示标题。\n \n tile-key: scrollbar header1 header2 headern, A1 B1 ... Z1 , A2 B2 ... Z2 , A99 B99 ... Z99 ......\n Model部: tbl-widths: 列宽表;cell-data 列表数据;\n Control部: (cb-scrollbar)\n 返回值:DCL格式字符串"
 },
 "dcl:dialog": {
 "prefix" : "dcl:dialog",
@@ -557,7 +557,7 @@
 "body": [
 "(dcl:hr ${1:size})"
 ],
-"description":"DCL 水平线,粗度 size 值 推荐为 0.08(一个像素),0.17(两个像素). 返回值:dcl格式字符串"
+"description":"DCL 水平线,粗度 size 值 推荐为 0.08(一个像素),0.17(两个像素).\n 返回值:dcl格式字符串"
 },
 "dcl:img": {
 "prefix" : "dcl:img",
@@ -585,7 +585,7 @@
 "body": [
 "(dcl:paging ${1:h-or-v})"
 ],
-"description":"DCL 分页模块，key为 prev, next, curr_total. \n 参数 h-or-v : t 为 水平，nil 为竖向.\n Model部外部变量说明: curr-page:当前页号, total-page :总页数。\n Control部回调函数定义: (cb-flush-page)\n   页面更新。\n Init部: (paging-init)初始化按钮使能 返回值:dcl格式字符串。"
+"description":"DCL 分页模块，key为 prev, next, curr_total. \n 参数 h-or-v : t 为 水平，nil 为竖向.\n Model部外部变量说明: curr-page:当前页号, total-page :总页数。\n Control部回调函数定义: (cb-flush-page)\n   页面更新。\n Init部: (paging-init)初始化按钮使能\n 返回值:dcl格式字符串。"
 },
 "dcl:progressbar": {
 "prefix" : "dcl:progressbar",
@@ -627,7 +627,7 @@
 "body": [
 "(demo:demo ${1:lst} ${2:pt})"
 ],
-"description":"这是一个演示，没有实际功能，只用于测试 返回值:String"
+"description":"这是一个演示，没有实际功能，只用于测试\n 返回值:String"
 },
 "entity:activedimstyle": {
 "prefix" : "entity:activedimstyle",
@@ -641,7 +641,7 @@
 "body": [
 "(entity:activelayer ${1:name})"
 ],
-"description":"设置指定层为当前层.  name:图层名 返回值:成功返回t，失败返回nil"
+"description":"设置指定层为当前层.  name:图层名\n 返回值:成功返回t，失败返回nil"
 },
 "entity:add-entitys-to-block": {
 "prefix" : "entity:add-entitys-to-block",
@@ -655,14 +655,14 @@
 "body": [
 "(entity:addhatch ${1:outarray} ${2:inarray} ${3:name})"
 ],
-"description":"创建填充。outArray:外边界对象表，inArray:内边界对象表，name:充填名称 返回值:填充体对象"
+"description":"创建填充。outArray:外边界对象表，inArray:内边界对象表，name:充填名称\n 返回值:填充体对象"
 },
 "entity:addtext": {
 "prefix" : "entity:addtext",
 "body": [
 "(entity:addtext ${1:str} ${2:pt} ${3:zg} ${4:ang} ${5:dq})"
 ],
-"description":"生成一个TEXT实体,entity:make-text参数简化版 返回值:return:文字图元名"
+"description":"生成一个TEXT实体,entity:make-text参数简化版\n 返回值:return:文字图元名"
 },
 "entity:block": {
 "prefix" : "entity:block",
@@ -676,28 +676,28 @@
 "body": [
 "(entity:change-ltype ${1:obj} ${2:strltype})"
 ],
-"description":"改变对象线型\n 参数:\n obj:对象\n strLtype:线型 返回值:成功返回T，失败返回nil"
+"description":"改变对象线型\n 参数:\n obj:对象\n strLtype:线型\n 返回值:成功返回T，失败返回nil"
 },
 "entity:change-textstyle": {
 "prefix" : "entity:change-textstyle",
 "body": [
 "(entity:change-textstyle ${1:textstylename} ${2:fontname} ${3:bigfontname})"
 ],
-"description":"更改指定字体样式的字体\n 参数:\n TextStyleName:字体样式名称\n FontName:字体名字\n BigFontName:大字体名字 返回值:无"
+"description":"更改指定字体样式的字体\n 参数:\n TextStyleName:字体样式名称\n FontName:字体名字\n BigFontName:大字体名字\n 返回值:无"
 },
 "entity:check-error-codes": {
 "prefix" : "entity:check-error-codes",
 "body": [
 "(entity:check-error-codes ${1:doc})"
 ],
-"description":"消除字体乱码，利用gbenor.shx gbcbig.shx\n 参数:\n doc:当前活动文档 返回值:无"
+"description":"消除字体乱码，利用gbenor.shx gbcbig.shx\n 参数:\n doc:当前活动文档\n 返回值:无"
 },
 "entity:deldxf": {
 "prefix" : "entity:deldxf",
 "body": [
 "(entity:deldxf ${1:ename} ${2:code})"
 ],
-"description":"删除图元的某一组码，用于操作颜色等不是必段的组码。\n 参数:\n ename:图元，选择集，图元列表\n code:组码或组码表\n  返回值:更新后的图元，选择集，图元列表"
+"description":"删除图元的某一组码，用于操作颜色等不是必段的组码。\n 参数:\n ename:图元，选择集，图元列表\n code:组码或组码表\n \n 返回值:更新后的图元，选择集，图元列表"
 },
 "entity:dimaligned": {
 "prefix" : "entity:dimaligned",
@@ -711,21 +711,21 @@
 "body": [
 "(entity:dimdiameter ${1:pt1} ${2:pt2} ${3:pt-txt})"
 ],
-"description":"生成直径标注 返回值:return:标注图元名"
+"description":"生成直径标注\n 返回值:return:标注图元名"
 },
 "entity:dimhorizontal": {
 "prefix" : "entity:dimhorizontal",
 "body": [
 "(entity:dimhorizontal ${1:pt1} ${2:pt2} ${3:pt-txt})"
 ],
-"description":"生成水平标注 返回值:return:标注图元名"
+"description":"生成水平标注\n 返回值:return:标注图元名"
 },
 "entity:dimradius": {
 "prefix" : "entity:dimradius",
 "body": [
 "(entity:dimradius ${1:pt-cen} ${2:pt-r})"
 ],
-"description":"生成半径标注 返回值:return:标注图元名"
+"description":"生成半径标注\n 返回值:return:标注图元名"
 },
 "entity:dimvertical": {
 "prefix" : "entity:dimvertical",
@@ -753,28 +753,28 @@
 "body": [
 "(entity:get-layer ${1:ent})"
 ],
-"description":"获取图元的图层名 返回值:String"
+"description":"获取图元的图层名\n 返回值:String"
 },
 "entity:get-linetype": {
 "prefix" : "entity:get-linetype",
 "body": [
 "(entity:get-linetype ${1:ent})"
 ],
-"description":"获取图元的线型，当线型随层时，返回图层线型。 返回值:String"
+"description":"获取图元的线型，当线型随层时，返回图层线型。\n 返回值:String"
 },
 "entity:getbox": {
 "prefix" : "entity:getbox",
 "body": [
 "(entity:getbox ${1:ent} ${2:offset})"
 ],
-"description":"图元的最小包围盒 返回值:return:外框（偏移后）的左下，右上角点"
+"description":"图元的最小包围盒\n 返回值:return:外框（偏移后）的左下，右上角点"
 },
 "entity:getdxf": {
 "prefix" : "entity:getdxf",
 "body": [
 "(entity:getdxf ${1:ent} ${2:i})"
 ],
-"description":"获取图元的组码值\n 参数:\n ent:图元名或vla对象名\n i:组码或组码表 返回值:组码值或列表"
+"description":"获取图元的组码值\n 参数:\n ent:图元名或vla对象名\n i:组码或组码表\n 返回值:组码值或列表"
 },
 "entity:gettable": {
 "prefix" : "entity:gettable",
@@ -788,7 +788,7 @@
 "body": [
 "(entity:gettextbox ${1:ent-text} ${2:offset})"
 ],
-"description":"获取单行文本包围框 返回值:return:文字外框（偏移后）的四个角点（左下，右下，右上，左上"
+"description":"获取单行文本包围框\n 返回值:return:文字外框（偏移后）的四个角点（左下，右下，右上，左上"
 },
 "entity:group": {
 "prefix" : "entity:group",
@@ -830,7 +830,7 @@
 "body": [
 "(entity:ltype-exists ${1:strltype})"
 ],
-"description":"线型是否存在?\n 参数:\n strLtype:线型名 返回值:成功返回t，失败返回nil"
+"description":"线型是否存在?\n 参数:\n strLtype:线型名\n 返回值:成功返回t，失败返回nil"
 },
 "entity:make-arc": {
 "prefix" : "entity:make-arc",
@@ -851,7 +851,7 @@
 "body": [
 "(entity:make-circle ${1:pts-cen} ${2:num-rad})"
 ],
-"description":"创建圆.如果圆心是点的列表或半径是数值的列表，可以同时创建多个圆 返回值:Ename"
+"description":"创建圆.如果圆心是点的列表或半径是数值的列表，可以同时创建多个圆\n 返回值:Ename"
 },
 "entity:make-dimstyle": {
 "prefix" : "entity:make-dimstyle",
@@ -865,7 +865,7 @@
 "body": [
 "(entity:make-layer ${1:strname} ${2:intcolor} ${3:strltype} ${4:boolecur})"
 ],
-"description":"创建图层\n 参数:\n strName:图层名\n intColor:图层颜色\n strLtype:图层线型\n booleCur:是否置为当前图层 返回值:成功返回图层名，失败返回nil"
+"description":"创建图层\n 参数:\n strName:图层名\n intColor:图层颜色\n strLtype:图层线型\n booleCur:是否置为当前图层\n 返回值:成功返回图层名，失败返回nil"
 },
 "entity:make-leader": {
 "prefix" : "entity:make-leader",
@@ -893,14 +893,14 @@
 "body": [
 "(entity:make-lwpline-bold ${1:plist} ${2:convexity} ${3:elevation} ${4:closed} ${5:bold})"
 ],
-"description":"生成二维多段线.LWPOLYLINE\n 参数:\n   plist:端点坐标点表，如：((x1 y1 z1)\n     (x2 y2 z2)\n     (x2 y2 z2))或((x1 y1)\n     (x2 y2)\n     (x2 y2))\n   convexity:各点与下一点的凸度(个数同坐标点表)，可为nil\n   elevation:标高\n   closed:是否闭合，1:闭合，0：不闭合 返回值:返回值: 生成多段线的图元名"
+"description":"生成二维多段线.LWPOLYLINE\n 参数:\n   plist:端点坐标点表，如：((x1 y1 z1)\n     (x2 y2 z2)\n     (x2 y2 z2))或((x1 y1)\n     (x2 y2)\n     (x2 y2))\n   convexity:各点与下一点的凸度(个数同坐标点表)，可为nil\n   elevation:标高\n   closed:是否闭合，1:闭合，0：不闭合\n 返回值:返回值: 生成多段线的图元名"
 },
 "entity:make-pline": {
 "prefix" : "entity:make-pline",
 "body": [
 "(entity:make-pline ${1:plist} ${2:convexity} ${3:elevation} ${4:closed})"
 ],
-"description":"生成二维多段线.POLYLINE\n 参数:\n   plist:端点坐标点表，如：((x1 y1 z1)\n     (x2 y2 z2)\n     (x2 y2 z2))或((x1 y1)\n     (x2 y2)\n     (x2 y2))\n   convexity:各点与下一点的凸度(个数同坐标点表)，可为nil\n   elevation:标高\n   closed:是否闭合，1:闭合，0：不闭合 返回值:返回值:  生成多段线的图元名"
+"description":"生成二维多段线.POLYLINE\n 参数:\n   plist:端点坐标点表，如：((x1 y1 z1)\n     (x2 y2 z2)\n     (x2 y2 z2))或((x1 y1)\n     (x2 y2)\n     (x2 y2))\n   convexity:各点与下一点的凸度(个数同坐标点表)，可为nil\n   elevation:标高\n   closed:是否闭合，1:闭合，0：不闭合\n 返回值:返回值:  生成多段线的图元名"
 },
 "entity:make-point": {
 "prefix" : "entity:make-point",
@@ -914,14 +914,14 @@
 "body": [
 "(entity:make-polyline ${1:pts} ${2:closed})"
 ],
-"description":"生成三维多段线.POLYLINE\n 参数:\n   pts:端点坐标点表，如：((x1 y1 z1)\n     (x2 y2 z2)\n     (x2 y2 z2))\n   closed:是否闭合，1:闭合，0：不闭合 返回值:生成多段线的图元名"
+"description":"生成三维多段线.POLYLINE\n 参数:\n   pts:端点坐标点表，如：((x1 y1 z1)\n     (x2 y2 z2)\n     (x2 y2 z2))\n   closed:是否闭合，1:闭合，0：不闭合\n 返回值:生成多段线的图元名"
 },
 "entity:make-polyline-ax": {
 "prefix" : "entity:make-polyline-ax",
 "body": [
 "(entity:make-polyline-ax ${1:pts-3d} ${2:closed?})"
 ],
-"description":"根据点表生成polyline，三维多段线。参数:closed? T or nil.ActiveX 方法。 返回值:三维POLYLINE图元"
+"description":"根据点表生成polyline，三维多段线。参数:closed? T or nil.ActiveX 方法。\n 返回值:三维POLYLINE图元"
 },
 "entity:make-rectangle": {
 "prefix" : "entity:make-rectangle",
@@ -942,7 +942,7 @@
 "body": [
 "(entity:make-text ${1:str} ${2:pt1} ${3:fontsize} ${4:ang} ${5:kgb} ${6:qx} ${7:dqys})"
 ],
-"description":"生成一个TEXT单行文本.\n 参数说明：\n fontsize: 字高\n ang: 角度\n kgb: 宽高比\n qx: 倾斜角\n dqys: 对齐方式，L 左 M 中 R 右，T 上 M 中 B 下。\n  返回值:return:文字图元名"
+"description":"生成一个TEXT单行文本.\n 参数说明：\n fontsize: 字高\n ang: 角度\n kgb: 宽高比\n qx: 倾斜角\n dqys: 对齐方式，L 左 M 中 R 右，T 上 M 中 B 下。\n \n 返回值:return:文字图元名"
 },
 "entity:make-textstyle": {
 "prefix" : "entity:make-textstyle",
@@ -970,7 +970,7 @@
 "body": [
 "(entity:putdxf ${1:ename} ${2:code} ${3:val})"
 ],
-"description":"更新图元的组码值\n 参数:\n ename:图元，选择集，图元列表\n code:组码或组码表\n val:值或者值表 返回值:更新后的图元，选择集，图元列表"
+"description":"更新图元的组码值\n 参数:\n ename:图元，选择集，图元列表\n code:组码或组码表\n val:值或者值表\n 返回值:更新后的图元，选择集，图元列表"
 },
 "entity:readme": {
 "prefix" : "entity:readme",
@@ -1005,7 +1005,7 @@
 "body": [
 "(env:set-bg-color ${1:col})"
 ],
-"description":"设置绘图区背景色 返回值:无"
+"description":"设置绘图区背景色\n 返回值:无"
 },
 "env:set-cross-color": {
 "prefix" : "env:set-cross-color",
@@ -1096,84 +1096,84 @@
 "body": [
 "(example:sort)"
 ],
-"description":"排序示例.用于演示 vl-sort 自定义排序函数的代码。n1 n2 表示 列表内任意两个数，lambda 对这两个数进行比较。根据比较结果进行排序。 返回值:偶数从大到小，奇数从小到大,偶数在前"
+"description":"排序示例.用于演示 vl-sort 自定义排序函数的代码。n1 n2 表示 列表内任意两个数，lambda 对这两个数进行比较。根据比较结果进行排序。\n 返回值:偶数从大到小，奇数从小到大,偶数在前"
 },
 "excel:add-sheet": {
 "prefix" : "excel:add-sheet",
 "body": [
 "(excel:add-sheet ${1:xlapp} ${2:name})"
 ],
-"description":"添加个工作表\n 参数:XLApp:已打开的excel文件对象\n 参数:Name:工作表名 返回值:成功返回t"
+"description":"添加个工作表\n 参数:XLApp:已打开的excel文件对象\n 参数:Name:工作表名\n 返回值:成功返回t"
 },
 "excel:delete-sheet": {
 "prefix" : "excel:delete-sheet",
 "body": [
 "(excel:delete-sheet ${1:xlapp} ${2:name})"
 ],
-"description":"说明:删除工作表\n 参数:XLApp:已打开的excel文件对象\n 参数:Name:工作表名 返回值:成功返回t"
+"description":"说明:删除工作表\n 参数:XLApp:已打开的excel文件对象\n 参数:Name:工作表名\n 返回值:成功返回t"
 },
 "excel:get-activesheet": {
 "prefix" : "excel:get-activesheet",
 "body": [
 "(excel:get-activesheet ${1:xlapp})"
 ],
-"description":"获取当前工作表的名字\n 参数:XLApp:打开的excel文件对象 返回值:名字字符串"
+"description":"获取当前工作表的名字\n 参数:XLApp:打开的excel文件对象\n 返回值:名字字符串"
 },
 "excel:get-backcolor": {
 "prefix" : "excel:get-backcolor",
 "body": [
 "(excel:get-backcolor ${1:xlapp} ${2:index})"
 ],
-"description":"获取充填色\n 参数:xlapp:已打开的excel文件对象\n 参数:index:区域索引，A1引用格式或者行列表 返回值:颜色索引字符串 0-56 号"
+"description":"获取充填色\n 参数:xlapp:已打开的excel文件对象\n 参数:index:区域索引，A1引用格式或者行列表\n 返回值:颜色索引字符串 0-56 号"
 },
 "excel:get-mergeindex": {
 "prefix" : "excel:get-mergeindex",
 "body": [
 "(excel:get-mergeindex ${1:xlapp} ${2:index})"
 ],
-"description":"获取合并单元格的索引\n 参数:xlapp:已打开的excel文件对象\n 参数:index:区域索引，A1引用格式或者行列表 返回值:A1格式的索引"
+"description":"获取合并单元格的索引\n 参数:xlapp:已打开的excel文件对象\n 参数:index:区域索引，A1引用格式或者行列表\n 返回值:A1格式的索引"
 },
 "excel:get-property": {
 "prefix" : "excel:get-property",
 "body": [
 "(excel:get-property ${1:obj} ${2:prop})"
 ],
-"description":"检索 VLA 对象的特性\n 参数:obj:vla对象\n 参数:prop:符号或字符串，标识要检索的特性，字符串的时候可以直接调用多级特性：\"Rows.Count\" 返回值:特性的值"
+"description":"检索 VLA 对象的特性\n 参数:obj:vla对象\n 参数:prop:符号或字符串，标识要检索的特性，字符串的时候可以直接调用多级特性：\"Rows.Count\"\n 返回值:特性的值"
 },
 "excel:get-range": {
 "prefix" : "excel:get-range",
 "body": [
 "(excel:get-range ${1:xlapp} ${2:index})"
 ],
-"description":"说明:根据索引获取range对象\n 参数:xlapp:已打开的excel文件对象\n 参数:index:区域索引，A1引用格式或者行列表 返回值:range对象"
+"description":"说明:根据索引获取range对象\n 参数:xlapp:已打开的excel文件对象\n 参数:index:区域索引，A1引用格式或者行列表\n 返回值:range对象"
 },
 "excel:get-rangeindex": {
 "prefix" : "excel:get-rangeindex",
 "body": [
 "(excel:get-rangeindex ${1:range})"
 ],
-"description":"获取range的索引\n 参数:range:range对象 返回值:A1格式的索引"
+"description":"获取range的索引\n 参数:range:range对象\n 返回值:A1格式的索引"
 },
 "excel:get-rangevalue": {
 "prefix" : "excel:get-rangevalue",
 "body": [
 "(excel:get-rangevalue ${1:xlapp} ${2:index})"
 ],
-"description":"获取单元格或区域的值\n 参数:XLApp:已打开的excel文件对象\n 参数:index:位置信息，如\"A1\"或者'(1 1), \"A1:B2\"或者'(1 1 2 2) 返回值:值的列表"
+"description":"获取单元格或区域的值\n 参数:XLApp:已打开的excel文件对象\n 参数:index:位置信息，如\"A1\"或者'(1 1), \"A1:B2\"或者'(1 1 2 2)\n 返回值:值的列表"
 },
 "excel:get-selection": {
 "prefix" : "excel:get-selection",
 "body": [
 "(excel:get-selection ${1:xlapp})"
 ],
-"description":"获取选择区域的索引\n 参数:xlapp:已打开的excel文件对象 返回值:A1格式的索引"
+"description":"获取选择区域的索引\n 参数:xlapp:已打开的excel文件对象\n 返回值:A1格式的索引"
 },
 "excel:get-usedrange": {
 "prefix" : "excel:get-usedrange",
 "body": [
 "(excel:get-usedrange ${1:xlapp} ${2:name})"
 ],
-"description":"获取已使用的range区域\n 参数:XLApp:已打开的excel文件对象\n 参数:Name:工作表名 返回值:成功返回range对象"
+"description":"获取已使用的range区域\n 参数:XLApp:已打开的excel文件对象\n 参数:Name:工作表名\n 返回值:成功返回range对象"
 },
 "excel:merge-range": {
 "prefix" : "excel:merge-range",
@@ -1187,14 +1187,14 @@
 "body": [
 "(excel:new ${1:ishide})"
 ],
-"description":"新建Excel工作簿\n 参数:ishide:是否可见，t为可见，nil为不可见 返回值:一个表示Excel工作簿的vla对象"
+"description":"新建Excel工作簿\n 参数:ishide:是否可见，t为可见，nil为不可见\n 返回值:一个表示Excel工作簿的vla对象"
 },
 "excel:open": {
 "prefix" : "excel:open",
 "body": [
 "(excel:open ${1:filename} ${2:ishide})"
 ],
-"description":"打开一个excel文件\n 参数:Filename:文件路径\n 参数:ishide:是否可见，t为可见，nil为不可见 返回值:一个表示打开的excel文件的vla对象"
+"description":"打开一个excel文件\n 参数:Filename:文件路径\n 参数:ishide:是否可见，t为可见，nil为不可见\n 返回值:一个表示打开的excel文件的vla对象"
 },
 "excel:quit": {
 "prefix" : "excel:quit",
@@ -1215,21 +1215,21 @@
 "body": [
 "(excel:range-mergep ${1:xlapp} ${2:index})"
 ],
-"description":"判断是否是合并单元格\n 参数:xlapp:已打开的excel文件对象\n 参数:index:区域索引，A1引用格式或者行列表 返回值:是，返回t，否，返回nil"
+"description":"判断是否是合并单元格\n 参数:xlapp:已打开的excel文件对象\n 参数:index:区域索引，A1引用格式或者行列表\n 返回值:是，返回t，否，返回nil"
 },
 "excel:rename-sheet": {
 "prefix" : "excel:rename-sheet",
 "body": [
 "(excel:rename-sheet ${1:xlapp} ${2:old} ${3:new})"
 ],
-"description":"说明:重命名工作表\n 参数:XLApp:已打开的excel文件对象\n 参数:Old:工作表原名\n 参数:New:工作表新名 返回值:成功返回t"
+"description":"说明:重命名工作表\n 参数:XLApp:已打开的excel文件对象\n 参数:Old:工作表原名\n 参数:New:工作表新名\n 返回值:成功返回t"
 },
 "excel:save": {
 "prefix" : "excel:save",
 "body": [
 "(excel:save ${1:xlsapp})"
 ],
-"description":"保存当前工作簿\n 参数:xlsApp:当前工作簿对象 返回值:正确保存应该返回t，错误返回nil"
+"description":"保存当前工作簿\n 参数:xlsApp:当前工作簿对象\n 返回值:正确保存应该返回t，错误返回nil"
 },
 "excel:saveas": {
 "prefix" : "excel:saveas",
@@ -1243,7 +1243,7 @@
 "body": [
 "(excel:set-activesheet ${1:xlapp} ${2:name})"
 ],
-"description":"设置活动工作表\n 参数:XLApp:已打开的excel文件对象\n 参数:Name:工作表名 返回值:成功返回t"
+"description":"设置活动工作表\n 参数:XLApp:已打开的excel文件对象\n 参数:Name:工作表名\n 返回值:成功返回t"
 },
 "excel:set-backcolor": {
 "prefix" : "excel:set-backcolor",
@@ -1264,28 +1264,28 @@
 "body": [
 "(excel:sheets ${1:xlapp})"
 ],
-"description":"获取工作表列表\n 参数:XLApp:已打开的excel文件对象 返回值:工作表名列表"
+"description":"获取工作表列表\n 参数:XLApp:已打开的excel文件对象\n 返回值:工作表名列表"
 },
 "excel:unmerge-range": {
 "prefix" : "excel:unmerge-range",
 "body": [
 "(excel:unmerge-range ${1:xlapp} ${2:index})"
 ],
-"description":"分解合并单元格\n 参数:xlapp:已打开的excel文件对象\n 参数:index:区域索引，A1引用格式或者行列表 返回值:分解后的range对象"
+"description":"分解合并单元格\n 参数:xlapp:已打开的excel文件对象\n 参数:index:区域索引，A1引用格式或者行列表\n 返回值:分解后的range对象"
 },
 "excel:utils-getvalue": {
 "prefix" : "excel:utils-getvalue",
 "body": [
 "(excel:utils-getvalue ${1:var})"
 ],
-"description":"说明:工具函数，获取变体的值\n 参数:var:变体 返回值:值列表，其中数字全部转换为字符串"
+"description":"说明:工具函数，获取变体的值\n 参数:var:变体\n 返回值:值列表，其中数字全部转换为字符串"
 },
 "excel:utils-index-offset": {
 "prefix" : "excel:utils-index-offset",
 "body": [
 "(excel:utils-index-offset ${1:basecellid} ${2:rowoffset} ${3:columnoffset})"
 ],
-"description":"根据行列偏移量计算单元格索引\n 参数:BaseCellId:基础单元格索引，可以为A1引用格式或者行列数字列表\n 参数:rowOffset:行偏移量\n 参数:columnOffset:列偏移量 返回值:A1格式的单元格索引"
+"description":"根据行列偏移量计算单元格索引\n 参数:BaseCellId:基础单元格索引，可以为A1引用格式或者行列数字列表\n 参数:rowOffset:行偏移量\n 参数:columnOffset:列偏移量\n 返回值:A1格式的单元格索引"
 },
 "ext:anchor-hiddenfun": {
 "prefix" : "ext:anchor-hiddenfun",
@@ -1299,21 +1299,21 @@
 "body": [
 "(ext:interior ${1:fun})"
 ],
-"description":"显化内部符号或函数。 返回值:subr"
+"description":"显化内部符号或函数。\n 返回值:subr"
 },
 "ext:interior-fun": {
 "prefix" : "ext:interior-fun",
 "body": [
 "(ext:interior-fun ${1:fun})"
 ],
-"description":"调用内部函数。 返回值:subr"
+"description":"调用内部函数。\n 返回值:subr"
 },
 "ext:probe-fun": {
 "prefix" : "ext:probe-fun",
 "body": [
 "(ext:probe-fun ${1:fun})"
 ],
-"description":"探测函数的参数个数(最小)及参数类型。 返回值:expr or nil"
+"description":"探测函数的参数个数(最小)及参数类型。\n 返回值:expr or nil"
 },
 "file:list-to-stream": {
 "prefix" : "file:list-to-stream",
@@ -1334,14 +1334,14 @@
 "body": [
 "(file:parse-ini ${1:filename})"
 ],
-"description":"解析 ini 文件。 返回值:list"
+"description":"解析 ini 文件。\n 返回值:list"
 },
 "file:read-stream": {
 "prefix" : "file:read-stream",
 "body": [
 "(file:read-stream ${1:filename} ${2:encoding})"
 ],
-"description":"读入指定编码的文件内容 返回值:String"
+"description":"读入指定编码的文件内容\n 返回值:String"
 },
 "file:subst-all": {
 "prefix" : "file:subst-all",
@@ -1355,35 +1355,35 @@
 "body": [
 "(filename:replace-special ${1:str})"
 ],
-"description":"替换文件名中的特殊字符。本函数只适用于单个文件，不适用于带目录的文件名字符串。 返回值:String"
+"description":"替换文件名中的特殊字符。本函数只适用于单个文件，不适用于带目录的文件名字符串。\n 返回值:String"
 },
 "filename:special-symbol": {
 "prefix" : "filename:special-symbol",
 "body": [
 "(filename:special-symbol ${1:str})"
 ],
-"description":"替换文件名中的特殊字符，本函数只适用于单个文件，不适用于带目录的文件名字符串。 返回值:String"
+"description":"替换文件名中的特殊字符，本函数只适用于单个文件，不适用于带目录的文件名字符串。\n 返回值:String"
 },
 "geometry:angle": {
 "prefix" : "geometry:angle",
 "body": [
 "(geometry:angle ${1:segment})"
 ],
-"description":"直线(线段)与坐标轴xyz的夹角列表 返回值:两点直线与x y z 轴的夹角(弧度)"
+"description":"直线(线段)与坐标轴xyz的夹角列表\n 返回值:两点直线与x y z 轴的夹角(弧度)"
 },
 "geometry:box-intersectp": {
 "prefix" : "geometry:box-intersectp",
 "body": [
 "(geometry:box-intersectp ${1:box1} ${2:box2})"
 ],
-"description":"测试两个盒子是否交叉 返回值:T 交叉，nil 不交叉"
+"description":"测试两个盒子是否交叉\n 返回值:T 交叉，nil 不交叉"
 },
 "geometry:convexhull-by-graham-scan": {
 "prefix" : "geometry:convexhull-by-graham-scan",
 "body": [
 "(geometry:convexhull-by-graham-scan ${1:pts})"
 ],
-"description":"graham-scan算法计算点集凸包\n 参数: pts:点表 返回值:凸包点表"
+"description":"graham-scan算法计算点集凸包\n 参数: pts:点表\n 返回值:凸包点表"
 },
 "geometry:convexhull-by-jarvis": {
 "prefix" : "geometry:convexhull-by-jarvis",
@@ -1397,14 +1397,14 @@
 "body": [
 "(geometry:dist-pt-line ${1:pt} ${2:segment})"
 ],
-"description":"求点到线段的距离 返回值:number"
+"description":"求点到线段的距离\n 返回值:number"
 },
 "geometry:merge-box": {
 "prefix" : "geometry:merge-box",
 "body": [
 "(geometry:merge-box ${1:box1} ${2:box2})"
 ],
-"description":"合并两个包围盒，不管两个盒子是否有重叠。 返回值:总包围盒"
+"description":"合并两个包围盒，不管两个盒子是否有重叠。\n 返回值:总包围盒"
 },
 "geometry:on-segment": {
 "prefix" : "geometry:on-segment",
@@ -1425,21 +1425,21 @@
 "body": [
 "(geometry:segment-mid ${1:segment})"
 ],
-"description":"求线段的中点坐标 返回值:三维坐标值"
+"description":"求线段的中点坐标\n 返回值:三维坐标值"
 },
 "geometry:turn-left-p": {
 "prefix" : "geometry:turn-left-p",
 "body": [
 "(geometry:turn-left-p ${1:pt1} ${2:pt2} ${3:pt3})"
 ],
-"description":"测试三点的转角方向为逆时针。 返回值:顺时针方向的夹角为正值，反之为负, 0为直线。"
+"description":"测试三点的转角方向为逆时针。\n 返回值:顺时针方向的夹角为正值，反之为负, 0为直线。"
 },
 "geometry:turn-right-p": {
 "prefix" : "geometry:turn-right-p",
 "body": [
 "(geometry:turn-right-p ${1:pt1} ${2:pt2} ${3:pt3})"
 ],
-"description":"判断三点的转角方向。 返回值:顺时针方向的夹角为正值，反之为负, 0为直线。"
+"description":"判断三点的转角方向。\n 返回值:顺时针方向的夹角为正值，反之为负, 0为直线。"
 },
 "geometry:ucs": {
 "prefix" : "geometry:ucs",
@@ -1530,14 +1530,14 @@
 "body": [
 "(ini:get ${1:lst-ini} ${2:node} ${3:attr})"
 ],
-"description":"取 ini 的某项的值。lst-ini ini文件的解析结果表, node 节 ，attr 属性项 返回值:String"
+"description":"取 ini 的某项的值。lst-ini ini文件的解析结果表, node 节 ，attr 属性项\n 返回值:String"
 },
 "ini:parse": {
 "prefix" : "ini:parse",
 "body": [
 "(ini:parse ${1:filename})"
 ],
-"description":"解析ini文件。 返回值:list"
+"description":"解析ini文件。\n 返回值:list"
 },
 "ini:read": {
 "prefix" : "ini:read",
@@ -1551,35 +1551,35 @@
 "body": [
 "(ini:save ${1:lst-ini} ${2:filename})"
 ],
-"description":"保存 lst-ini 表 到 ini 文件。 返回值:T or nil"
+"description":"保存 lst-ini 表 到 ini 文件。\n 返回值:T or nil"
 },
 "ini:set": {
 "prefix" : "ini:set",
 "body": [
 "(ini:set ${1:lst-ini} ${2:node} ${3:attr} ${4:value})"
 ],
-"description":"设置 ini 的某项的值。lst-ini ini文件的解析结果表, node 节 ，attr 属性项, value 值。 返回值:lst-ini"
+"description":"设置 ini 的某项的值。lst-ini ini文件的解析结果表, node 节 ，attr 属性项, value 值。\n 返回值:lst-ini"
 },
 "json:encode-from-alist": {
 "prefix" : "json:encode-from-alist",
 "body": [
 "(json:encode-from-alist ${1:lst})"
 ],
-"description":"将关联列表转化为json串,测试版 返回值:list"
+"description":"将关联列表转化为json串,测试版\n 返回值:list"
 },
 "json:parse": {
 "prefix" : "json:parse",
 "body": [
 "(json:parse ${1:str})"
 ],
-"description":"Json 字符串转化为 lisp 列表。 返回值:list"
+"description":"Json 字符串转化为 lisp 列表。\n 返回值:list"
 },
 "layer:activelayer": {
 "prefix" : "layer:activelayer",
 "body": [
 "(layer:activelayer ${1:name})"
 ],
-"description":"设置指定层为当前层 返回值:成功返回t，失败返回nil"
+"description":"设置指定层为当前层\n 返回值:成功返回t，失败返回nil"
 },
 "layer:allname": {
 "prefix" : "layer:allname",
@@ -1593,7 +1593,7 @@
 "body": [
 "(layer:ent ${1:name})"
 ],
-"description":"获获取指定图层的图元名 返回值:图元"
+"description":"获获取指定图层的图元名\n 返回值:图元"
 },
 "layer:freeze": {
 "prefix" : "layer:freeze",
@@ -1621,7 +1621,7 @@
 "body": [
 "(layer:info)"
 ],
-"description":"返回所有图层的信息 返回值:((\"层名\"\n             状态 颜色 \"线型\")……)\n 状态：1冻结图层 2新视口冻结图层 4锁定…(其他看帮助)\n 颜色：负值为隐藏图层\n "
+"description":"返回所有图层的信息\n 返回值:((\"层名\"\n             状态 颜色 \"线型\")……)\n 状态：1冻结图层 2新视口冻结图层 4锁定…(其他看帮助)\n 颜色：负值为隐藏图层\n "
 },
 "layer:layerofflist": {
 "prefix" : "layer:layerofflist",
@@ -1677,7 +1677,7 @@
 "body": [
 "(layer:obj-name)"
 ],
-"description":"返回所有图层对应的对象名(大写) 返回值:((图层名1 对象名1)\n         (图层名2 对象名2)……)"
+"description":"返回所有图层对应的对象名(大写)\n 返回值:((图层名1 对象名1)\n         (图层名2 对象名2)……)"
 },
 "layer:off": {
 "prefix" : "layer:off",
@@ -1726,7 +1726,7 @@
 "body": [
 "(layout:list)"
 ],
-"description":"按照当前屏幕显示的顺序返回所有布局名称 返回值:布局名列表"
+"description":"按照当前屏幕显示的顺序返回所有布局名称\n 返回值:布局名列表"
 },
 "layout:make-viewport": {
 "prefix" : "layout:make-viewport",
@@ -1768,7 +1768,7 @@
 "body": [
 "(layout:vla-list)"
 ],
-"description":"按照当前屏幕显示的顺序返回所有布局对象 返回值:布局对象列表"
+"description":"按照当前屏幕显示的顺序返回所有布局对象\n 返回值:布局对象列表"
 },
 "line:get-lwpoints": {
 "prefix" : "line:get-lwpoints",
@@ -1796,7 +1796,7 @@
 "body": [
 "(list:+ ${1:lst1} ${2:lst2})"
 ],
-"description":"两个列表各项相加之和组成的列表，列表长度以参数中列表长度小的为准.\n 参数:lst1,lst2:数字列表 返回值:列表各项相加后的列表"
+"description":"两个列表各项相加之和组成的列表，列表长度以参数中列表长度小的为准.\n 参数:lst1,lst2:数字列表\n 返回值:列表各项相加后的列表"
 },
 "list:-": {
 "prefix" : "list:-",
@@ -1817,7 +1817,7 @@
 "body": [
 "(list:assoclist-additem ${1:lst} ${2:value})"
 ],
-"description":"添加关联表的元素.无替换 返回值:关联表，无相同的key"
+"description":"添加关联表的元素.无替换\n 返回值:关联表，无相同的key"
 },
 "list:assoclist-appenditem": {
 "prefix" : "list:assoclist-appenditem",
@@ -1838,14 +1838,14 @@
 "body": [
 "(list:assoclist-index ${1:lst} ${2:key})"
 ],
-"description":"根据key查找关联表的索引 返回值:索引，从0开始"
+"description":"根据key查找关联表的索引\n 返回值:索引，从0开始"
 },
 "list:assoclist-key": {
 "prefix" : "list:assoclist-key",
 "body": [
 "(list:assoclist-key ${1:lst} ${2:key})"
 ],
-"description":"返回关联表中key对应的value。等价于(cdr (assoc key value)) 返回值:key对应的value"
+"description":"返回关联表中key对应的value。等价于(cdr (assoc key value))\n 返回值:key对应的value"
 },
 "list:assoclist-keys": {
 "prefix" : "list:assoclist-keys",
@@ -1859,7 +1859,7 @@
 "body": [
 "(list:assoclist-remove ${1:lst} ${2:key})"
 ],
-"description":"删除表中关联表匹配到key的的子表 返回值:删除元素后的表"
+"description":"删除表中关联表匹配到key的的子表\n 返回值:删除元素后的表"
 },
 "list:assoclist-values": {
 "prefix" : "list:assoclist-values",
@@ -1901,21 +1901,21 @@
 "body": [
 "(list:difference ${1:lst1} ${2:lst2})"
 ],
-"description":"求差集. 返回值:list"
+"description":"求差集.\n 返回值:list"
 },
 "list:exist": {
 "prefix" : "list:exist",
 "body": [
 "(list:exist ${1:lst} ${2:item})"
 ],
-"description":"判断item是否在列表内 返回值:存在t，反之nil"
+"description":"判断item是否在列表内\n 返回值:存在t，反之nil"
 },
 "list:flatten": {
 "prefix" : "list:flatten",
 "body": [
 "(list:flatten ${1:lst})"
 ],
-"description":"将多维列表展平为一维。单向箔。 返回值:list"
+"description":"将多维列表展平为一维。单向箔。\n 返回值:list"
 },
 "list:get-front-nth": {
 "prefix" : "list:get-front-nth",
@@ -1936,7 +1936,7 @@
 "body": [
 "(list:insert ${1:lst} ${2:index} ${3:item})"
 ],
-"description":"在列表lst 的第 index 项前插入项 item。 返回值:插入项后的列表"
+"description":"在列表lst 的第 index 项前插入项 item。\n 返回值:插入项后的列表"
 },
 "list:insert-nth": {
 "prefix" : "list:insert-nth",
@@ -1950,7 +1950,7 @@
 "body": [
 "(list:intersect ${1:lst1} ${2:lst2})"
 ],
-"description":"求两个列表集合的交集 返回值:List"
+"description":"求两个列表集合的交集\n 返回值:List"
 },
 "list:intersection": {
 "prefix" : "list:intersection",
@@ -1985,14 +1985,14 @@
 "body": [
 "(list:positions ${1:item} ${2:lst})"
 ],
-"description":"获取元素 item 在 表 lst 中的所有位置。 返回值:list"
+"description":"获取元素 item 在 表 lst 中的所有位置。\n 返回值:list"
 },
 "list:range": {
 "prefix" : "list:range",
 "body": [
 "(list:range ${1:start} ${2:end} ${3:step})"
 ],
-"description":"生成等差数列表，类似python的range()函数.\n 参数：start:起始值\n       end:结束值\n       step:等差值 返回值:等差数列表"
+"description":"生成等差数列表，类似python的range()函数.\n 参数：start:起始值\n       end:结束值\n       step:等差值\n 返回值:等差数列表"
 },
 "list:remove-duplicates": {
 "prefix" : "list:remove-duplicates",
@@ -2013,7 +2013,7 @@
 "body": [
 "(list:remove-index ${1:lst} ${2:index})"
 ],
-"description":"按索引删除列表的项,leemac 返回值:删除索引项之后的列表"
+"description":"按索引删除列表的项,leemac\n 返回值:删除索引项之后的列表"
 },
 "list:remove-nth": {
 "prefix" : "list:remove-nth",
@@ -2027,14 +2027,14 @@
 "body": [
 "(list:remove-once ${1:lst} ${2:item})"
 ],
-"description":"删除表中第一个匹配到的元素 返回值:删除元素后的表"
+"description":"删除表中第一个匹配到的元素\n 返回值:删除元素后的表"
 },
 "list:replace-index": {
 "prefix" : "list:replace-index",
 "body": [
 "(list:replace-index ${1:oldlst} ${2:index} ${3:item})"
 ],
-"description":"按索引替换列表 返回值:替换后的列表"
+"description":"按索引替换列表\n 返回值:替换后的列表"
 },
 "list:replace[m,n]": {
 "prefix" : "list:replace[m,n]",
@@ -2076,14 +2076,14 @@
 "body": [
 "(list:search-index ${1:lst} ${2:index})"
 ],
-"description":"以索引查找表中元素\n 参数：\n   lst:列表\n   index:索引或者索引表 返回值:查找到的元素组成的表"
+"description":"以索引查找表中元素\n 参数：\n   lst:列表\n   index:索引或者索引表\n 返回值:查找到的元素组成的表"
 },
 "list:search-item": {
 "prefix" : "list:search-item",
 "body": [
 "(list:search-item ${1:lst} ${2:item})"
 ],
-"description":"查找表中元素的索引，索引从0开始 返回值:索引值表"
+"description":"查找表中元素的索引，索引从0开始\n 返回值:索引值表"
 },
 "list:set-nth": {
 "prefix" : "list:set-nth",
@@ -2111,21 +2111,21 @@
 "body": [
 "(list:split-3d ${1:lst})"
 ],
-"description":"列表按顺序切分为3元素表组成的表\n 不足部分用nil表示 返回值:((x x x )(x x x)...)"
+"description":"列表按顺序切分为3元素表组成的表\n 不足部分用nil表示\n 返回值:((x x x )(x x x)...)"
 },
 "list:split-index": {
 "prefix" : "list:split-index",
 "body": [
 "(list:split-index ${1:lst} ${2:index})"
 ],
-"description":"根据索引分割列表，索引从0开始 返回值:索引前后元素组成的表，其中索引所指向的元素位于第二个子表的表头"
+"description":"根据索引分割列表，索引从0开始\n 返回值:索引前后元素组成的表，其中索引所指向的元素位于第二个子表的表头"
 },
 "list:sublist": {
 "prefix" : "list:sublist",
 "body": [
 "(list:sublist ${1:lst} ${2:idx} ${3:len})"
 ],
-"description":"获取子列表\n  from leemac 返回值:子列表"
+"description":"获取子列表\n  from leemac\n 返回值:子列表"
 },
 "list:subst": {
 "prefix" : "list:subst",
@@ -2146,7 +2146,7 @@
 "body": [
 "(list:union ${1:lst1} ${2:lst2})"
 ],
-"description":"求两个集合的并集 返回值:list"
+"description":"求两个集合的并集\n 返回值:list"
 },
 "m:acos": {
 "prefix" : "m:acos",
@@ -2195,7 +2195,7 @@
 "body": [
 "(m:base2dec ${1:strnum} ${2:int-b})"
 ],
-"description":"进制转换,strnum 字符串表示的数, int-b 进制(2-36) 返回值:fixnum"
+"description":"进制转换,strnum 字符串表示的数, int-b 进制(2-36)\n 返回值:fixnum"
 },
 "m:cal": {
 "prefix" : "m:cal",
@@ -2251,14 +2251,14 @@
 "body": [
 "(m:dec2base ${1:fixnum} ${2:int-b})"
 ],
-"description":"10进制转换为指定进制\n  fixnum 整数值, int-b 进制(2-36) 返回值:string"
+"description":"10进制转换为指定进制\n  fixnum 整数值, int-b 进制(2-36)\n 返回值:string"
 },
 "m:dec2hex": {
 "prefix" : "m:dec2hex",
 "body": [
 "(m:dec2hex ${1:fixnum})"
 ],
-"description":"将十进制整数转换为16进制符号 0XAB的形式 返回值:symbol"
+"description":"将十进制整数转换为16进制符号 0XAB的形式\n 返回值:symbol"
 },
 "m:difference": {
 "prefix" : "m:difference",
@@ -2286,7 +2286,7 @@
 "body": [
 "(m:evenp ${1:n})"
 ],
-"description":"测试一个整数是否为偶数 返回值:T or nil"
+"description":"测试一个整数是否为偶数\n 返回值:T or nil"
 },
 "m:expmod": {
 "prefix" : "m:expmod",
@@ -2314,7 +2314,7 @@
 "body": [
 "(m:fermat-test ${1:n})"
 ],
-"description":"素数测试 返回值:T or nil"
+"description":"素数测试\n 返回值:T or nil"
 },
 "m:fix-angle": {
 "prefix" : "m:fix-angle",
@@ -2335,7 +2335,7 @@
 "body": [
 "(m:hex2dec ${1:hex})"
 ],
-"description":"16进制转换为10进制整数,hex 为 0x 开头的符号或字符串。 返回值:fixnum"
+"description":"16进制转换为10进制整数,hex 为 0x 开头的符号或字符串。\n 返回值:fixnum"
 },
 "m:intersect": {
 "prefix" : "m:intersect",
@@ -2356,7 +2356,7 @@
 "body": [
 "(m:linear-interpolation ${1:x} ${2:x1} ${3:x2} ${4:y1} ${5:y2})"
 ],
-"description":"线性插值 y=y1+(y2-y1)*(x-x1)/(x2-x1) 返回值:number"
+"description":"线性插值 y=y1+(y2-y1)*(x-x1)/(x2-x1)\n 返回值:number"
 },
 "m:maxlist": {
 "prefix" : "m:maxlist",
@@ -2398,14 +2398,14 @@
 "body": [
 "(m:rand)"
 ],
-"description":"生成伪随机数 返回值:0~1之间的实数"
+"description":"生成伪随机数\n 返回值:0~1之间的实数"
 },
 "m:rand-by-cputicks": {
 "prefix" : "m:rand-by-cputicks",
 "body": [
 "(m:rand-by-cputicks)"
 ],
-"description":"以日期及CPUticks为参数生成随机数 返回值:1~100之间的整数"
+"description":"以日期及CPUticks为参数生成随机数\n 返回值:1~100之间的整数"
 },
 "m:random": {
 "prefix" : "m:random",
@@ -2433,14 +2433,14 @@
 "body": [
 "(m:rtos ${1:real} ${2:prec})"
 ],
-"description":"保留小数位数(四舍五入) 返回值:四舍五入后的字符串"
+"description":"保留小数位数(四舍五入)\n 返回值:四舍五入后的字符串"
 },
 "m:sign": {
 "prefix" : "m:sign",
 "body": [
 "(m:sign ${1:x})"
 ],
-"description":"实数的符号(正负号) 返回值:t 为正，nil 为负"
+"description":"实数的符号(正负号)\n 返回值:t 为正，nil 为负"
 },
 "m:sinh": {
 "prefix" : "m:sinh",
@@ -2475,7 +2475,7 @@
 "body": [
 "(m:tan ${1:num})"
 ],
-"description":"计算正切值 返回值:实数"
+"description":"计算正切值\n 返回值:实数"
 },
 "m:tanh": {
 "prefix" : "m:tanh",
@@ -2580,7 +2580,7 @@
 "body": [
 "(music-die:multi-element ${1:element} ${2:num})"
 ],
-"description":"\n 使某个lisp元素出现以列表形式存储多份\n ELEMENT 元素  num 存储份数\n 作者：MUSIC-DIE\n  返回值:\n 返回值：（list element elemen element element ...）\n "
+"description":"\n 使某个lisp元素出现以列表形式存储多份\n ELEMENT 元素  num 存储份数\n 作者：MUSIC-DIE\n \n 返回值:\n 返回值：（list element elemen element element ...）\n "
 },
 "music-die:undo1": {
 "prefix" : "music-die:undo1",
@@ -2594,7 +2594,7 @@
 "body": [
 "(p:consp ${1:lst})"
 ],
-"description":"判断是否为构造表，这里 nil 不是构造表 返回值:T or nil"
+"description":"判断是否为构造表，这里 nil 不是构造表\n 返回值:T or nil"
 },
 "p:curvep": {
 "prefix" : "p:curvep",
@@ -2636,7 +2636,7 @@
 "body": [
 "(p:listp ${1:lst})"
 ],
-"description":"判断是否为链表。注意'(a b . c)不是链表 返回值:T or nil"
+"description":"判断是否为链表。注意'(a b . c)不是链表\n 返回值:T or nil"
 },
 "p:picksetp": {
 "prefix" : "p:picksetp",
@@ -2706,63 +2706,63 @@
 "body": [
 "(pickset:boxs ${1:ss})"
 ],
-"description":"求选择集内各图元的包围盒\n (角点:左下，右上)组成的列表,ss 选择集或图元列表 返回值:(box1 box2 box3)"
+"description":"求选择集内各图元的包围盒\n (角点:左下，右上)组成的列表,ss 选择集或图元列表\n 返回值:(box1 box2 box3)"
 },
 "pickset:cluster": {
 "prefix" : "pickset:cluster",
 "body": [
 "(pickset:cluster ${1:ss} ${2:gap})"
 ],
-"description":"对图元进行聚类分析，按片区求图元集的包围盒。 返回值:各图元群的包围盒(两点坐标), 组成的列表"
+"description":"对图元进行聚类分析，按片区求图元集的包围盒。\n 返回值:各图元群的包围盒(两点坐标), 组成的列表"
 },
 "pickset:delsameent": {
 "prefix" : "pickset:delsameent",
 "body": [
 "(pickset:delsameent ${1:ss})"
 ],
-"description":"删除重复图元\n 参数:\n ss:选择集 返回值:无"
+"description":"删除重复图元\n 参数:\n ss:选择集\n 返回值:无"
 },
 "pickset:erase": {
 "prefix" : "pickset:erase",
 "body": [
 "(pickset:erase ${1:ss})"
 ],
-"description":"删除选择集图元 返回值:最后一个被删除的图元"
+"description":"删除选择集图元\n 返回值:最后一个被删除的图元"
 },
 "pickset:from-entlist": {
 "prefix" : "pickset:from-entlist",
 "body": [
 "(pickset:from-entlist ${1:entlst})"
 ],
-"description":"图元列表->选择集 返回值:选择集"
+"description":"图元列表->选择集\n 返回值:选择集"
 },
 "pickset:from-list": {
 "prefix" : "pickset:from-list",
 "body": [
 "(pickset:from-list ${1:lstent})"
 ],
-"description":"把图元列表转化成选择集，参数 返回值:选择集"
+"description":"把图元列表转化成选择集，参数\n 返回值:选择集"
 },
 "pickset:get-sub": {
 "prefix" : "pickset:get-sub",
 "body": [
 "(pickset:get-sub ${1:ss} ${2:filter})"
 ],
-"description":"从选择集或图元表中按 filter 规则过滤. 当前版本不支持 XOR 和 逻辑嵌套。 返回值:过滤后的图元表"
+"description":"从选择集或图元表中按 filter 规则过滤. 当前版本不支持 XOR 和 逻辑嵌套。\n 返回值:过滤后的图元表"
 },
 "pickset:getbox": {
 "prefix" : "pickset:getbox",
 "body": [
 "(pickset:getbox ${1:ss} ${2:offset})"
 ],
-"description":"获取选择集的包围盒。 返回值:外框（偏移后）的左下，右上角点"
+"description":"获取选择集的包围盒。\n 返回值:外框（偏移后）的左下，右上角点"
 },
 "pickset:join": {
 "prefix" : "pickset:join",
 "body": [
 "(pickset:join ${1:ss1} ${2:ss2})"
 ],
-"description":"将第一个选择集中的图元加入到第二个选择集中。 返回值:合并后的新选择集"
+"description":"将第一个选择集中的图元加入到第二个选择集中。\n 返回值:合并后的新选择集"
 },
 "pickset:pt-verts": {
 "prefix" : "pickset:pt-verts",
@@ -2776,7 +2776,7 @@
 "body": [
 "(pickset:ptx ${1:sel} ${2:n})"
 ],
-"description":"取选择集4角点坐标的第n个，左下 0 右下 1 右上 2 左上 3 返回值:第n个角点坐标"
+"description":"取选择集4角点坐标的第n个，左下 0 右下 1 右上 2 左上 3\n 返回值:第n个角点坐标"
 },
 "pickset:readme": {
 "prefix" : "pickset:readme",
@@ -2790,126 +2790,126 @@
 "body": [
 "(pickset:sort ${1:sspts} ${2:key} ${3:fuzz})"
 ],
-"description":"通用选择集，点表，图元列表排序\n 参数:ssPts:选择集，点表，图元列表\n 参数:KEY:xyzXYZ 任意组合 ,例如\"yX\",y在前表示y坐标优先，小y表示从小到大(注:二维点时，不能有z)\n 参数:FUZZ:数值，允许偏差； 返回值:结果根据ssPts不同"
+"description":"通用选择集，点表，图元列表排序\n 参数:ssPts:选择集，点表，图元列表\n 参数:KEY:xyzXYZ 任意组合 ,例如\"yX\",y在前表示y坐标优先，小y表示从小到大(注:二维点时，不能有z)\n 参数:FUZZ:数值，允许偏差；\n 返回值:结果根据ssPts不同"
 },
 "pickset:sort-with-dxf": {
 "prefix" : "pickset:sort-with-dxf",
 "body": [
 "(pickset:sort-with-dxf ${1:ss} ${2:dxf-i} ${3:n} ${4:fuzz} ${5:decreasep})"
 ],
-"description":"选择集按照给定的组码值进行排序。<br />n:如果组码值为一个表，则 n 指出使用第几个；否则nil 。<br /> decreasep:T表示从大到小，nil表示从小到大  返回值:排序后的选择集"
+"description":"选择集按照给定的组码值进行排序。<br />n:如果组码值为一个表，则 n 指出使用第几个；否则nil 。<br /> decreasep:T表示从大到小，nil表示从小到大 \n 返回值:排序后的选择集"
 },
 "pickset:ss-forword-en": {
 "prefix" : "pickset:ss-forword-en",
 "body": [
 "(pickset:ss-forword-en ${1:en})"
 ],
-"description":"将图元 ent 之后的所有图元形成的选择集 返回值:pickset"
+"description":"将图元 ent 之后的所有图元形成的选择集\n 返回值:pickset"
 },
 "pickset:ssget": {
 "prefix" : "pickset:ssget",
 "body": [
 "(pickset:ssget ${1:msg} ${2:params})"
 ],
-"description":"自定义带提示符的ssget  返回值:选择集"
+"description":"自定义带提示符的ssget \n 返回值:选择集"
 },
 "pickset:ssget-crossline": {
 "prefix" : "pickset:ssget-crossline",
 "body": [
 "(pickset:ssget-crossline ${1:ent} ${2:filter})"
 ],
-"description":"取得与线相交的选择集 返回值:选择集"
+"description":"取得与线相交的选择集\n 返回值:选择集"
 },
 "pickset:sub": {
 "prefix" : "pickset:sub",
 "body": [
 "(pickset:sub ${1:ss1} ${2:ss2})"
 ],
-"description":"选择集相减 返回值:选择集 or nil"
+"description":"选择集相减\n 返回值:选择集 or nil"
 },
 "pickset:to-array": {
 "prefix" : "pickset:to-array",
 "body": [
 "(pickset:to-array ${1:ss})"
 ],
-"description":"选择集->数 返回值:数组"
+"description":"选择集->数\n 返回值:数组"
 },
 "pickset:to-entlist": {
 "prefix" : "pickset:to-entlist",
 "body": [
 "(pickset:to-entlist ${1:ss})"
 ],
-"description":"选择集->图元列表 返回值:图元列表"
+"description":"选择集->图元列表\n 返回值:图元列表"
 },
 "pickset:to-list": {
 "prefix" : "pickset:to-list",
 "body": [
 "(pickset:to-list ${1:ss})"
 ],
-"description":"选择集转图元列表 返回值:图元列表"
+"description":"选择集转图元列表\n 返回值:图元列表"
 },
 "pickset:to-list-by-ssname": {
 "prefix" : "pickset:to-list-by-ssname",
 "body": [
 "(pickset:to-list-by-ssname ${1:ss})"
 ],
-"description":"选择集转图元表，ssname 方法 返回值:lst"
+"description":"选择集转图元表，ssname 方法\n 返回值:lst"
 },
 "pickset:to-list-by-ssnamex": {
 "prefix" : "pickset:to-list-by-ssnamex",
 "body": [
 "(pickset:to-list-by-ssnamex ${1:ss})"
 ],
-"description":"选择集转图元表，ssnamex 方法 返回值:lst"
+"description":"选择集转图元表，ssnamex 方法\n 返回值:lst"
 },
 "pickset:to-vlalist": {
 "prefix" : "pickset:to-vlalist",
 "body": [
 "(pickset:to-vlalist ${1:ss})"
 ],
-"description":"选择集转为Vla列表 返回值:Vla列表"
+"description":"选择集转为Vla列表\n 返回值:Vla列表"
 },
 "point:centroid": {
 "prefix" : "point:centroid",
 "body": [
 "(point:centroid ${1:pts})"
 ],
-"description":"求多个点的几何形心 返回值:POINT"
+"description":"求多个点的几何形心\n 返回值:POINT"
 },
 "point:div": {
 "prefix" : "point:div",
 "body": [
 "(point:div ${1:pt1} ${2:pt2} ${3:n})"
 ],
-"description":"将 pt1 pt2 之间等分 n 份后每个点的坐标(不含pt1 pt2) 返回值:点坐标表"
+"description":"将 pt1 pt2 之间等分 n 份后每个点的坐标(不含pt1 pt2)\n 返回值:点坐标表"
 },
 "point:in-box": {
 "prefix" : "point:in-box",
 "body": [
 "(point:in-box ${1:pt1} ${2:pt-box1} ${3:pt-box2})"
 ],
-"description":"判断 pt1 是否在矩形内 返回值:t or nil"
+"description":"判断 pt1 是否在矩形内\n 返回值:t or nil"
 },
 "point:mid": {
 "prefix" : "point:mid",
 "body": [
 "(point:mid ${1:pt1} ${2:pt2})"
 ],
-"description":"求两点 pt1 pt2 的中点 返回值:中点坐标"
+"description":"求两点 pt1 pt2 的中点\n 返回值:中点坐标"
 },
 "reg:list-app": {
 "prefix" : "reg:list-app",
 "body": [
 "(reg:list-app)"
 ],
-"description":"列出vlax-get-or-create-object可用的应用对象  返回值:lst"
+"description":"列出vlax-get-or-create-object可用的应用对象 \n 返回值:lst"
 },
 "stat:classify": {
 "prefix" : "stat:classify",
 "body": [
 "(stat:classify ${1:lst-cons})"
 ],
-"description":"分类统计由一系列类别和数字组成的点对表。按类别统计求类别后数值的总和。 返回值:lst"
+"description":"分类统计由一系列类别和数字组成的点对表。按类别统计求类别后数值的总和。\n 返回值:lst"
 },
 "stat:draw": {
 "prefix" : "stat:draw",
@@ -2937,7 +2937,7 @@
 "body": [
 "(stat:stat ${1:lst})"
 ],
-"description":"统计列表 lst 中的元素个数。 返回值:元素和个数组成的点对表"
+"description":"统计列表 lst 中的元素个数。\n 返回值:元素和个数组成的点对表"
 },
 "std:acad-object": {
 "prefix" : "std:acad-object",
@@ -3063,7 +3063,7 @@
 "body": [
 "(std:rgb ${1:red} ${2:green} ${3:blue})"
 ],
-"description":"计算rgb颜色对应的整数值.\n red green blue 取值范围为 [0,255]的整数或[0,1)的小数。 返回值:rgb颜色值"
+"description":"计算rgb颜色对应的整数值.\n red green blue 取值范围为 [0,255]的整数或[0,1)的小数。\n 返回值:rgb颜色值"
 },
 "std:save-system-variable": {
 "prefix" : "std:save-system-variable",
@@ -3098,7 +3098,7 @@
 "body": [
 "(std:timer-start)"
 ],
-"description":"计时器开始函数 返回值:计时器全局变量"
+"description":"计时器开始函数\n 返回值:计时器全局变量"
 },
 "std:unprotect-assign": {
 "prefix" : "std:unprotect-assign",
@@ -3112,21 +3112,21 @@
 "body": [
 "(string:align-by-length ${1:str} ${2:len})"
 ],
-"description":"将字节长度小于 len 的字符串前后增加空格，使其长度等于 len。可用于DCL中的字符对齐。 返回值:String"
+"description":"将字节长度小于 len 的字符串前后增加空格，使其长度等于 len。可用于DCL中的字符对齐。\n 返回值:String"
 },
 "string:auto-split": {
 "prefix" : "string:auto-split",
 "body": [
 "(string:auto-split ${1:str})"
 ],
-"description":"自动分段，按数字-字母-汉字自动断开字符串为字符串列表。不支持科学计数法的数字。 返回值:由字符串组成的列表"
+"description":"自动分段，按数字-字母-汉字自动断开字符串为字符串列表。不支持科学计数法的数字。\n 返回值:由字符串组成的列表"
 },
 "string:bytelength": {
 "prefix" : "string:bytelength",
 "body": [
 "(string:bytelength ${1:str})"
 ],
-"description":"字符串的字节数，用于cad2021版本。 返回值:字符串的字节数"
+"description":"字符串的字节数，用于cad2021版本。\n 返回值:字符串的字节数"
 },
 "string:case": {
 "prefix" : "string:case",
@@ -3154,7 +3154,7 @@
 "body": [
 "(string:from-list ${1:lst} ${2:separator})"
 ],
-"description":"合并连接字符串表 返回值:String"
+"description":"合并连接字符串表\n 返回值:String"
 },
 "string:from-lst": {
 "prefix" : "string:from-lst",
@@ -3189,7 +3189,7 @@
 "body": [
 "(string:length ${1:str})"
 ],
-"description":"字符串长度，一个汉字占1位。 返回值:int"
+"description":"字符串长度，一个汉字占1位。\n 返回值:int"
 },
 "string:lsubstr": {
 "prefix" : "string:lsubstr",
@@ -3203,21 +3203,21 @@
 "body": [
 "(string:num-compare ${1:fun} ${2:str1} ${3:str2})"
 ],
-"description":"字符串在夹杂数字时，如果数字前后的字符串相同，按数字大小比较。fun 可用函数为 >, >=, <, <=,2020-03-31 返回值:T or nil"
+"description":"字符串在夹杂数字时，如果数字前后的字符串相同，按数字大小比较。fun 可用函数为 >, >=, <, <=,2020-03-31\n 返回值:T or nil"
 },
 "string:number-format": {
 "prefix" : "string:number-format",
 "body": [
 "(string:number-format ${1:str-num} ${2:int-n} ${3:int-fraction} ${4:str-fill})"
 ],
-"description":"格式化数字输出。使输出的字符串长度一致。参数: str-num:数字字符串，int-n,整数位数，int-fraction:小数位数，str-fill:填充字符 返回值:字符串"
+"description":"格式化数字输出。使输出的字符串长度一致。参数: str-num:数字字符串，int-n,整数位数，int-fraction:小数位数，str-fill:填充字符\n 返回值:字符串"
 },
 "string:number2chinese": {
 "prefix" : "string:number2chinese",
 "body": [
 "(string:number2chinese ${1:num})"
 ],
-"description":"将数字转化为汉语大写.,仅支持到万亿，只支持整数 返回值:String"
+"description":"将数字转化为汉语大写.,仅支持到万亿，只支持整数\n 返回值:String"
 },
 "string:numberp": {
 "prefix" : "string:numberp",
@@ -3231,7 +3231,7 @@
 "body": [
 "(string:parse-by-lst ${1:lstr} ${2:delimlst})"
 ],
-"description":"字符串按分隔符列表转列表 返回值:拆分后的列表"
+"description":"字符串按分隔符列表转列表\n 返回值:拆分后的列表"
 },
 "string:readme": {
 "prefix" : "string:readme",
@@ -3266,7 +3266,7 @@
 "body": [
 "(string:reverse ${1:str})"
 ],
-"description":"反转字符串,支持中文 返回值:Str"
+"description":"反转字符串,支持中文\n 返回值:Str"
 },
 "string:rightsubstr": {
 "prefix" : "string:rightsubstr",
@@ -3294,14 +3294,14 @@
 "body": [
 "(string:search ${1:pattern} ${2:str})"
 ],
-"description":"搜索字符串pattern 是否为 str的子串，是返回位置（汉字占一位）。 返回值:int"
+"description":"搜索字符串pattern 是否为 str的子串，是返回位置（汉字占一位）。\n 返回值:int"
 },
 "string:sort-by-number": {
 "prefix" : "string:sort-by-number",
 "body": [
 "(string:sort-by-number ${1:lst-str})"
 ],
-"description":"按数字排序字符串\n 在夹杂数字时，如果数字前后的字符串相同，按数字大小排序 返回值:排序后的字符串表"
+"description":"按数字排序字符串\n 在夹杂数字时，如果数字前后的字符串相同，按数字大小排序\n 返回值:排序后的字符串表"
 },
 "string:square": {
 "prefix" : "string:square",
@@ -3315,14 +3315,14 @@
 "body": [
 "(string:subst-all ${1:str-new} ${2:str-old} ${3:str})"
 ],
-"description":"用 str-new 替换 字符串中所有的 str-old  返回值:结果字符串"
+"description":"用 str-new 替换 字符串中所有的 str-old \n 返回值:结果字符串"
 },
 "string:substr": {
 "prefix" : "string:substr",
 "body": [
 "(string:substr ${1:str} ${2:start} ${3:len})"
 ],
-"description":"截取字符串，ansi 字符按 1 位 计算。start 最小值为 1, len 最小为1  返回值:结果字符串"
+"description":"截取字符串，ansi 字符按 1 位 计算。start 最小值为 1, len 最小为1 \n 返回值:结果字符串"
 },
 "string:to-list": {
 "prefix" : "string:to-list",
@@ -3350,7 +3350,7 @@
 "body": [
 "(style:missing-fonts)"
 ],
-"description":"检查缺少的字体，如果有返回字体文件名组成的列表，没有返回nil 返回值:字体文件名组成的列表,或nil"
+"description":"检查缺少的字体，如果有返回字体文件名组成的列表，没有返回nil\n 返回值:字体文件名组成的列表,或nil"
 },
 "sys:list-process": {
 "prefix" : "sys:list-process",
@@ -3364,7 +3364,7 @@
 "body": [
 "(sys:list-process-name)"
 ],
-"description":"获取当前运行的进程名(exe文件名)。 返回值:String"
+"description":"获取当前运行的进程名(exe文件名)。\n 返回值:String"
 },
 "system:vers": {
 "prefix" : "system:vers",
@@ -3378,14 +3378,14 @@
 "body": [
 "(table:make ${1:pt} ${2:title} ${3:headers} ${4:mat-data})"
 ],
-"description":"创建表格，参数: \n pt:位置点，\n title:标题 ， \n headers:表头表\n mat-data: 单元数据矩阵,目前仅支持文字型表格 返回值:表格图元"
+"description":"创建表格，参数: \n pt:位置点，\n title:标题 ， \n headers:表头表\n mat-data: 单元数据矩阵,目前仅支持文字型表格\n 返回值:表格图元"
 },
 "table:read-csv": {
 "prefix" : "table:read-csv",
 "body": [
 "(table:read-csv ${1:file})"
 ],
-"description":"读取 csv 文件。 返回值:二维表"
+"description":"读取 csv 文件。\n 返回值:二维表"
 },
 "table:write-csv": {
 "prefix" : "table:write-csv",
@@ -3399,14 +3399,14 @@
 "body": [
 "(text:get-matrix)"
 ],
-"description":"从dwg图中框取单行文本，形成二维列表数据 返回值:由字符串组成的二维列表"
+"description":"从dwg图中框取单行文本，形成二维列表数据\n 返回值:由字符串组成的二维列表"
 },
 "text:get-mtext": {
 "prefix" : "text:get-mtext",
 "body": [
 "(text:get-mtext ${1:en-mtext})"
 ],
-"description":"取多行文件的内容。当内容长度大于255时，会有多个组码 3.本函数用于组合这些字符串为一整体。 返回值:字符串"
+"description":"取多行文件的内容。当内容长度大于255时，会有多个组码 3.本函数用于组合这些字符串为一整体。\n 返回值:字符串"
 },
 "text:gettextwidth": {
 "prefix" : "text:gettextwidth",
@@ -3420,14 +3420,14 @@
 "body": [
 "(text:parse-mtext ${1:str-m})"
 ],
-"description":"解析多行文本中的格式化字符串，目前为测试版，不保证结果完全正确。 返回值:结果表. ((fmt . t)(str)...(fmt . t)). 某单元为点对且 (cdr 单元)\n   为 t 时表示为格式串，nil 时为的内容串"
+"description":"解析多行文本中的格式化字符串，目前为测试版，不保证结果完全正确。\n 返回值:结果表. ((fmt . t)(str)...(fmt . t)). 某单元为点对且 (cdr 单元)\n   为 t 时表示为格式串，nil 时为的内容串"
 },
 "text:remove-fmt": {
 "prefix" : "text:remove-fmt",
 "body": [
 "(text:remove-fmt ${1:str-mtext})"
 ],
-"description":"去除多行文本中的格式化字符串. 返回值:结果字符串"
+"description":"去除多行文本中的格式化字符串.\n 返回值:结果字符串"
 },
 "text:stringexplode": {
 "prefix" : "text:stringexplode",
@@ -3455,42 +3455,42 @@
 "body": [
 "(ui:button-select ${1:str-subject} ${2:lst})"
 ],
-"description":"显示按钮列表选择面板。\n 选择所需项并返回，无需点击确定。 返回值:选中的内容"
+"description":"显示按钮列表选择面板。\n 选择所需项并返回，无需点击确定。\n 返回值:选中的内容"
 },
 "ui:confirm": {
 "prefix" : "ui:confirm",
 "body": [
 "(ui:confirm ${1:lst-str})"
 ],
-"description":"确认对话框. 参数：lst-str 单个字符串，或字符串列表。 返回值:T or nil"
+"description":"确认对话框. 参数：lst-str 单个字符串，或字符串列表。\n 返回值:T or nil"
 },
 "ui:confirm1": {
 "prefix" : "ui:confirm1",
 "body": [
 "(ui:confirm1 ${1:lst-str} ${2:str-yes-no})"
 ],
-"description":"确认对话框1.\n  参数：lst-str 单个字符串，或字符串列表。\n 参数 str-Yes-No 字符串用 - 分隔成两部分，前面为accept,后面为 Cancel.如 是-否，愿意-不愿意。 返回值:T or nil"
+"description":"确认对话框1.\n  参数：lst-str 单个字符串，或字符串列表。\n 参数 str-Yes-No 字符串用 - 分隔成两部分，前面为accept,后面为 Cancel.如 是-否，愿意-不愿意。\n 返回值:T or nil"
 },
 "ui:dynquery": {
 "prefix" : "ui:dynquery",
 "body": [
 "(ui:dynquery ${1:func})"
 ],
-"description":"动态查询。显示 func 返回的文本列表。func 是对图标所在图元进行的运算结果。形式如 '(lambda (x)\n     (list (entity:getdxf x 0)))\n    返回值:nil,执行过程动态显示用户定义的内容"
+"description":"动态查询。显示 func 返回的文本列表。func 是对图标所在图元进行的运算结果。形式如 '(lambda (x)\n     (list (entity:getdxf x 0)))\n   \n 返回值:nil,执行过程动态显示用户定义的内容"
 },
 "ui:input": {
 "prefix" : "ui:input",
 "body": [
 "(ui:input ${1:str-subject} ${2:lst})"
 ],
-"description":"显示输入一个或多个文本输入的面板，返回所有文本框的值。\n lst 由一个或多个列表组成 \n     每个元素由 (label 默认值 说明 是否密文/列表及列表默认序号(以0开始))\n   组成 。\n label 不可省略，默认值、说明和密文/序号 可省略。当为 <*> 时，为特殊处理符号，如 <hr> 水平线，<text> 单行文本。\n 默认值(第二项):\n     当没有默认值及以后各项时，显示为文本编辑框\n     当为数值型和字符串时，且第4项不为列表时显示文本编辑框\n     当为数值型和字符串时，且第4项为列表时显示下拉菜单\n     当为数值型和字符串时，且第4项为 T 时显示密码编辑框\n     当为 T or nil 时，显示复选框，\n     当为列表时，显示下拉菜单。第4项为数字时，为列表默认值索引号。\n  返回值:所有输入框的 label 和 值 组成的点对表，或 nil"
+"description":"显示输入一个或多个文本输入的面板，返回所有文本框的值。\n lst 由一个或多个列表组成 \n     每个元素由 (label 默认值 说明 是否密文/列表及列表默认序号(以0开始))\n   组成 。\n label 不可省略，默认值、说明和密文/序号 可省略。当为 <*> 时，为特殊处理符号，如 <hr> 水平线，<text> 单行文本。\n 默认值(第二项):\n     当没有默认值及以后各项时，显示为文本编辑框\n     当为数值型和字符串时，且第4项不为列表时显示文本编辑框\n     当为数值型和字符串时，且第4项为列表时显示下拉菜单\n     当为数值型和字符串时，且第4项为 T 时显示密码编辑框\n     当为 T or nil 时，显示复选框，\n     当为列表时，显示下拉菜单。第4项为数字时，为列表默认值索引号。\n \n 返回值:所有输入框的 label 和 值 组成的点对表，或 nil"
 },
 "ui:progress": {
 "prefix" : "ui:progress",
 "body": [
 "(ui:progress ${1:current} ${2:max-number})"
 ],
-"description":"\n 提供一个进度条功能函数，current 是当前进度   max-number 是进度总量\n 调用完成之后，可以使用(GRTEXT)\n   清除进度\n  返回值:无返回值"
+"description":"\n 提供一个进度条功能函数，current 是当前进度   max-number 是进度总量\n 调用完成之后，可以使用(GRTEXT)\n   清除进度\n \n 返回值:无返回值"
 },
 "ui:progress1": {
 "prefix" : "ui:progress1",
@@ -3504,28 +3504,28 @@
 "body": [
 "(ui:select ${1:str-subject} ${2:lst})"
 ],
-"description":"显示列表选择面板，选择所需项并返回。 返回值:选中的内容"
+"description":"显示列表选择面板，选择所需项并返回。\n 返回值:选中的内容"
 },
 "ui:select-multi": {
 "prefix" : "ui:select-multi",
 "body": [
 "(ui:select-multi ${1:str-subject} ${2:lst})"
 ],
-"description":"显示列表选择面板，选择多个所需项并返回。 返回值:选中的内容"
+"description":"显示列表选择面板，选择多个所需项并返回。\n 返回值:选中的内容"
 },
 "ui:table": {
 "prefix" : "ui:table",
 "body": [
 "(ui:table ${1:lst-data})"
 ],
-"description":"表格编辑,纯DCL方式实现,使用前先设置 ui:*table-title* 标题，赋值给 ui:*table-numbers-per-page* (整数)，可以设置每页的行数(默认为20)。ui:*table-widths* 用于定义每列的宽度，默认每列宽度为10。最大支持列数为26列。 返回值:修改后的数据"
+"description":"表格编辑,纯DCL方式实现,使用前先设置 ui:*table-title* 标题，赋值给 ui:*table-numbers-per-page* (整数)，可以设置每页的行数(默认为20)。ui:*table-widths* 用于定义每列的宽度，默认每列宽度为10。最大支持列数为26列。\n 返回值:修改后的数据"
 },
 "ui:table-widths": {
 "prefix" : "ui:table-widths",
 "body": [
 "(ui:table-widths ${1:lst-data})"
 ],
-"description":"求用于dcl表格的各列的自适应宽度。 返回值:数值表"
+"description":"求用于dcl表格的各列的自适应宽度。\n 返回值:数值表"
 },
 "vectra:acos": {
 "prefix" : "vectra:acos",
@@ -3875,7 +3875,7 @@
 "body": [
 "(vectra:getint ${1:msg} ${2:init} ${3:default})"
 ],
-"description":"从命令行获取整数。 返回值:int"
+"description":"从命令行获取整数。\n 返回值:int"
 },
 "vectra:getkword": {
 "prefix" : "vectra:getkword",
@@ -4547,21 +4547,21 @@
 "body": [
 "(vitalgg:helloworld)"
 ],
-"description":"函数功能说明，以及参数说明，作者等信息 返回值:返回值类型及说明"
+"description":"函数功能说明，以及参数说明，作者等信息\n 返回值:返回值类型及说明"
 },
 "vitalgg:test": {
 "prefix" : "vitalgg:test",
 "body": [
 "(vitalgg:test ${1:str})"
 ],
-"description":"用于测试的函数，str 为字符串，by VitalGG 返回值:int: 参数字符串的第一个字母的 ascii 码"
+"description":"用于测试的函数，str 为字符串，by VitalGG\n 返回值:int: 参数字符串的第一个字母的 ascii 码"
 },
 "vla:buildfilter": {
 "prefix" : "vla:buildfilter",
 "body": [
 "(vla:buildfilter ${1:filter})"
 ],
-"description":"构建variant列表\n 参数：\n filter:点对列表 返回值:variant列表"
+"description":"构建variant列表\n 参数：\n filter:点对列表\n 返回值:variant列表"
 },
 "vla:dump": {
 "prefix" : "vla:dump",
@@ -4575,35 +4575,35 @@
 "body": [
 "(vla:get-value ${1:var})"
 ],
-"description":"变体里取值.参数 var:变体或者数组 返回值:数据列表"
+"description":"变体里取值.参数 var:变体或者数组\n 返回值:数据列表"
 },
 "vla:objarray": {
 "prefix" : "vla:objarray",
 "body": [
 "(vla:objarray ${1:lst})"
 ],
-"description":"创建vla对象数组\n 参    数:lst:vla对象表 返回值:返 回 值:vla对象数组"
+"description":"创建vla对象数组\n 参    数:lst:vla对象表\n 返回值:返 回 值:vla对象数组"
 },
 "vla:objectvariant": {
 "prefix" : "vla:objectvariant",
 "body": [
 "(vla:objectvariant ${1:lst})"
 ],
-"description":"创建vla对象表变体.\n 参数：\n lst:vla对象表 返回值:变体"
+"description":"创建vla对象表变体.\n 参数：\n lst:vla对象表\n 返回值:变体"
 },
 "vla:sel": {
 "prefix" : "vla:sel",
 "body": [
 "(vla:sel)"
 ],
-"description":"单选对象。 返回值:vla-object 对象"
+"description":"单选对象。\n 返回值:vla-object 对象"
 },
 "vla:to-ename": {
 "prefix" : "vla:to-ename",
 "body": [
 "(vla:to-ename ${1:obj})"
 ],
-"description":"object转ename,o2e 返回值:ename entity"
+"description":"object转ename,o2e\n 返回值:ename entity"
 },
 "word:close": {
 "prefix" : "word:close",
@@ -4617,21 +4617,21 @@
 "body": [
 "(word:example ${1:filename} ${2:str})"
 ],
-"description":"word 类函数调用示例 返回值:nil"
+"description":"word 类函数调用示例\n 返回值:nil"
 },
 "word:new": {
 "prefix" : "word:new",
 "body": [
 "(word:new ${1:ishide})"
 ],
-"description":"新建word 文档\n 参数:ishide:是否可见，t为可见，nil为不可见 返回值:一个表示word的vla对象"
+"description":"新建word 文档\n 参数:ishide:是否可见，t为可见，nil为不可见\n 返回值:一个表示word的vla对象"
 },
 "word:open": {
 "prefix" : "word:open",
 "body": [
 "(word:open ${1:filename} ${2:ishide})"
 ],
-"description":"打开一个word文件\n 参数:Filename:文件路径\n 参数:ishide:是否可见，t为可见，nil为不可见 返回值:一个表示打开的 word 文件的vla对象"
+"description":"打开一个word文件\n 参数:Filename:文件路径\n 参数:ishide:是否可见，t为可见，nil为不可见\n 返回值:一个表示打开的 word 文件的vla对象"
 },
 "word:quit": {
 "prefix" : "word:quit",
