@@ -1,8 +1,8 @@
 {
 	"name": "atlisp-funlib",
 	"displayName": "@lisp函数库",
-	"description": "@lisp函数库,用于 autolisp 开发 的函数自动完成 显示函数用法帮助。",
-	"version": "1.0.2",
+	"description": "用于CAD中 autolisp 开发的基本函数和@lisp函数的自动完成,语法提示等。",
+	"version": "1.1.4",
 	"license": "SEE LICENSE IN LICENSE.md",
 	"bugs": {
 		"url": "https://gitee.com/atlisp/atlisp-lib/issues"
@@ -17,6 +17,9 @@
 	},
 	"publisher": "VitalGG",
 	"pricing": "Free",
+	"sponsor": {
+		"url": "https://gitee.com/atlisp/atlisp-lib"
+	  },
 	"keywords": [
 		"atlisp",
 		"autolisp",
@@ -48,6 +51,14 @@
 			{
 				"language": "autolisp",
 				"path": "./snippets/snippets.autolisp.json"
+			},
+			{
+				"language": "autolisp",
+				"path": "./snippets/snippets.visuallisp.json"
+			},
+			{
+				"language": "autolisp",
+				"path": "./snippets/snippets.vlreactor.json"
 			}
 		]
 	},

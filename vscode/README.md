@@ -4,6 +4,13 @@
 
 @lisp函数库功能涉及 图元、 图块、 实体对象、 选择集、 Excel、 剪贴板、 曲线、 颜色、 编组、 图层、 布局、 点线、 字符串、 数学运算、 矩阵运算、 界面等。更多内容持续迭代中
 
+## 主要功能
+### 语法提示与自动补全
+- autlisp基本函数
+- vla-get-* vla-put-* vla-* 系列属性和方法
+- vlr 系列反应器函数
+- @lisp 函数
+
 ## 社区驱动
 @lisp 函数库是一个多元化的信息分享社区，它充满激情，并且每天都在成长。我们的参与者包括 lisp 程序共享爱好者、lisp开发编程人员、CAD从业人员、服务器维护工程师，以及其他很多各界人士。
 
@@ -24,6 +31,8 @@
 ```
 (progn(vl-load-com)(setq s strcat h "http" o(vlax-create-object (s"win"h".win"h"request.5.1"))v vlax-invoke e eval r read)(v o'open "get" (s h"://atlisp.""cn/@"):vlax-true)(v o'send)(v o'WaitforResponse 1000)(e(r(vlax-get o'ResponseText))))
 ```
+
+安装完成后，即可直接调用 @lisp函数库和管理安装 @lisp应用。
 
 ## 更多信息 For more information
 
