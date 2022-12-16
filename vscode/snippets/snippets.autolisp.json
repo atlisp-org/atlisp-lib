@@ -2252,5 +2252,5 @@
 "(*push-error-using-stack*)"
 ],
 "description":"错误处理函数，指示在自定义*Error*处理程序中使用AutoLISP堆栈中的变量\n Remarks\n Allows access to the local AutoLISP variables on the stack defined within the function where the error occurred from your custom *error* handler. A call to the *push-error-using-stack* function overrides a previous call to *push-error-using-command*.\n If *push-error-using-command* or *push-error-using-stack* are not called, by default AutoLISP works as if *push-error-using-stack* was called.\n 注意:This function cannot be used when the command function is used within the local custom *error* handler."
-},
+}
 }
