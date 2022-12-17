@@ -2,7 +2,9 @@
 
 @lisp 函数库是一个开源、共享、可云端加载的 autolisp 函数库。由像您一样热爱开源共享的爱好者所构筑并维护。可依据开放许可协议自由使用。
 
-@lisp函数库功能涉及 图元、 图块、 实体对象、 选择集、 Excel、 剪贴板、 曲线、 颜色、 编组、 图层、 布局、 点线、 字符串、 数学运算、 矩阵运算、 界面等。更多内容持续迭代中
+@lisp函数库功能涉及 图元、 图块、 实体对象、 选择集、 Excel、 剪贴板、 曲线、 颜色、 编组、 图层、 布局、 点线、 字符串、 数学运算、 矩阵运算、 界面等。更多内容持续迭代中.
+
+@lisp 可运行于 AutoCAD,浩辰CAD,中望CAD以及 BricsCAD等多种兼容 autolisp/visuallisp 的CAD平台。
 
 ## 主要功能
 ### 语法提示与自动补全
@@ -35,6 +37,6 @@
 安装完成后，即可直接调用 @lisp函数库和管理安装 @lisp应用。
 
 ## 更多信息 For more information
-
+* https://atlisp.cn
 * https://gitee.com/atlisp
 * https://github.com/atlisp-org
