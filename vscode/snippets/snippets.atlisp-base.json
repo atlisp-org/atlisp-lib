@@ -1,0 +1,30 @@
+{
+"@:add-menu": {
+"prefix" : "@:add-menu",
+"body": [
+"(@:add-menu ${1:菜单组} ${2:菜单项} ${3:功能函数})"
+],
+"description":"向@lisp添加菜单"
+},
+"@:add-menus": {
+"prefix" : "@:add-menus",
+"body": [
+"(@:add-menus ${1:lst})"
+],
+"description":"向@lisp添加一组菜单"
+},
+"@:get-config": {
+"prefix" : "@:get-config",
+"body": [
+"(@:get-config ${1:qsym})"
+],
+"description":"读取@lisp配置项的值\n 示例: (@:get-config '@:user)"
+},
+"@:set-config": {
+"prefix" : "@:set-config",
+"body": [
+"(@:get-config ${1:qsym} ${2:value})"
+],
+"description":"设置 @lisp配置项的值\n 示例: (@:get-config '@:user-phone \"1398888888\")"
+}
+}
