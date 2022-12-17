@@ -10,7 +10,6 @@
 			"name": "source",
 			"scope": "source",
 			"settings": {
-				"fontStyle": "bold",
 				"foreground": "#222"
 			}
 		},
@@ -29,7 +28,18 @@
 				"punctuation.definition.comment"
 			],
 			"settings": {
-				"foreground": "#b8b8b8"
+				"foreground": "#888686"
+				
+			}
+		},
+		{
+			"name": "Comments",
+			"scope": [
+				"comment.block",
+				"punctuation.definition.comment"
+			],
+			"settings": {
+				"foreground": "#bd8d8d"
 				
 			}
 		},
@@ -76,7 +86,6 @@
 				"support.type"
 			],
 			"settings": {
-				"fontStyle": "bold",
 				"foreground": "#854a8a"
 			}
 		},
@@ -88,7 +97,6 @@
 				"support.class"
 			],
 			"settings": {
-				"fontStyle": "bold",
 				"foreground": "#581181"
 			}
 		},
@@ -121,7 +129,6 @@
 			"name": "Strings",
 			"scope": "string",
 			"settings": {
-				"fontStyle": "bold",
 				"foreground": "#f109d2"
 			}
 		},
@@ -145,7 +152,6 @@
 			"name": "Propertys",
 			"scope": "property",
 			"settings": {
-				"fontStyle": "bold",
 				"foreground": "#307acf"
 			}
 		},
@@ -156,7 +162,6 @@
 				"variable.readonly"
 			],
 			"settings": {
-				"fontStyle": "bold",
 				"foreground": "#3ff0e0"
 			}
 		},

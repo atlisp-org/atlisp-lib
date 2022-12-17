@@ -2,7 +2,7 @@
 	"name": "atlisp-funlib",
 	"displayName": "@lisp函数库",
 	"description": "用于CAD中 autolisp 开发的基本函数和@lisp函数的自动完成,语法提示等。",
-	"version": "1.1.10",
+	"version": "1.1.12",
 	"license": "SEE LICENSE IN LICENSE.md",
 	"bugs": {
 		"url": "https://gitee.com/atlisp/atlisp-lib/issues"
@@ -76,6 +76,10 @@
 			{
 				"language": "autolisp",
 				"path": "./snippets/snippets.atlisp.json"
+			},
+			{
+				"language": "autolisp",
+				"path": "./snippets/snippets.atlisp-base.json"
 			},
 			{
 				"language": "autolisp",
