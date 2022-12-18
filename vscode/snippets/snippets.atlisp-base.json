@@ -1,30 +1,65 @@
 {
+"install-atlisp": {
+"prefix" : "install-atlisp",
+"body": [
+"(progn (VL-LOAD-COM) (SETQ S STRCAT H \"http\" O (vlax-create-object (S \"win\" H \".win\" H \"request.5.1\")) V vlax-invoke E EVAL R READ) (V O (QUOTE OPEN) \"get\" (S H \"://atlisp.\" \"cn/@\") :vlax-true) (V O (QUOTE SEND)) (V O (QUOTE WAITFORRESPONSE) 1000) (E (R (vlax-get O (QUOTE RESPONSETEXT)))))"
+],
+"description":"@lisp 安装代码 "
+},
 "@:add-menu": {
 "prefix" : "@:add-menu",
 "body": [
-"(@:add-menu ${1:菜单组} ${2:菜单项} ${3:功能函数})"
+"(@:add-menu \"${1:菜单组}\" \"${2:菜单项}\" '${3:功能函数})"
 ],
 "description":"向@lisp添加菜单"
 },
 "@:add-menus": {
 "prefix" : "@:add-menus",
 "body": [
-"(@:add-menus ${1:lst})"
+"(@:add-menus  ${1:lst})"
 ],
 "description":"向@lisp添加一组菜单"
+},
+"@:define-config": {
+"prefix" : "@:define-config",
+"body": [
+"(@:define-config '${1:prefix:sym}  ${2:value} \"${3:配置项说明}\")"
+],
+"description":"定义配置项，用于永久保存。"
 },
 "@:get-config": {
 "prefix" : "@:get-config",
 "body": [
-"(@:get-config ${1:qsym})"
+"(@:get-config '${1:sym})"
 ],
 "description":"读取@lisp配置项的值\n 示例: (@:get-config '@:user)"
 },
 "@:set-config": {
 "prefix" : "@:set-config",
 "body": [
-"(@:get-config ${1:qsym} ${2:value})"
+"(@:set-config '${1:sym}  ${2:value})"
 ],
-"description":"设置 @lisp配置项的值\n 示例: (@:get-config '@:user-phone \"1398888888\")"
+"description":"设置 @lisp配置项的值\n 示例: (@:set-config '@:user-phone \"1398888888\")"
+},
+"@:help": {
+"prefix" : "@:help",
+"body": [
+"(@:help  ${1:lst-str})"
+],
+"description":"功能提示"
+},
+"@:log": {
+"prefix" : "@:log",
+"body": [
+"(@:log \"${1:INFO}\" \"${2:记录内容}\")"
+],
+"description":"记录日志，可作为显示类别信息，如 INFO WARR ERROR 类等。"
+},
+"@:debug": {
+"prefix" : "@:debug",
+"body": [
+"(@:debug \"${1:WARR}\" \"${2:记录内容}\")"
+],
+"description":"记录日志，可作为显示类别信息，如 INFO WARR ERROR 类等。"
 }
 }
