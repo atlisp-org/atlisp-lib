@@ -1,9 +1,9 @@
 {
 	"name": "atlisp-funlib",
 	"displayName": "@lisp函数库",
-	"description": "用于CAD中 Autolisp/Visuallisp 开发的基本函数和@lisp函数的自动完成,语法提示等。",
-	"version": "1.1.14",
-	"license": "SEE LICENSE IN LICENSE.md",
+	"description": "用于CAD中 Autolisp/Visuallisp 开发的基本函数和 @lisp函数 的自动完成,语法提示等。",
+	"version": "1.1.26",
+	"license": "https://gitee.com/atlisp/atlisp-lib/blob/main/LICENSE",
 	"bugs": {
 		"url": "https://gitee.com/atlisp/atlisp-lib/issues"
 	},
@@ -23,10 +23,10 @@
 	"keywords": [
 		"atlisp",
 		"autolisp",
-		"dcl",
-		"CAD",
 		"visuallisp",
-		"lisp"
+		"lisp",
+		"dcl",
+		"CAD"
 	],
 	"categories": [
 		"Snippets",
@@ -46,6 +46,15 @@
 					".lsp",
 					".mnl"
 				]
+			},{
+				"id": "autolispdcl",
+				"aliases": [
+					"AutoLISPDCL",
+					"autolispdcl"
+				],
+				"extensions": [
+					".dcl"
+				]
 			}
 		],
 		"grammars": [
@@ -53,6 +62,11 @@
 				"language": "autolisp",
 				"scopeName": "source.autolisp",
 				"path": "./syntaxes/atlisp.tmLanguage.json"
+			},
+			{
+				"language": "autolispdcl",
+				"scopeName": "source.autolispdcl",
+				"path": "./syntaxes/dcl.tmLanguage.json"
 			}
 		],
 		"themes": [
@@ -97,6 +111,18 @@
 			{
 				"language": "autolisp",
 				"path": "./snippets/snippets.vlreactor.json"
+			},
+			{
+				"language": "autolisp",
+				"path": "./snippets/snippets.dxf.json"
+			},
+			{
+				"language": "autolispdcl",
+				"path": "./snippets/snippets.dcl-tile.json"
+			},
+			{
+				"language": "autolispdcl",
+				"path": "./snippets/snippets.dcl-attribute.json"
 			}
 		]
 	},

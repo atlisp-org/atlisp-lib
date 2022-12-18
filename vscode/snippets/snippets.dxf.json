@@ -1,0 +1,3278 @@
+{
+"dxf-5": {
+"prefix" : "dxf-5",
+"body": [
+"(cons -5 ${1:num})"
+],
+"description":"APP：永久反应器链"
+},
+"dxf-4": {
+"prefix" : "dxf-4",
+"body": [
+"(cons -4 ${1:num})"
+],
+"description":"APP：条件运算符（仅与 ssget 一起使用）\n 参见 =ssget="
+},
+"dxf-3": {
+"prefix" : "dxf-3",
+"body": [
+"(cons -3 ${1:num})"
+],
+"description":"APP：扩展数据 (XDATA) 标记（固定）\n 扩展数据过滤。ALISP 中可以用如下方法给图形添加扩展数据，增加自定义组码及表值。\n 第一步，注册一个扩展对象应用名\n (regapp “xapp”)\n 第二步，选择一个图元并返回组码\n (setq En (entget (car (entsel))))\n 第三步，定义加入图元的扩展数据\n (setq data ‘((-3 (“xapp” (1000 . “你好中国”)))))\n 第四步，将扩展数据附着更新图元\n (entmod (append En data))\n 完成，我们可以检查一下扩展数据\n (assoc -3 (entget (car (entsel)) ‘(“xapp”)))\n 结果返回 (-3 (“xapp” (1000 . “你好中国”))) 采用这种方法添加扩展数据，用 EXPLODE 命令不能清除。\n ** 与 -3 组码无关的话题。\n 用 VLisp 函数给图元添加数据比较简单，无需提前注册名称，例如 (vlax-ldata-put (car (entsel)) “xa” “你好中国”) 查询数据如下： (vlax-ldata-get (car (entsel)) “xa”) 返回 “你好中国”。\n 采用这种方法，用 EXPLODE 命令可以炸开扩展数据，相当于清除图元的扩展数据。 \n 这时候的 ssget 方显英雄本色，用来精确选择，再适合不过。在参数化制图时，添加扩展数据，当参数 发生变化时，很容易遍历修改这些对象，由于扩展数据的不可见和不可分解的特性，不会被用户误操作。 这时候只需要用下面代码即可完成过滤，连对象类别的 0 组码 都不需要了。\n (ssget ‘((-3 (“xapp”))))"
+},
+"dxf-2": {
+"prefix" : "dxf-2",
+"body": [
+"(cons -2 ${1:num})"
+],
+"description":"APP：图元名参照（固定）"
+},
+"dxf-1": {
+"prefix" : "dxf-1",
+"body": [
+"(cons -1 ${1:num})"
+],
+"description":"APP：图元名。每次打开图形时，图元名都会发生变化，从不保存（固定）"
+},
+"dxf0": {
+"prefix" : "dxf0",
+"body": [
+"(0 . \"$1\")"
+],
+"description":"表示图元类型的字符串（固定）"
+},
+"dxf1": {
+"prefix" : "dxf1",
+"body": [
+"(1 . \"$1\")"
+],
+"description":"图元的主文字值"
+},
+"dxf2": {
+"prefix" : "dxf2",
+"body": [
+"(2 . \"$1\")"
+],
+"description":"名称（属性标记、块名等）"
+},
+"dxf3": {
+"prefix" : "dxf3",
+"body": [
+"(3 . \"$1\")"
+],
+"description":"其他文字或名称值"
+},
+"dxf4": {
+"prefix" : "dxf4",
+"body": [
+"(4 . \"$1\")"
+],
+"description":"其他文字或名称值"
+},
+"dxf5": {
+"prefix" : "dxf5",
+"body": [
+"(5 . \"$1\")"
+],
+"description":"图元句柄；最多 16 个十六进制数字的字符串（固定）"
+},
+"dxf6": {
+"prefix" : "dxf6",
+"body": [
+"(6 . \"$1\")"
+],
+"description":"线型名（固定）（如果不是“BYLAYER”，则出现）。特殊名称“BYBLOCK”表示可变的线型（可选）"
+},
+"dxf7": {
+"prefix" : "dxf7",
+"body": [
+"(7 . \"$1\")"
+],
+"description":"文字样式名（固定）"
+},
+"dxf8": {
+"prefix" : "dxf8",
+"body": [
+"(8 . \"$1\")"
+],
+"description":"图层名（固定）"
+},
+"dxf9": {
+"prefix" : "dxf9",
+"body": [
+"(9 . \"$1\")"
+],
+"description":"DXF：变量名称标识符（仅在 DXF 文件的 HEADER 段中使用）"
+},
+"dxf10": {
+"prefix" : "dxf10",
+"body": [
+"(cons 10 ${1:pt})"
+],
+"description":"主要点；直线或文字图元的起点、圆的圆心，等等\n DXF：主要点的 X 值（后跟 Y 和 Z 值代码 20 和 30）\n APP：三维点（三个实数的列表）"
+},
+"dxf11": {
+"prefix" : "dxf11",
+"body": [
+"(cons 11 ${1:pt})"
+],
+"description":"其他点\n DXF：其他点的 X 值（后跟 Y 值代码 21-28 和 Z 值代码 31-38）\n APP：三维点（三个实数的列表）"
+},
+"dxf12": {
+"prefix" : "dxf12",
+"body": [
+"(cons 12 ${1:pt})"
+],
+"description":"其他点\n DXF：其他点的 X 值（后跟 Y 值代码 21-28 和 Z 值代码 31-38）\n APP：三维点（三个实数的列表）"
+},
+"dxf13": {
+"prefix" : "dxf13",
+"body": [
+"(cons 13 ${1:pt})"
+],
+"description":"其他点\n DXF：其他点的 X 值（后跟 Y 值代码 21-28 和 Z 值代码 31-38）\n APP：三维点（三个实数的列表）"
+},
+"dxf14": {
+"prefix" : "dxf14",
+"body": [
+"(cons 14 ${1:pt})"
+],
+"description":"其他点\n DXF：其他点的 X 值（后跟 Y 值代码 21-28 和 Z 值代码 31-38）\n APP：三维点（三个实数的列表）"
+},
+"dxf15": {
+"prefix" : "dxf15",
+"body": [
+"(cons 15 ${1:pt})"
+],
+"description":"其他点\n DXF：其他点的 X 值（后跟 Y 值代码 21-28 和 Z 值代码 31-38）\n APP：三维点（三个实数的列表）"
+},
+"dxf16": {
+"prefix" : "dxf16",
+"body": [
+"(cons 16 ${1:pt})"
+],
+"description":"其他点\n DXF：其他点的 X 值（后跟 Y 值代码 21-28 和 Z 值代码 31-38）\n APP：三维点（三个实数的列表）"
+},
+"dxf17": {
+"prefix" : "dxf17",
+"body": [
+"(cons 17 ${1:pt})"
+],
+"description":"其他点\n DXF：其他点的 X 值（后跟 Y 值代码 21-28 和 Z 值代码 31-38）\n APP：三维点（三个实数的列表）"
+},
+"dxf18": {
+"prefix" : "dxf18",
+"body": [
+"(cons 18 ${1:pt})"
+],
+"description":"其他点\n DXF：其他点的 X 值（后跟 Y 值代码 21-28 和 Z 值代码 31-38）\n APP：三维点（三个实数的列表）"
+},
+"dxf20": {
+"prefix" : "dxf20",
+"body": [
+"(cons 20 ${1:pt})"
+],
+"description":"DXF：主要点的 Y 值和 Z 值"
+},
+"dxf 30": {
+"prefix" : "dxf 30",
+"body": [
+"(cons  30 ${1:pt})"
+],
+"description":"DXF：主要点的 Y 值和 Z 值"
+},
+"dxf21": {
+"prefix" : "dxf21",
+"body": [
+"(cons 21 ${1:pt})"
+],
+"description":"DXF：其他点的 Y 值和 Z 值"
+},
+"dxf22": {
+"prefix" : "dxf22",
+"body": [
+"(cons 22 ${1:pt})"
+],
+"description":"DXF：其他点的 Y 值和 Z 值"
+},
+"dxf23": {
+"prefix" : "dxf23",
+"body": [
+"(cons 23 ${1:pt})"
+],
+"description":"DXF：其他点的 Y 值和 Z 值"
+},
+"dxf24": {
+"prefix" : "dxf24",
+"body": [
+"(cons 24 ${1:pt})"
+],
+"description":"DXF：其他点的 Y 值和 Z 值"
+},
+"dxf25": {
+"prefix" : "dxf25",
+"body": [
+"(cons 25 ${1:pt})"
+],
+"description":"DXF：其他点的 Y 值和 Z 值"
+},
+"dxf26": {
+"prefix" : "dxf26",
+"body": [
+"(cons 26 ${1:pt})"
+],
+"description":"DXF：其他点的 Y 值和 Z 值"
+},
+"dxf27": {
+"prefix" : "dxf27",
+"body": [
+"(cons 27 ${1:pt})"
+],
+"description":"DXF：其他点的 Y 值和 Z 值"
+},
+"dxf28": {
+"prefix" : "dxf28",
+"body": [
+"(cons 28 ${1:pt})"
+],
+"description":"DXF：其他点的 Y 值和 Z 值"
+},
+"dxf 31": {
+"prefix" : "dxf 31",
+"body": [
+"(cons  31 ${1:pt})"
+],
+"description":"DXF：其他点的 Y 值和 Z 值"
+},
+"dxf32": {
+"prefix" : "dxf32",
+"body": [
+"(cons 32 ${1:pt})"
+],
+"description":"DXF：其他点的 Y 值和 Z 值"
+},
+"dxf33": {
+"prefix" : "dxf33",
+"body": [
+"(cons 33 ${1:pt})"
+],
+"description":"DXF：其他点的 Y 值和 Z 值"
+},
+"dxf34": {
+"prefix" : "dxf34",
+"body": [
+"(cons 34 ${1:pt})"
+],
+"description":"DXF：其他点的 Y 值和 Z 值"
+},
+"dxf35": {
+"prefix" : "dxf35",
+"body": [
+"(cons 35 ${1:pt})"
+],
+"description":"DXF：其他点的 Y 值和 Z 值"
+},
+"dxf36": {
+"prefix" : "dxf36",
+"body": [
+"(cons 36 ${1:pt})"
+],
+"description":"DXF：其他点的 Y 值和 Z 值"
+},
+"dxf37": {
+"prefix" : "dxf37",
+"body": [
+"(cons 37 ${1:pt})"
+],
+"description":"DXF：其他点的 Y 值和 Z 值"
+},
+"dxf38": {
+"prefix" : "dxf38",
+"body": [
+"(cons 38 ${1:pt})"
+],
+"description":"DXF：如果非零，则为图元的标高"
+},
+"dxf39": {
+"prefix" : "dxf39",
+"body": [
+"(cons 39 ${1:pt})"
+],
+"description":"如果非零，则为图元的厚度（固定)"
+},
+"dxf40": {
+"prefix" : "dxf40",
+"body": [
+"(cons 40 ${1:num})"
+],
+"description":"双精度浮点值（文字高度、缩放比例等）"
+},
+"dxf41": {
+"prefix" : "dxf41",
+"body": [
+"(cons 41 ${1:num})"
+],
+"description":"双精度浮点值（文字高度、缩放比例等）"
+},
+"dxf42": {
+"prefix" : "dxf42",
+"body": [
+"(cons 42 ${1:num})"
+],
+"description":"双精度浮点值（文字高度、缩放比例等）"
+},
+"dxf43": {
+"prefix" : "dxf43",
+"body": [
+"(cons 43 ${1:num})"
+],
+"description":"双精度浮点值（文字高度、缩放比例等）"
+},
+"dxf44": {
+"prefix" : "dxf44",
+"body": [
+"(cons 44 ${1:num})"
+],
+"description":"双精度浮点值（文字高度、缩放比例等）"
+},
+"dxf45": {
+"prefix" : "dxf45",
+"body": [
+"(cons 45 ${1:num})"
+],
+"description":"双精度浮点值（文字高度、缩放比例等）"
+},
+"dxf46": {
+"prefix" : "dxf46",
+"body": [
+"(cons 46 ${1:num})"
+],
+"description":"双精度浮点值（文字高度、缩放比例等）"
+},
+"dxf47": {
+"prefix" : "dxf47",
+"body": [
+"(cons 47 ${1:num})"
+],
+"description":"双精度浮点值（文字高度、缩放比例等）"
+},
+"dxf48": {
+"prefix" : "dxf48",
+"body": [
+"(cons 48 ${1:num})"
+],
+"description":"线型比例；双精度浮点标量值；默认值适用于所有图元类型"
+},
+"dxf49": {
+"prefix" : "dxf49",
+"body": [
+"(cons 49 ${1:num})"
+],
+"description":"重复的双精度浮点值。一个图元的可变长度表（例如，LTYPE 表中的虚线长度）中可能会出现多个 49 组。7x 组始终出现在第一个 49 组之前，用以指定表的长度"
+},
+"dxf50": {
+"prefix" : "dxf50",
+"body": [
+"(cons 50 ${1:num})"
+],
+"description":"角度（在 DXF 文件中以度为单位，在 AutoLISP 和 ObjectARX 应用程序中以弧度为单位）"
+},
+"dxf51": {
+"prefix" : "dxf51",
+"body": [
+"(cons 51 ${1:num})"
+],
+"description":"角度（在 DXF 文件中以度为单位，在 AutoLISP 和 ObjectARX 应用程序中以弧度为单位）"
+},
+"dxf52": {
+"prefix" : "dxf52",
+"body": [
+"(cons 52 ${1:num})"
+],
+"description":"角度（在 DXF 文件中以度为单位，在 AutoLISP 和 ObjectARX 应用程序中以弧度为单位）"
+},
+"dxf53": {
+"prefix" : "dxf53",
+"body": [
+"(cons 53 ${1:num})"
+],
+"description":"角度（在 DXF 文件中以度为单位，在 AutoLISP 和 ObjectARX 应用程序中以弧度为单位）"
+},
+"dxf54": {
+"prefix" : "dxf54",
+"body": [
+"(cons 54 ${1:num})"
+],
+"description":"角度（在 DXF 文件中以度为单位，在 AutoLISP 和 ObjectARX 应用程序中以弧度为单位）"
+},
+"dxf55": {
+"prefix" : "dxf55",
+"body": [
+"(cons 55 ${1:num})"
+],
+"description":"角度（在 DXF 文件中以度为单位，在 AutoLISP 和 ObjectARX 应用程序中以弧度为单位）"
+},
+"dxf56": {
+"prefix" : "dxf56",
+"body": [
+"(cons 56 ${1:num})"
+],
+"description":"角度（在 DXF 文件中以度为单位，在 AutoLISP 和 ObjectARX 应用程序中以弧度为单位）"
+},
+"dxf57": {
+"prefix" : "dxf57",
+"body": [
+"(cons 57 ${1:num})"
+],
+"description":"角度（在 DXF 文件中以度为单位，在 AutoLISP 和 ObjectARX 应用程序中以弧度为单位）"
+},
+"dxf58": {
+"prefix" : "dxf58",
+"body": [
+"(cons 58 ${1:num})"
+],
+"description":"角度（在 DXF 文件中以度为单位，在 AutoLISP 和 ObjectARX 应用程序中以弧度为单位）"
+},
+"dxf60": {
+"prefix" : "dxf60",
+"body": [
+"(cons 60 ${1:num})"
+],
+"description":"图元可见性；整数值；未赋值或值为 0 时表示可见；值为 1 时表示不可见"
+},
+"dxf62": {
+"prefix" : "dxf62",
+"body": [
+"(cons 62 ${1:num})"
+],
+"description":"颜色号（固定）\n 颜色号（如果不是“BYLAYER”，则出现）；零表示“BYBLOCK”（可变的）颜色；256 表示“BYLAYER”；负值表示层已关闭（可选）"
+},
+"dxf66": {
+"prefix" : "dxf66",
+"body": [
+"(cons 66 ${1:num})"
+],
+"description":"“后跟图元”标志（固定）"
+},
+"dxf67": {
+"prefix" : "dxf67",
+"body": [
+"(cons 67 ${1:num})"
+],
+"description":"空间 — 模型空间或图纸空间（固定）\n 不存在或零表示图元位于模型空间中。1 表示图元位于图纸空间中（可选）"
+},
+"dxf68": {
+"prefix" : "dxf68",
+"body": [
+"(cons 68 ${1:num})"
+],
+"description":"APP：指示视口是处于打开状态但在屏幕上完全不可见，还是未激活或处于关闭状态"
+},
+"dxf69": {
+"prefix" : "dxf69",
+"body": [
+"(cons 69 ${1:num})"
+],
+"description":"APP：视口标识号"
+},
+"dxf70": {
+"prefix" : "dxf70",
+"body": [
+"(cons 70 ${1:num})"
+],
+"description":"整数值，例如重复计数、标志位或模式\n ** 块类型标志（按位编码值，可以组合使用）：\n 0 = 表示不应用下列任何标志\n 1 = 由图案填充、关联标注、其他内部操作或应用程序生成的匿名块\n 2 = 块具有非固定属性定义（如果块具有任何固定属性定义或根本没有属性定义，则不设定此位）\n 4 = 块是外部参照 (xref)\n 8 = 块是外部参照覆盖\n 16 = 块依赖外部参照\n 32 = 块是融入的外部参照，或者依赖外部参照（输入时被忽略）\n 64 = 定义是被引用的外部参照（输入时\n 被忽略）"
+},
+"dxf71": {
+"prefix" : "dxf71",
+"body": [
+"(cons 71 ${1:num})"
+],
+"description":"整数值，例如重复计数、标志位或模式"
+},
+"dxf72": {
+"prefix" : "dxf72",
+"body": [
+"(cons 72 ${1:num})"
+],
+"description":"整数值，例如重复计数、标志位或模式"
+},
+"dxf73": {
+"prefix" : "dxf73",
+"body": [
+"(cons 73 ${1:num})"
+],
+"description":"整数值，例如重复计数、标志位或模式"
+},
+"dxf74": {
+"prefix" : "dxf74",
+"body": [
+"(cons 74 ${1:num})"
+],
+"description":"整数值，例如重复计数、标志位或模式"
+},
+"dxf75": {
+"prefix" : "dxf75",
+"body": [
+"(cons 75 ${1:num})"
+],
+"description":"整数值，例如重复计数、标志位或模式"
+},
+"dxf76": {
+"prefix" : "dxf76",
+"body": [
+"(cons 76 ${1:num})"
+],
+"description":"整数值，例如重复计数、标志位或模式"
+},
+"dxf77": {
+"prefix" : "dxf77",
+"body": [
+"(cons 77 ${1:num})"
+],
+"description":"整数值，例如重复计数、标志位或模式"
+},
+"dxf78": {
+"prefix" : "dxf78",
+"body": [
+"(cons 78 ${1:num})"
+],
+"description":"整数值，例如重复计数、标志位或模式"
+},
+"dxf90": {
+"prefix" : "dxf90",
+"body": [
+"(cons 90 ${1:num})"
+],
+"description":"dword 32 位整数值"
+},
+"dxf91": {
+"prefix" : "dxf91",
+"body": [
+"(cons 91 ${1:num})"
+],
+"description":"dword 32 位整数值"
+},
+"dxf93": {
+"prefix" : "dxf93",
+"body": [
+"(cons 93 ${1:num})"
+],
+"description":"dword 32 位整数值"
+},
+"dxf94": {
+"prefix" : "dxf94",
+"body": [
+"(cons 94 ${1:num})"
+],
+"description":"dword 32 位整数值"
+},
+"dxf95": {
+"prefix" : "dxf95",
+"body": [
+"(cons 95 ${1:num})"
+],
+"description":"dword 32 位整数值"
+},
+"dxf96": {
+"prefix" : "dxf96",
+"body": [
+"(cons 96 ${1:num})"
+],
+"description":"dword 32 位整数值"
+},
+"dxf97": {
+"prefix" : "dxf97",
+"body": [
+"(cons 97 ${1:num})"
+],
+"description":"dword 32 位整数值"
+},
+"dxf98": {
+"prefix" : "dxf98",
+"body": [
+"(cons 98 ${1:num})"
+],
+"description":"dword 32 位整数值"
+},
+"dxf99": {
+"prefix" : "dxf99",
+"body": [
+"(cons 99 ${1:num})"
+],
+"description":"dword 32 位整数值"
+},
+"dxf92": {
+"prefix" : "dxf92",
+"body": [
+"(cons 92 ${1:num})"
+],
+"description":"后面的 310 组（二进制数据块记录）中表示的代理图元图形中的字节数（可选）"
+},
+"dxf100": {
+"prefix" : "dxf100",
+"body": [
+"(100 . \"$1\")"
+],
+"description":"子类数据标记（将派生类名作为字符串）从其他具体类派生的所有对象和图元类必须具有此标记。子类数据标记用于分离由同一对象的继承链中的不同类定义的数据。\n 对于从 ObjectARX 派生的每个不同的具体类的 DXF 名称来说，这是必须满足的额外要求（参见“子类标记”）"
+},
+"dxf102": {
+"prefix" : "dxf102",
+"body": [
+"(102 . \"$1\")"
+],
+"description":"控制字符串，后跟“{<任意名称>”或“}”。与扩展数据 1002 组码类似，不同之处在于当字符串以“{”开始时，其后可跟任意字符串，字符串的解释取决于应用程序。唯一允许的另外一个控制字符串是作为组结束符的“}”。在图形审核操作期间以外，AutoCAD 不会解释这些字符串。它们供应用程序使用.\n “{ACAD_REACTORS”表示 AutoCAD 永久反应器组的开始。仅当将永久反应器附加到此对象时，此组才存在（可选）"
+},
+"dxf105": {
+"prefix" : "dxf105",
+"body": [
+"(cons 105 ${1:num})"
+],
+"description":"DIMVAR 符号表条目的对象句柄"
+},
+"dxf110": {
+"prefix" : "dxf110",
+"body": [
+"(cons 110 ${1:num})"
+],
+"description":"UCS 原点（仅当将代码 72 设定为 1 时才显示）\n DXF：X 值；APP：三维点"
+},
+"dxf111": {
+"prefix" : "dxf111",
+"body": [
+"(cons 111 ${1:num})"
+],
+"description":"UCS X 轴（仅当将代码 72 设定为 1 时才显示）\n DXF：X 值；APP：三维矢量"
+},
+"dxf112": {
+"prefix" : "dxf112",
+"body": [
+"(cons 112 ${1:num})"
+],
+"description":"UCS Y 轴（仅当将代码 72 设定为 1 时才显示）\n DXF：X 值；APP：三维矢量"
+},
+"dxf120": {
+"prefix" : "dxf120",
+"body": [
+"(cons 120 ${1:num})"
+],
+"description":"DXF：UCS 原点的 Y 值，UCS X 轴和 UCS Y 轴"
+},
+"dxf121": {
+"prefix" : "dxf121",
+"body": [
+"(cons 121 ${1:num})"
+],
+"description":"DXF：UCS 原点的 Y 值，UCS X 轴和 UCS Y 轴"
+},
+"dxf122": {
+"prefix" : "dxf122",
+"body": [
+"(cons 122 ${1:num})"
+],
+"description":"DXF：UCS 原点的 Y 值，UCS X 轴和 UCS Y 轴"
+},
+"dxf130": {
+"prefix" : "dxf130",
+"body": [
+"(cons 130 ${1:num})"
+],
+"description":"DXF：UCS 原点的 Z 值，UCS X 轴和 UCS Y 轴"
+},
+"dxf131": {
+"prefix" : "dxf131",
+"body": [
+"(cons 131 ${1:num})"
+],
+"description":"DXF：UCS 原点的 Z 值，UCS X 轴和 UCS Y 轴"
+},
+"dxf132": {
+"prefix" : "dxf132",
+"body": [
+"(cons 132 ${1:num})"
+],
+"description":"DXF：UCS 原点的 Z 值，UCS X 轴和 UCS Y 轴"
+},
+"dxf140": {
+"prefix" : "dxf140",
+"body": [
+"(cons 140 ${1:num})"
+],
+"description":"双精度浮点值（例如点、标高和 DIMSTYLE 设置）"
+},
+"dxf141": {
+"prefix" : "dxf141",
+"body": [
+"(cons 141 ${1:num})"
+],
+"description":"双精度浮点值（例如点、标高和 DIMSTYLE 设置）"
+},
+"dxf142": {
+"prefix" : "dxf142",
+"body": [
+"(cons 142 ${1:num})"
+],
+"description":"双精度浮点值（例如点、标高和 DIMSTYLE 设置）"
+},
+"dxf143": {
+"prefix" : "dxf143",
+"body": [
+"(cons 143 ${1:num})"
+],
+"description":"双精度浮点值（例如点、标高和 DIMSTYLE 设置）"
+},
+"dxf144": {
+"prefix" : "dxf144",
+"body": [
+"(cons 144 ${1:num})"
+],
+"description":"双精度浮点值（例如点、标高和 DIMSTYLE 设置）"
+},
+"dxf145": {
+"prefix" : "dxf145",
+"body": [
+"(cons 145 ${1:num})"
+],
+"description":"双精度浮点值（例如点、标高和 DIMSTYLE 设置）"
+},
+"dxf146": {
+"prefix" : "dxf146",
+"body": [
+"(cons 146 ${1:num})"
+],
+"description":"双精度浮点值（例如点、标高和 DIMSTYLE 设置）"
+},
+"dxf147": {
+"prefix" : "dxf147",
+"body": [
+"(cons 147 ${1:num})"
+],
+"description":"双精度浮点值（例如点、标高和 DIMSTYLE 设置）"
+},
+"dxf148": {
+"prefix" : "dxf148",
+"body": [
+"(cons 148 ${1:num})"
+],
+"description":"双精度浮点值（例如点、标高和 DIMSTYLE 设置）"
+},
+"dxf149": {
+"prefix" : "dxf149",
+"body": [
+"(cons 149 ${1:num})"
+],
+"description":"双精度浮点值（例如点、标高和 DIMSTYLE 设置）"
+},
+"dxf170": {
+"prefix" : "dxf170",
+"body": [
+"(cons 170 ${1:num})"
+],
+"description":"Word 16 位整数值，例如表示 DIMSTYLE 设置的标志位"
+},
+"dxf171": {
+"prefix" : "dxf171",
+"body": [
+"(cons 171 ${1:num})"
+],
+"description":"Word 16 位整数值，例如表示 DIMSTYLE 设置的标志位"
+},
+"dxf172": {
+"prefix" : "dxf172",
+"body": [
+"(cons 172 ${1:num})"
+],
+"description":"Word 16 位整数值，例如表示 DIMSTYLE 设置的标志位"
+},
+"dxf173": {
+"prefix" : "dxf173",
+"body": [
+"(cons 173 ${1:num})"
+],
+"description":"Word 16 位整数值，例如表示 DIMSTYLE 设置的标志位"
+},
+"dxf174": {
+"prefix" : "dxf174",
+"body": [
+"(cons 174 ${1:num})"
+],
+"description":"Word 16 位整数值，例如表示 DIMSTYLE 设置的标志位"
+},
+"dxf175": {
+"prefix" : "dxf175",
+"body": [
+"(cons 175 ${1:num})"
+],
+"description":"Word 16 位整数值，例如表示 DIMSTYLE 设置的标志位"
+},
+"dxf176": {
+"prefix" : "dxf176",
+"body": [
+"(cons 176 ${1:num})"
+],
+"description":"Word 16 位整数值，例如表示 DIMSTYLE 设置的标志位"
+},
+"dxf177": {
+"prefix" : "dxf177",
+"body": [
+"(cons 177 ${1:num})"
+],
+"description":"Word 16 位整数值，例如表示 DIMSTYLE 设置的标志位"
+},
+"dxf178": {
+"prefix" : "dxf178",
+"body": [
+"(cons 178 ${1:num})"
+],
+"description":"Word 16 位整数值，例如表示 DIMSTYLE 设置的标志位"
+},
+"dxf179": {
+"prefix" : "dxf179",
+"body": [
+"(cons 179 ${1:num})"
+],
+"description":"Word 16 位整数值，例如表示 DIMSTYLE 设置的标志位"
+},
+"dxf210": {
+"prefix" : "dxf210",
+"body": [
+"(cons 210 ${1:num})"
+],
+"description":"拉伸方向（固定）\n DXF：拉伸方向的 X 值\n APP：三维拉伸方向矢量"
+},
+"dxf220": {
+"prefix" : "dxf220",
+"body": [
+"(cons 220 ${1:num})"
+],
+"description":"DXF：拉伸方向的 Y 值和 Z 值"
+},
+"dxf 230": {
+"prefix" : "dxf 230",
+"body": [
+"(cons  230 ${1:num})"
+],
+"description":"DXF：拉伸方向的 Y 值和 Z 值"
+},
+"dxf270": {
+"prefix" : "dxf270",
+"body": [
+"(cons 270 ${1:num})"
+],
+"description":"16 位整数值"
+},
+"dxf271": {
+"prefix" : "dxf271",
+"body": [
+"(cons 271 ${1:num})"
+],
+"description":"16 位整数值"
+},
+"dxf272": {
+"prefix" : "dxf272",
+"body": [
+"(cons 272 ${1:num})"
+],
+"description":"16 位整数值"
+},
+"dxf273": {
+"prefix" : "dxf273",
+"body": [
+"(cons 273 ${1:num})"
+],
+"description":"16 位整数值"
+},
+"dxf274": {
+"prefix" : "dxf274",
+"body": [
+"(cons 274 ${1:num})"
+],
+"description":"16 位整数值"
+},
+"dxf275": {
+"prefix" : "dxf275",
+"body": [
+"(cons 275 ${1:num})"
+],
+"description":"16 位整数值"
+},
+"dxf276": {
+"prefix" : "dxf276",
+"body": [
+"(cons 276 ${1:num})"
+],
+"description":"16 位整数值"
+},
+"dxf277": {
+"prefix" : "dxf277",
+"body": [
+"(cons 277 ${1:num})"
+],
+"description":"16 位整数值"
+},
+"dxf278": {
+"prefix" : "dxf278",
+"body": [
+"(cons 278 ${1:num})"
+],
+"description":"16 位整数值"
+},
+"dxf279": {
+"prefix" : "dxf279",
+"body": [
+"(cons 279 ${1:num})"
+],
+"description":"16 位整数值"
+},
+"dxf280": {
+"prefix" : "dxf280",
+"body": [
+"(cons 280 ${1:num})"
+],
+"description":"16 位整数值"
+},
+"dxf281": {
+"prefix" : "dxf281",
+"body": [
+"(cons 281 ${1:num})"
+],
+"description":"16 位整数值"
+},
+"dxf282": {
+"prefix" : "dxf282",
+"body": [
+"(cons 282 ${1:num})"
+],
+"description":"16 位整数值"
+},
+"dxf283": {
+"prefix" : "dxf283",
+"body": [
+"(cons 283 ${1:num})"
+],
+"description":"16 位整数值"
+},
+"dxf285": {
+"prefix" : "dxf285",
+"body": [
+"(cons 285 ${1:num})"
+],
+"description":"16 位整数值"
+},
+"dxf286": {
+"prefix" : "dxf286",
+"body": [
+"(cons 286 ${1:num})"
+],
+"description":"16 位整数值"
+},
+"dxf287": {
+"prefix" : "dxf287",
+"body": [
+"(cons 287 ${1:num})"
+],
+"description":"16 位整数值"
+},
+"dxf288": {
+"prefix" : "dxf288",
+"body": [
+"(cons 288 ${1:num})"
+],
+"description":"16 位整数值"
+},
+"dxf289": {
+"prefix" : "dxf289",
+"body": [
+"(cons 289 ${1:num})"
+],
+"description":"16 位整数值"
+},
+"dxf284": {
+"prefix" : "dxf284",
+"body": [
+"(cons 284 ${1:num})"
+],
+"description":"阴影模式\n 0 = 投射和接收阴影\n 1 = 投射阴影\n 2 = 接收阴影\n 3 = 忽略阴影\n 注意:从基于 AutoCAD 2016 的产品开始，该特性已弃用，但是为了实现向后兼容性，该特性仍受支持。"
+},
+"dxf290": {
+"prefix" : "dxf290",
+"body": [
+"(cons 290 ${1:num})"
+],
+"description":"布尔标志值"
+},
+"dxf291": {
+"prefix" : "dxf291",
+"body": [
+"(cons 291 ${1:num})"
+],
+"description":"布尔标志值"
+},
+"dxf292": {
+"prefix" : "dxf292",
+"body": [
+"(cons 292 ${1:num})"
+],
+"description":"布尔标志值"
+},
+"dxf293": {
+"prefix" : "dxf293",
+"body": [
+"(cons 293 ${1:num})"
+],
+"description":"布尔标志值"
+},
+"dxf294": {
+"prefix" : "dxf294",
+"body": [
+"(cons 294 ${1:num})"
+],
+"description":"布尔标志值"
+},
+"dxf295": {
+"prefix" : "dxf295",
+"body": [
+"(cons 295 ${1:num})"
+],
+"description":"布尔标志值"
+},
+"dxf296": {
+"prefix" : "dxf296",
+"body": [
+"(cons 296 ${1:num})"
+],
+"description":"布尔标志值"
+},
+"dxf297": {
+"prefix" : "dxf297",
+"body": [
+"(cons 297 ${1:num})"
+],
+"description":"布尔标志值"
+},
+"dxf298": {
+"prefix" : "dxf298",
+"body": [
+"(cons 298 ${1:num})"
+],
+"description":"布尔标志值"
+},
+"dxf299": {
+"prefix" : "dxf299",
+"body": [
+"(cons 299 ${1:num})"
+],
+"description":"布尔标志值"
+},
+"dxf300": {
+"prefix" : "dxf300",
+"body": [
+"(300 . \"$1\")"
+],
+"description":"任意字符串"
+},
+"dxf301": {
+"prefix" : "dxf301",
+"body": [
+"(301 . \"$1\")"
+],
+"description":"任意字符串"
+},
+"dxf302": {
+"prefix" : "dxf302",
+"body": [
+"(302 . \"$1\")"
+],
+"description":"任意字符串"
+},
+"dxf303": {
+"prefix" : "dxf303",
+"body": [
+"(303 . \"$1\")"
+],
+"description":"任意字符串"
+},
+"dxf304": {
+"prefix" : "dxf304",
+"body": [
+"(304 . \"$1\")"
+],
+"description":"任意字符串"
+},
+"dxf305": {
+"prefix" : "dxf305",
+"body": [
+"(305 . \"$1\")"
+],
+"description":"任意字符串"
+},
+"dxf306": {
+"prefix" : "dxf306",
+"body": [
+"(306 . \"$1\")"
+],
+"description":"任意字符串"
+},
+"dxf307": {
+"prefix" : "dxf307",
+"body": [
+"(307 . \"$1\")"
+],
+"description":"任意字符串"
+},
+"dxf308": {
+"prefix" : "dxf308",
+"body": [
+"(308 . \"$1\")"
+],
+"description":"任意字符串"
+},
+"dxf309": {
+"prefix" : "dxf309",
+"body": [
+"(309 . \"$1\")"
+],
+"description":"任意字符串"
+},
+"dxf310": {
+"prefix" : "dxf310",
+"body": [
+"(cons 310 ${1:num})"
+],
+"description":"代理图元图形数据（多行；每行最多 256 个字符）（可选）\n 具有相同表示和 1004 组码限制的任意二进制块：用最大长度为 254 个字符的十六进制字符串表示最大长度为 127 个字节的数据块"
+},
+"dxf311": {
+"prefix" : "dxf311",
+"body": [
+"(cons 311 ${1:num})"
+],
+"description":"具有相同表示和 1004 组码限制的任意二进制块：用最大长度为 254 个字符的十六进制字符串表示最大长度为 127 个字节的数据块"
+},
+"dxf312": {
+"prefix" : "dxf312",
+"body": [
+"(cons 312 ${1:num})"
+],
+"description":"具有相同表示和 1004 组码限制的任意二进制块：用最大长度为 254 个字符的十六进制字符串表示最大长度为 127 个字节的数据块"
+},
+"dxf313": {
+"prefix" : "dxf313",
+"body": [
+"(cons 313 ${1:num})"
+],
+"description":"具有相同表示和 1004 组码限制的任意二进制块：用最大长度为 254 个字符的十六进制字符串表示最大长度为 127 个字节的数据块"
+},
+"dxf314": {
+"prefix" : "dxf314",
+"body": [
+"(cons 314 ${1:num})"
+],
+"description":"具有相同表示和 1004 组码限制的任意二进制块：用最大长度为 254 个字符的十六进制字符串表示最大长度为 127 个字节的数据块"
+},
+"dxf315": {
+"prefix" : "dxf315",
+"body": [
+"(cons 315 ${1:num})"
+],
+"description":"具有相同表示和 1004 组码限制的任意二进制块：用最大长度为 254 个字符的十六进制字符串表示最大长度为 127 个字节的数据块"
+},
+"dxf316": {
+"prefix" : "dxf316",
+"body": [
+"(cons 316 ${1:num})"
+],
+"description":"具有相同表示和 1004 组码限制的任意二进制块：用最大长度为 254 个字符的十六进制字符串表示最大长度为 127 个字节的数据块"
+},
+"dxf317": {
+"prefix" : "dxf317",
+"body": [
+"(cons 317 ${1:num})"
+],
+"description":"具有相同表示和 1004 组码限制的任意二进制块：用最大长度为 254 个字符的十六进制字符串表示最大长度为 127 个字节的数据块"
+},
+"dxf318": {
+"prefix" : "dxf318",
+"body": [
+"(cons 318 ${1:num})"
+],
+"description":"具有相同表示和 1004 组码限制的任意二进制块：用最大长度为 254 个字符的十六进制字符串表示最大长度为 127 个字节的数据块"
+},
+"dxf319": {
+"prefix" : "dxf319",
+"body": [
+"(cons 319 ${1:num})"
+],
+"description":"具有相同表示和 1004 组码限制的任意二进制块：用最大长度为 254 个字符的十六进制字符串表示最大长度为 127 个字节的数据块"
+},
+"dxf320": {
+"prefix" : "dxf320",
+"body": [
+"(cons 320 ${1:num})"
+],
+"description":"任意对象句柄；“按原样”获取的句柄值。它们在 INSERT 和 XREF 操作期间不进行转换"
+},
+"dxf321": {
+"prefix" : "dxf321",
+"body": [
+"(cons 321 ${1:num})"
+],
+"description":"任意对象句柄；“按原样”获取的句柄值。它们在 INSERT 和 XREF 操作期间不进行转换"
+},
+"dxf322": {
+"prefix" : "dxf322",
+"body": [
+"(cons 322 ${1:num})"
+],
+"description":"任意对象句柄；“按原样”获取的句柄值。它们在 INSERT 和 XREF 操作期间不进行转换"
+},
+"dxf323": {
+"prefix" : "dxf323",
+"body": [
+"(cons 323 ${1:num})"
+],
+"description":"任意对象句柄；“按原样”获取的句柄值。它们在 INSERT 和 XREF 操作期间不进行转换"
+},
+"dxf324": {
+"prefix" : "dxf324",
+"body": [
+"(cons 324 ${1:num})"
+],
+"description":"任意对象句柄；“按原样”获取的句柄值。它们在 INSERT 和 XREF 操作期间不进行转换"
+},
+"dxf325": {
+"prefix" : "dxf325",
+"body": [
+"(cons 325 ${1:num})"
+],
+"description":"任意对象句柄；“按原样”获取的句柄值。它们在 INSERT 和 XREF 操作期间不进行转换"
+},
+"dxf326": {
+"prefix" : "dxf326",
+"body": [
+"(cons 326 ${1:num})"
+],
+"description":"任意对象句柄；“按原样”获取的句柄值。它们在 INSERT 和 XREF 操作期间不进行转换"
+},
+"dxf327": {
+"prefix" : "dxf327",
+"body": [
+"(cons 327 ${1:num})"
+],
+"description":"任意对象句柄；“按原样”获取的句柄值。它们在 INSERT 和 XREF 操作期间不进行转换"
+},
+"dxf328": {
+"prefix" : "dxf328",
+"body": [
+"(cons 328 ${1:num})"
+],
+"description":"任意对象句柄；“按原样”获取的句柄值。它们在 INSERT 和 XREF 操作期间不进行转换"
+},
+"dxf329": {
+"prefix" : "dxf329",
+"body": [
+"(cons 329 ${1:num})"
+],
+"description":"任意对象句柄；“按原样”获取的句柄值。它们在 INSERT 和 XREF 操作期间不进行转换"
+},
+"dxf330": {
+"prefix" : "dxf330",
+"body": [
+"(cons 330 ${1:num})"
+],
+"description":"软指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意软指针。在 INSERT 和 XREF 操作期间进行转换\n 330 所有者 BLOCK_RECORD 对象的软指针 ID/句柄"
+},
+"dxf331": {
+"prefix" : "dxf331",
+"body": [
+"(cons 331 ${1:num})"
+],
+"description":"软指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意软指针。在 INSERT 和 XREF 操作期间进行转换\n 330 所有者 BLOCK_RECORD 对象的软指针 ID/句柄"
+},
+"dxf332": {
+"prefix" : "dxf332",
+"body": [
+"(cons 332 ${1:num})"
+],
+"description":"软指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意软指针。在 INSERT 和 XREF 操作期间进行转换\n 330 所有者 BLOCK_RECORD 对象的软指针 ID/句柄"
+},
+"dxf333": {
+"prefix" : "dxf333",
+"body": [
+"(cons 333 ${1:num})"
+],
+"description":"软指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意软指针。在 INSERT 和 XREF 操作期间进行转换\n 330 所有者 BLOCK_RECORD 对象的软指针 ID/句柄"
+},
+"dxf334": {
+"prefix" : "dxf334",
+"body": [
+"(cons 334 ${1:num})"
+],
+"description":"软指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意软指针。在 INSERT 和 XREF 操作期间进行转换\n 330 所有者 BLOCK_RECORD 对象的软指针 ID/句柄"
+},
+"dxf335": {
+"prefix" : "dxf335",
+"body": [
+"(cons 335 ${1:num})"
+],
+"description":"软指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意软指针。在 INSERT 和 XREF 操作期间进行转换\n 330 所有者 BLOCK_RECORD 对象的软指针 ID/句柄"
+},
+"dxf336": {
+"prefix" : "dxf336",
+"body": [
+"(cons 336 ${1:num})"
+],
+"description":"软指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意软指针。在 INSERT 和 XREF 操作期间进行转换\n 330 所有者 BLOCK_RECORD 对象的软指针 ID/句柄"
+},
+"dxf337": {
+"prefix" : "dxf337",
+"body": [
+"(cons 337 ${1:num})"
+],
+"description":"软指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意软指针。在 INSERT 和 XREF 操作期间进行转换\n 330 所有者 BLOCK_RECORD 对象的软指针 ID/句柄"
+},
+"dxf338": {
+"prefix" : "dxf338",
+"body": [
+"(cons 338 ${1:num})"
+],
+"description":"软指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意软指针。在 INSERT 和 XREF 操作期间进行转换\n 330 所有者 BLOCK_RECORD 对象的软指针 ID/句柄"
+},
+"dxf339": {
+"prefix" : "dxf339",
+"body": [
+"(cons 339 ${1:num})"
+],
+"description":"软指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意软指针。在 INSERT 和 XREF 操作期间进行转换\n 330 所有者 BLOCK_RECORD 对象的软指针 ID/句柄"
+},
+"dxf340": {
+"prefix" : "dxf340",
+"body": [
+"(cons 340 ${1:num})"
+],
+"description":"硬指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬指针。在 INSERT 和 XREF 操作期间进行转换.\n 347 材质对象的硬指针 ID/句柄（如果不是“BYLAYER”，则出现）"
+},
+"dxf341": {
+"prefix" : "dxf341",
+"body": [
+"(cons 341 ${1:num})"
+],
+"description":"硬指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬指针。在 INSERT 和 XREF 操作期间进行转换.\n 347 材质对象的硬指针 ID/句柄（如果不是“BYLAYER”，则出现）"
+},
+"dxf342": {
+"prefix" : "dxf342",
+"body": [
+"(cons 342 ${1:num})"
+],
+"description":"硬指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬指针。在 INSERT 和 XREF 操作期间进行转换.\n 347 材质对象的硬指针 ID/句柄（如果不是“BYLAYER”，则出现）"
+},
+"dxf343": {
+"prefix" : "dxf343",
+"body": [
+"(cons 343 ${1:num})"
+],
+"description":"硬指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬指针。在 INSERT 和 XREF 操作期间进行转换.\n 347 材质对象的硬指针 ID/句柄（如果不是“BYLAYER”，则出现）"
+},
+"dxf344": {
+"prefix" : "dxf344",
+"body": [
+"(cons 344 ${1:num})"
+],
+"description":"硬指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬指针。在 INSERT 和 XREF 操作期间进行转换.\n 347 材质对象的硬指针 ID/句柄（如果不是“BYLAYER”，则出现）"
+},
+"dxf345": {
+"prefix" : "dxf345",
+"body": [
+"(cons 345 ${1:num})"
+],
+"description":"硬指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬指针。在 INSERT 和 XREF 操作期间进行转换.\n 347 材质对象的硬指针 ID/句柄（如果不是“BYLAYER”，则出现）"
+},
+"dxf346": {
+"prefix" : "dxf346",
+"body": [
+"(cons 346 ${1:num})"
+],
+"description":"硬指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬指针。在 INSERT 和 XREF 操作期间进行转换.\n 347 材质对象的硬指针 ID/句柄（如果不是“BYLAYER”，则出现）"
+},
+"dxf347": {
+"prefix" : "dxf347",
+"body": [
+"(cons 347 ${1:num})"
+],
+"description":"硬指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬指针。在 INSERT 和 XREF 操作期间进行转换.\n 347 材质对象的硬指针 ID/句柄（如果不是“BYLAYER”，则出现）"
+},
+"dxf348": {
+"prefix" : "dxf348",
+"body": [
+"(cons 348 ${1:num})"
+],
+"description":"硬指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬指针。在 INSERT 和 XREF 操作期间进行转换.\n 347 材质对象的硬指针 ID/句柄（如果不是“BYLAYER”，则出现）"
+},
+"dxf349": {
+"prefix" : "dxf349",
+"body": [
+"(cons 349 ${1:num})"
+],
+"description":"硬指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬指针。在 INSERT 和 XREF 操作期间进行转换.\n 347 材质对象的硬指针 ID/句柄（如果不是“BYLAYER”，则出现）"
+},
+"dxf350": {
+"prefix" : "dxf350",
+"body": [
+"(cons 350 ${1:num})"
+],
+"description":"软所有者句柄；指向同一个 DXF 文件或图形中的其他对象的任意软所有者指针。在 INSERT 和 XREF 操作期间进行转换"
+},
+"dxf351": {
+"prefix" : "dxf351",
+"body": [
+"(cons 351 ${1:num})"
+],
+"description":"软所有者句柄；指向同一个 DXF 文件或图形中的其他对象的任意软所有者指针。在 INSERT 和 XREF 操作期间进行转换"
+},
+"dxf352": {
+"prefix" : "dxf352",
+"body": [
+"(cons 352 ${1:num})"
+],
+"description":"软所有者句柄；指向同一个 DXF 文件或图形中的其他对象的任意软所有者指针。在 INSERT 和 XREF 操作期间进行转换"
+},
+"dxf353": {
+"prefix" : "dxf353",
+"body": [
+"(cons 353 ${1:num})"
+],
+"description":"软所有者句柄；指向同一个 DXF 文件或图形中的其他对象的任意软所有者指针。在 INSERT 和 XREF 操作期间进行转换"
+},
+"dxf354": {
+"prefix" : "dxf354",
+"body": [
+"(cons 354 ${1:num})"
+],
+"description":"软所有者句柄；指向同一个 DXF 文件或图形中的其他对象的任意软所有者指针。在 INSERT 和 XREF 操作期间进行转换"
+},
+"dxf355": {
+"prefix" : "dxf355",
+"body": [
+"(cons 355 ${1:num})"
+],
+"description":"软所有者句柄；指向同一个 DXF 文件或图形中的其他对象的任意软所有者指针。在 INSERT 和 XREF 操作期间进行转换"
+},
+"dxf356": {
+"prefix" : "dxf356",
+"body": [
+"(cons 356 ${1:num})"
+],
+"description":"软所有者句柄；指向同一个 DXF 文件或图形中的其他对象的任意软所有者指针。在 INSERT 和 XREF 操作期间进行转换"
+},
+"dxf357": {
+"prefix" : "dxf357",
+"body": [
+"(cons 357 ${1:num})"
+],
+"description":"软所有者句柄；指向同一个 DXF 文件或图形中的其他对象的任意软所有者指针。在 INSERT 和 XREF 操作期间进行转换"
+},
+"dxf358": {
+"prefix" : "dxf358",
+"body": [
+"(cons 358 ${1:num})"
+],
+"description":"软所有者句柄；指向同一个 DXF 文件或图形中的其他对象的任意软所有者指针。在 INSERT 和 XREF 操作期间进行转换"
+},
+"dxf359": {
+"prefix" : "dxf359",
+"body": [
+"(cons 359 ${1:num})"
+],
+"description":"软所有者句柄；指向同一个 DXF 文件或图形中的其他对象的任意软所有者指针。在 INSERT 和 XREF 操作期间进行转换"
+},
+"dxf360": {
+"prefix" : "dxf360",
+"body": [
+"(cons 360 ${1:num})"
+],
+"description":"硬所有者句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬所有者指针。在 INSERT 和 XREF 操作期间进行转换.\n 所有者词典的硬所有者 ID/句柄（可选）"
+},
+"dxf361": {
+"prefix" : "dxf361",
+"body": [
+"(cons 361 ${1:num})"
+],
+"description":"硬所有者句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬所有者指针。在 INSERT 和 XREF 操作期间进行转换.\n 所有者词典的硬所有者 ID/句柄（可选）"
+},
+"dxf362": {
+"prefix" : "dxf362",
+"body": [
+"(cons 362 ${1:num})"
+],
+"description":"硬所有者句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬所有者指针。在 INSERT 和 XREF 操作期间进行转换.\n 所有者词典的硬所有者 ID/句柄（可选）"
+},
+"dxf363": {
+"prefix" : "dxf363",
+"body": [
+"(cons 363 ${1:num})"
+],
+"description":"硬所有者句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬所有者指针。在 INSERT 和 XREF 操作期间进行转换.\n 所有者词典的硬所有者 ID/句柄（可选）"
+},
+"dxf364": {
+"prefix" : "dxf364",
+"body": [
+"(cons 364 ${1:num})"
+],
+"description":"硬所有者句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬所有者指针。在 INSERT 和 XREF 操作期间进行转换.\n 所有者词典的硬所有者 ID/句柄（可选）"
+},
+"dxf365": {
+"prefix" : "dxf365",
+"body": [
+"(cons 365 ${1:num})"
+],
+"description":"硬所有者句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬所有者指针。在 INSERT 和 XREF 操作期间进行转换.\n 所有者词典的硬所有者 ID/句柄（可选）"
+},
+"dxf366": {
+"prefix" : "dxf366",
+"body": [
+"(cons 366 ${1:num})"
+],
+"description":"硬所有者句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬所有者指针。在 INSERT 和 XREF 操作期间进行转换.\n 所有者词典的硬所有者 ID/句柄（可选）"
+},
+"dxf367": {
+"prefix" : "dxf367",
+"body": [
+"(cons 367 ${1:num})"
+],
+"description":"硬所有者句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬所有者指针。在 INSERT 和 XREF 操作期间进行转换.\n 所有者词典的硬所有者 ID/句柄（可选）"
+},
+"dxf368": {
+"prefix" : "dxf368",
+"body": [
+"(cons 368 ${1:num})"
+],
+"description":"硬所有者句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬所有者指针。在 INSERT 和 XREF 操作期间进行转换.\n 所有者词典的硬所有者 ID/句柄（可选）"
+},
+"dxf369": {
+"prefix" : "dxf369",
+"body": [
+"(cons 369 ${1:num})"
+],
+"description":"硬所有者句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬所有者指针。在 INSERT 和 XREF 操作期间进行转换.\n 所有者词典的硬所有者 ID/句柄（可选）"
+},
+"dxf370": {
+"prefix" : "dxf370",
+"body": [
+"(cons 370 ${1:num})"
+],
+"description":"线宽枚举值 (AcDb::LineWeight)。作为 16 位整数存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用 371-379 DXF 组码，因为 AutoCAD 和 AutoLISP 都始终假定 370 组码是图元的线宽。这使 370 组码与其他“通用”图元字段具有相似行为"
+},
+"dxf371": {
+"prefix" : "dxf371",
+"body": [
+"(cons 371 ${1:num})"
+],
+"description":"线宽枚举值 (AcDb::LineWeight)。作为 16 位整数存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用 371-379 DXF 组码，因为 AutoCAD 和 AutoLISP 都始终假定 370 组码是图元的线宽。这使 370 组码与其他“通用”图元字段具有相似行为"
+},
+"dxf372": {
+"prefix" : "dxf372",
+"body": [
+"(cons 372 ${1:num})"
+],
+"description":"线宽枚举值 (AcDb::LineWeight)。作为 16 位整数存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用 371-379 DXF 组码，因为 AutoCAD 和 AutoLISP 都始终假定 370 组码是图元的线宽。这使 370 组码与其他“通用”图元字段具有相似行为"
+},
+"dxf373": {
+"prefix" : "dxf373",
+"body": [
+"(cons 373 ${1:num})"
+],
+"description":"线宽枚举值 (AcDb::LineWeight)。作为 16 位整数存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用 371-379 DXF 组码，因为 AutoCAD 和 AutoLISP 都始终假定 370 组码是图元的线宽。这使 370 组码与其他“通用”图元字段具有相似行为"
+},
+"dxf374": {
+"prefix" : "dxf374",
+"body": [
+"(cons 374 ${1:num})"
+],
+"description":"线宽枚举值 (AcDb::LineWeight)。作为 16 位整数存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用 371-379 DXF 组码，因为 AutoCAD 和 AutoLISP 都始终假定 370 组码是图元的线宽。这使 370 组码与其他“通用”图元字段具有相似行为"
+},
+"dxf375": {
+"prefix" : "dxf375",
+"body": [
+"(cons 375 ${1:num})"
+],
+"description":"线宽枚举值 (AcDb::LineWeight)。作为 16 位整数存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用 371-379 DXF 组码，因为 AutoCAD 和 AutoLISP 都始终假定 370 组码是图元的线宽。这使 370 组码与其他“通用”图元字段具有相似行为"
+},
+"dxf376": {
+"prefix" : "dxf376",
+"body": [
+"(cons 376 ${1:num})"
+],
+"description":"线宽枚举值 (AcDb::LineWeight)。作为 16 位整数存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用 371-379 DXF 组码，因为 AutoCAD 和 AutoLISP 都始终假定 370 组码是图元的线宽。这使 370 组码与其他“通用”图元字段具有相似行为"
+},
+"dxf377": {
+"prefix" : "dxf377",
+"body": [
+"(cons 377 ${1:num})"
+],
+"description":"线宽枚举值 (AcDb::LineWeight)。作为 16 位整数存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用 371-379 DXF 组码，因为 AutoCAD 和 AutoLISP 都始终假定 370 组码是图元的线宽。这使 370 组码与其他“通用”图元字段具有相似行为"
+},
+"dxf378": {
+"prefix" : "dxf378",
+"body": [
+"(cons 378 ${1:num})"
+],
+"description":"线宽枚举值 (AcDb::LineWeight)。作为 16 位整数存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用 371-379 DXF 组码，因为 AutoCAD 和 AutoLISP 都始终假定 370 组码是图元的线宽。这使 370 组码与其他“通用”图元字段具有相似行为"
+},
+"dxf379": {
+"prefix" : "dxf379",
+"body": [
+"(cons 379 ${1:num})"
+],
+"description":"线宽枚举值 (AcDb::LineWeight)。作为 16 位整数存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用 371-379 DXF 组码，因为 AutoCAD 和 AutoLISP 都始终假定 370 组码是图元的线宽。这使 370 组码与其他“通用”图元字段具有相似行为"
+},
+"dxf380": {
+"prefix" : "dxf380",
+"body": [
+"(cons 380 ${1:num})"
+],
+"description":"PlotStyleName 类型枚举 (AcDb::PlotStyleNameType)。作为 16 位整数存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用"
+},
+"dxf381": {
+"prefix" : "dxf381",
+"body": [
+"(cons 381 ${1:num})"
+],
+"description":"PlotStyleName 类型枚举 (AcDb::PlotStyleNameType)。作为 16 位整数存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用"
+},
+"dxf382": {
+"prefix" : "dxf382",
+"body": [
+"(cons 382 ${1:num})"
+],
+"description":"PlotStyleName 类型枚举 (AcDb::PlotStyleNameType)。作为 16 位整数存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用"
+},
+"dxf383": {
+"prefix" : "dxf383",
+"body": [
+"(cons 383 ${1:num})"
+],
+"description":"PlotStyleName 类型枚举 (AcDb::PlotStyleNameType)。作为 16 位整数存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用"
+},
+"dxf384": {
+"prefix" : "dxf384",
+"body": [
+"(cons 384 ${1:num})"
+],
+"description":"PlotStyleName 类型枚举 (AcDb::PlotStyleNameType)。作为 16 位整数存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用"
+},
+"dxf385": {
+"prefix" : "dxf385",
+"body": [
+"(cons 385 ${1:num})"
+],
+"description":"PlotStyleName 类型枚举 (AcDb::PlotStyleNameType)。作为 16 位整数存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用"
+},
+"dxf386": {
+"prefix" : "dxf386",
+"body": [
+"(cons 386 ${1:num})"
+],
+"description":"PlotStyleName 类型枚举 (AcDb::PlotStyleNameType)。作为 16 位整数存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用"
+},
+"dxf387": {
+"prefix" : "dxf387",
+"body": [
+"(cons 387 ${1:num})"
+],
+"description":"PlotStyleName 类型枚举 (AcDb::PlotStyleNameType)。作为 16 位整数存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用"
+},
+"dxf388": {
+"prefix" : "dxf388",
+"body": [
+"(cons 388 ${1:num})"
+],
+"description":"PlotStyleName 类型枚举 (AcDb::PlotStyleNameType)。作为 16 位整数存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用"
+},
+"dxf389": {
+"prefix" : "dxf389",
+"body": [
+"(cons 389 ${1:num})"
+],
+"description":"PlotStyleName 类型枚举 (AcDb::PlotStyleNameType)。作为 16 位整数存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用"
+},
+"dxf390": {
+"prefix" : "dxf390",
+"body": [
+"(390 . \"$1\")"
+],
+"description":"表示 PlotStyleName 对象的句柄值的字符串，本质上是硬指针，但范围不同，更容易处理向后兼容。作为对象 ID（在 DXF 文件中为句柄）和 AutoLISP 中的特殊类型存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用 391-399 DXF 组码，原因与上述线宽范围相同"
+},
+"dxf391": {
+"prefix" : "dxf391",
+"body": [
+"(391 . \"$1\")"
+],
+"description":"表示 PlotStyleName 对象的句柄值的字符串，本质上是硬指针，但范围不同，更容易处理向后兼容。作为对象 ID（在 DXF 文件中为句柄）和 AutoLISP 中的特殊类型存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用 391-399 DXF 组码，原因与上述线宽范围相同"
+},
+"dxf392": {
+"prefix" : "dxf392",
+"body": [
+"(392 . \"$1\")"
+],
+"description":"表示 PlotStyleName 对象的句柄值的字符串，本质上是硬指针，但范围不同，更容易处理向后兼容。作为对象 ID（在 DXF 文件中为句柄）和 AutoLISP 中的特殊类型存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用 391-399 DXF 组码，原因与上述线宽范围相同"
+},
+"dxf393": {
+"prefix" : "dxf393",
+"body": [
+"(393 . \"$1\")"
+],
+"description":"表示 PlotStyleName 对象的句柄值的字符串，本质上是硬指针，但范围不同，更容易处理向后兼容。作为对象 ID（在 DXF 文件中为句柄）和 AutoLISP 中的特殊类型存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用 391-399 DXF 组码，原因与上述线宽范围相同"
+},
+"dxf394": {
+"prefix" : "dxf394",
+"body": [
+"(394 . \"$1\")"
+],
+"description":"表示 PlotStyleName 对象的句柄值的字符串，本质上是硬指针，但范围不同，更容易处理向后兼容。作为对象 ID（在 DXF 文件中为句柄）和 AutoLISP 中的特殊类型存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用 391-399 DXF 组码，原因与上述线宽范围相同"
+},
+"dxf395": {
+"prefix" : "dxf395",
+"body": [
+"(395 . \"$1\")"
+],
+"description":"表示 PlotStyleName 对象的句柄值的字符串，本质上是硬指针，但范围不同，更容易处理向后兼容。作为对象 ID（在 DXF 文件中为句柄）和 AutoLISP 中的特殊类型存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用 391-399 DXF 组码，原因与上述线宽范围相同"
+},
+"dxf396": {
+"prefix" : "dxf396",
+"body": [
+"(396 . \"$1\")"
+],
+"description":"表示 PlotStyleName 对象的句柄值的字符串，本质上是硬指针，但范围不同，更容易处理向后兼容。作为对象 ID（在 DXF 文件中为句柄）和 AutoLISP 中的特殊类型存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用 391-399 DXF 组码，原因与上述线宽范围相同"
+},
+"dxf397": {
+"prefix" : "dxf397",
+"body": [
+"(397 . \"$1\")"
+],
+"description":"表示 PlotStyleName 对象的句柄值的字符串，本质上是硬指针，但范围不同，更容易处理向后兼容。作为对象 ID（在 DXF 文件中为句柄）和 AutoLISP 中的特殊类型存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用 391-399 DXF 组码，原因与上述线宽范围相同"
+},
+"dxf398": {
+"prefix" : "dxf398",
+"body": [
+"(398 . \"$1\")"
+],
+"description":"表示 PlotStyleName 对象的句柄值的字符串，本质上是硬指针，但范围不同，更容易处理向后兼容。作为对象 ID（在 DXF 文件中为句柄）和 AutoLISP 中的特殊类型存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用 391-399 DXF 组码，原因与上述线宽范围相同"
+},
+"dxf399": {
+"prefix" : "dxf399",
+"body": [
+"(399 . \"$1\")"
+],
+"description":"表示 PlotStyleName 对象的句柄值的字符串，本质上是硬指针，但范围不同，更容易处理向后兼容。作为对象 ID（在 DXF 文件中为句柄）和 AutoLISP 中的特殊类型存储和移动。自定义非图元对象可以使用整个范围内的组码，但图元类只能在其表示中使用 391-399 DXF 组码，原因与上述线宽范围相同"
+},
+"dxf400": {
+"prefix" : "dxf400",
+"body": [
+"(cons 400 ${1:num})"
+],
+"description":"WORD 16 位整数"
+},
+"dxf401": {
+"prefix" : "dxf401",
+"body": [
+"(cons 401 ${1:num})"
+],
+"description":"WORD 16 位整数"
+},
+"dxf402": {
+"prefix" : "dxf402",
+"body": [
+"(cons 402 ${1:num})"
+],
+"description":"WORD 16 位整数"
+},
+"dxf403": {
+"prefix" : "dxf403",
+"body": [
+"(cons 403 ${1:num})"
+],
+"description":"WORD 16 位整数"
+},
+"dxf404": {
+"prefix" : "dxf404",
+"body": [
+"(cons 404 ${1:num})"
+],
+"description":"WORD 16 位整数"
+},
+"dxf405": {
+"prefix" : "dxf405",
+"body": [
+"(cons 405 ${1:num})"
+],
+"description":"WORD 16 位整数"
+},
+"dxf406": {
+"prefix" : "dxf406",
+"body": [
+"(cons 406 ${1:num})"
+],
+"description":"WORD 16 位整数"
+},
+"dxf407": {
+"prefix" : "dxf407",
+"body": [
+"(cons 407 ${1:num})"
+],
+"description":"WORD 16 位整数"
+},
+"dxf408": {
+"prefix" : "dxf408",
+"body": [
+"(cons 408 ${1:num})"
+],
+"description":"WORD 16 位整数"
+},
+"dxf409": {
+"prefix" : "dxf409",
+"body": [
+"(cons 409 ${1:num})"
+],
+"description":"WORD 16 位整数"
+},
+"dxf410": {
+"prefix" : "dxf410",
+"body": [
+"(410 . \"$1\")"
+],
+"description":"字符串, 410 APP：布局选项卡名"
+},
+"dxf411": {
+"prefix" : "dxf411",
+"body": [
+"(411 . \"$1\")"
+],
+"description":"字符串, 410 APP：布局选项卡名"
+},
+"dxf412": {
+"prefix" : "dxf412",
+"body": [
+"(412 . \"$1\")"
+],
+"description":"字符串, 410 APP：布局选项卡名"
+},
+"dxf413": {
+"prefix" : "dxf413",
+"body": [
+"(413 . \"$1\")"
+],
+"description":"字符串, 410 APP：布局选项卡名"
+},
+"dxf414": {
+"prefix" : "dxf414",
+"body": [
+"(414 . \"$1\")"
+],
+"description":"字符串, 410 APP：布局选项卡名"
+},
+"dxf415": {
+"prefix" : "dxf415",
+"body": [
+"(415 . \"$1\")"
+],
+"description":"字符串, 410 APP：布局选项卡名"
+},
+"dxf416": {
+"prefix" : "dxf416",
+"body": [
+"(416 . \"$1\")"
+],
+"description":"字符串, 410 APP：布局选项卡名"
+},
+"dxf417": {
+"prefix" : "dxf417",
+"body": [
+"(417 . \"$1\")"
+],
+"description":"字符串, 410 APP：布局选项卡名"
+},
+"dxf418": {
+"prefix" : "dxf418",
+"body": [
+"(418 . \"$1\")"
+],
+"description":"字符串, 410 APP：布局选项卡名"
+},
+"dxf419": {
+"prefix" : "dxf419",
+"body": [
+"(419 . \"$1\")"
+],
+"description":"字符串, 410 APP：布局选项卡名"
+},
+"dxf420": {
+"prefix" : "dxf420",
+"body": [
+"(cons 420 ${1:num})"
+],
+"description":"DWORD 32 位整数值。与真彩色一同使用时，表示 24 位颜色值的 32 位整数。高阶字节（8 位）为 0；低阶字节为包含“蓝色”值 (0-255)、然后是“绿色”值的无符号字符；次高阶字节是“红色”值。将此整数值转换为十六进制值将得到以下位掩码：0x00RRGGBB。例如，红色==200、绿色==100 和蓝色==50 的真彩色为 0x00C86432，而在 DXF 中以十进制表示则为 13132850"
+},
+"dxf421": {
+"prefix" : "dxf421",
+"body": [
+"(cons 421 ${1:num})"
+],
+"description":"DWORD 32 位整数值。与真彩色一同使用时，表示 24 位颜色值的 32 位整数。高阶字节（8 位）为 0；低阶字节为包含“蓝色”值 (0-255)、然后是“绿色”值的无符号字符；次高阶字节是“红色”值。将此整数值转换为十六进制值将得到以下位掩码：0x00RRGGBB。例如，红色==200、绿色==100 和蓝色==50 的真彩色为 0x00C86432，而在 DXF 中以十进制表示则为 13132850"
+},
+"dxf422": {
+"prefix" : "dxf422",
+"body": [
+"(cons 422 ${1:num})"
+],
+"description":"DWORD 32 位整数值。与真彩色一同使用时，表示 24 位颜色值的 32 位整数。高阶字节（8 位）为 0；低阶字节为包含“蓝色”值 (0-255)、然后是“绿色”值的无符号字符；次高阶字节是“红色”值。将此整数值转换为十六进制值将得到以下位掩码：0x00RRGGBB。例如，红色==200、绿色==100 和蓝色==50 的真彩色为 0x00C86432，而在 DXF 中以十进制表示则为 13132850"
+},
+"dxf423": {
+"prefix" : "dxf423",
+"body": [
+"(cons 423 ${1:num})"
+],
+"description":"DWORD 32 位整数值。与真彩色一同使用时，表示 24 位颜色值的 32 位整数。高阶字节（8 位）为 0；低阶字节为包含“蓝色”值 (0-255)、然后是“绿色”值的无符号字符；次高阶字节是“红色”值。将此整数值转换为十六进制值将得到以下位掩码：0x00RRGGBB。例如，红色==200、绿色==100 和蓝色==50 的真彩色为 0x00C86432，而在 DXF 中以十进制表示则为 13132850"
+},
+"dxf424": {
+"prefix" : "dxf424",
+"body": [
+"(cons 424 ${1:num})"
+],
+"description":"DWORD 32 位整数值。与真彩色一同使用时，表示 24 位颜色值的 32 位整数。高阶字节（8 位）为 0；低阶字节为包含“蓝色”值 (0-255)、然后是“绿色”值的无符号字符；次高阶字节是“红色”值。将此整数值转换为十六进制值将得到以下位掩码：0x00RRGGBB。例如，红色==200、绿色==100 和蓝色==50 的真彩色为 0x00C86432，而在 DXF 中以十进制表示则为 13132850"
+},
+"dxf425": {
+"prefix" : "dxf425",
+"body": [
+"(cons 425 ${1:num})"
+],
+"description":"DWORD 32 位整数值。与真彩色一同使用时，表示 24 位颜色值的 32 位整数。高阶字节（8 位）为 0；低阶字节为包含“蓝色”值 (0-255)、然后是“绿色”值的无符号字符；次高阶字节是“红色”值。将此整数值转换为十六进制值将得到以下位掩码：0x00RRGGBB。例如，红色==200、绿色==100 和蓝色==50 的真彩色为 0x00C86432，而在 DXF 中以十进制表示则为 13132850"
+},
+"dxf426": {
+"prefix" : "dxf426",
+"body": [
+"(cons 426 ${1:num})"
+],
+"description":"DWORD 32 位整数值。与真彩色一同使用时，表示 24 位颜色值的 32 位整数。高阶字节（8 位）为 0；低阶字节为包含“蓝色”值 (0-255)、然后是“绿色”值的无符号字符；次高阶字节是“红色”值。将此整数值转换为十六进制值将得到以下位掩码：0x00RRGGBB。例如，红色==200、绿色==100 和蓝色==50 的真彩色为 0x00C86432，而在 DXF 中以十进制表示则为 13132850"
+},
+"dxf427": {
+"prefix" : "dxf427",
+"body": [
+"(cons 427 ${1:num})"
+],
+"description":"DWORD 32 位整数值。与真彩色一同使用时，表示 24 位颜色值的 32 位整数。高阶字节（8 位）为 0；低阶字节为包含“蓝色”值 (0-255)、然后是“绿色”值的无符号字符；次高阶字节是“红色”值。将此整数值转换为十六进制值将得到以下位掩码：0x00RRGGBB。例如，红色==200、绿色==100 和蓝色==50 的真彩色为 0x00C86432，而在 DXF 中以十进制表示则为 13132850"
+},
+"dxf430": {
+"prefix" : "dxf430",
+"body": [
+"(430 . \"$1\")"
+],
+"description":"字符串；用于真彩色时，则为表示颜色名称的字符串"
+},
+"dxf431": {
+"prefix" : "dxf431",
+"body": [
+"(431 . \"$1\")"
+],
+"description":"字符串；用于真彩色时，则为表示颜色名称的字符串"
+},
+"dxf432": {
+"prefix" : "dxf432",
+"body": [
+"(432 . \"$1\")"
+],
+"description":"字符串；用于真彩色时，则为表示颜色名称的字符串"
+},
+"dxf433": {
+"prefix" : "dxf433",
+"body": [
+"(433 . \"$1\")"
+],
+"description":"字符串；用于真彩色时，则为表示颜色名称的字符串"
+},
+"dxf434": {
+"prefix" : "dxf434",
+"body": [
+"(434 . \"$1\")"
+],
+"description":"字符串；用于真彩色时，则为表示颜色名称的字符串"
+},
+"dxf435": {
+"prefix" : "dxf435",
+"body": [
+"(435 . \"$1\")"
+],
+"description":"字符串；用于真彩色时，则为表示颜色名称的字符串"
+},
+"dxf436": {
+"prefix" : "dxf436",
+"body": [
+"(436 . \"$1\")"
+],
+"description":"字符串；用于真彩色时，则为表示颜色名称的字符串"
+},
+"dxf437": {
+"prefix" : "dxf437",
+"body": [
+"(437 . \"$1\")"
+],
+"description":"字符串；用于真彩色时，则为表示颜色名称的字符串"
+},
+"dxf440": {
+"prefix" : "dxf440",
+"body": [
+"(cons 440 ${1:num})"
+],
+"description":"DWORD 32 位整数值。用于真彩色时，表示透明度值"
+},
+"dxf441": {
+"prefix" : "dxf441",
+"body": [
+"(cons 441 ${1:num})"
+],
+"description":"DWORD 32 位整数值。用于真彩色时，表示透明度值"
+},
+"dxf442": {
+"prefix" : "dxf442",
+"body": [
+"(cons 442 ${1:num})"
+],
+"description":"DWORD 32 位整数值。用于真彩色时，表示透明度值"
+},
+"dxf443": {
+"prefix" : "dxf443",
+"body": [
+"(cons 443 ${1:num})"
+],
+"description":"DWORD 32 位整数值。用于真彩色时，表示透明度值"
+},
+"dxf444": {
+"prefix" : "dxf444",
+"body": [
+"(cons 444 ${1:num})"
+],
+"description":"DWORD 32 位整数值。用于真彩色时，表示透明度值"
+},
+"dxf445": {
+"prefix" : "dxf445",
+"body": [
+"(cons 445 ${1:num})"
+],
+"description":"DWORD 32 位整数值。用于真彩色时，表示透明度值"
+},
+"dxf446": {
+"prefix" : "dxf446",
+"body": [
+"(cons 446 ${1:num})"
+],
+"description":"DWORD 32 位整数值。用于真彩色时，表示透明度值"
+},
+"dxf447": {
+"prefix" : "dxf447",
+"body": [
+"(cons 447 ${1:num})"
+],
+"description":"DWORD 32 位整数值。用于真彩色时，表示透明度值"
+},
+"dxf450": {
+"prefix" : "dxf450",
+"body": [
+"(cons 450 ${1:num})"
+],
+"description":"长整数"
+},
+"dxf451": {
+"prefix" : "dxf451",
+"body": [
+"(cons 451 ${1:num})"
+],
+"description":"长整数"
+},
+"dxf452": {
+"prefix" : "dxf452",
+"body": [
+"(cons 452 ${1:num})"
+],
+"description":"长整数"
+},
+"dxf453": {
+"prefix" : "dxf453",
+"body": [
+"(cons 453 ${1:num})"
+],
+"description":"长整数"
+},
+"dxf454": {
+"prefix" : "dxf454",
+"body": [
+"(cons 454 ${1:num})"
+],
+"description":"长整数"
+},
+"dxf455": {
+"prefix" : "dxf455",
+"body": [
+"(cons 455 ${1:num})"
+],
+"description":"长整数"
+},
+"dxf456": {
+"prefix" : "dxf456",
+"body": [
+"(cons 456 ${1:num})"
+],
+"description":"长整数"
+},
+"dxf457": {
+"prefix" : "dxf457",
+"body": [
+"(cons 457 ${1:num})"
+],
+"description":"长整数"
+},
+"dxf458": {
+"prefix" : "dxf458",
+"body": [
+"(cons 458 ${1:num})"
+],
+"description":"长整数"
+},
+"dxf459": {
+"prefix" : "dxf459",
+"body": [
+"(cons 459 ${1:num})"
+],
+"description":"长整数"
+},
+"dxf460": {
+"prefix" : "dxf460",
+"body": [
+"(cons 460 ${1:num})"
+],
+"description":"双精度浮点值"
+},
+"dxf461": {
+"prefix" : "dxf461",
+"body": [
+"(cons 461 ${1:num})"
+],
+"description":"双精度浮点值"
+},
+"dxf462": {
+"prefix" : "dxf462",
+"body": [
+"(cons 462 ${1:num})"
+],
+"description":"双精度浮点值"
+},
+"dxf463": {
+"prefix" : "dxf463",
+"body": [
+"(cons 463 ${1:num})"
+],
+"description":"双精度浮点值"
+},
+"dxf464": {
+"prefix" : "dxf464",
+"body": [
+"(cons 464 ${1:num})"
+],
+"description":"双精度浮点值"
+},
+"dxf465": {
+"prefix" : "dxf465",
+"body": [
+"(cons 465 ${1:num})"
+],
+"description":"双精度浮点值"
+},
+"dxf466": {
+"prefix" : "dxf466",
+"body": [
+"(cons 466 ${1:num})"
+],
+"description":"双精度浮点值"
+},
+"dxf467": {
+"prefix" : "dxf467",
+"body": [
+"(cons 467 ${1:num})"
+],
+"description":"双精度浮点值"
+},
+"dxf468": {
+"prefix" : "dxf468",
+"body": [
+"(cons 468 ${1:num})"
+],
+"description":"双精度浮点值"
+},
+"dxf469": {
+"prefix" : "dxf469",
+"body": [
+"(cons 469 ${1:num})"
+],
+"description":"双精度浮点值"
+},
+"dxf470": {
+"prefix" : "dxf470",
+"body": [
+"(470 . \"$1\")"
+],
+"description":"字符串"
+},
+"dxf471": {
+"prefix" : "dxf471",
+"body": [
+"(471 . \"$1\")"
+],
+"description":"字符串"
+},
+"dxf472": {
+"prefix" : "dxf472",
+"body": [
+"(472 . \"$1\")"
+],
+"description":"字符串"
+},
+"dxf473": {
+"prefix" : "dxf473",
+"body": [
+"(473 . \"$1\")"
+],
+"description":"字符串"
+},
+"dxf474": {
+"prefix" : "dxf474",
+"body": [
+"(474 . \"$1\")"
+],
+"description":"字符串"
+},
+"dxf475": {
+"prefix" : "dxf475",
+"body": [
+"(475 . \"$1\")"
+],
+"description":"字符串"
+},
+"dxf476": {
+"prefix" : "dxf476",
+"body": [
+"(476 . \"$1\")"
+],
+"description":"字符串"
+},
+"dxf477": {
+"prefix" : "dxf477",
+"body": [
+"(477 . \"$1\")"
+],
+"description":"字符串"
+},
+"dxf478": {
+"prefix" : "dxf478",
+"body": [
+"(478 . \"$1\")"
+],
+"description":"字符串"
+},
+"dxf479": {
+"prefix" : "dxf479",
+"body": [
+"(479 . \"$1\")"
+],
+"description":"字符串"
+},
+"dxf480": {
+"prefix" : "dxf480",
+"body": [
+"(cons 480 ${1:num})"
+],
+"description":"硬指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬指针。在 INSERT 和 XREF 操作期间进行转换"
+},
+"dxf481": {
+"prefix" : "dxf481",
+"body": [
+"(cons 481 ${1:num})"
+],
+"description":"硬指针句柄；指向同一个 DXF 文件或图形中的其他对象的任意硬指针。在 INSERT 和 XREF 操作期间进行转换"
+},
+"dxf999": {
+"prefix" : "dxf999",
+"body": [
+"(cons 999 ${1:num})"
+],
+"description":"DXF：999 组码指示后面的行是注释字符串。SAVEAS 不会在 DXF 输出文件中包含这样的组，但 OPEN 则包括这些组并忽略注释。可以使用 999 组在您已编辑的 DXF 文件中包含注释"
+},
+"dxf1000": {
+"prefix" : "dxf1000",
+"body": [
+"(1000 . \"$1\")"
+],
+"description":"扩展数据中的 ASCII 字符串（最多可以包含 255 个字节）"
+},
+"dxf1001": {
+"prefix" : "dxf1001",
+"body": [
+"(1001 . \"$1\")"
+],
+"description":"扩展数据的注册应用程序名（最多可以包含 31 个字节的 ASCII 字符串）"
+},
+"dxf1002": {
+"prefix" : "dxf1002",
+"body": [
+"(1002 . \"$1\")"
+],
+"description":"扩展数据控制字符串（“{”或“}”）"
+},
+"dxf1003": {
+"prefix" : "dxf1003",
+"body": [
+"(1003 . \"$1\")"
+],
+"description":"扩展数据图层名"
+},
+"dxf1004": {
+"prefix" : "dxf1004",
+"body": [
+"(1004 . \"$1\")"
+],
+"description":"扩展数据中的字节数据块（最多可以包含 127 个字节）"
+},
+"dxf1005": {
+"prefix" : "dxf1005",
+"body": [
+"(1005 . \"$1\")"
+],
+"description":"扩展数据中的图元句柄；最多可以包含 16 个十六进制数字的字符串"
+},
+"dxf1010": {
+"prefix" : "dxf1010",
+"body": [
+"(cons 1010 ${1:num})"
+],
+"description":"扩展数据中的点\n DXF：X 值（后跟 1020 和 1030 组）\n APP：三维点"
+},
+"dxf1020": {
+"prefix" : "dxf1020",
+"body": [
+"(cons 1020 ${1:num})"
+],
+"description":"DXF：点的 Y 值和 Z 值"
+},
+"dxf 1030": {
+"prefix" : "dxf 1030",
+"body": [
+"(cons  1030 ${1:num})"
+],
+"description":"DXF：点的 Y 值和 Z 值"
+},
+"dxf1011": {
+"prefix" : "dxf1011",
+"body": [
+"(cons 1011 ${1:num})"
+],
+"description":"扩展数据中的三维世界空间位置\n DXF：X 值（后跟 1021 和 1031 组）\n APP：三维点"
+},
+"dxf1021": {
+"prefix" : "dxf1021",
+"body": [
+"(cons 1021 ${1:num})"
+],
+"description":"DXF：世界空间位置的 Y 值和 Z 值"
+},
+"dxf 1031": {
+"prefix" : "dxf 1031",
+"body": [
+"(cons  1031 ${1:num})"
+],
+"description":"DXF：世界空间位置的 Y 值和 Z 值"
+},
+"dxf1012": {
+"prefix" : "dxf1012",
+"body": [
+"(cons 1012 ${1:num})"
+],
+"description":"扩展数据中的三维世界空间位移\n DXF：X 值（后跟 1022 和 1032 组）\n APP：三维矢量"
+},
+"dxf1022": {
+"prefix" : "dxf1022",
+"body": [
+"(cons 1022 ${1:num})"
+],
+"description":"DXF：世界空间位移的 Y 值和 Z 值"
+},
+"dxf 1032": {
+"prefix" : "dxf 1032",
+"body": [
+"(cons  1032 ${1:num})"
+],
+"description":"DXF：世界空间位移的 Y 值和 Z 值"
+},
+"dxf1013": {
+"prefix" : "dxf1013",
+"body": [
+"(cons 1013 ${1:num})"
+],
+"description":"扩展数据中的三维空间方向\n DXF：X 值（后跟 1022 和 1032 组）\n APP：三维矢量"
+},
+"dxf1023": {
+"prefix" : "dxf1023",
+"body": [
+"(cons 1023 ${1:num})"
+],
+"description":"DXF：世界空间方向的 Y 和 Z 值"
+},
+"dxf 1033": {
+"prefix" : "dxf 1033",
+"body": [
+"(cons  1033 ${1:num})"
+],
+"description":"DXF：世界空间方向的 Y 和 Z 值"
+},
+"dxf1040": {
+"prefix" : "dxf1040",
+"body": [
+"(cons 1040 ${1:num})"
+],
+"description":"扩展数据双精度浮点值"
+},
+"dxf1041": {
+"prefix" : "dxf1041",
+"body": [
+"(cons 1041 ${1:num})"
+],
+"description":"扩展数据距离值"
+},
+"dxf1042": {
+"prefix" : "dxf1042",
+"body": [
+"(cons 1042 ${1:num})"
+],
+"description":"扩展数据缩放比例"
+},
+"dxf1070": {
+"prefix" : "dxf1070",
+"body": [
+"(cons 1070 ${1:num})"
+],
+"description":"扩展数据 16 位有符号整数"
+},
+"dxf1071": {
+"prefix" : "dxf1071",
+"body": [
+"(cons 1071 ${1:num})"
+],
+"description":"扩展数据 32 位有符号长整数"
+},
+"dxf3DFACE": {
+"prefix" : "dxf3DFACE",
+"body": [
+"(0 . \"3DFACE\")"
+],
+"description":"** 100\n 子类标记 (AcDbFace)\n ** 10\n 第一角点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：第一角点的 Y 值和 Z 值（在 WCS 中）\n ** 11\n 第二角点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 21, 31 \n DXF：第二角点的 Y 值和 Z 值（在 WCS 中）\n ** 12\n 第三角点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 22, 32\n DXF：第三角点的 Y 值和 Z 值（在 WCS 中）\n ** 13\n 第四角点（在 WCS 中）。如果只输入了三个角点，则第四角点与第三角点相同\n DXF：X 值；APP：三维点\n ** 23, 33\n DXF：第四角点的 Y 值和 Z 值（在 WCS 中）\n ** 70\n 不可见边标志（可选；默认值 = 0）：\n 1 = 第一条边不可见\n 2 = 第二条边不可见\n 4 = 第三条边不可见\n 8 = 第四条边不可见"
+},
+"dxf 三维面": {
+"prefix" : "dxf 三维面",
+"body": [
+"(0 . \" 三维面\")"
+],
+"description":"** 100\n 子类标记 (AcDbFace)\n ** 10\n 第一角点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：第一角点的 Y 值和 Z 值（在 WCS 中）\n ** 11\n 第二角点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 21, 31 \n DXF：第二角点的 Y 值和 Z 值（在 WCS 中）\n ** 12\n 第三角点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 22, 32\n DXF：第三角点的 Y 值和 Z 值（在 WCS 中）\n ** 13\n 第四角点（在 WCS 中）。如果只输入了三个角点，则第四角点与第三角点相同\n DXF：X 值；APP：三维点\n ** 23, 33\n DXF：第四角点的 Y 值和 Z 值（在 WCS 中）\n ** 70\n 不可见边标志（可选；默认值 = 0）：\n 1 = 第一条边不可见\n 2 = 第二条边不可见\n 4 = 第三条边不可见\n 8 = 第四条边不可见"
+},
+"dxf3DSOLID": {
+"prefix" : "dxf3DSOLID",
+"body": [
+"(0 . \"3DSOLID\")"
+],
+"description":"** 100\n 子类标记 (AcDbModelerGeometry)\n ** 70\n 建模格式版本号（当前值 = 1）\n ** 1\n 所有权数据（多行，每行 < 255 个字符）\n ** 3\n 所有权数据的附加行（如果前一个组 1 的字符串长度大于 255 个字符）（可选）\n ** 100\n 子类标记 (AcDb3dSolid)\n ** 350\n 历史记录对象的软所有者 ID/句柄"
+},
+"dxf 三维实体": {
+"prefix" : "dxf 三维实体",
+"body": [
+"(0 . \" 三维实体\")"
+],
+"description":"** 100\n 子类标记 (AcDbModelerGeometry)\n ** 70\n 建模格式版本号（当前值 = 1）\n ** 1\n 所有权数据（多行，每行 < 255 个字符）\n ** 3\n 所有权数据的附加行（如果前一个组 1 的字符串长度大于 255 个字符）（可选）\n ** 100\n 子类标记 (AcDb3dSolid)\n ** 350\n 历史记录对象的软所有者 ID/句柄"
+},
+"dxfACAD_PROXY_ENTITY": {
+"prefix" : "dxfACAD_PROXY_ENTITY",
+"body": [
+"(0 . \"ACAD_PROXY_ENTITY\")"
+],
+"description":"** 100 DXF：AcDbProxyEntity\n ** 90  DXF：代理图元类 ID（始终为 498）\n ** 91  DXF：应用程序图元的类 ID。类 ID 基于 CLASSES 段中类的次序。第一个类的 ID 是 500，下一个是 501，依此类推\n ** 92  DXF：图形数据的大小（以字节为单位）\n ** 310 DXF：二进制图形数据（可能会出现多个条目）（可选）\n ** 93  DXF：图元数据的大小（以位为单位）\n ** 310 DXF：二进制图元数据（可能会出现多个条目）（可选）\n ** 330、340、350 或 360   DXF：对象 ID（可能会出现多个条目）（可选）\n ** 94  DXF：0（表示对象 ID 段的结束）\n ** 95  DXF：对象成为代理时的对象图形格式（32 位无符号整数）：\n     低位字是 AcDbDwgVersion\n     高位字是 MaintenanceReleaseVersion\n ** 70  DXF：原始自定义对象数据格式：\n     0 = DWG 格式\n     1 = DXF 格式"
+},
+"dxfARC": {
+"prefix" : "dxfARC",
+"body": [
+"(0 . \"ARC\")"
+],
+"description":"** 100\n 子类标记 (AcDbCircle)\n ** 39\n 厚度（可选；默认值 = 0）\n ** 10\n 中心点（在 OCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：中心点的 Y 值和 Z 值（在 OCS 中）\n ** 40\n 半径\n ** 100\n 子类标记 (AcDbArc)\n ** 50\n 起点角度\n ** 51\n 端点角度\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）"
+},
+"dxf 弧": {
+"prefix" : "dxf 弧",
+"body": [
+"(0 . \" 弧\")"
+],
+"description":"** 100\n 子类标记 (AcDbCircle)\n ** 39\n 厚度（可选；默认值 = 0）\n ** 10\n 中心点（在 OCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：中心点的 Y 值和 Z 值（在 OCS 中）\n ** 40\n 半径\n ** 100\n 子类标记 (AcDbArc)\n ** 50\n 起点角度\n ** 51\n 端点角度\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）"
+},
+"dxfATTDEF": {
+"prefix" : "dxfATTDEF",
+"body": [
+"(0 . \"ATTDEF\")"
+],
+"description":"** 100\n 子类标记 (AcDbText)\n ** 39\n 厚度（可选；默认值 = 0）\n ** 10\n 第一对齐点（在 OCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：文字起点的 Y 值和 Z 值（在 OCS 中）\n ** 40\n 文字高度\n ** 1\n 默认值（字符串）\n ** 50\n 文字旋转角度（可选；默认值 = 0）\n ** 41\n X 相对缩放比例（宽度）（可选；默认值 = 1）。使用拟合类型的文字时，该值也将进行调整。\n ** 51\n 倾斜角（可选；默认值 = 0）\n ** 7\n 文字样式名（可选；默认值 = 标准）\n ** 71\n 文字生成标志（可选；默认值 = 0）；参见 TEXT 组码\n ** 72\n 文字水平对正类型（可选；默认值 = 0）；参见 TEXT 组码\n ** 11\n 第二对齐点（在 OCS 中）（可选）\n DXF：X 值；APP：三维点\n 仅当 72 或 74 组值非零时才有意义\n ** 21, 31\n DXF：第二对齐点的 Y 值和 Z 值（在 OCS 中）（可选）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值\n =dxfattdef1="
+},
+"dxf 属性定义": {
+"prefix" : "dxf 属性定义",
+"body": [
+"(0 . \" 属性定义\")"
+],
+"description":"** 100\n 子类标记 (AcDbText)\n ** 39\n 厚度（可选；默认值 = 0）\n ** 10\n 第一对齐点（在 OCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：文字起点的 Y 值和 Z 值（在 OCS 中）\n ** 40\n 文字高度\n ** 1\n 默认值（字符串）\n ** 50\n 文字旋转角度（可选；默认值 = 0）\n ** 41\n X 相对缩放比例（宽度）（可选；默认值 = 1）。使用拟合类型的文字时，该值也将进行调整。\n ** 51\n 倾斜角（可选；默认值 = 0）\n ** 7\n 文字样式名（可选；默认值 = 标准）\n ** 71\n 文字生成标志（可选；默认值 = 0）；参见 TEXT 组码\n ** 72\n 文字水平对正类型（可选；默认值 = 0）；参见 TEXT 组码\n ** 11\n 第二对齐点（在 OCS 中）（可选）\n DXF：X 值；APP：三维点\n 仅当 72 或 74 组值非零时才有意义\n ** 21, 31\n DXF：第二对齐点的 Y 值和 Z 值（在 OCS 中）（可选）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值\n =dxfattdef1="
+},
+"dxfATTDEF1": {
+"prefix" : "dxfATTDEF1",
+"body": [
+"(0 . \"ATTDEF1\")"
+],
+"description":"** 100\n 子类标记 (AcDbAttributeDefinition)\n ** 280\n 版本号：\n 0 = 2010\n ** 3\n 提示字符串\n ** 2\n 标签字符串（不能包含空格）\n ** 70\n 属性标记：\n 1 = 属性不可见（不出现）\n 2 = 固定属性\n 4 = 输入属性时要求进行验证\n 8 = 属性为预设（插入时无提示）\n ** 73\n 字段长度（可选；默认值 = 0）（当前未使用）\n ** 74\n 文字垂直对正类型（可选；默认值 = 0）；参见 TEXT 中的组码 73\n ** 280\n 锁定位置标志。锁定块参照中属性的位置\n =dxfattdef2="
+},
+"dxfATTDEF2": {
+"prefix" : "dxfATTDEF2",
+"body": [
+"(0 . \"ATTDEF2\")"
+],
+"description":"** 100\n 子类标记 (AcDbXrecord)\n ** 280\n 重复记录克隆标志（决定如何合并重复条目）：\n 1 = 保留现有\n ** 70\n 多行文字标志：\n 2 = 多行文字属性\n 4 = 固定多行文字属性定义\n ** 70\n 实际锁定标志：\n 0 = 解锁\n 1 = 锁定\n ** 70\n 次要属性数或属性定义数\n ** 340\n 次要属性或属性定义的硬指针 ID\n ** 10\n 属性或属性定义对齐点\n DXF：X 值；APP：三维点\n ** 20,30\n DXF：插入点的 Y 值和 Z 值\n ** 40\n 当前注释比例\n ** 2\n 属性或属性定义标签字符串\n ** 0\n 图元类型 (MTEXT)\n =dxfattdef3="
+},
+"dxfATTDEF3": {
+"prefix" : "dxfATTDEF3",
+"body": [
+"(0 . \"ATTDEF3\")"
+],
+"description":"** 100\n 子类标记 (AcDbEntity)\n ** 67\n 不存在或零表示图元位于模型空间中。1 表示图元位于图纸空间中（可选）\n ** 8\n 图层名\n ** 100\n 子类标记 (AcDbMText)\n ** 10\n 插入点\n DXF：X 值；APP：三维点\n ** 20,30\n DXF：插入点的 Y 值和 Z 值\n ** 40\n 标称（初始）文字高度\n ** 41\n 参照矩形宽度\n ** 46\n 定义注释高度\n ** 71\n 附着点：\n 1 = 左上；2 = 中上；3 = 右上\n 4 = 左中；5 = 正中；6 = 右中\n 7 = 左下；8 = 中下；9 = 右下\n ** 72\n 图形方向：\n 1 = 从左到右\n 3 = 从上到下\n 5 = 随样式（从相关文字样式继承走向）\n ** 1\n 文字字符串\n 如果字符串长度小于 250 个字符，所有字符均出现在组 1 中。如果字符串长度大于 250 个字符，该字符串将分成长度为 250 个字符的数据块，并显示在一个或多个组 3 代码中。如果使用组 3 代码，则最后一个组将是组 1 并且少于 250 个字符。\n ** 3\n 附加文字（始终在长度为 250 个字符的数据块中）（可选）\n ** 7\n DXF：X 值；APP：三维矢量文字样式名（如果未提供，则为 STANDARD）（可选）\n =dxfattdef4="
+},
+"dxfATTDEF4": {
+"prefix" : "dxfATTDEF4",
+"body": [
+"(0 . \"ATTDEF4\")"
+],
+"description":"** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220,230\n DXF：拉伸方向的 Y 值和 Z 值（可选）\n ** 11\n X 轴方向矢量（在 WCS 中）\n DXF：X 值；APP：三维矢量\n ** 21,31\n DXF：X 轴方向矢量的 Y 值和 Z 值（在 WCS 中）\n ** 42\n 构成多行文字图元的字符的水平宽度。\n 该值始终等于或小于组码 41 的值（只读，如果提供则忽略）。\n ** 43\n 多行文字图元的垂直高度（只读，如果提供则忽略）\n ** 50\n 以弧度为单位的旋转角度\n ** 73\n 多行文字的行距样式（可选）：\n 1= 至少（将替代为较高的字符）\n 2 = 精确（将不替代为较高的字符）\n ** 44\n 多行文字的行距比例（可选）：\n 要应用的行距的默认百分比（五分之三）。\n 有效值的范围从 0.25 到 4.00\n ** 90\n 背景填充设置：\n 0 = 背景填充关闭\n 1 = 使用背景填充颜色\n 2 = 使用图形窗口颜色作为背景填充颜色\n ** 63\n 背景色（颜色索引编号）\n =dxfattdef5="
+},
+"dxfATTDEF5": {
+"prefix" : "dxfATTDEF5",
+"body": [
+"(0 . \"ATTDEF5\")"
+],
+"description":"** 420-429\n 背景色（RGB 颜色）\n ** 430-439\n 背景色（颜色名）\n ** 45\n 填充框大小（可选）：\n 确定文字周围的边框大小。\n ** 63\n 背景填充颜色（可选）：\n 组码 90 为 1 时要用于背景填充的颜色。\n ** 441\n 背景填充颜色的透明度（未实现）"
+},
+"dxfATTRIB": {
+"prefix" : "dxfATTRIB",
+"body": [
+"(0 . \"ATTRIB\")"
+],
+"description":"** 100\n 子类标记 (AcDbText)\n ** 39\n 厚度（可选；默认值 = 0）\n ** 10\n 文字起点（在 OCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：文字起点的 Y 值和 Z 值（在 OCS 中）\n ** 40\n 文字高度\n ** 1\n 默认值（字符串）\n ** 100\n 子类标记 (AcDbAttribute)\n ** 280\n 版本号：\n 0 = 2010\n ** 2\n 属性标签（字符串；不能包含空格）\n ** 70\n 属性标记：\n 1 = 属性不可见（不出现）\n 2 = 固定属性\n 4 = 输入属性时要求进行验证\n 8 = 属性为预设（插入时无提示）\n ** 73\n 字段长度（可选；默认值 = 0）（当前未使用）\n ** 50\n 文字旋转角度（可选；默认值 = 0）\n ** 41\n X 相对缩放比例（宽度）（可选；默认值 = 1）。使用拟合类型的文字时，该值也将进行调整。\n ** 51\n 倾斜角（可选；默认值 = 0）\n ** 7\n 文字样式名（可选；默认值 = 标准）\n ** 71\n 文字生成标志（可选；默认值 = 0）。请参见“TEXT 组码”\n ** 72\n 文字水平对正类型（可选；默认值 = 0）。请参见“TEXT 组码”\n ** 74\n 垂直文字对正类型（可选；默认值 = 0）。请参见“TEXT 中的组码 73”\n ** 11\n 对齐点（在 OCS 中）（可选）\n DXF：X 值；APP：三维点\n 只有当 72 或 74 组出现且非零时才出现\n ** 21, 31\n DXF：对齐点的 Y 值和 Z 值（在 OCS 中）（可选）\n ** 210\n 拉伸方向。仅当图元的拉伸方向与 WCS 的 Z 轴不平行时才出现（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）\n ** 280\n 锁定位置标志。锁定块参照中属性的位置\n ** 100\n 子类标记 (AcDbXrecord)\n ** 280\n 重复记录克隆标志（决定如何合并重复条目）：\n 1 = 保留现有\n ** 70\n 多行文字标志：\n 2 = 多行文字属性\n 4 = 固定多行文字属性定义\n ** 70\n 实际锁定标志：\n 0 = 解锁\n 1 = 锁定\n ** 70\n 次要属性数或属性定义数\n 340\n 次要属性或属性定义的硬指针 ID\n ** 10\n 属性或属性定义对齐点\n DXF：X 值；APP：三维点\n ** 20,30\n DXF：插入点的 Y 值和 Z 值\n ** 40\n 当前注释比例\n ** 2\n 属性或属性定义标签字符串\n ** 0\n 图元类型 (MTEXT)\n ** 100\n 子类标记 (AcDbEntity)\n ** 67\n 不存在或零表示图元位于模型空间中。1 表示图元位于图纸空间中（可选）\n ** 8\n 图层名\n ** 100\n 子类标记 (AcDbMText)\n ** 10\n 插入点\n DXF：X 值；APP：三维点\n ** 20,30\n DXF：插入点的 Y 值和 Z 值\n ** 40\n 标称（初始）文字高度\n ** 41\n 参照矩形宽度\n ** 46\n 定义注释高度\n ** 71\n 附着点：\n 1 = 左上；2 = 中上；3 = 右上\n 4 = 左中；5 = 正中；6 = 右中\n 7 = 左下；8 = 中下；9 = 右下\n ** 72\n 图形方向：\n 1 = 从左到右\n 3 = 从上到下\n 5 = 随样式（从相关文字样式继承走向）\n ** 1\n 文字字符串\n 如果字符串长度小于 250 个字符，所有字符均出现在组 1 中。如果字符串长度大于 250 个字符，该字符串将分成长度为 250 个字符的数据块，并显示在一个或多个组 3 代码中。如果使用组 3 代码，则最后一个组将是组 1 并且少于 250 个字符。\n ** 3\n 附加文字（始终在长度为 250 个字符的数据块中）（可选）\n ** 7\n DXF：X 值；APP：三维矢量文字样式名（如果未提供，则为 STANDARD）（可选）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220,230\n DXF：拉伸方向的 Y 值和 Z 值（可选）\n ** 11\n X 轴方向矢量（在 WCS 中）\n DXF：X 值；APP：三维矢量\n ** 21,31\n DXF：X 轴方向矢量的 Y 值和 Z 值（在 WCS 中）\n ** 42\n 构成多行文字图元的字符的水平宽度。\n 该值始终等于或小于组码 41 的值（只读，如果提供则忽略）。\n ** 43\n 多行文字图元的垂直高度（只读，如果提供则忽略）\n ** 50\n 以弧度为单位的旋转角度\n ** 73\n 多行文字的行距样式（可选）：\n 1= 至少（将替代为较高的字符）\n 2 = 精确（将不替代为较高的字符）\n ** 44\n 多行文字的行距比例（可选）：\n 要应用的行距的默认百分比（五分之三）。\n 有效值的范围从 0.25 到 4.00\n ** 90\n 背景填充设置：\n 0 = 背景填充关闭\n 1 = 使用背景填充颜色\n 2 = 使用图形窗口颜色作为背景填充颜色\n ** 63\n 背景色（颜色索引编号）\n ** 420-429\n 背景色（RGB 颜色）\n ** 430-439\n 背景色（颜色名）\n ** 45\n 填充框大小（可选）：\n 确定文字周围的边框大小。\n ** 63\n 背景填充颜色（可选）：\n 组码 90 为 1 时要用于背景填充的颜色。\n ** 441\n 背景填充颜色的透明度（未实现）"
+},
+"dxf 属性": {
+"prefix" : "dxf 属性",
+"body": [
+"(0 . \" 属性\")"
+],
+"description":"** 100\n 子类标记 (AcDbText)\n ** 39\n 厚度（可选；默认值 = 0）\n ** 10\n 文字起点（在 OCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：文字起点的 Y 值和 Z 值（在 OCS 中）\n ** 40\n 文字高度\n ** 1\n 默认值（字符串）\n ** 100\n 子类标记 (AcDbAttribute)\n ** 280\n 版本号：\n 0 = 2010\n ** 2\n 属性标签（字符串；不能包含空格）\n ** 70\n 属性标记：\n 1 = 属性不可见（不出现）\n 2 = 固定属性\n 4 = 输入属性时要求进行验证\n 8 = 属性为预设（插入时无提示）\n ** 73\n 字段长度（可选；默认值 = 0）（当前未使用）\n ** 50\n 文字旋转角度（可选；默认值 = 0）\n ** 41\n X 相对缩放比例（宽度）（可选；默认值 = 1）。使用拟合类型的文字时，该值也将进行调整。\n ** 51\n 倾斜角（可选；默认值 = 0）\n ** 7\n 文字样式名（可选；默认值 = 标准）\n ** 71\n 文字生成标志（可选；默认值 = 0）。请参见“TEXT 组码”\n ** 72\n 文字水平对正类型（可选；默认值 = 0）。请参见“TEXT 组码”\n ** 74\n 垂直文字对正类型（可选；默认值 = 0）。请参见“TEXT 中的组码 73”\n ** 11\n 对齐点（在 OCS 中）（可选）\n DXF：X 值；APP：三维点\n 只有当 72 或 74 组出现且非零时才出现\n ** 21, 31\n DXF：对齐点的 Y 值和 Z 值（在 OCS 中）（可选）\n ** 210\n 拉伸方向。仅当图元的拉伸方向与 WCS 的 Z 轴不平行时才出现（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）\n ** 280\n 锁定位置标志。锁定块参照中属性的位置\n ** 100\n 子类标记 (AcDbXrecord)\n ** 280\n 重复记录克隆标志（决定如何合并重复条目）：\n 1 = 保留现有\n ** 70\n 多行文字标志：\n 2 = 多行文字属性\n 4 = 固定多行文字属性定义\n ** 70\n 实际锁定标志：\n 0 = 解锁\n 1 = 锁定\n ** 70\n 次要属性数或属性定义数\n 340\n 次要属性或属性定义的硬指针 ID\n ** 10\n 属性或属性定义对齐点\n DXF：X 值；APP：三维点\n ** 20,30\n DXF：插入点的 Y 值和 Z 值\n ** 40\n 当前注释比例\n ** 2\n 属性或属性定义标签字符串\n ** 0\n 图元类型 (MTEXT)\n ** 100\n 子类标记 (AcDbEntity)\n ** 67\n 不存在或零表示图元位于模型空间中。1 表示图元位于图纸空间中（可选）\n ** 8\n 图层名\n ** 100\n 子类标记 (AcDbMText)\n ** 10\n 插入点\n DXF：X 值；APP：三维点\n ** 20,30\n DXF：插入点的 Y 值和 Z 值\n ** 40\n 标称（初始）文字高度\n ** 41\n 参照矩形宽度\n ** 46\n 定义注释高度\n ** 71\n 附着点：\n 1 = 左上；2 = 中上；3 = 右上\n 4 = 左中；5 = 正中；6 = 右中\n 7 = 左下；8 = 中下；9 = 右下\n ** 72\n 图形方向：\n 1 = 从左到右\n 3 = 从上到下\n 5 = 随样式（从相关文字样式继承走向）\n ** 1\n 文字字符串\n 如果字符串长度小于 250 个字符，所有字符均出现在组 1 中。如果字符串长度大于 250 个字符，该字符串将分成长度为 250 个字符的数据块，并显示在一个或多个组 3 代码中。如果使用组 3 代码，则最后一个组将是组 1 并且少于 250 个字符。\n ** 3\n 附加文字（始终在长度为 250 个字符的数据块中）（可选）\n ** 7\n DXF：X 值；APP：三维矢量文字样式名（如果未提供，则为 STANDARD）（可选）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220,230\n DXF：拉伸方向的 Y 值和 Z 值（可选）\n ** 11\n X 轴方向矢量（在 WCS 中）\n DXF：X 值；APP：三维矢量\n ** 21,31\n DXF：X 轴方向矢量的 Y 值和 Z 值（在 WCS 中）\n ** 42\n 构成多行文字图元的字符的水平宽度。\n 该值始终等于或小于组码 41 的值（只读，如果提供则忽略）。\n ** 43\n 多行文字图元的垂直高度（只读，如果提供则忽略）\n ** 50\n 以弧度为单位的旋转角度\n ** 73\n 多行文字的行距样式（可选）：\n 1= 至少（将替代为较高的字符）\n 2 = 精确（将不替代为较高的字符）\n ** 44\n 多行文字的行距比例（可选）：\n 要应用的行距的默认百分比（五分之三）。\n 有效值的范围从 0.25 到 4.00\n ** 90\n 背景填充设置：\n 0 = 背景填充关闭\n 1 = 使用背景填充颜色\n 2 = 使用图形窗口颜色作为背景填充颜色\n ** 63\n 背景色（颜色索引编号）\n ** 420-429\n 背景色（RGB 颜色）\n ** 430-439\n 背景色（颜色名）\n ** 45\n 填充框大小（可选）：\n 确定文字周围的边框大小。\n ** 63\n 背景填充颜色（可选）：\n 组码 90 为 1 时要用于背景填充的颜色。\n ** 441\n 背景填充颜色的透明度（未实现）"
+},
+"dxfBODY": {
+"prefix" : "dxfBODY",
+"body": [
+"(0 . \"BODY\")"
+],
+"description":"** 100\n 子类标记 (AcDbModelerGeometry)\n ** 70\n 建模格式版本号（当前值 = 1）\n ** 1\n 所有权数据（多行，每行 < 255 个字符）\n ** 3\n 所有权数据的附加行（如果前一个组 1 的字符串长度大于 255 个字符）（可选）"
+},
+"dxfCIRCLE": {
+"prefix" : "dxfCIRCLE",
+"body": [
+"(0 . \"CIRCLE\")"
+],
+"description":"** 100\n 子类标记 (AcDbCircle)\n ** 39\n 厚度（可选；默认值 = 0）\n ** 10\n 中心点（在 OCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：中心点的 Y 值和 Z 值（在 OCS 中）\n ** 40\n 半径\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）"
+},
+"dxf 圆": {
+"prefix" : "dxf 圆",
+"body": [
+"(0 . \" 圆\")"
+],
+"description":"** 100\n 子类标记 (AcDbCircle)\n ** 39\n 厚度（可选；默认值 = 0）\n ** 10\n 中心点（在 OCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：中心点的 Y 值和 Z 值（在 OCS 中）\n ** 40\n 半径\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）"
+},
+"dxfCOORDINATION MODEL": {
+"prefix" : "dxfCOORDINATION MODEL",
+"body": [
+"(0 . \"COORDINATION MODEL\")"
+],
+"description":"** 0\n 对象名（协调模型）\n ** 5\n 句柄\n ** 330\n 所有者词典的软指针 ID/句柄\n ** 100\n 子类标记 (AcDbNavisworksModel)\n ** 340\n 指向 AcDbNavisworksModelDef 对象的软指针 ID/句柄\n 40, 40, 40, 40\n 40, 40, 40, 40\n 40, 40, 40, 40\n 40, 40, 40, 40\n WCS 坐标中的模型转换（4x4 矩阵）\n ** 40\n 插入单位因子"
+},
+"dxfDIMENSION": {
+"prefix" : "dxfDIMENSION",
+"body": [
+"(0 . \"DIMENSION\")"
+],
+"description":"** 100\n 子类标记 (AcDbDimension)\n ** 280\n 版本号：\n 0 = 2010\n ** 2\n 包含构成标注图片的图元的块的名称\n ** 10\n 定义点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：定义点的 Y 值和 Z 值（在 WCS 中）\n ** 11\n 标注文字的中点（在 OCS 中）\n DXF：X 值；APP：三维点\n ** 21, 31\n DXF：标注文字中点的 Y 值和 Z 值（在 OCS 中）\n ** 70\n 标注类型：\n 值 0-6 是表示标注类型的整数值。值 32、64 和 128 是添加到整数值中的位值（在 R13 及以后的版本中始终设定值 32）\n 0 = 旋转、水平或垂直\n 1 = 对齐\n 2 = 角度\n 3 = 直径\n 4 = 半径\n 5 = 三点角度\n 6 = 坐标\n 32 = 表示块参照（组码 2）仅由该标注参照。\n 64 = 坐标类型。这是一个位值（位 7），仅与整数值 6 一起使用。如果设置该值，则坐标为 X 类型；如果不设置，则坐标为 Y 类型。\n 128 = 这是一个添加到其他组 70 值的位值（位 8）（如果标注文字已放置到用户定义的位置，而不是放置到默认位置）\n ** 71\n 附着点：\n 1 = 左上\n 2 = 中上\n 3 = 右上\n 4 = 左中\n 5 = 正中\n 6 = 右中\n 7 = 左下\n 8 = 中下\n 9 = 右下\n ** 72\n 标注文字行距样式（可选）：\n 1（或缺少）= 至少（将替代为较高的字符）\n 2 = 精确（将不替代为较高的字符）\n ** 41\n 标注文字行距比例（可选）：\n 要应用的行距的默认百分比（五分之三）。有效值的范围从 0.25 到 4.00\n ** 42\n 实际测量结果（可选；只读值）\n ** 1\n 由用户明确输入的标注文字。可选；默认值为测量结果。如果为空或为“<>”，标注测量结果将绘制为文字；如果为“ ”（一个空格），文字将被抑制。其他内容绘制为文字\n ** 53\n 可选组码 53 是标注文字与其默认方向所成的旋转角度（尺寸线方向）（可选）\n ** 51\n 所有标注类型均有可选的 51 组码，表示标注图元的水平方向。标注图元决定水平、垂直和旋转线性标注的标注文字和直线的方向\n 该组值是 OCS X 轴和 UCS X 轴之间的负角度。它始终位于 OCS 的 XY 平面上\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）\n ** 3\n 标注样式名"
+},
+"dxf 标注": {
+"prefix" : "dxf 标注",
+"body": [
+"(0 . \" 标注\")"
+],
+"description":"** 100\n 子类标记 (AcDbDimension)\n ** 280\n 版本号：\n 0 = 2010\n ** 2\n 包含构成标注图片的图元的块的名称\n ** 10\n 定义点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：定义点的 Y 值和 Z 值（在 WCS 中）\n ** 11\n 标注文字的中点（在 OCS 中）\n DXF：X 值；APP：三维点\n ** 21, 31\n DXF：标注文字中点的 Y 值和 Z 值（在 OCS 中）\n ** 70\n 标注类型：\n 值 0-6 是表示标注类型的整数值。值 32、64 和 128 是添加到整数值中的位值（在 R13 及以后的版本中始终设定值 32）\n 0 = 旋转、水平或垂直\n 1 = 对齐\n 2 = 角度\n 3 = 直径\n 4 = 半径\n 5 = 三点角度\n 6 = 坐标\n 32 = 表示块参照（组码 2）仅由该标注参照。\n 64 = 坐标类型。这是一个位值（位 7），仅与整数值 6 一起使用。如果设置该值，则坐标为 X 类型；如果不设置，则坐标为 Y 类型。\n 128 = 这是一个添加到其他组 70 值的位值（位 8）（如果标注文字已放置到用户定义的位置，而不是放置到默认位置）\n ** 71\n 附着点：\n 1 = 左上\n 2 = 中上\n 3 = 右上\n 4 = 左中\n 5 = 正中\n 6 = 右中\n 7 = 左下\n 8 = 中下\n 9 = 右下\n ** 72\n 标注文字行距样式（可选）：\n 1（或缺少）= 至少（将替代为较高的字符）\n 2 = 精确（将不替代为较高的字符）\n ** 41\n 标注文字行距比例（可选）：\n 要应用的行距的默认百分比（五分之三）。有效值的范围从 0.25 到 4.00\n ** 42\n 实际测量结果（可选；只读值）\n ** 1\n 由用户明确输入的标注文字。可选；默认值为测量结果。如果为空或为“<>”，标注测量结果将绘制为文字；如果为“ ”（一个空格），文字将被抑制。其他内容绘制为文字\n ** 53\n 可选组码 53 是标注文字与其默认方向所成的旋转角度（尺寸线方向）（可选）\n ** 51\n 所有标注类型均有可选的 51 组码，表示标注图元的水平方向。标注图元决定水平、垂直和旋转线性标注的标注文字和直线的方向\n 该组值是 OCS X 轴和 UCS X 轴之间的负角度。它始终位于 OCS 的 XY 平面上\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）\n ** 3\n 标注样式名"
+},
+"dxfELLIPSE": {
+"prefix" : "dxfELLIPSE",
+"body": [
+"(0 . \"ELLIPSE\")"
+],
+"description":"** 100\n 子类标记 (AcDbEllipse)\n ** 10\n 中心点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：中心点的 Y 值和 Z 值（在 WCS 中）\n ** 11\n 相对于中心的长轴端点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 21, 31\n DXF：相对于中心的长轴端点的 Y 值和 Z 值（在 WCS 中）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）\n ** 40\n 短轴与长轴的比例\n ** 41\n 起点参数 （对于闭合椭圆，该值为 0.0）\n ** 42\n 端点参数 （对于闭合椭圆，该值为 2pi）"
+},
+"dxf 椭圆": {
+"prefix" : "dxf 椭圆",
+"body": [
+"(0 . \" 椭圆\")"
+],
+"description":"** 100\n 子类标记 (AcDbEllipse)\n ** 10\n 中心点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：中心点的 Y 值和 Z 值（在 WCS 中）\n ** 11\n 相对于中心的长轴端点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 21, 31\n DXF：相对于中心的长轴端点的 Y 值和 Z 值（在 WCS 中）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）\n ** 40\n 短轴与长轴的比例\n ** 41\n 起点参数 （对于闭合椭圆，该值为 0.0）\n ** 42\n 端点参数 （对于闭合椭圆，该值为 2pi）"
+},
+"dxfHATCH": {
+"prefix" : "dxfHATCH",
+"body": [
+"(0 . \"HATCH\")"
+],
+"description":"=dxfhatch边界路径数据=\n =dxfhatch图案数据=\n hatch 填充 dxf 数据较多，无法全部输出显示，分为以下4部分：\n =dxfhatch-part1=\n =dxfhatch-part2=\n =dxfhatch-part3=\n =dxfhatch-part4="
+},
+"dxf 填充": {
+"prefix" : "dxf 填充",
+"body": [
+"(0 . \" 填充\")"
+],
+"description":"=dxfhatch边界路径数据=\n =dxfhatch图案数据=\n hatch 填充 dxf 数据较多，无法全部输出显示，分为以下4部分：\n =dxfhatch-part1=\n =dxfhatch-part2=\n =dxfhatch-part3=\n =dxfhatch-part4="
+},
+"dxfhatch-part1": {
+"prefix" : "dxfhatch-part1",
+"body": [
+"(0 . \"hatch-part1\")"
+],
+"description":"** 100\n 子类标记 (AcDbHatch)\n ** 10\n 标高点（在 OCS 中）\n DXF：X 值 = 0；APP：三维点（X 和 Y 始终等于 0，Z 表示标高）\n ** 20, 30\n DXF：标高点的 Y 值和 Z 值（在 OCS 中）\n Y 值 = 0，Z 表示标高\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值\n ** 2\n 填充图案名\n ** 70\n 实体填充标志（0 = 图案填充；1 = 实体填充）；对于 MPolygon，为 Mpolygon 的版本\n ** 63\n 对于 Mpolygon，图案填充颜色为 ACI"
+},
+"dxfhatch-part2": {
+"prefix" : "dxfhatch-part2",
+"body": [
+"(0 . \"hatch-part2\")"
+],
+"description":"** 71\n 关联性标志（0 = 无关联；1 = 关联）；对于 Mpolygon，为实体填充标志（0 = 无实体填充；1 = 有实体填充）\n ** 91\n 边界路径（环）数\n ** 多种\n 边界路径数据。重复代码 91 指定的次数。请参见“边界路径数据”\n ** 75\n 图案填充样式：\n 0 = 对“奇数奇偶校验”区域进行图案填充（普通样式）\n 1 = 仅对最外层区域进行图案填充（“外部”样式）\n 2 = 对整个区域进行图案填充（“忽略”样式）\n ** 76\n 填充图案类型：\n 0 = 用户定义\n 1 = 预定义\n 2 = 自定义\n ** 52\n 填充图案角度（仅限图案填充）\n ** 41\n 填充图案比例或间距（仅限图案填充）\n ** 73\n 对于 Mpolygon，为边界注释标志：\n 0 = 边界不是注释边界\n 1 = 边界是注释边界\n ** 77\n 填充图案双向标志（仅限图案填充）：\n 0 = 非双向标志\n 1 = 双向标志"
+},
+"dxfhatch-part3": {
+"prefix" : "dxfhatch-part3",
+"body": [
+"(0 . \"hatch-part3\")"
+],
+"description":"** 78\n 图案定义直线数\n ** 多种\n 图案直线数据。代码 78 指定的重复次数。请参见“图案数据”\n ** 47\n 在相关图案填充和使用图案填充的“填充”方法创建的图案填充的填充图案计算中，用于确定执行各种相交和射线法操作的密度的像素大小。\n ** 98\n 种子点数\n ** 11\n 对于 MPolygon，为偏移矢量\n ** 99\n 对于 MPolygon，为退化边界路径（环）数（退化边界路径是图案填充忽略的边框）\n ** 10\n 种子点（在 OCS 中）\n DXF：X 值；APP：二维点（多个条目）\n ** 20\n DXF：种子点的 Y 值（在 OCS 中）；（多个条目)"
+},
+"dxfhatch-part4": {
+"prefix" : "dxfhatch-part4",
+"body": [
+"(0 . \"hatch-part4\")"
+],
+"description":"** 450\n 表示实体图案填充或渐变色；如果是实体图案填充，则剩余代码的值将被忽略，但必须存在。可选；如果代码 450 在文件中，下列代码也必须在文件中：451、452、453、460、461、462 和 470。如果代码 450 不在文件中，下列代码也必须不在文件中：451、452、453、460、461、462 和 470\n 0 = 实体图案填充\n 1 = 渐变色\n ** 451\n 保留零供以后使用\n 452\n 记录定义颜色的方法，仅用于对话框代码：\n 0 = 双色渐变色\n 1 = 单色渐变色\n ** 453\n 颜色数：\n 0 = 实体图案填充\n 2 = 渐变色\n ** 460\n 以弧度表示的渐变色的旋转角度（默认值 = 0, 0）\n ** 461\n 渐变色定义；对应于“边界图案填充”对话框“渐变色”选项卡中的“居中”选项。每个渐变色有两个定义：移动和非移动。“移动”值描述了应使用的两种定义的过渡。值 0.0 表示应仅使用非移动版本，值 1.0 表示应仅使用移动版本。\n ** 462\n 对话框代码使用的色调值（默认值 = 0, 0；范围从 0.0 到 1.0）。色调值是一个渐变色，用于当图案填充组码 452 设定为 1 时，控制对话框中的色调度。\n ** 463\n 保留供以后使用：\n 0 = 第一个值\n 1 = 第二个值\n ** 470\n 字符串（默认值 = 线性）"
+},
+"dxfhatch边界路径数据": {
+"prefix" : "dxfhatch边界路径数据",
+"body": [
+"(0 . \"hatch边界路径数据\")"
+],
+"description":"每个图案填充对象的边界由包含一条或多条线段的路径（或环）定义。路径线段数据取决于构成路径的图元类型。每条路径线段由它自己的组码集定义。\n =dxfhatch图案填充边=\n =dxfhatch多段线=\n =dxfhatch直线边=\n =dxfhatch圆弧边=\n =dxfhatch椭圆边=\n =dxfhatch样条曲线边="
+},
+"dxfhatch图案填充边": {
+"prefix" : "dxfhatch图案填充边",
+"body": [
+"(0 . \"hatch图案填充边\")"
+],
+"description":"** 92\n 边界路径类型标志（按位编码）：\n 0 = 默认\n 1 = 外部\n 2 = 多段线\n 4 = 导出\n 8 = 文本框\n 16 = 最外层\n 多种\n 多段线边界类型数据（仅当边界 = 多段线时）。参见下面的多段线边界数据表\n ** 93\n 该边界路径中的边数（仅当边界不是多段线时）\n ** 72\n 边类型（仅当边界不是多段线时）：\n 1 = 直线\n 2 = 圆弧\n 3 = 椭圆弧\n 4 = 样条曲线\n 多种\n 边类型数据（仅当边界不是多段线时）。参见下面的相应边数据表\n ** 97\n 源边界对象数\n ** 330\n 源边界对象的参照（多个条目）"
+},
+"dxfhatch多段线": {
+"prefix" : "dxfhatch多段线",
+"body": [
+"(0 . \"hatch多段线\")"
+],
+"description":"** 72\n “有凸度”标志\n ** 73\n “关闭”标志\n ** 93\n 多段线顶点数\n ** 10\n 顶点位置（在 OCS 中）\n DXF：X 值；APP：二维点（多个条目）\n ** 20\n DXF：顶点位置的 Y 值（在 OCS 中）（多个条目）\n ** 42\n 凸度（可选；默认值 = 0）"
+},
+"dxfhatch直线边": {
+"prefix" : "dxfhatch直线边",
+"body": [
+"(0 . \"hatch直线边\")"
+],
+"description":"** 10\n 起点（在 OCS 中）\n DXF：X 值；APP：二维点\n ** 20\n DXF：起点的 Y 值（在 OCS 中）\n ** 11\n 端点（在 OCS 中）\n DXF：X 值；APP：二维点\n ** 21\n DXF：端点的 Y 值（在 OCS 中）"
+},
+"dxfhatch圆弧边": {
+"prefix" : "dxfhatch圆弧边",
+"body": [
+"(0 . \"hatch圆弧边\")"
+],
+"description":"** 10\n 中心点（在 OCS 中）\n DXF：X 值；APP：二维点\n ** 20\n DXF：中心点的 Y 值（在 OCS 中）\n ** 40\n 半径\n ** 50\n 起点角度\n ** 51\n 端点角度\n ** 73\n “逆时针”标志"
+},
+"dxfhatch椭圆边": {
+"prefix" : "dxfhatch椭圆边",
+"body": [
+"(0 . \"hatch椭圆边\")"
+],
+"description":"** 10\n 中心点（在 OCS 中）\n DXF：X 值；APP：二维点\n ** 20\n DXF：中心点的 Y 值（在 OCS 中）\n ** 11\n 相对于中心点的长轴端点（在 OCS 中）\n DXF：X 值；APP：二维点\n ** 21\n DXF：长轴端点的 Y 值（在 OCS 中）\n ** 40\n 短轴的长度（占长轴长度的比例）\n ** 50\n 起点角度\n ** 51\n 端点角度\n ** 73\n “逆时针”标志"
+},
+"dxfhatch样条曲线边": {
+"prefix" : "dxfhatch样条曲线边",
+"body": [
+"(0 . \"hatch样条曲线边\")"
+],
+"description":"** 94\n 阶数\n ** 73\n 有理\n ** 74\n 周期\n ** 95\n 节点数\n ** 96\n 控制点数\n ** 40\n 节点值（多个条目）\n ** 10\n 控制点（在 OCS 中）\n DXF：X 值；APP：二维点\n ** 20\n DXF：控制点的 Y 值（在 OCS 中）\n ** 42\n 权值（可选；默认值 = 1）\n ** 97\n 拟合数据数目\n ** 11\n 拟合基准（在 OCS 中）\n DXF：X 值；APP：二维点\n ** 21\n DXF：拟合基准的 Y 值（在 OCS 中）\n ** 12\n 起点切向\n DXF：X 值；APP：二维矢量\n ** 22\n DXF：起点切向的 Y 值（在 OCS 中）\n ** 13\n 端点切向\n DXF：X 值；APP：二维矢量\n ** 23\n DXF：端点切向的 Y 值（在 OCS 中）"
+},
+"dxfhatch图案数据": {
+"prefix" : "dxfhatch图案数据",
+"body": [
+"(0 . \"hatch图案数据\")"
+],
+"description":"各图案定义行重复使用以下图案数据代码。\n ** 53\n 图案直线角度\n ** 43\n 图案直线基点，X 分量\n ** 44\n 图案直线基点，Y 分量\n ** 45\n 图案直线偏移，X 分量\n ** 46\n 图案直线偏移，Y 分量\n ** 79\n 虚线长度项目数\n ** 49\n 虚线长度（多个条目）"
+},
+"dxfHELIX": {
+"prefix" : "dxfHELIX",
+"body": [
+"(0 . \"HELIX\")"
+],
+"description":"样条曲线数据\n ** 100\n 子类标记 (AcDbHelix)\n ** 90\n 主版本号\n ** 91\n 维护版本号\n 10, 20, 30\n 轴基点\n 11, 21, 31\n 起点\n ** 12, 22, 32\n 轴矢量\n ** 40\n 半径\n ** 41\n 圈数\n ** 42\n 圈高\n ** 290\n 左右手习惯：\n 0 = 左手\n 1 = 右手\n ** 280\n 约束类型：\n 0 = 约束圈高\n 1 = 约束圈数\n 2 = 约束高度"
+},
+"dxfIMAGE": {
+"prefix" : "dxfIMAGE",
+"body": [
+"(0 . \"IMAGE\")"
+],
+"description":"** 100\n 子类标记 (AcDbRasterImage)\n ** 90\n 类版本\n ** 10\n 插入点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：插入点的 Y 值和 Z 值（在 WCS 中）\n ** 11\n 单像素的 U 矢量（沿图像可见底部的点，从插入点开始）（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 21, 31\n DXF：U 矢量的 Y 值和 Z 值（在 WCS 中）\n ** 12\n 单像素的 V 矢量（沿图像可见左侧的点，从插入点开始）（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 22, 32\n DXF：V 矢量的 Y 值和 Z 值（在 WCS 中）\n ** 13\n 图像大小（像素）\n DXF：U 值；APP：二维点（U 值和 V 值）\n ** 23\n DXF：图像大小（像素）的 V 值\n ** 340\n imagedef 对象的硬参照\n ** 70\n 图像显示特性：\n 1 = 显示图像\n 2 = 当与屏幕不对齐时显示图像\n 4 = 使用剪裁边界\n 8 = 透明度打开\n ** 280\n 剪裁状态：\n 0 = 关闭\n 1 = 打开\n ** 281\n 亮度值（0-100；默认值 = 50）\n ** 282\n 对比度值（0-100；默认值 = 50）\n ** 283\n 淡入度值（0-100；默认值 = 0）\n ** 360\n imagedef_reactor 对象的硬参照\n ** 71\n 剪裁边界类型。1 = 矩形；2 = 多边形\n ** 91\n 后面的裁剪边界顶点数\n ** 14\n 裁剪边界顶点（在 OCS 中）\n DXF：X 值；APP：二维点（多个条目）\n 注意 1) 对于矩形剪裁边界类型，必须指定两个对角点。默认值为 (-0.5,-0.5)，(size.x-0.5,size.y-0.5)。2) 对于多边形剪裁边界类型，必须指定三个或更多顶点。多边形顶点必须按顺序列出\n ** 24\n DXF：剪裁边界顶点的 Y 值（在 OCS 中）（多个条目）\n ** 290\n 剪裁模式：\n 0 = 外部模式\n 1 = 内部模式"
+},
+"dxf 图像": {
+"prefix" : "dxf 图像",
+"body": [
+"(0 . \" 图像\")"
+],
+"description":"** 100\n 子类标记 (AcDbRasterImage)\n ** 90\n 类版本\n ** 10\n 插入点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：插入点的 Y 值和 Z 值（在 WCS 中）\n ** 11\n 单像素的 U 矢量（沿图像可见底部的点，从插入点开始）（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 21, 31\n DXF：U 矢量的 Y 值和 Z 值（在 WCS 中）\n ** 12\n 单像素的 V 矢量（沿图像可见左侧的点，从插入点开始）（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 22, 32\n DXF：V 矢量的 Y 值和 Z 值（在 WCS 中）\n ** 13\n 图像大小（像素）\n DXF：U 值；APP：二维点（U 值和 V 值）\n ** 23\n DXF：图像大小（像素）的 V 值\n ** 340\n imagedef 对象的硬参照\n ** 70\n 图像显示特性：\n 1 = 显示图像\n 2 = 当与屏幕不对齐时显示图像\n 4 = 使用剪裁边界\n 8 = 透明度打开\n ** 280\n 剪裁状态：\n 0 = 关闭\n 1 = 打开\n ** 281\n 亮度值（0-100；默认值 = 50）\n ** 282\n 对比度值（0-100；默认值 = 50）\n ** 283\n 淡入度值（0-100；默认值 = 0）\n ** 360\n imagedef_reactor 对象的硬参照\n ** 71\n 剪裁边界类型。1 = 矩形；2 = 多边形\n ** 91\n 后面的裁剪边界顶点数\n ** 14\n 裁剪边界顶点（在 OCS 中）\n DXF：X 值；APP：二维点（多个条目）\n 注意 1) 对于矩形剪裁边界类型，必须指定两个对角点。默认值为 (-0.5,-0.5)，(size.x-0.5,size.y-0.5)。2) 对于多边形剪裁边界类型，必须指定三个或更多顶点。多边形顶点必须按顺序列出\n ** 24\n DXF：剪裁边界顶点的 Y 值（在 OCS 中）（多个条目）\n ** 290\n 剪裁模式：\n 0 = 外部模式\n 1 = 内部模式"
+},
+"dxfINSERT": {
+"prefix" : "dxfINSERT",
+"body": [
+"(0 . \"INSERT\")"
+],
+"description":"** 100\n 子类标记 (AcDbBlockReference)\n ** 66\n 可变属性跟随标志（可选；默认值 = 0）；如果属性跟随标志的值为 1，则跟随插入的将是一系列属性图元，并以一个 seqend 图元终止\n ** 2\n 块名\n ** 10\n 插入点（在 OCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：插入点的 Y 值和 Z 值（在 OCS 中）\n ** 41\n X 缩放比例（可选；默认值 = 1）\n ** 42\n Y 缩放比例（可选；默认值 = 1）\n ** 43\n Z 缩放比例（可选；默认值 = 1）\n ** 50\n 旋转角度（可选；默认值 = 0）\n ** 70\n 列计数（可选；默认值 = 1）\n ** 71\n 行计数（可选；默认值 = 1）\n ** 44\n 列间距（可选；默认值 = 0）\n ** 45\n 行间距（可选；默认值 = 0）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）"
+},
+"dxf 块引用": {
+"prefix" : "dxf 块引用",
+"body": [
+"(0 . \" 块引用\")"
+],
+"description":"** 100\n 子类标记 (AcDbBlockReference)\n ** 66\n 可变属性跟随标志（可选；默认值 = 0）；如果属性跟随标志的值为 1，则跟随插入的将是一系列属性图元，并以一个 seqend 图元终止\n ** 2\n 块名\n ** 10\n 插入点（在 OCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：插入点的 Y 值和 Z 值（在 OCS 中）\n ** 41\n X 缩放比例（可选；默认值 = 1）\n ** 42\n Y 缩放比例（可选；默认值 = 1）\n ** 43\n Z 缩放比例（可选；默认值 = 1）\n ** 50\n 旋转角度（可选；默认值 = 0）\n ** 70\n 列计数（可选；默认值 = 1）\n ** 71\n 行计数（可选；默认值 = 1）\n ** 44\n 列间距（可选；默认值 = 0）\n ** 45\n 行间距（可选；默认值 = 0）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）"
+},
+"dxf 块参照": {
+"prefix" : "dxf 块参照",
+"body": [
+"(0 . \" 块参照\")"
+],
+"description":"** 100\n 子类标记 (AcDbBlockReference)\n ** 66\n 可变属性跟随标志（可选；默认值 = 0）；如果属性跟随标志的值为 1，则跟随插入的将是一系列属性图元，并以一个 seqend 图元终止\n ** 2\n 块名\n ** 10\n 插入点（在 OCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：插入点的 Y 值和 Z 值（在 OCS 中）\n ** 41\n X 缩放比例（可选；默认值 = 1）\n ** 42\n Y 缩放比例（可选；默认值 = 1）\n ** 43\n Z 缩放比例（可选；默认值 = 1）\n ** 50\n 旋转角度（可选；默认值 = 0）\n ** 70\n 列计数（可选；默认值 = 1）\n ** 71\n 行计数（可选；默认值 = 1）\n ** 44\n 列间距（可选；默认值 = 0）\n ** 45\n 行间距（可选；默认值 = 0）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）"
+},
+"dxfLEADER": {
+"prefix" : "dxfLEADER",
+"body": [
+"(0 . \"LEADER\")"
+],
+"description":"** 100\n 子类标记 (AcDbLeader)\n ** 3\n 标注样式名\n ** 71\n 箭头标志：0 = 禁用；1 = 启用\n ** 72\n 引线路径类型：0 = 直线段；1 = 样条曲线\n ** 73\n 引线创建标志（默认值 = 3）：\n 0 = 使用文字注释创建\n 1 = 使用公差注释创建\n 2 = 使用块参照注释创建\n 3 = 不使用任何注释创建\n ** 74\n 基线方向标志：\n 0 = 基线（或样条曲线引线的切线端）与水平矢量的方向相反\n 1 = 基线（或样条曲线引线的切线端）与水平矢量的方向相同（参见代码 75）\n ** 75\n 基线标志：\n 0 = 无基线\n 1 = 有基线\n ** 40\n 文字注释高度\n ** 41\n 文字注释宽度\n ** 76\n 引线顶点数（如果为 OPEN，则忽略）\n ** 10\n 顶点坐标（每个顶点一个条目）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：顶点坐标的 Y 值和 Z 值\n ** 77\n 引线的 DIMCLRD = BYBLOCK时使用的颜色\n ** 340\n 相关注释的硬参照（多行文字、公差或插入图元）\n ** 210\n 法向矢量\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：法向矢量的 Y 值和 Z 值\n ** 211\n 引线的“水平”方向\n DXF：X 值；APP：三维矢量\n ** 221, 231\n DXF：引线的“水平”方向的 Y 值和 Z 值\n ** 212\n 上一个引线顶点距块参照插入点的偏移\n DXF：X 值；APP：三维矢量\n ** 222, 232\n DXF：偏移的 Y 值和 Z 值\n ** 213\n 上一个引线定点距注释位置点的偏移\n DXF：X 值；APP：三维矢量\n ** 223, 233\n DXF：偏移的 Y 值和 Z 值"
+},
+"dxf 引线": {
+"prefix" : "dxf 引线",
+"body": [
+"(0 . \" 引线\")"
+],
+"description":"** 100\n 子类标记 (AcDbLeader)\n ** 3\n 标注样式名\n ** 71\n 箭头标志：0 = 禁用；1 = 启用\n ** 72\n 引线路径类型：0 = 直线段；1 = 样条曲线\n ** 73\n 引线创建标志（默认值 = 3）：\n 0 = 使用文字注释创建\n 1 = 使用公差注释创建\n 2 = 使用块参照注释创建\n 3 = 不使用任何注释创建\n ** 74\n 基线方向标志：\n 0 = 基线（或样条曲线引线的切线端）与水平矢量的方向相反\n 1 = 基线（或样条曲线引线的切线端）与水平矢量的方向相同（参见代码 75）\n ** 75\n 基线标志：\n 0 = 无基线\n 1 = 有基线\n ** 40\n 文字注释高度\n ** 41\n 文字注释宽度\n ** 76\n 引线顶点数（如果为 OPEN，则忽略）\n ** 10\n 顶点坐标（每个顶点一个条目）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：顶点坐标的 Y 值和 Z 值\n ** 77\n 引线的 DIMCLRD = BYBLOCK时使用的颜色\n ** 340\n 相关注释的硬参照（多行文字、公差或插入图元）\n ** 210\n 法向矢量\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：法向矢量的 Y 值和 Z 值\n ** 211\n 引线的“水平”方向\n DXF：X 值；APP：三维矢量\n ** 221, 231\n DXF：引线的“水平”方向的 Y 值和 Z 值\n ** 212\n 上一个引线顶点距块参照插入点的偏移\n DXF：X 值；APP：三维矢量\n ** 222, 232\n DXF：偏移的 Y 值和 Z 值\n ** 213\n 上一个引线定点距注释位置点的偏移\n DXF：X 值；APP：三维矢量\n ** 223, 233\n DXF：偏移的 Y 值和 Z 值"
+},
+"dxfLIGHT": {
+"prefix" : "dxfLIGHT",
+"body": [
+"(0 . \"LIGHT\")"
+],
+"description":"** 100\n 子类标记 (AcDbLight)\n ** 90\n 版本号\n ** 1\n 光源名称\n ** 70\n 光源类型：\n 1 = 平行光\n 2 = 点光源\n 3 = 聚光灯\n ** 290\n 状态\n ** 291\n 打印轮廓\n ** 40\n 强度\n ** 10\n 光源位置\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：光源位置的 X、 Y 和 Z 值\n ** 11\n 目标位置\n DXF：X 值；APP：三维点\n ** 21, 31\n DXF：目标位置的 X、 Y 和 Z 值\n ** 72\n 衰减类型：\n 0 = 无\n 1 = 线性反比\n 2 = 平方反比\n ** 292\n 使用衰减界限\n ** 41\n 衰减起点界限\n ** 42\n 衰减端点界限\n ** 50\n 聚光角角度\n ** 51\n 照射角角度\n ** 293\n 投射阴影\n ** 73\n 阴影类型\n 0 = 光线跟踪阴影\n 1 = 阴影贴图\n ** 91\n 阴影贴图尺寸\n ** 280\n 阴影贴图柔和度"
+},
+"dxf 灯光": {
+"prefix" : "dxf 灯光",
+"body": [
+"(0 . \" 灯光\")"
+],
+"description":"** 100\n 子类标记 (AcDbLight)\n ** 90\n 版本号\n ** 1\n 光源名称\n ** 70\n 光源类型：\n 1 = 平行光\n 2 = 点光源\n 3 = 聚光灯\n ** 290\n 状态\n ** 291\n 打印轮廓\n ** 40\n 强度\n ** 10\n 光源位置\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：光源位置的 X、 Y 和 Z 值\n ** 11\n 目标位置\n DXF：X 值；APP：三维点\n ** 21, 31\n DXF：目标位置的 X、 Y 和 Z 值\n ** 72\n 衰减类型：\n 0 = 无\n 1 = 线性反比\n 2 = 平方反比\n ** 292\n 使用衰减界限\n ** 41\n 衰减起点界限\n ** 42\n 衰减端点界限\n ** 50\n 聚光角角度\n ** 51\n 照射角角度\n ** 293\n 投射阴影\n ** 73\n 阴影类型\n 0 = 光线跟踪阴影\n 1 = 阴影贴图\n ** 91\n 阴影贴图尺寸\n ** 280\n 阴影贴图柔和度"
+},
+"dxfLINE": {
+"prefix" : "dxfLINE",
+"body": [
+"(0 . \"LINE\")"
+],
+"description":"** 100\n 子类标记 (AcDbLine)\n ** 39\n 厚度（可选；默认值 = 0）\n ** 10\n 起点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：起点的 Y 值和 Z 值（在 WCS 中）\n ** 11\n 端点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 21, 31\n DXF：端点的 Y 值和 Z 值（在 WCS 中）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）"
+},
+"dxf 线": {
+"prefix" : "dxf 线",
+"body": [
+"(0 . \" 线\")"
+],
+"description":"** 100\n 子类标记 (AcDbLine)\n ** 39\n 厚度（可选；默认值 = 0）\n ** 10\n 起点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：起点的 Y 值和 Z 值（在 WCS 中）\n ** 11\n 端点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 21, 31\n DXF：端点的 Y 值和 Z 值（在 WCS 中）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）"
+},
+"dxfLWPOLYLINE": {
+"prefix" : "dxfLWPOLYLINE",
+"body": [
+"(0 . \"LWPOLYLINE\")"
+],
+"description":"** 100\n 子类标记 (AcDbPolyline)\n ** 90\n 顶点数\n ** 70\n 多段线标志（按位编码）；默认值为 0：\n 1 = 关闭；128 = Plinegen\n ** 43\n 固定宽度（可选；默认值 = 0）。如果设定为可变宽度（代码 40 和/或 41），则不使用\n ** 38\n 标高（可选；默认值 = 0）\n ** 39\n 厚度（可选；默认值 = 0）\n ** 10\n 顶点坐标（在 OCS 中），多个条目；每个顶点一个条目\n DXF：X 值；APP：二维点\n ** 20\n DXF：顶点坐标的 Y 值（在 OCS 中），多个条目；每个顶点一个条目\n ** 91\n 顶点标识符\n ** 40\n 起点宽度（多个条目；每个顶点一个条目）（可选；默认值 = 0；多个条目）。如果设定为固定宽度（代码 43），则不使用\n ** 41\n 端点宽度（多个条目；每个顶点一个条目）（可选；默认值 = 0；多个条目）。如果设定为固定宽度（代码 43），则不使用\n ** 42\n 凸度（多个条目；每个顶点一个条目）（可选；默认值 = 0）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）"
+},
+"dxf 多段线": {
+"prefix" : "dxf 多段线",
+"body": [
+"(0 . \" 多段线\")"
+],
+"description":"** 100\n 子类标记 (AcDbPolyline)\n ** 90\n 顶点数\n ** 70\n 多段线标志（按位编码）；默认值为 0：\n 1 = 关闭；128 = Plinegen\n ** 43\n 固定宽度（可选；默认值 = 0）。如果设定为可变宽度（代码 40 和/或 41），则不使用\n ** 38\n 标高（可选；默认值 = 0）\n ** 39\n 厚度（可选；默认值 = 0）\n ** 10\n 顶点坐标（在 OCS 中），多个条目；每个顶点一个条目\n DXF：X 值；APP：二维点\n ** 20\n DXF：顶点坐标的 Y 值（在 OCS 中），多个条目；每个顶点一个条目\n ** 91\n 顶点标识符\n ** 40\n 起点宽度（多个条目；每个顶点一个条目）（可选；默认值 = 0；多个条目）。如果设定为固定宽度（代码 43），则不使用\n ** 41\n 端点宽度（多个条目；每个顶点一个条目）（可选；默认值 = 0；多个条目）。如果设定为固定宽度（代码 43），则不使用\n ** 42\n 凸度（多个条目；每个顶点一个条目）（可选；默认值 = 0）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）"
+},
+"dxfmesh": {
+"prefix" : "dxfmesh",
+"body": [
+"(0 . \"mesh\")"
+],
+"description":"** 100\n 子类标记 (AcDbSubDMesh)\n ** 71	\n 版本号\n ** 72\n “光顺锐化”特性\n 0 = 关闭\n 1 = 打开\n ** 91\n 细分级别数目\n ** 92\n 0 级顶点数\n ** 10\n 顶点位置\n ** 93\n 0 级面列表的大小\n ** 90\n 面列表项目\n ** 94\n 0 级边数\n ** 90\n 每条边的顶点索引\n ** 95\n 0 级边锐化数\n ** 140\n 边创建值\n ** 90\n 特性已被替代的子图元数\n ** 91\n 子图元标记\n ** 92\n 已替代特性数\n ** 90\n 特性类型\n 0 = 颜色\n 1 = 材质\n 2 = 透明度\n 3 = 材质贴图器"
+},
+"dxf 网格": {
+"prefix" : "dxf 网格",
+"body": [
+"(0 . \" 网格\")"
+],
+"description":"** 100\n 子类标记 (AcDbSubDMesh)\n ** 71	\n 版本号\n ** 72\n “光顺锐化”特性\n 0 = 关闭\n 1 = 打开\n ** 91\n 细分级别数目\n ** 92\n 0 级顶点数\n ** 10\n 顶点位置\n ** 93\n 0 级面列表的大小\n ** 90\n 面列表项目\n ** 94\n 0 级边数\n ** 90\n 每条边的顶点索引\n ** 95\n 0 级边锐化数\n ** 140\n 边创建值\n ** 90\n 特性已被替代的子图元数\n ** 91\n 子图元标记\n ** 92\n 已替代特性数\n ** 90\n 特性类型\n 0 = 颜色\n 1 = 材质\n 2 = 透明度\n 3 = 材质贴图器"
+},
+"dxfMLEADER": {
+"prefix" : "dxfMLEADER",
+"body": [
+"(0 . \"MLEADER\")"
+],
+"description":"** 340	引线样式 ID\n ** 90	特性替代标志\n ** 170	引线类型\n ** 91	引线颜色\n ** 341	引线类型 ID\n ** 171	引线线宽\n ** 290	启用基线\n ** 291	启用基线\n ** 41	基线长度\n ** 342	箭头 ID\n ** 42	箭头大小\n ** 172	内容类型\n ** 343	文字样式 ID\n ** 173	文字左附着样式\n ** 95	文字右附着类型\n ** 174	文字角度类型\n ** 175	文字对齐类型\n ** 92	文字颜色\n ** 292	启用文字边框\n ** 344	块内容 ID\n ** 93	块内容颜色\n ** 10	块内容比例\n ** 43	块内容旋转\n ** 176	块内容连接类型\n ** 293	启用注释比例\n ** 94	箭头索引\n ** 345	箭头 ID\n ** 330	块属性 ID\n ** 177	块属性索引\n ** 44	块属性宽度\n ** 302	块属性文字字符串\n ** 294	文字负方向\n ** 178	IPE 中的文字对齐\n ** 179	文字附着点\n ** 271\n 多行文字内容的文字附着方向：\n 0 = 水平\n 1 = 垂直\n ** 272\n 底部文字附着方向：\n 9 = 居中\n 10 = 下划线并居中\n ** 273\n 顶部文字附着方向：\n 9 = 居中\n 10 = 上划线并居中"
+},
+"dxf 多重引线": {
+"prefix" : "dxf 多重引线",
+"body": [
+"(0 . \" 多重引线\")"
+],
+"description":"** 340	引线样式 ID\n ** 90	特性替代标志\n ** 170	引线类型\n ** 91	引线颜色\n ** 341	引线类型 ID\n ** 171	引线线宽\n ** 290	启用基线\n ** 291	启用基线\n ** 41	基线长度\n ** 342	箭头 ID\n ** 42	箭头大小\n ** 172	内容类型\n ** 343	文字样式 ID\n ** 173	文字左附着样式\n ** 95	文字右附着类型\n ** 174	文字角度类型\n ** 175	文字对齐类型\n ** 92	文字颜色\n ** 292	启用文字边框\n ** 344	块内容 ID\n ** 93	块内容颜色\n ** 10	块内容比例\n ** 43	块内容旋转\n ** 176	块内容连接类型\n ** 293	启用注释比例\n ** 94	箭头索引\n ** 345	箭头 ID\n ** 330	块属性 ID\n ** 177	块属性索引\n ** 44	块属性宽度\n ** 302	块属性文字字符串\n ** 294	文字负方向\n ** 178	IPE 中的文字对齐\n ** 179	文字附着点\n ** 271\n 多行文字内容的文字附着方向：\n 0 = 水平\n 1 = 垂直\n ** 272\n 底部文字附着方向：\n 9 = 居中\n 10 = 下划线并居中\n ** 273\n 顶部文字附着方向：\n 9 = 居中\n 10 = 上划线并居中"
+},
+"dxfMLEADERSTYLE": {
+"prefix" : "dxfMLEADERSTYLE",
+"body": [
+"(0 . \"MLEADERSTYLE\")"
+],
+"description":"** 170\n 内容类型\n ** 171	绘制多重引线次序类型\n ** 172	绘制引线次序类型\n ** 90	最大引线线段点\n ** 40	第一线段角度约束\n ** 41	第二线段角度约束\n ** 173	引线类型\n ** 91	引线颜色\n ** 340	引线类型 ID\n ** 92	引线线宽\n ** 290	启用基线\n ** 42	基线间隙\n ** 291	启用基线\n ** 43	基线长度\n ** 3	多重引线样式说明\n ** 341	箭头 ID\n ** 44	箭头大小\n ** 300	默认多行文字内容\n ** 342\n 多行文字样式 ID\n ** 174\n 文字左附着样式\n ** 175\n 文字角度类型\n ** 176	文字对齐类型\n ** 178	文字连接位置类型 - 右\n ** 93	文字颜色\n ** 45	文字高度\n ** 292	启用文字边框\n ** 297	文字始终左对齐\n ** 46	对齐空间\n ** 343	块内容 ID\n ** 94	块内容颜色\n ** 47	X 轴上的块内容比例\n ** 49	Y 轴上的块内容比例\n ** 140	Z 轴上的块内容比例\n ** 293	启用块内容比例\n ** 141	块内容旋转\n ** 294	启用块内容旋转\n ** 177	块内容连接类型\n ** 142	比例\n ** 295	覆盖特性值\n ** 296	注释性\n ** 143	打断间距大小\n ** 271\n 多行文字内容的文字附着方向：\n 0 = 水平\n 1 = 垂直\n ** 272\n 底部文字附着方向：\n 9 = 居中\n 10 = 下划线并居中\n ** 273\n 顶部文字附着方向：\n 9 = 居中\n 10 = 上划线并居中"
+},
+"dxf多重引线样式": {
+"prefix" : "dxf多重引线样式",
+"body": [
+"(0 . \"多重引线样式\")"
+],
+"description":"** 170\n 内容类型\n ** 171	绘制多重引线次序类型\n ** 172	绘制引线次序类型\n ** 90	最大引线线段点\n ** 40	第一线段角度约束\n ** 41	第二线段角度约束\n ** 173	引线类型\n ** 91	引线颜色\n ** 340	引线类型 ID\n ** 92	引线线宽\n ** 290	启用基线\n ** 42	基线间隙\n ** 291	启用基线\n ** 43	基线长度\n ** 3	多重引线样式说明\n ** 341	箭头 ID\n ** 44	箭头大小\n ** 300	默认多行文字内容\n ** 342\n 多行文字样式 ID\n ** 174\n 文字左附着样式\n ** 175\n 文字角度类型\n ** 176	文字对齐类型\n ** 178	文字连接位置类型 - 右\n ** 93	文字颜色\n ** 45	文字高度\n ** 292	启用文字边框\n ** 297	文字始终左对齐\n ** 46	对齐空间\n ** 343	块内容 ID\n ** 94	块内容颜色\n ** 47	X 轴上的块内容比例\n ** 49	Y 轴上的块内容比例\n ** 140	Z 轴上的块内容比例\n ** 293	启用块内容比例\n ** 141	块内容旋转\n ** 294	启用块内容旋转\n ** 177	块内容连接类型\n ** 142	比例\n ** 295	覆盖特性值\n ** 296	注释性\n ** 143	打断间距大小\n ** 271\n 多行文字内容的文字附着方向：\n 0 = 水平\n 1 = 垂直\n ** 272\n 底部文字附着方向：\n 9 = 居中\n 10 = 下划线并居中\n ** 273\n 顶部文字附着方向：\n 9 = 居中\n 10 = 上划线并居中"
+},
+"dxfmline": {
+"prefix" : "dxfmline",
+"body": [
+"(0 . \"mline\")"
+],
+"description":"** 100\n 子类标记 (AcDbMline)\n ** 2\n 最大长度为 32 个字符的字符串。该多线使用的样式名。MLINESTYLE 词典中必须存在此样式的条目。\n 如果不同时更新 MLINESTYLE 词典中的相关条目，则不要修改该字段。\n ** 340\n MLINESTYLE 对象的指针句柄/ID\n ** 40\n 比例因子\n ** 70\n 对正：\n 0 = 顶端对正\n 1 = 无对正\n 2 = 底端对正\n ** 71\n 标志（按位编码值）：\n 1 = 至少有一个顶点（代码 72 大于 0）\n 2 = 关闭\n 4 = 禁止起点封口\n 8 = 禁止端点封口\n ** 72\n 顶点数\n ** 73\n MLINESTYLE 定义中的元素数\n ** 10\n 起点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：起点的 Y 值和 Z 值（在 WCS 中）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）\n ** 11\n 顶点坐标（多个条目；每个顶点一个条目）DXF：X 值；APP：三维点\n ** 21, 31\n DXF：顶点坐标的 Y 值和 Z 值\n ** 12\n 从该顶点开始的线段的方向矢量（多个条目；每个顶点一个条目）\n DXF：X 值；APP：三维矢量\n ** 22, 32\n DXF：从此顶点开始的线段的方向矢量的 Y 值和 Z 值\n ** 13\n 此顶点处的斜接方向矢量（多个条目；每个顶点一个条目）\n DXF：X 值；APP：三维矢量\n ** 23, 33\n DXF：斜接方向矢量的 Y 值和 Z 值\n ** 74\n 该元素的参数数目（对线段中的每个元素重复）\n ** 41\n 元素参数（根据上一个代码 74 重复）\n ** 75\n 该元素的区域填充参数的数目（对线段中的每个元素重复）\n ** 42\n 区域填充参数（根据前一个代码 75 重复）"
+},
+"dxf 多线": {
+"prefix" : "dxf 多线",
+"body": [
+"(0 . \" 多线\")"
+],
+"description":"** 100\n 子类标记 (AcDbMline)\n ** 2\n 最大长度为 32 个字符的字符串。该多线使用的样式名。MLINESTYLE 词典中必须存在此样式的条目。\n 如果不同时更新 MLINESTYLE 词典中的相关条目，则不要修改该字段。\n ** 340\n MLINESTYLE 对象的指针句柄/ID\n ** 40\n 比例因子\n ** 70\n 对正：\n 0 = 顶端对正\n 1 = 无对正\n 2 = 底端对正\n ** 71\n 标志（按位编码值）：\n 1 = 至少有一个顶点（代码 72 大于 0）\n 2 = 关闭\n 4 = 禁止起点封口\n 8 = 禁止端点封口\n ** 72\n 顶点数\n ** 73\n MLINESTYLE 定义中的元素数\n ** 10\n 起点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：起点的 Y 值和 Z 值（在 WCS 中）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）\n ** 11\n 顶点坐标（多个条目；每个顶点一个条目）DXF：X 值；APP：三维点\n ** 21, 31\n DXF：顶点坐标的 Y 值和 Z 值\n ** 12\n 从该顶点开始的线段的方向矢量（多个条目；每个顶点一个条目）\n DXF：X 值；APP：三维矢量\n ** 22, 32\n DXF：从此顶点开始的线段的方向矢量的 Y 值和 Z 值\n ** 13\n 此顶点处的斜接方向矢量（多个条目；每个顶点一个条目）\n DXF：X 值；APP：三维矢量\n ** 23, 33\n DXF：斜接方向矢量的 Y 值和 Z 值\n ** 74\n 该元素的参数数目（对线段中的每个元素重复）\n ** 41\n 元素参数（根据上一个代码 74 重复）\n ** 75\n 该元素的区域填充参数的数目（对线段中的每个元素重复）\n ** 42\n 区域填充参数（根据前一个代码 75 重复）"
+},
+"dxfMTEXT": {
+"prefix" : "dxfMTEXT",
+"body": [
+"(0 . \"MTEXT\")"
+],
+"description":"** 100\n 子类标记 (AcDbMText)\n ** 10\n 插入点\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：插入点的 Y 值和 Z 值\n ** 40\n 标称（初始）文字高度\n ** 41\n 参照矩形宽度\n ** 71\n 附着点：\n 1 = 左上\n 2 = 中上\n 3 = 右上\n 4 = 左中\n 5 = 正中\n 6 = 右中\n 7 = 左下\n 8 = 中下\n 9 = 右下\n ** 72\n 图形方向：\n 1 = 从左到右\n 3 = 从上到下\n 5 = 随样式（从相关文字样式继承走向）\n ** 1\n 字符串。如果字符串长度小于 250 个字符，所有字符均出现在组 1 中。如果字符串长度大于 250 个字符，该字符串将分成长度为 250 个字符的数据块，并显示在一个或多个组 3 代码中。如果使用组 3 代码，最后一个组将是组 1 并且字符数少于 250 个\n ** 3\n 附加文字（始终在长度为 250 个字符的数据块中）（可选）\n ** 7\n 文字样式名（如果未提供，则为“标准”）（可选）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）\n ** 11\n X 轴方向矢量（在 WCS 中）\n DXF：X 值；APP：三维矢量\n 将作为 DXF 输入传递的组码 50（以弧度为单位的旋转角）转换为相等的方向矢量（如果同时传递代码 50 和代码 11、21、31，则对最后一个代码进行转换）。这是从文字对象转换的一种简便方法。\n ** 21, 31\n DXF：X 轴方向矢量的 Y 值和 Z 值（在 WCS 中）\n ** 42\n 构成多行文字图元的字符的水平宽度。该值始终等于或小于组码 41 的值（只读，如果提供则忽略）\n ** 43\n 多行文字图元的垂直高度（只读，如果提供则忽略）\n ** 50\n 以弧度为单位的旋转角度\n ** 73\n 多行文字的行距样式（可选）：\n 1= 至少（将替代为较高的字符）\n 2 = 精确（将不替代为较高的字符）\n ** 44\n 多行文字的行距比例（可选）：\n 要应用的行距的默认百分比（五分之三）。有效值的范围从 0.25 到 4.00\n ** 90\n 背景填充设置：\n 0 = 背景填充关闭\n 1 = 使用背景填充颜色\n 2 = 使用图形窗口颜色作为背景填充颜色\n ** 420 - 429\n 背景色（RGB 颜色）\n ** 430 - 439\n 背景色（颜色名）\n ** 45\n 填充框大小（可选）：\n 确定文字周围的边框大小。\n ** 63\n 背景填充颜色（可选）：\n 组码 90 为 1 时要用于背景填充的颜色。\n ** 441\n 背景填充颜色的透明度（未实现）\n ** 75\n 列类型\n ** 76	列计数\n ** 78	反转列走向\n ** 79	列自动高度\n ** 48	列宽\n ** 49	列栏间距\n ** 50	列高度；此代码后跟列计数 (Int16)，然后是列高度数"
+},
+"dxf 多行文本": {
+"prefix" : "dxf 多行文本",
+"body": [
+"(0 . \" 多行文本\")"
+],
+"description":"** 100\n 子类标记 (AcDbMText)\n ** 10\n 插入点\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：插入点的 Y 值和 Z 值\n ** 40\n 标称（初始）文字高度\n ** 41\n 参照矩形宽度\n ** 71\n 附着点：\n 1 = 左上\n 2 = 中上\n 3 = 右上\n 4 = 左中\n 5 = 正中\n 6 = 右中\n 7 = 左下\n 8 = 中下\n 9 = 右下\n ** 72\n 图形方向：\n 1 = 从左到右\n 3 = 从上到下\n 5 = 随样式（从相关文字样式继承走向）\n ** 1\n 字符串。如果字符串长度小于 250 个字符，所有字符均出现在组 1 中。如果字符串长度大于 250 个字符，该字符串将分成长度为 250 个字符的数据块，并显示在一个或多个组 3 代码中。如果使用组 3 代码，最后一个组将是组 1 并且字符数少于 250 个\n ** 3\n 附加文字（始终在长度为 250 个字符的数据块中）（可选）\n ** 7\n 文字样式名（如果未提供，则为“标准”）（可选）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）\n ** 11\n X 轴方向矢量（在 WCS 中）\n DXF：X 值；APP：三维矢量\n 将作为 DXF 输入传递的组码 50（以弧度为单位的旋转角）转换为相等的方向矢量（如果同时传递代码 50 和代码 11、21、31，则对最后一个代码进行转换）。这是从文字对象转换的一种简便方法。\n ** 21, 31\n DXF：X 轴方向矢量的 Y 值和 Z 值（在 WCS 中）\n ** 42\n 构成多行文字图元的字符的水平宽度。该值始终等于或小于组码 41 的值（只读，如果提供则忽略）\n ** 43\n 多行文字图元的垂直高度（只读，如果提供则忽略）\n ** 50\n 以弧度为单位的旋转角度\n ** 73\n 多行文字的行距样式（可选）：\n 1= 至少（将替代为较高的字符）\n 2 = 精确（将不替代为较高的字符）\n ** 44\n 多行文字的行距比例（可选）：\n 要应用的行距的默认百分比（五分之三）。有效值的范围从 0.25 到 4.00\n ** 90\n 背景填充设置：\n 0 = 背景填充关闭\n 1 = 使用背景填充颜色\n 2 = 使用图形窗口颜色作为背景填充颜色\n ** 420 - 429\n 背景色（RGB 颜色）\n ** 430 - 439\n 背景色（颜色名）\n ** 45\n 填充框大小（可选）：\n 确定文字周围的边框大小。\n ** 63\n 背景填充颜色（可选）：\n 组码 90 为 1 时要用于背景填充的颜色。\n ** 441\n 背景填充颜色的透明度（未实现）\n ** 75\n 列类型\n ** 76	列计数\n ** 78	反转列走向\n ** 79	列自动高度\n ** 48	列宽\n ** 49	列栏间距\n ** 50	列高度；此代码后跟列计数 (Int16)，然后是列高度数"
+},
+"dxfoleframe": {
+"prefix" : "dxfoleframe",
+"body": [
+"(0 . \"oleframe\")"
+],
+"description":"** 100\n 子类标记 (AcDbOleFrame)\n ** 70\n OLE 版本号\n ** 90\n 二进制数据的长度\n ** 310\n 二进制数据（多行）\n ** 1\n OLE 数据的结束（字符串“OLE”）"
+},
+"dxfole2frame": {
+"prefix" : "dxfole2frame",
+"body": [
+"(0 . \"ole2frame\")"
+],
+"description":"** 100\n 子类标记 (AcDbOle2Frame)\n ** 70\n OLE 版本号\n ** 3\n 二进制数据的长度\n ** 10\n 左上角 (WCS)\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：左上角的 Y 值和 Z 值（在 WCS 中）\n ** 11\n 右下角 (WCS)\n DXF：X 值；APP：三维点\n ** 21, 31\n DXF：右下角的 Y 值和 Z 值（在 WCS 中）\n ** 71\n OLE 对象类型，1 = 链接；2 = 嵌入；3 = 静态\n ** 72\n 平铺模式描述符：\n 0 = 对象驻留在模型空间中\n 1 = 对象驻留在图纸空间中\n ** 90\n 二进制数据的长度\n ** 310\n 二进制数据（多行）\n ** 1\n OLE 数据的结束（字符串“OLE”）"
+},
+"dxfpoint": {
+"prefix" : "dxfpoint",
+"body": [
+"(0 . \"point\")"
+],
+"description":"** 100\n 子类标记 (AcDbPoint)\n ** 10\n 点位置（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：点位置的 Y 值和 Z 值（在 WCS 中）\n ** 39\n 厚度（可选；默认值 = 0）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）\n ** 50\n 绘制点时所使用的 UCS 的 X 轴的角度（可选；默认值 = 0）；当 PDMODE 非零时使用"
+},
+"dxf点": {
+"prefix" : "dxf点",
+"body": [
+"(0 . \"点\")"
+],
+"description":"** 100\n 子类标记 (AcDbPoint)\n ** 10\n 点位置（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：点位置的 Y 值和 Z 值（在 WCS 中）\n ** 39\n 厚度（可选；默认值 = 0）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）\n ** 50\n 绘制点时所使用的 UCS 的 X 轴的角度（可选；默认值 = 0）；当 PDMODE 非零时使用"
+},
+"dxfpolyline": {
+"prefix" : "dxfpolyline",
+"body": [
+"(0 . \"polyline\")"
+],
+"description":"** 100\n 子类标记（AcDb2dPolyline 或 AcDb3dPolyline）\n ** 66\n 已废弃；以前是“后跟图元标志”（可选；如果存在则忽略）\n ** 10\n DXF：始终为 0\n APP：“虚拟”点；X 值和 Y 值始终为 0，Z 值是多段线的标高（二维时在 OCS 中，三维时在 WCS 中）\n ** 20\n DXF：始终为 0\n ** 30\n DXF：多段线的标高（二维时在 OCS 中，三维时在 WCS 中）\n ** 39\n 厚度（可选；默认值 = 0）\n ** 70\n 多段线标志（按位编码；默认值 = 0）：\n 1 = 这是一个闭合多段线（或按 M 方向闭合的多边形网格）\n 2 = 已添加曲线拟合顶点\n 4 = 已添加样条曲线拟合顶点\n 8 = 这是一条三维多段线\n 16 = 这是一个三维多边形网格\n 32 = 多边形网格以 N 方向闭合\n 64 = 多段线是一个多面网格\n 128 = 线型图案在该多段线顶点的周围连续生成\n ** 40\n 默认起点宽度（可选；默认值 = 0）\n ** 41\n 默认端点宽度（可选；默认值 = 0）\n ** 71\n 多边形网格 M 顶点计数（可选；默认值 = 0）\n ** 72\n 多边形网格 N 顶点计数（可选；默认值 = 0）\n ** 73\n 平滑曲面 M 密度（可选；默认值 = 0）\n ** 74\n 平滑曲面 N 密度（可选；默认值 = 0）\n ** 75\n 曲线和平滑曲面类型（可选；默认值 = 0）；整数代码，非按位编码：\n 0 = 不拟合平滑曲面\n 5 = 二次 B 样条曲面\n 6 = 三次 B 样条曲面\n 8 = Bezier 曲面\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）"
+},
+"dxf三维多段线": {
+"prefix" : "dxf三维多段线",
+"body": [
+"(0 . \"三维多段线\")"
+],
+"description":"** 100\n 子类标记（AcDb2dPolyline 或 AcDb3dPolyline）\n ** 66\n 已废弃；以前是“后跟图元标志”（可选；如果存在则忽略）\n ** 10\n DXF：始终为 0\n APP：“虚拟”点；X 值和 Y 值始终为 0，Z 值是多段线的标高（二维时在 OCS 中，三维时在 WCS 中）\n ** 20\n DXF：始终为 0\n ** 30\n DXF：多段线的标高（二维时在 OCS 中，三维时在 WCS 中）\n ** 39\n 厚度（可选；默认值 = 0）\n ** 70\n 多段线标志（按位编码；默认值 = 0）：\n 1 = 这是一个闭合多段线（或按 M 方向闭合的多边形网格）\n 2 = 已添加曲线拟合顶点\n 4 = 已添加样条曲线拟合顶点\n 8 = 这是一条三维多段线\n 16 = 这是一个三维多边形网格\n 32 = 多边形网格以 N 方向闭合\n 64 = 多段线是一个多面网格\n 128 = 线型图案在该多段线顶点的周围连续生成\n ** 40\n 默认起点宽度（可选；默认值 = 0）\n ** 41\n 默认端点宽度（可选；默认值 = 0）\n ** 71\n 多边形网格 M 顶点计数（可选；默认值 = 0）\n ** 72\n 多边形网格 N 顶点计数（可选；默认值 = 0）\n ** 73\n 平滑曲面 M 密度（可选；默认值 = 0）\n ** 74\n 平滑曲面 N 密度（可选；默认值 = 0）\n ** 75\n 曲线和平滑曲面类型（可选；默认值 = 0）；整数代码，非按位编码：\n 0 = 不拟合平滑曲面\n 5 = 二次 B 样条曲面\n 6 = 三次 B 样条曲面\n 8 = Bezier 曲面\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）"
+},
+"dxfray": {
+"prefix" : "dxfray",
+"body": [
+"(0 . \"ray\")"
+],
+"description":"** 100\n 子类标记 (AcDbRay)\n ** 10\n 起点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：起点的 Y 值和 Z 值（在 WCS 中）\n ** 11\n 单位方向矢量（在 WCS 中）\n DXF：X 值；APP：三维矢量\n ** 21, 31\n DXF：单位方向矢量的 Y 值和 Z 值（在 WCS 中）"
+},
+"dxfregion": {
+"prefix" : "dxfregion",
+"body": [
+"(0 . \"region\")"
+],
+"description":"** 100\n 子类标记 (AcDbModelerGeometry)\n ** 70\n 建模格式版本号（当前值 = 1）\n ** 1\n 所有权数据（多行，每行 < 255 个字符）\n ** 3\n 所有权数据的附加行（如果前一个组 1 的字符串长度大于 255 个字符）（可选）"
+},
+"dxfsection": {
+"prefix" : "dxfsection",
+"body": [
+"(0 . \"section\")"
+],
+"description":"** 100\n 子类标记 (AcDbSection)\n ** 90\n 截面状态\n ** 91\n 截面标志\n ** 1\n 名称\n ** 10, 20, 30\n 垂直方向\n ** 40\n 顶部高度\n ** 41\n 底部高度\n ** 70\n 指示器透明度\n ** 63, 411\n 指示器颜色\n ** 92\n 顶点数\n ** 11, 21, 31\n 顶点（根据顶点数重复）\n ** 93\n 背面线顶点数\n ** 12, 22, 32\n 背面线顶点（根据背面线顶点数重复）\n ** 360\n 几何图形设置对象的硬指针 ID/句柄"
+},
+"dxfseqend": {
+"prefix" : "dxfseqend",
+"body": [
+"(0 . \"seqend\")"
+],
+"description":"**  -2\n APP：开始序列的图元的名称。该图元标记多段线顶点的结束（顶点类型名），或具有属性（由插入图元中出现的非零 66 组表示）的插入图元的属性图元的结束（属性类型名）。该代码不保存在 DXF 文件中。"
+},
+"dxfshape": {
+"prefix" : "dxfshape",
+"body": [
+"(0 . \"shape\")"
+],
+"description":"** 100\n 子类标记 (AcDbShape)\n ** 39\n 厚度（可选；默认值 = 0）\n ** 10\n 插入点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：插入点的 Y 值和 Z 值（在 WCS 中）\n ** 40\n 大小\n ** 2\n 形名称\n ** 50\n 旋转角度（可选；默认值 = 0）\n ** 41\n X 相对缩放比例（可选；默认值 = 1）\n ** 51\n 倾斜角（可选；默认值 = 0）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）"
+},
+"dxfsolid": {
+"prefix" : "dxfsolid",
+"body": [
+"(0 . \"solid\")"
+],
+"description":"** 100\n 子类标记 (AcDbTrace)\n ** 10\n 第一角点\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：第一角点的 Y 值和 Z 值\n ** 11\n 第二角点\n DXF：X 值；APP：三维点\n ** 21, 31\n DXF：第二角点的 Y 值和 Z 值\n ** 12\n 第三角点\n DXF：X 值；APP：三维点\n ** 22, 32\n DXF：第三角点的 Y 值和 Z 值\n ** 13\n 第四角点。如果只输入三个角点来定义 SOLID，则第四个角点坐标与第三个角点坐标相同。\n DXF：X 值；APP：三维点\n ** 23, 33\n DXF：第四角点的 Y 值和 Z 值\n ** 39\n 厚度（可选；默认值 = 0）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）"
+},
+"dxf实体": {
+"prefix" : "dxf实体",
+"body": [
+"(0 . \"实体\")"
+],
+"description":"** 100\n 子类标记 (AcDbTrace)\n ** 10\n 第一角点\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：第一角点的 Y 值和 Z 值\n ** 11\n 第二角点\n DXF：X 值；APP：三维点\n ** 21, 31\n DXF：第二角点的 Y 值和 Z 值\n ** 12\n 第三角点\n DXF：X 值；APP：三维点\n ** 22, 32\n DXF：第三角点的 Y 值和 Z 值\n ** 13\n 第四角点。如果只输入三个角点来定义 SOLID，则第四个角点坐标与第三个角点坐标相同。\n DXF：X 值；APP：三维点\n ** 23, 33\n DXF：第四角点的 Y 值和 Z 值\n ** 39\n 厚度（可选；默认值 = 0）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）"
+},
+"dxfspline": {
+"prefix" : "dxfspline",
+"body": [
+"(0 . \"spline\")"
+],
+"description":"** 100\n 子类标记 (AcDbSpline)\n ** 210\n 法向矢量（如果样条曲线为非平面型，则省略）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：法向矢量的 Y 值和 Z 值（可选）\n ** 70\n 样条曲线标志（按位编码）：\n 1 = 闭合样条曲线\n 2 = 周期性样条曲线\n 4 = 有理样条曲线\n 8 = 平面\n 16 = 线性（同时还设置平面位）\n 71\n 样条曲线的阶数\n ** 72\n 节点数\n ** 73\n 控制点数\n ** 74\n 拟合点数（如果有）\n ** 42\n 节点公差（默认值 = 0.0000001）\n ** 43\n 控制点公差（默认值 = 0.0000001）\n ** 44\n 拟合公差（默认值 = 0.0000000001）\n ** 12\n 起点切向 — 可以省略（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 22, 32\n DXF：起点切向的 Y 值和 Z 值 — 可以省略（在 WCS 中）\n ** 13\n 端点切向 — 可以省略（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 23, 33\n DXF：端点切向的 Y 值和 Z 值 — 可以省略（在 WCS 中）\n ** 40\n 节点值（每个节点一个条目）\n ** 41\n 权值（如果不为 1）；对于多组对，如果均不为 1，则出现。\n ** 10\n 控制点（在 WCS 中）；每个控制点一个条目\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：控制点的 Y 值和 Z 值（在 WCS 中）；每个控制点一个条目\n ** 11\n 拟合点（在 WCS 中）；每个拟合点一个条目\n DXF：X 值；APP：三维点\n ** 21, 31\n DXF：拟合点的 Y 值和 Z 值（在 WCS 中）；每个拟合点一个条目"
+},
+"dxf样条曲线": {
+"prefix" : "dxf样条曲线",
+"body": [
+"(0 . \"样条曲线\")"
+],
+"description":"** 100\n 子类标记 (AcDbSpline)\n ** 210\n 法向矢量（如果样条曲线为非平面型，则省略）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：法向矢量的 Y 值和 Z 值（可选）\n ** 70\n 样条曲线标志（按位编码）：\n 1 = 闭合样条曲线\n 2 = 周期性样条曲线\n 4 = 有理样条曲线\n 8 = 平面\n 16 = 线性（同时还设置平面位）\n 71\n 样条曲线的阶数\n ** 72\n 节点数\n ** 73\n 控制点数\n ** 74\n 拟合点数（如果有）\n ** 42\n 节点公差（默认值 = 0.0000001）\n ** 43\n 控制点公差（默认值 = 0.0000001）\n ** 44\n 拟合公差（默认值 = 0.0000000001）\n ** 12\n 起点切向 — 可以省略（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 22, 32\n DXF：起点切向的 Y 值和 Z 值 — 可以省略（在 WCS 中）\n ** 13\n 端点切向 — 可以省略（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 23, 33\n DXF：端点切向的 Y 值和 Z 值 — 可以省略（在 WCS 中）\n ** 40\n 节点值（每个节点一个条目）\n ** 41\n 权值（如果不为 1）；对于多组对，如果均不为 1，则出现。\n ** 10\n 控制点（在 WCS 中）；每个控制点一个条目\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：控制点的 Y 值和 Z 值（在 WCS 中）；每个控制点一个条目\n ** 11\n 拟合点（在 WCS 中）；每个拟合点一个条目\n DXF：X 值；APP：三维点\n ** 21, 31\n DXF：拟合点的 Y 值和 Z 值（在 WCS 中）；每个拟合点一个条目"
+},
+"dxfsun": {
+"prefix" : "dxfsun",
+"body": [
+"(0 . \"sun\")"
+],
+"description":"** 100\n 子类标记 (AcDbSun)\n ** 90\n 版本号\n ** 290\n 状态\n ** 63\n 颜色\n ** 40\n 强度\n ** 291\n 阴影\n ** 91\n 公历日期\n ** 92\n 时间（以午夜过后的秒数表示）\n ** 292\n 夏令时时间\n ** 70\n 阴影类型\n 0 = 光线跟踪阴影\n 1 = 阴影贴图\n ** 71\n 阴影贴图尺寸\n ** 280\n 阴影柔和度"
+},
+"dxf阳光": {
+"prefix" : "dxf阳光",
+"body": [
+"(0 . \"阳光\")"
+],
+"description":"** 100\n 子类标记 (AcDbSun)\n ** 90\n 版本号\n ** 290\n 状态\n ** 63\n 颜色\n ** 40\n 强度\n ** 291\n 阴影\n ** 91\n 公历日期\n ** 92\n 时间（以午夜过后的秒数表示）\n ** 292\n 夏令时时间\n ** 70\n 阴影类型\n 0 = 光线跟踪阴影\n 1 = 阴影贴图\n ** 71\n 阴影贴图尺寸\n ** 280\n 阴影柔和度"
+},
+"dxfsurface": {
+"prefix" : "dxfsurface",
+"body": [
+"(0 . \"surface\")"
+],
+"description":"** 100\n 子类标记 (AcDbModelerGeometry)\n ** 70\n 建模格式版本号（当前值 = 1）\n ** 1\n 所有权数据（多行，每行 < 255 个字符）\n ** 3\n 所有权数据的附加行（如果前一个组 1 的字符串长度大于 255 个字符）（可选）\n ** 100\n 子类标记 (AcDbSurface)\n ** 71\n U 素线数\n ** 72\n V 素线数"
+},
+"dxf表面": {
+"prefix" : "dxf表面",
+"body": [
+"(0 . \"表面\")"
+],
+"description":"** 100\n 子类标记 (AcDbModelerGeometry)\n ** 70\n 建模格式版本号（当前值 = 1）\n ** 1\n 所有权数据（多行，每行 < 255 个字符）\n ** 3\n 所有权数据的附加行（如果前一个组 1 的字符串长度大于 255 个字符）（可选）\n ** 100\n 子类标记 (AcDbSurface)\n ** 71\n U 素线数\n ** 72\n V 素线数"
+},
+"dxftable": {
+"prefix" : "dxftable",
+"body": [
+"(0 . \"table\")"
+],
+"description":"** 0\n 图元名 (ACAD_TABLE)\n ** 5\n 图元句柄\n ** 330\n 所有者词典的软指针 ID\n ** 100\n 子类标记。(AcDbEntity)\n ** 92\n 代理图元图形中的字节数\n ** 310\n 代理图元图形的数据（多行；每行最多 256 个字符）\n ** 100\n 子类标记。(AcDbBlockReference)\n ** 2\n 块名；无名块以 *T 值开始\n ** 10,20,30\n 插入点\n ** 100\n 子类标记。(AcDbTable)\n ** 280\n 表格数据版本号：\n ** 0 = 2010\n ** 342\n TABLESTYLE 对象的硬指针 ID\n ** 343\n 属主 BLOCK 记录的硬指针 ID\n ** 11,21,31\n 水平方向矢量\n ** 90\n 标志的标志（无符号整数）\n ** 91\n 行数\n ** 92\n 列数\n ** 93\n 替代的标志\n ** 94\n 边框颜色的替代的标志\n ** 95\n 边框线宽的替代的标志\n ** 96\n 边框可见性的替代的标志\n ** 141\n 行高；此值不断重复，每行值为 1\n ** 142\n 列高；此值不断重复，每列值为 1\n ** 171\n 单元类型；此值不断重复，每单元值为 1：\n 1 = 文字类型\n 2 = 块类型\n ** 172\n 单元标志值；此值不断重复，每单元值为 1\n ** 173\n 单元合并值；此值不断重复，每单元值为 1\n ** 174\n 布尔标志指示是否为单元设定自动调整选项；此值不断重复，每单元值为 1\n ** 175\n 单元边框宽度（仅适用于合并单元）；此值不断重复，每单元值为 1\n ** 176\n 单元边框高度（适用于合并单元）；此值不断重复，每单元值为 1\n ** 91\n 单元替代标志；此值不断重复，每单元值为 1（自 AutoCAD 2007 开始）\n ** 178\n 虚拟边的标志值\n ** 145\n 旋转角度值（实数；适用于块类型单元和文字类型单元）\n ** 344\n FIELD 对象的硬指针 ID此 ID 仅适用于文字类型单元。如果单元中的文字包含一个或多个字段，则仅保存 FIELD 对象的 ID。忽略文字字符串（组码 1 和 3）\n ** 1\n 单元中的文字字符串。如果字符串长度小于 250 个字符，所有字符均显示在代码 1 中。如果字符串长度大于 250 个字符，该字符串将分成长度为 250 个字符的数据块。这些数据块将包含在一个或多个代码 2 代码中。如果使用代码 2 代码，最后一个组将为代码 1 并且长度小于 250 个字符。此值仅适用于文字类型单元并不断重复，每单元值为 1\n ** 2	\n 单元中的文字字符串，在长度为 250 个字符的数据块中；可选。此值仅适用于文字类型单元并不断重复，每单元值为 1\n ** 340\n 块表记录的硬指针 ID。此值仅适用于块类型单元并不断重复，每单元值为 1\n ** 144\n 块的缩放比例（实数）。此值仅适用于块类型单元并不断重复，每单元值为 1\n ** 179\n 块表记录中的属性定义数（仅适用于块类型单元）\n ** 331\n 块表记录中属性定义的软指针 ID，由组码 179 参照（仅适用于块类型单元）。每出现一个属性定义此值便重复一次\n ** 300\n 属性定义的文字字符串值，每出现一个属性定义便重复一次并仅适用于块类型单元\n ** 7\n 文字样式名（字符串）；应用于单元级别的替代\n ** 140\n 文字高度值；应用于单元级别的替代\n ** 170\n 单元对齐值；应用于单元级别的替代\n ** 64\n 单元内容的颜色值；应用于单元级别的替代\n ** 63\n 单元内容的背景（填充）色的值；应用于单元级别的替代\n ** 69\n 单元上边框的真彩色值；应用于单元级别的替代\n ** 65\n 单元右边框的真彩色值；应用于单元级别的替代\n ** 66\n 单元下边框的真彩色值；应用于单元级别的替代\n ** 68\n 单元左边框的真彩色值；应用于单元级别的替代\n ** 279\n 单元上边框的线宽；应用于单元级别的替代\n ** 275\n 单元右边框的线宽；应用于单元级别的替代\n ** 276\n 单元下边框的线宽；应用于单元级别的替代\n ** 278\n 单元左边框的线宽；应用于单元级别的替代\n ** 283\n 是否打开填充颜色的布尔标志；应用于单元级别的替代\n ** 289\n 单元上边框可见性的布尔标志；应用于单元级别的替代\n ** 285\n 单元右边框可见性的布尔标志；应用于单元级别的替代\n ** 286\n 单元下边框可见性的布尔标志；应用于单元级别的替代\n ** 288\n 单元左边框可见性的布尔标志；应用于单元级别的替代\n ** 70\n 流向；应用于表图元级别的替代\n ** 40\n 水平单元边距；应用于表图元级别的替代\n ** 41\n 垂直单元边距；应用于表图元级别的替代\n ** 280\n 是否抑制标题的标志；应用于表图元级别的替代\n ** 281\n 是否抑制标题行的标志；应用于表图元级别的替代\n ** 7\n 文字样式名（字符串）；应用于表图元级别的替代。每个单元类型可能有一个条目\n ** 140\n 文字高度（实数）；应用于表图元级别的替代。每个单元类型可能有一个条目\n ** 170\n 单元对齐（整数）；应用于表图元级别的替代。每个单元类型可能有一个条目\n ** 63\n 表的垂直左边框或单元背景的颜色值；应用于表图元级别的替代。每个单元类型可能有一个条目\n ** 64\n 表的水平上边框或单元内容的颜色值；应用于表图元级别的替代。每个单元类型可能有一个条目\n ** 65\n 水平内部边框线的颜色值；应用于表图元级别的替代\n ** 66\n 水平下边框线的颜色值；应用于表图元级别的替代\n ** 68\n 垂直内部边框线的颜色值；应用于表图元级别的替代\n ** 69\n 垂直右边框线的颜色值；应用于表图元级别的替代\n ** 283\n 是否启用背景色的标志（默认值 = 0）；应用于表图元级别的替代。每个单元类型可能有一个条目：\n 0 = 禁用\n 1 = 启用\n ** 274-279\n 每个单元边框类型的线宽（默认值 = kLnWtByBlock）；应用于表图元级别的替代。每个单元类型可能有一个组\n ** 284-289\n 每个单元边框类型的可见性标志（默认值 = 1）；应用于表图元级别的替代。每个单元类型可能有一个组：\n 0 = 不可见\n 1 = 可见\n ** 97\n 标准/标题/表头行数据类型\n ** 98\n 标准/标题/表头行单位类型\n ** 4\n 标准/标题/表头行格式字符串\n ** 177\n 单元替代标志值（AutoCAD 2007 之前）\n ** 92\n 延伸单元标志（自 AutoCAD 2007 开始）\n ** 301	单元值块开始（自 AutoCAD 2007 开始）\n ** 302	\n 单元中的文字字符串。如果字符串长度小于 250 个字符，则所有字符均显示在代码 302 中。如果字符串长度大于 250 个字符，该字符串将分成长度为 250 个字符的数据块。这些数据块将包含在一个或多个代码 303 代码中。如果使用代码 393 代码，则最后一个组将为代码 1 并且长度小于 250 个字符。此值仅适用于文字类型单元并不断重复，每单元值为 1（自 AutoCAD 2007 开始）\n ** 303	\n 单元中的文字字符串，在长度为 250 个字符的数据块中；可选。此值仅适用于文字类型单元并不断重复，每单元值为 302（自 AutoCAD 2007 开始）"
+},
+"dxf表格": {
+"prefix" : "dxf表格",
+"body": [
+"(0 . \"表格\")"
+],
+"description":"** 0\n 图元名 (ACAD_TABLE)\n ** 5\n 图元句柄\n ** 330\n 所有者词典的软指针 ID\n ** 100\n 子类标记。(AcDbEntity)\n ** 92\n 代理图元图形中的字节数\n ** 310\n 代理图元图形的数据（多行；每行最多 256 个字符）\n ** 100\n 子类标记。(AcDbBlockReference)\n ** 2\n 块名；无名块以 *T 值开始\n ** 10,20,30\n 插入点\n ** 100\n 子类标记。(AcDbTable)\n ** 280\n 表格数据版本号：\n ** 0 = 2010\n ** 342\n TABLESTYLE 对象的硬指针 ID\n ** 343\n 属主 BLOCK 记录的硬指针 ID\n ** 11,21,31\n 水平方向矢量\n ** 90\n 标志的标志（无符号整数）\n ** 91\n 行数\n ** 92\n 列数\n ** 93\n 替代的标志\n ** 94\n 边框颜色的替代的标志\n ** 95\n 边框线宽的替代的标志\n ** 96\n 边框可见性的替代的标志\n ** 141\n 行高；此值不断重复，每行值为 1\n ** 142\n 列高；此值不断重复，每列值为 1\n ** 171\n 单元类型；此值不断重复，每单元值为 1：\n 1 = 文字类型\n 2 = 块类型\n ** 172\n 单元标志值；此值不断重复，每单元值为 1\n ** 173\n 单元合并值；此值不断重复，每单元值为 1\n ** 174\n 布尔标志指示是否为单元设定自动调整选项；此值不断重复，每单元值为 1\n ** 175\n 单元边框宽度（仅适用于合并单元）；此值不断重复，每单元值为 1\n ** 176\n 单元边框高度（适用于合并单元）；此值不断重复，每单元值为 1\n ** 91\n 单元替代标志；此值不断重复，每单元值为 1（自 AutoCAD 2007 开始）\n ** 178\n 虚拟边的标志值\n ** 145\n 旋转角度值（实数；适用于块类型单元和文字类型单元）\n ** 344\n FIELD 对象的硬指针 ID此 ID 仅适用于文字类型单元。如果单元中的文字包含一个或多个字段，则仅保存 FIELD 对象的 ID。忽略文字字符串（组码 1 和 3）\n ** 1\n 单元中的文字字符串。如果字符串长度小于 250 个字符，所有字符均显示在代码 1 中。如果字符串长度大于 250 个字符，该字符串将分成长度为 250 个字符的数据块。这些数据块将包含在一个或多个代码 2 代码中。如果使用代码 2 代码，最后一个组将为代码 1 并且长度小于 250 个字符。此值仅适用于文字类型单元并不断重复，每单元值为 1\n ** 2	\n 单元中的文字字符串，在长度为 250 个字符的数据块中；可选。此值仅适用于文字类型单元并不断重复，每单元值为 1\n ** 340\n 块表记录的硬指针 ID。此值仅适用于块类型单元并不断重复，每单元值为 1\n ** 144\n 块的缩放比例（实数）。此值仅适用于块类型单元并不断重复，每单元值为 1\n ** 179\n 块表记录中的属性定义数（仅适用于块类型单元）\n ** 331\n 块表记录中属性定义的软指针 ID，由组码 179 参照（仅适用于块类型单元）。每出现一个属性定义此值便重复一次\n ** 300\n 属性定义的文字字符串值，每出现一个属性定义便重复一次并仅适用于块类型单元\n ** 7\n 文字样式名（字符串）；应用于单元级别的替代\n ** 140\n 文字高度值；应用于单元级别的替代\n ** 170\n 单元对齐值；应用于单元级别的替代\n ** 64\n 单元内容的颜色值；应用于单元级别的替代\n ** 63\n 单元内容的背景（填充）色的值；应用于单元级别的替代\n ** 69\n 单元上边框的真彩色值；应用于单元级别的替代\n ** 65\n 单元右边框的真彩色值；应用于单元级别的替代\n ** 66\n 单元下边框的真彩色值；应用于单元级别的替代\n ** 68\n 单元左边框的真彩色值；应用于单元级别的替代\n ** 279\n 单元上边框的线宽；应用于单元级别的替代\n ** 275\n 单元右边框的线宽；应用于单元级别的替代\n ** 276\n 单元下边框的线宽；应用于单元级别的替代\n ** 278\n 单元左边框的线宽；应用于单元级别的替代\n ** 283\n 是否打开填充颜色的布尔标志；应用于单元级别的替代\n ** 289\n 单元上边框可见性的布尔标志；应用于单元级别的替代\n ** 285\n 单元右边框可见性的布尔标志；应用于单元级别的替代\n ** 286\n 单元下边框可见性的布尔标志；应用于单元级别的替代\n ** 288\n 单元左边框可见性的布尔标志；应用于单元级别的替代\n ** 70\n 流向；应用于表图元级别的替代\n ** 40\n 水平单元边距；应用于表图元级别的替代\n ** 41\n 垂直单元边距；应用于表图元级别的替代\n ** 280\n 是否抑制标题的标志；应用于表图元级别的替代\n ** 281\n 是否抑制标题行的标志；应用于表图元级别的替代\n ** 7\n 文字样式名（字符串）；应用于表图元级别的替代。每个单元类型可能有一个条目\n ** 140\n 文字高度（实数）；应用于表图元级别的替代。每个单元类型可能有一个条目\n ** 170\n 单元对齐（整数）；应用于表图元级别的替代。每个单元类型可能有一个条目\n ** 63\n 表的垂直左边框或单元背景的颜色值；应用于表图元级别的替代。每个单元类型可能有一个条目\n ** 64\n 表的水平上边框或单元内容的颜色值；应用于表图元级别的替代。每个单元类型可能有一个条目\n ** 65\n 水平内部边框线的颜色值；应用于表图元级别的替代\n ** 66\n 水平下边框线的颜色值；应用于表图元级别的替代\n ** 68\n 垂直内部边框线的颜色值；应用于表图元级别的替代\n ** 69\n 垂直右边框线的颜色值；应用于表图元级别的替代\n ** 283\n 是否启用背景色的标志（默认值 = 0）；应用于表图元级别的替代。每个单元类型可能有一个条目：\n 0 = 禁用\n 1 = 启用\n ** 274-279\n 每个单元边框类型的线宽（默认值 = kLnWtByBlock）；应用于表图元级别的替代。每个单元类型可能有一个组\n ** 284-289\n 每个单元边框类型的可见性标志（默认值 = 1）；应用于表图元级别的替代。每个单元类型可能有一个组：\n 0 = 不可见\n 1 = 可见\n ** 97\n 标准/标题/表头行数据类型\n ** 98\n 标准/标题/表头行单位类型\n ** 4\n 标准/标题/表头行格式字符串\n ** 177\n 单元替代标志值（AutoCAD 2007 之前）\n ** 92\n 延伸单元标志（自 AutoCAD 2007 开始）\n ** 301	单元值块开始（自 AutoCAD 2007 开始）\n ** 302	\n 单元中的文字字符串。如果字符串长度小于 250 个字符，则所有字符均显示在代码 302 中。如果字符串长度大于 250 个字符，该字符串将分成长度为 250 个字符的数据块。这些数据块将包含在一个或多个代码 303 代码中。如果使用代码 393 代码，则最后一个组将为代码 1 并且长度小于 250 个字符。此值仅适用于文字类型单元并不断重复，每单元值为 1（自 AutoCAD 2007 开始）\n ** 303	\n 单元中的文字字符串，在长度为 250 个字符的数据块中；可选。此值仅适用于文字类型单元并不断重复，每单元值为 302（自 AutoCAD 2007 开始）"
+},
+"dxftext": {
+"prefix" : "dxftext",
+"body": [
+"(0 . \"text\")"
+],
+"description":"** 100\n 子类标记 (AcDbText)\n ** 39\n 厚度（可选；默认值 = 0）\n ** 10\n 第一对齐点（在 OCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：第一对齐点的 Y 值和 Z 值（在 OCS 中）\n ** 40\n 文字高度\n ** 1\n 默认值（字符串本身）\n ** 50\n 文字旋转角度（可选；默认值 = 0）\n ** 41\n 相对 X 比例因子 — 宽度（可选；默认值 = 1）\n 使用拟合类型的文字时，该值也将进行调整。\n ** 51\n 倾斜角（可选；默认值 = 0）\n ** 7\n 文字样式名（可选；默认值 = 标准）\n ** 71\n 文字生成标志（可选；默认值 = 0）：\n 2 = 文字反向（在 X 轴方向镜像）\n 4 = 文字倒置（在 Y 轴方向镜像）\n ** 72\n 文字水平对正类型（可选；默认值 = 0）整数代码（非按位编码）：\n 0 = 左对正\n 1 = 居中对正\n 2 = 右对正\n 3 = 对齐（如果垂直对齐 = 0）\n 4 = 中间（如果垂直对齐 = 0）\n 5 = 拟合（如果垂直对齐 = 0）\n 详细信息请参见组 72 和 73 整数代码表\n ** 11\n 第二对齐点（在 OCS 中）（可选）\n DXF：X 值；APP：三维点\n 只有当 72 或 73 组的值非零时，该值才有意义（如果对正不是基线对正/左对正）\n ** 21, 31\n DXF：第二对齐点的 Y 值和 Z 值（在 OCS 中）（可选）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）\n ** 100\n 子类标记 (AcDbText)\n ** 73\n 文字垂直对正类型（可选；默认值 = 0）整数代码（不是按位编码）\n 0 = 基线对正\n 1 = 底端对正\n 2 = 居中对正\n 3 = 顶端对正\n 详细信息请参见组 72 和 73 整数代码表"
+},
+"dxf文本": {
+"prefix" : "dxf文本",
+"body": [
+"(0 . \"文本\")"
+],
+"description":"** 100\n 子类标记 (AcDbText)\n ** 39\n 厚度（可选；默认值 = 0）\n ** 10\n 第一对齐点（在 OCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：第一对齐点的 Y 值和 Z 值（在 OCS 中）\n ** 40\n 文字高度\n ** 1\n 默认值（字符串本身）\n ** 50\n 文字旋转角度（可选；默认值 = 0）\n ** 41\n 相对 X 比例因子 — 宽度（可选；默认值 = 1）\n 使用拟合类型的文字时，该值也将进行调整。\n ** 51\n 倾斜角（可选；默认值 = 0）\n ** 7\n 文字样式名（可选；默认值 = 标准）\n ** 71\n 文字生成标志（可选；默认值 = 0）：\n 2 = 文字反向（在 X 轴方向镜像）\n 4 = 文字倒置（在 Y 轴方向镜像）\n ** 72\n 文字水平对正类型（可选；默认值 = 0）整数代码（非按位编码）：\n 0 = 左对正\n 1 = 居中对正\n 2 = 右对正\n 3 = 对齐（如果垂直对齐 = 0）\n 4 = 中间（如果垂直对齐 = 0）\n 5 = 拟合（如果垂直对齐 = 0）\n 详细信息请参见组 72 和 73 整数代码表\n ** 11\n 第二对齐点（在 OCS 中）（可选）\n DXF：X 值；APP：三维点\n 只有当 72 或 73 组的值非零时，该值才有意义（如果对正不是基线对正/左对正）\n ** 21, 31\n DXF：第二对齐点的 Y 值和 Z 值（在 OCS 中）（可选）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）\n ** 100\n 子类标记 (AcDbText)\n ** 73\n 文字垂直对正类型（可选；默认值 = 0）整数代码（不是按位编码）\n 0 = 基线对正\n 1 = 底端对正\n 2 = 居中对正\n 3 = 顶端对正\n 详细信息请参见组 72 和 73 整数代码表"
+},
+"dxftolerance": {
+"prefix" : "dxftolerance",
+"body": [
+"(0 . \"tolerance\")"
+],
+"description":"** 100\n 子类标记 (AcDbFcf)\n ** 3\n 标注样式名\n ** 10\n 插入点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：插入点的 Y 值和 Z 值（在 WCS 中）\n ** 1\n 表示公差的形象化表示的字符串\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）\n ** 11\n X 轴方向矢量（在 WCS 中）\n DXF：X 值；APP：三维矢量\n ** 21, 31\n DXF：X 轴方向矢量的 Y 值和 Z 值（在 WCS 中）"
+},
+"dxftrace": {
+"prefix" : "dxftrace",
+"body": [
+"(0 . \"trace\")"
+],
+"description":"** 100\n 子类标记 (AcDbTrace)\n ** 10\n 第一角点（在 OCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：第一角点的 Y 值和 Z 值（在 OCS 中）\n ** 11\n 第二角点（在 OCS 中）\n DXF：X 值；APP：三维点\n ** 21, 31\n DXF：第二角点的 Y 值和 Z 值（在 OCS 中）\n ** 12\n 第三角点（在 OCS 中）\n DXF：X 值；APP：三维点\n ** 22, 32\n DXF：第三角点的 Y 值和 Z 值（在 OCS 中）\n ** 13\n 第四角点（在 OCS 中）\n DXF：X 值；APP：三维点\n ** 23, 33\n DXF：第四角点的 Y 值和 Z 值（在 OCS 中）\n ** 39\n 厚度（可选；默认值 = 0）\n ** 210\n 拉伸方向（可选；默认值 = 0, 0, 1）\n DXF：X 值；APP：三维矢量\n ** 220, 230\n DXF：拉伸方向的 Y 值和 Z 值（可选）"
+},
+"dxfunderlay": {
+"prefix" : "dxfunderlay",
+"body": [
+"(0 . \"underlay\")"
+],
+"description":"** 0	\n 对象名称。\n DGNUNDERLAY - 附着的 DGN 文件\n DWFUNDERLAY - 附着的 DWF 文件\n PDFUNDERLAY - 附着的 PDF 文件\n ** 100\n 子类标记 (AcDbUnderlayReference)\n ** 340\n AcDbUnderlayDefinition 对象的 ID\n ** 10,20,30\n 参考底图插入点的 X、Y 和 Z 坐标。这些是 OCS/ECS 坐标\n ** 41,42,43\n DXF：X、Y 和 Z 比例因子\n ** 50\n 旋转角度（在 OCS/ECS 中。从坐标系 X 轴开始绕 Z 轴逆时针旋转）\n ** 210,220,230\n 法向矢量（在 WCS 中）\n ** 280\n 标志\n 1 = 剪裁处于打开状态\n 2 = 参考底图处于打开状态\n 4 = 单色\n 8 = 调整背景\n 16 = 剪裁为内部模式\n ** 281\n 对比度（值介于 20 和 100 之间）\n ** 282\n 淡入度（值介于 0 和 80 之间）\n ** 11, 21\n 重复：OCS/ECS 中的二维点。如果只有两个二维点，则它们就是剪裁矩形的左下角点和右上角点。如果多于两个二维点，则它们就是剪裁多边形的顶点"
+},
+"dxfvertex": {
+"prefix" : "dxfvertex",
+"body": [
+"(0 . \"vertex\")"
+],
+"description":"** 100\n 子类标记 (AcDbVertex)\n ** 100\n 子类标记（AcDb2dVertex 或 AcDb3dPolylineVertex）\n ** 10\n 位置点（二维时在 OCS 中，三维时在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：位置点的 Y 值和 Z 值（二维时在 OCS 中，三维时在 WCS 中）\n ** 40\n 起点宽度（可选；默认值为 0）\n ** 41\n 端点宽度（可选；默认值为 0）\n ** 42\n 凸度（可选；默认值为 0）。凸度是四分之一圆弧段角的切线，如果从起点到端点，圆弧为顺时针，则为负数。凸度为 0 表示一条直线段，凸度为 1 表示一个半圆\n ** 70\n 顶点标志：\n 1 = 由曲线拟合创建的额外顶点\n 2 = 为该顶点定义的曲线拟合切线。如果曲线拟合切线方向为 0，则在 DXF 输出时被省略，但是如果设值了该位，则不能省略\n 4 = 未使用\n 8 = 由样条曲线拟合创建的样条曲线顶点\n 16 = 样条曲线框架控制点\n 32 = 三维多段线顶点\n 64 = 三维多边形网格\n 128 = 多面网格顶点\n ** 50\n 曲线拟合切线方向\n ** 71\n 多面网格顶点索引（可选；非零时出现）\n ** 72\n 多面网格顶点索引（可选；非零时出现）\n ** 73\n 多面网格顶点索引（可选；非零时出现）\n ** 74\n 多面网格顶点索引（可选；非零时出现）\n ** 91\n 顶点标识符"
+},
+"dxf顶点": {
+"prefix" : "dxf顶点",
+"body": [
+"(0 . \"顶点\")"
+],
+"description":"** 100\n 子类标记 (AcDbVertex)\n ** 100\n 子类标记（AcDb2dVertex 或 AcDb3dPolylineVertex）\n ** 10\n 位置点（二维时在 OCS 中，三维时在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：位置点的 Y 值和 Z 值（二维时在 OCS 中，三维时在 WCS 中）\n ** 40\n 起点宽度（可选；默认值为 0）\n ** 41\n 端点宽度（可选；默认值为 0）\n ** 42\n 凸度（可选；默认值为 0）。凸度是四分之一圆弧段角的切线，如果从起点到端点，圆弧为顺时针，则为负数。凸度为 0 表示一条直线段，凸度为 1 表示一个半圆\n ** 70\n 顶点标志：\n 1 = 由曲线拟合创建的额外顶点\n 2 = 为该顶点定义的曲线拟合切线。如果曲线拟合切线方向为 0，则在 DXF 输出时被省略，但是如果设值了该位，则不能省略\n 4 = 未使用\n 8 = 由样条曲线拟合创建的样条曲线顶点\n 16 = 样条曲线框架控制点\n 32 = 三维多段线顶点\n 64 = 三维多边形网格\n 128 = 多面网格顶点\n ** 50\n 曲线拟合切线方向\n ** 71\n 多面网格顶点索引（可选；非零时出现）\n ** 72\n 多面网格顶点索引（可选；非零时出现）\n ** 73\n 多面网格顶点索引（可选；非零时出现）\n ** 74\n 多面网格顶点索引（可选；非零时出现）\n ** 91\n 顶点标识符"
+},
+"dxfviewport": {
+"prefix" : "dxfviewport",
+"body": [
+"(0 . \"viewport\")"
+],
+"description":"** 100\n 子类标记 (AcDbViewport)\n ** 10\n 中心点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：中心点的 Y 值和 Z 值（在 WCS 中）\n ** 40\n 宽度，以图纸空间单位为测量单位\n ** 41\n 高度，以图纸空间单位为测量单位\n ** 68\n 视口状态字段：\n -1 = 打开，但是在屏幕上完全不可见，或者因为当前已超出 $MAXACTVP 计数，而成为一个不活动的视口。\n 0 = 关闭\n <正值> = 开并处于活动状态。该值表示视口堆栈的次序，其中 1 是活动视口，下一个是 2，依此类推\n ** 69\n 视口 ID\n ** 12\n 视口中心点（在 DCS 中）\n DXF：X 值；APP：二维点\n ** 22\n DXF：视口中心点的 Y 值（在 DCS 中）\n ** 13\n 捕捉基点\n DXF：X 值；APP：二维点\n ** 23\n DXF：捕捉基点的 Y 值\n ** 14\n 捕捉间距\n DXF：X 值；APP：二维点\n ** 24\n DXF：捕捉间距的 Y 值\n ** 15\n 栅格间距\n DXF：X 值；APP：二维点\n ** 25\n DXF：栅格间距的 Y 值\n ** 16\n 观察方向矢量（在 WCS 中）\n DXF：X 值；APP：三维矢量\n ** 26, 36\n DXF：观察方向矢量的 Y 值和 Z 值（在 WCS 中）\n ** 17\n 观察目标点（在 WCS 中）\n DXF：X 值；APP：三维矢量\n ** 27, 37\n DXF：观察目标点的 Y 值和 Z 值（在 WCS 中）\n ** 42\n 透视焦距\n ** 43\n 前向剪裁平面的 Z 值\n ** 44\n 后向剪裁平面的 Z 值\n ** 45\n 视图高度（以模型空间单位为测量单位）\n ** 50\n 捕捉角度\n ** 51\n 视图扭转角度\n ** 72\n 圆的缩放百分比\n ** 331\n 冻结图层对象 ID/句柄（可能存在多个条目）（可选）\n ** 90\n 视口状态按位编码标志：\n 1 (0x1) = 启用透视模式\n 2 (0x2) = 启用前向剪裁\n 4 (0x4) = 启用后向剪裁\n 8 (0x8) = 启用 UCS 跟随\n 16 (0x10) = 如果不可见则启用前向剪裁\n 32 (0x20) = 启用 UCS 图标可见性\n 64 (0x40) = 启用 UCS 图标（位于原点）\n 128 (0x80) = 启用快速缩放\n 256 (0x100) = 启用捕捉模式\n 512 (0x200) = 启用栅格模式\n 1024 (0x400) = 启用等轴测捕捉样式\n 2048 (0x800) = 启用隐藏打印模式\n 4096 (0x1000) = kIsoPairTop。如果设定了 kIsoPairTop，但未设定 kIsoPairRight，则启用 isopair top。如果同时设定了 kIsoPairTop 和 kIsoPairRight，则启用 isopair left\n 8192 (0x2000) = kIsoPairRight。如果设定了 kIsoPairRight，但未设定 kIsoPairTop，则启用 isopair right\n 16384 (0x4000) = 启用视口缩放锁定\n 32768 (0x8000) = 当前始终启用\n 65536 (0x10000) = 启用非矩形剪裁\n 131072 (0x20000) = 关闭视口\n 262144 (0x40000) = 启用图形界限外部的栅格的显示\n 524288 (0x80000) = 启用自适应栅格显示\n 1048576 (0x100000) = 当栅格显示为自适应时，启用设定的栅格间距下的栅格细分\n 2097152 (0x200000) = 允许栅格遵循工作平面切换\n ** 340\n 用作视口剪裁边界的图元的硬指针 ID/句柄（仅当视口为非矩形时才出现）\n ** 1\n 指定给该视口的打印样式表名\n ** 281\n 渲染模式：\n 0 = 二维优化（传统二维）\n 1 = 线框\n 2 = 隐藏线\n 3 = 平面着色\n 4 = 体着色\n 5 = 带线框平面着色\n 6 = 带线框体着色\n 所有非二维优化渲染模式均使用新三维图形管道。这些值直接与 SHADEMODE 命令和 AcDbAbstractViewTableRecord::RenderMode 枚举相对应\n ** 71\n 每个视口标志的 UCS：\n 0 = 该视口处于活动状态时，UCS 不会改变。\n 1 = 该视口存储自己的 UCS，只要视口被激活，UCS 将变成当前 UCS。\n ** 74\n 在 UCS 原点标志处显示 UCS 图标：\n 控制 UCS 图标表示视口 UCS 还是当前 UCS（如果 UCSVP 为 1 且视口不活动，则两者存在差别）。但是，该字段当前被忽略，且图标始终表示视口 UCS\n ** 110\n UCS 原点\n DXF：X 值；APP：三维点\n ** 120, 130\n DXF：UCS 原点的 Y 值和 Z 值\n ** 111\n UCS X 轴\n DXF：X 值；APP：三维矢量\n ** 121, 131\n DXF：UCS X 轴的 Y 值和 Z 值\n ** 112\n UCS Y 轴\n DXF：X 值；APP：三维矢量\n ** 122, 132\n DXF：UCS Y 轴的 Y 值和 Z 值\n ** 345\n 如果 UCS 是命名 UCS，则为 AcDbUCSTableRecord 的 ID/句柄。如果不存在，则为未命名 UCS\n ** 346\n 如果 UCS 为正交 UCS，则为基准 UCS 的 AcDbUCSTableRecord 的 ID/句柄（代码 79 非零）。如果不存在，且代码 79 非零，则将基准 UCS 作为 WORLD\n ** 79\n UCS 的正交类型：\n 0 = UCS 为非正交视图\n 1 = 俯视图；2 = 仰视图\n 3 = 主视图；4 = 后视图\n 5 = 左视图；6 = 右视图\n ** 146\n 标高\n ** 170\n 着色打印模式：\n 0 = 按显示\n 1 = 线框\n 2 = 消隐\n 3 = 渲染\n ** 61\n 主栅格线与次栅格线比较的频率\n ** 332\n 背景 ID/句柄（可选）\n ** 333\n 着色打印 ID/句柄（可选）\n ** 348\n 视觉样式 ID/句柄（可选）\n ** 292\n 默认光源标志。没有指定用户光源时处于打开状态。\n ** 282\n 默认光源类型：\n 0 = 一条平行光\n 1 = 两条平行光\n ** 141\n 视图亮度\n ** 142\n 视图对比度\n ** 63,421,431\n 环境光颜色。只有不是黑色时才为白色。\n ** 361\n 阳光 ID/句柄（可选）\n ** 335\n 视口对象的软指针参照（用于图层视口特性替代）\n ** 343\n 视口对象的软指针参照（用于图层视口特性替代）\n ** 344\n 视口对象的软指针参照（用于图层视口特性替代）\n ** 91\n 视口对象的软指针参照（用于图层视口特性替代）"
+},
+"dxf视口": {
+"prefix" : "dxf视口",
+"body": [
+"(0 . \"视口\")"
+],
+"description":"** 100\n 子类标记 (AcDbViewport)\n ** 10\n 中心点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：中心点的 Y 值和 Z 值（在 WCS 中）\n ** 40\n 宽度，以图纸空间单位为测量单位\n ** 41\n 高度，以图纸空间单位为测量单位\n ** 68\n 视口状态字段：\n -1 = 打开，但是在屏幕上完全不可见，或者因为当前已超出 $MAXACTVP 计数，而成为一个不活动的视口。\n 0 = 关闭\n <正值> = 开并处于活动状态。该值表示视口堆栈的次序，其中 1 是活动视口，下一个是 2，依此类推\n ** 69\n 视口 ID\n ** 12\n 视口中心点（在 DCS 中）\n DXF：X 值；APP：二维点\n ** 22\n DXF：视口中心点的 Y 值（在 DCS 中）\n ** 13\n 捕捉基点\n DXF：X 值；APP：二维点\n ** 23\n DXF：捕捉基点的 Y 值\n ** 14\n 捕捉间距\n DXF：X 值；APP：二维点\n ** 24\n DXF：捕捉间距的 Y 值\n ** 15\n 栅格间距\n DXF：X 值；APP：二维点\n ** 25\n DXF：栅格间距的 Y 值\n ** 16\n 观察方向矢量（在 WCS 中）\n DXF：X 值；APP：三维矢量\n ** 26, 36\n DXF：观察方向矢量的 Y 值和 Z 值（在 WCS 中）\n ** 17\n 观察目标点（在 WCS 中）\n DXF：X 值；APP：三维矢量\n ** 27, 37\n DXF：观察目标点的 Y 值和 Z 值（在 WCS 中）\n ** 42\n 透视焦距\n ** 43\n 前向剪裁平面的 Z 值\n ** 44\n 后向剪裁平面的 Z 值\n ** 45\n 视图高度（以模型空间单位为测量单位）\n ** 50\n 捕捉角度\n ** 51\n 视图扭转角度\n ** 72\n 圆的缩放百分比\n ** 331\n 冻结图层对象 ID/句柄（可能存在多个条目）（可选）\n ** 90\n 视口状态按位编码标志：\n 1 (0x1) = 启用透视模式\n 2 (0x2) = 启用前向剪裁\n 4 (0x4) = 启用后向剪裁\n 8 (0x8) = 启用 UCS 跟随\n 16 (0x10) = 如果不可见则启用前向剪裁\n 32 (0x20) = 启用 UCS 图标可见性\n 64 (0x40) = 启用 UCS 图标（位于原点）\n 128 (0x80) = 启用快速缩放\n 256 (0x100) = 启用捕捉模式\n 512 (0x200) = 启用栅格模式\n 1024 (0x400) = 启用等轴测捕捉样式\n 2048 (0x800) = 启用隐藏打印模式\n 4096 (0x1000) = kIsoPairTop。如果设定了 kIsoPairTop，但未设定 kIsoPairRight，则启用 isopair top。如果同时设定了 kIsoPairTop 和 kIsoPairRight，则启用 isopair left\n 8192 (0x2000) = kIsoPairRight。如果设定了 kIsoPairRight，但未设定 kIsoPairTop，则启用 isopair right\n 16384 (0x4000) = 启用视口缩放锁定\n 32768 (0x8000) = 当前始终启用\n 65536 (0x10000) = 启用非矩形剪裁\n 131072 (0x20000) = 关闭视口\n 262144 (0x40000) = 启用图形界限外部的栅格的显示\n 524288 (0x80000) = 启用自适应栅格显示\n 1048576 (0x100000) = 当栅格显示为自适应时，启用设定的栅格间距下的栅格细分\n 2097152 (0x200000) = 允许栅格遵循工作平面切换\n ** 340\n 用作视口剪裁边界的图元的硬指针 ID/句柄（仅当视口为非矩形时才出现）\n ** 1\n 指定给该视口的打印样式表名\n ** 281\n 渲染模式：\n 0 = 二维优化（传统二维）\n 1 = 线框\n 2 = 隐藏线\n 3 = 平面着色\n 4 = 体着色\n 5 = 带线框平面着色\n 6 = 带线框体着色\n 所有非二维优化渲染模式均使用新三维图形管道。这些值直接与 SHADEMODE 命令和 AcDbAbstractViewTableRecord::RenderMode 枚举相对应\n ** 71\n 每个视口标志的 UCS：\n 0 = 该视口处于活动状态时，UCS 不会改变。\n 1 = 该视口存储自己的 UCS，只要视口被激活，UCS 将变成当前 UCS。\n ** 74\n 在 UCS 原点标志处显示 UCS 图标：\n 控制 UCS 图标表示视口 UCS 还是当前 UCS（如果 UCSVP 为 1 且视口不活动，则两者存在差别）。但是，该字段当前被忽略，且图标始终表示视口 UCS\n ** 110\n UCS 原点\n DXF：X 值；APP：三维点\n ** 120, 130\n DXF：UCS 原点的 Y 值和 Z 值\n ** 111\n UCS X 轴\n DXF：X 值；APP：三维矢量\n ** 121, 131\n DXF：UCS X 轴的 Y 值和 Z 值\n ** 112\n UCS Y 轴\n DXF：X 值；APP：三维矢量\n ** 122, 132\n DXF：UCS Y 轴的 Y 值和 Z 值\n ** 345\n 如果 UCS 是命名 UCS，则为 AcDbUCSTableRecord 的 ID/句柄。如果不存在，则为未命名 UCS\n ** 346\n 如果 UCS 为正交 UCS，则为基准 UCS 的 AcDbUCSTableRecord 的 ID/句柄（代码 79 非零）。如果不存在，且代码 79 非零，则将基准 UCS 作为 WORLD\n ** 79\n UCS 的正交类型：\n 0 = UCS 为非正交视图\n 1 = 俯视图；2 = 仰视图\n 3 = 主视图；4 = 后视图\n 5 = 左视图；6 = 右视图\n ** 146\n 标高\n ** 170\n 着色打印模式：\n 0 = 按显示\n 1 = 线框\n 2 = 消隐\n 3 = 渲染\n ** 61\n 主栅格线与次栅格线比较的频率\n ** 332\n 背景 ID/句柄（可选）\n ** 333\n 着色打印 ID/句柄（可选）\n ** 348\n 视觉样式 ID/句柄（可选）\n ** 292\n 默认光源标志。没有指定用户光源时处于打开状态。\n ** 282\n 默认光源类型：\n 0 = 一条平行光\n 1 = 两条平行光\n ** 141\n 视图亮度\n ** 142\n 视图对比度\n ** 63,421,431\n 环境光颜色。只有不是黑色时才为白色。\n ** 361\n 阳光 ID/句柄（可选）\n ** 335\n 视口对象的软指针参照（用于图层视口特性替代）\n ** 343\n 视口对象的软指针参照（用于图层视口特性替代）\n ** 344\n 视口对象的软指针参照（用于图层视口特性替代）\n ** 91\n 视口对象的软指针参照（用于图层视口特性替代）"
+},
+"dxfwipeout": {
+"prefix" : "dxfwipeout",
+"body": [
+"(0 . \"wipeout\")"
+],
+"description":"** 100\n 子类标记 (AcDbRasterImage)\n ** 90\n 类版本\n ** 10\n 插入点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：插入点的 Y 值和 Z 值（在 WCS 中）\n ** 11\n 单像素的 U 矢量（沿图像可见底部的点，从插入点开始）（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 21, 31\n DXF：U 矢量的 Y 值和 Z 值（在 WCS 中）\n ** 12\n 单像素的 V 矢量（沿图像可见左侧的点，从插入点开始）（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 22, 32\n DXF：V 矢量的 Y 值和 Z 值（在 WCS 中）\n ** 13\n 图像大小（像素）\n DXF：U 值；APP：二维点（U 值和 V 值）\n ** 23\n DXF：图像大小（像素）的 V 值\n ** 340\n imagedef 对象的硬参照\n ** 70\n 图像显示特性：\n 1 = 显示图像\n 2 = 当与屏幕不对齐时显示图像\n 4 = 使用剪裁边界\n 8 = 透明度打开\n ** 280\n 剪裁状态：0 = 关闭；1 = 打开\n ** 281\n 亮度值（0-100；默认值 = 50）\n ** 282\n 对比度值（0-100；默认值 = 50）\n ** 283\n 淡入度值（0-100；默认值 = 0）\n ** 360\n imagedef_reactor 对象的硬参照\n ** 71\n 剪裁边界类型。1 = 矩形；2 = 多边形\n ** 91\n 后面的裁剪边界顶点数\n ** 14\n 裁剪边界顶点（在 OCS 中）\n DXF：X 值；APP：二维点（多个条目）\n 注意 1) 对于矩形剪裁边界类型，必须指定两个对角点。默认值为 (-0.5,-0.5)，(size.x-0.5,size.y-0.5)。2) 对于多边形剪裁边界类型，必须指定三个或更多顶点。多边形顶点必须按顺序列出\n ** 24\n DXF：剪裁边界顶点的 Y 值（在 OCS 中）（多个条目）"
+},
+"dxfxline": {
+"prefix" : "dxfxline",
+"body": [
+"(0 . \"xline\")"
+],
+"description":"** 100\n 子类标记 (AcDbXline)\n ** 10\n 第一点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：第一点的 Y 值和 Z 值（在 WCS 中）\n ** 11\n 单位方向矢量（在 WCS 中）\n DXF：X 值；APP：三维矢量\n ** 21, 31\n DXF：单位方向矢量的 Y 值和 Z 值（在 WCS 中）"
+},
+"dxf射线": {
+"prefix" : "dxf射线",
+"body": [
+"(0 . \"射线\")"
+],
+"description":"** 100\n 子类标记 (AcDbXline)\n ** 10\n 第一点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：第一点的 Y 值和 Z 值（在 WCS 中）\n ** 11\n 单位方向矢量（在 WCS 中）\n DXF：X 值；APP：三维矢量\n ** 21, 31\n DXF：单位方向矢量的 Y 值和 Z 值（在 WCS 中）"
+},
+"dxfdatatype": {
+"prefix" : "dxfdatatype",
+"body": [
+"(0 . \"datatype\")"
+],
+"description":"** 0-9\n 字符串（自在 AutoCAD 2000 中引入扩展符号名称开始，字数限制已由 255 个字符扩大到 2049 个单字节字符，不包括行末的换行符），有关更多信息，请参见“字符串值的存储”部分\n ** 10-39\n 双精度三维点值\n ** 40-59\n 双精度浮点值\n ** 60-79\n 16 位整数值\n ** 90-99\n 32 位整数值\n ** 100\n 字符串（最多 255 个字符；对于 Unicode 字符串，字符数要少一些）；有关更多信息，请参见“字符串值的存储”部分\n ** 102\n 字符串（最多 255 个字符；对于 Unicode 字符串，字符数要少一些）；有关更多信息，请参见“字符串值的存储”部分\n ** 105\n 表示 16 进制 (hex) 句柄值的字符串\n ** 110-119\n 双精度浮点值\n ** 120-129\n 双精度浮点值\n ** 130-139\n 双精度浮点值\n ** 140-149\n 双精度标量浮点值\n ** 160-169\n 64 位整数值\n ** 170-179\n 16 位整数值\n ** 210-239\n 双精度浮点值\n ** 270-279\n 16 位整数值\n ** 280-289\n 16 位整数值\n ** 290-299\n 布尔标志值\n ** 300-309\n 任意字符串；有关更多信息，请参见“字符串值的存储”部分\n ** 310-319\n 表示二进制数据块的十六进制值的字符串\n ** 320-329\n 表示 16 进制句柄值的字符串\n ** 330-369\n 表示十六进制对象 ID 的字符串\n ** 370-379\n 16 位整数值\n ** 380-389\n 16 位整数值\n ** 390-399\n 表示 16 进制句柄值的字符串\n ** 400-409\n 16 位整数值\n ** 410-419\n 字符串；有关更多信息，请参见“字符串值的存储”部分\n ** 420-429\n 32 位整数值\n ** 430-439\n 字符串；有关更多信息，请参见“字符串值的存储”部分\n ** 440-449\n 32 位整数值\n ** 450-459\n 长整数\n ** 460-469\n 双精度浮点值\n ** 470-479\n 字符串；有关更多信息，请参见“字符串值的存储”部分\n ** 480-481\n 表示 16 进制句柄值的字符串\n ** 999\n 注释（字符串）；有关更多信息，请参见“字符串值的存储”部分\n ** 1000-1009\n 字符串（与 0-9 代码范围的限制相同）；有关更多信息，请参见“字符串值的存储”部分\n ** 1010-1059\n 双精度浮点值\n ** 1060-1070\n 16 位整数值\n ** 1071\n 32 位整数值"
+},
+"dxfclasses": {
+"prefix" : "dxfclasses",
+"body": [
+"(0 . \"classes\")"
+],
+"description":"** 0\n 记录类型 (CLASS)。标识 CLASS 记录的开始\n ** 1\n 类 DXF 记录名；始终唯一\n ** 2\n C++ 类名。用于与定义对象类行为的软件绑定；始终唯一\n ** 3\n 应用程序名。当前未加载本段列出的某个类定义时出现在“警告”框中\n ** 90\n 代理功能标志。指示该对象作为代理时的功能的按位编码值：\n 0 = 不允许操作 (0)\n 1 = 允许删除 (0x1)\n 2 = 允许转换 (0x2)\n 4 = 允许更改颜色 (0x4)\n 8 = 允许更改图层 (0x8)\n 16 = 允许更改线型 (0x10)\n 32 = 允许更改线型比例 (0x20)\n 64 = 允许更改可见性 (0x40)\n 128 = 允许克隆 (0x80)\n 256 = 允许更改线宽 (0x100)\n 512 = 允许更改打印样式名 (0x200)\n 895 = 允许除克隆以外的所有操作 (0x37F)\n 1023 = 允许所有操作 (0x3FF)\n 1024 = 禁用代理警告对话框 (0x400)\n 32768 = R13 格式代理 (0x8000)\n ** 91\n 自定义类的实例计数\n ** 280\n “是代理”标志。如果创建此 DXF 文件时未加载类，则设定为 1，否则设定为 0\n ** 281\n “是图元”标志。如果类从 AcDbEntity 类派生并可能位于 BLOCKS 或 ENTITIES 段中，则设定为 1。如果设定为 0，则实例可能仅出现在 OBJECTS 段中"
+},
+"dxfappid": {
+"prefix" : "dxfappid",
+"body": [
+"(0 . \"appid\")"
+],
+"description":"** 100\n 子类标记 (AcDbRegAppTableRecord)\n ** 2\n 用户提供（或应用程序提供）的应用程序名称（用于扩展数据）。这些表条目用于维护注册的所有应用程序的名称\n ** 70\n 标准标记值（按位编码值）：\n 16 = 如果设定了此位，则表条目外部依赖于外部参照\n 32 = 如果同时设定了此位和位 16，则表明已成功融入了外部依赖的外部参照\n 64 = 如果设定了此位，则表明在上次编辑图形时，图形中至少有一个图元参照了表条目。（此标志对 AutoCAD 命令很有用。大多数读取 DXF 文件的程序都可以忽略它，并且无需由写入 DXF 文件的程序对其进行设定）"
+},
+"dxfblock_record": {
+"prefix" : "dxfblock_record",
+"body": [
+"(0 . \"block_record\")"
+],
+"description":"** 100\n 子类标记 (AcDbBlockTableRecord)\n ** 2\n 块名\n ** 340\n 关联的 LAYOUT 对象的硬指针 ID/句柄\n ** 70\n 块插入单位。\n ** 280\n 块分解性\n ** 281\n 块可测量性\n ** 310\n DXF：位图预览的二进制数据（可选）\n ** 1001\n 扩展数据应用程序名称“ACAD”（可选）\n ** 1000\n 扩展数据字符串数据“设计中心数据”（可选）\n ** 1002\n 扩展数据的开始“{”（可选）\n ** 1070\n AutoCAD 设计中心版本号\n ** 1070\n 插入单位：\n 0 = 无单位\n 1 = 英寸\n 2 = 英尺\n 3 = 英里\n 4 = 毫米\n 5 = 厘米\n 6 = 米\n 7 = 千米\n 8 = 微英寸\n 9 = 英里\n 10 = 码\n 11 = 埃\n 12 = 毫微米\n 13 = 微米\n 14 = 分米\n 15 = 十米\n 16 = 百米\n 17 = 百万公里\n 18 = 天文单位\n 19 = 光年\n 20 = 秒差距\n 21 = 美制测量英尺\n 22 = 美制测量英寸\n 23 = 美制测量码\n 24 = 美制测量英里\n ** 1002\n 扩展数据的结束“}”"
+},
+"dxfdimstyle": {
+"prefix" : "dxfdimstyle",
+"body": [
+"(0 . \"dimstyle\")"
+],
+"description":"** 100\n 子类标记 (AcDbDimStyleTableRecord)\n ** 2\n 标注样式名\n ** 70\n 标准标记值（按位编码值）：\n 16 = 如果设定了此位，则表条目外部依赖于外部参照\n 32 = 如果同时设定了此位和位 16，则表明已成功融入了外部依赖的外部参照\n 64 = 如果设定了此位，则表明在上次编辑图形时，图形中至少有一个图元参照了表条目。（此标志对 AutoCAD 命令很有用。大多数读取 DXF 文件的程序都可以忽略它，并且无需由写入 DXF 文件的程序对其进行设定）\n ** 3\n DIMPOST\n ** 4\n DIMAPOST\n ** 5\n DIMBLK（已废弃，现在为对象 ID）\n ** 6\n DIMBLK1（已废弃，现在为对象 ID）\n ** 7\n DIMBLK2（已废弃，现在为对象 ID）\n ** 40\n DIMSCALE\n ** 41\n DIMASZ\n ** 42\n DIMEXO\n ** 43\n DIMDLI\n ** 44\n DIMEXE\n ** 45\n DIMRND\n ** 46\n DIMDLE\n ** 47\n DIMTP\n ** 48\n DIMTM\n ** 140\n DIMTXT\n ** 141\n DIMCEN\n ** 142\n DIMTSZ\n ** 143\n DIMALTF\n ** 144\n DIMLFAC\n ** 145\n DIMTVP\n ** 146\n DIMTFAC\n ** 147\n DIMGAP\n ** 148\n DIMALTRND\n ** 71\n DIMTOL\n ** 72\n DIMLIM\n ** 73\n DIMTIH\n ** 74\n DIMTOH\n ** 75\n DIMSE1\n ** 76\n DIMSE2\n ** 77\n DIMTAD\n ** 78\n DIMZIN\n ** 79\n DIMAZIN\n ** 170\n DIMALT\n ** 171\n DIMALTD\n ** 172\n DIMTOFL\n ** 173\n DIMSAH\n ** 174\n DIMTIX\n ** 175\n DIMSOXD\n ** 176\n DIMCLRD\n ** 177\n DIMCLRE\n ** 178\n DIMCLRT\n ** 179\n DIMADEC\n ** 270\n DIMUNIT（已废弃，现在使用 DIMLUNIT 和 DIMFRAC）\n ** 271\n DIMDEC\n ** 272\n DIMTDEC\n ** 273\n DIMALTU\n ** 274\n DIMALTTD\n ** 275\n DIMAUNIT\n ** 276\n DIMFRAC\n ** 277\n DIMLUNIT\n ** 278\n DIMDSEP\n ** 279\n DIMTMOVE\n ** 280\n DIMJUST\n ** 281\n DIMSD1\n ** 282\n DIMSD2\n ** 283\n DIMTOLJ\n ** 284\n DIMTZIN\n ** 285\n DIMALTZ\n ** 286\n DIMALTTZ\n ** 287\n DIMFIT（已废弃，现在使用 DIMATFIT 和 DIMTMOVE)\n ** 288\n DIMUPT\n ** 289\n DIMATFIT\n ** 340\n DIMTXSTY（参照的 STYLE 的句柄）\n ** 341\n DIMLDRBLK（参照的 BLOCK 的句柄）\n ** 342\n DIMBLK（参照的 BLOCK 的句柄）\n ** 343\n DIMBLK1（参照的 BLOCK 的句柄）\n ** 344\n DIMBLK2（参照的 BLOCK 的句柄）\n ** 371\n DIMLWD（线宽枚举值）\n ** 372\n DIMLWE（线宽枚举值）"
+},
+"dxf标注样式": {
+"prefix" : "dxf标注样式",
+"body": [
+"(0 . \"标注样式\")"
+],
+"description":"** 100\n 子类标记 (AcDbDimStyleTableRecord)\n ** 2\n 标注样式名\n ** 70\n 标准标记值（按位编码值）：\n 16 = 如果设定了此位，则表条目外部依赖于外部参照\n 32 = 如果同时设定了此位和位 16，则表明已成功融入了外部依赖的外部参照\n 64 = 如果设定了此位，则表明在上次编辑图形时，图形中至少有一个图元参照了表条目。（此标志对 AutoCAD 命令很有用。大多数读取 DXF 文件的程序都可以忽略它，并且无需由写入 DXF 文件的程序对其进行设定）\n ** 3\n DIMPOST\n ** 4\n DIMAPOST\n ** 5\n DIMBLK（已废弃，现在为对象 ID）\n ** 6\n DIMBLK1（已废弃，现在为对象 ID）\n ** 7\n DIMBLK2（已废弃，现在为对象 ID）\n ** 40\n DIMSCALE\n ** 41\n DIMASZ\n ** 42\n DIMEXO\n ** 43\n DIMDLI\n ** 44\n DIMEXE\n ** 45\n DIMRND\n ** 46\n DIMDLE\n ** 47\n DIMTP\n ** 48\n DIMTM\n ** 140\n DIMTXT\n ** 141\n DIMCEN\n ** 142\n DIMTSZ\n ** 143\n DIMALTF\n ** 144\n DIMLFAC\n ** 145\n DIMTVP\n ** 146\n DIMTFAC\n ** 147\n DIMGAP\n ** 148\n DIMALTRND\n ** 71\n DIMTOL\n ** 72\n DIMLIM\n ** 73\n DIMTIH\n ** 74\n DIMTOH\n ** 75\n DIMSE1\n ** 76\n DIMSE2\n ** 77\n DIMTAD\n ** 78\n DIMZIN\n ** 79\n DIMAZIN\n ** 170\n DIMALT\n ** 171\n DIMALTD\n ** 172\n DIMTOFL\n ** 173\n DIMSAH\n ** 174\n DIMTIX\n ** 175\n DIMSOXD\n ** 176\n DIMCLRD\n ** 177\n DIMCLRE\n ** 178\n DIMCLRT\n ** 179\n DIMADEC\n ** 270\n DIMUNIT（已废弃，现在使用 DIMLUNIT 和 DIMFRAC）\n ** 271\n DIMDEC\n ** 272\n DIMTDEC\n ** 273\n DIMALTU\n ** 274\n DIMALTTD\n ** 275\n DIMAUNIT\n ** 276\n DIMFRAC\n ** 277\n DIMLUNIT\n ** 278\n DIMDSEP\n ** 279\n DIMTMOVE\n ** 280\n DIMJUST\n ** 281\n DIMSD1\n ** 282\n DIMSD2\n ** 283\n DIMTOLJ\n ** 284\n DIMTZIN\n ** 285\n DIMALTZ\n ** 286\n DIMALTTZ\n ** 287\n DIMFIT（已废弃，现在使用 DIMATFIT 和 DIMTMOVE)\n ** 288\n DIMUPT\n ** 289\n DIMATFIT\n ** 340\n DIMTXSTY（参照的 STYLE 的句柄）\n ** 341\n DIMLDRBLK（参照的 BLOCK 的句柄）\n ** 342\n DIMBLK（参照的 BLOCK 的句柄）\n ** 343\n DIMBLK1（参照的 BLOCK 的句柄）\n ** 344\n DIMBLK2（参照的 BLOCK 的句柄）\n ** 371\n DIMLWD（线宽枚举值）\n ** 372\n DIMLWE（线宽枚举值）"
+},
+"dxflayer": {
+"prefix" : "dxflayer",
+"body": [
+"(0 . \"layer\")"
+],
+"description":"** 100\n 子类标记 (AcDbLayerTableRecord)\n ** 2\n 图层名\n ** 70\n 标准标记（按位编码值）：\n 1 = 冻结图层，否则解冻图层\n 2 = 默认情况下在新视口中冻结图层\n 4 = 锁定图层\n 16 = 如果设定了此位，则表条目外部依赖于外部参照\n 32 = 如果同时设定了此位和位 16，则表明已成功融入了外部依赖的外部参照\n 64 = 如果设定了此位，则表明在上次编辑图形时，图形中至少有一个图元参照了表条目。（此标志对 AutoCAD 命令很有用。大多数读取 DXF 文件的程序都可以忽略它，并且无需由写入 DXF 文件的程序对其进行设定）\n ** 62\n 颜色编号（如果为负值，则表明图层处于关闭状态）\n ** 6\n 线型名\n ** 290\n 打印标志。如果设定为 0，则不打印此图层\n ** 370\n 线宽枚举值\n ** 390\n PlotStyleName 对象的硬指针 ID/句柄\n ** 347\n Material 对象的硬指针 ID/句柄"
+},
+"dxf图层": {
+"prefix" : "dxf图层",
+"body": [
+"(0 . \"图层\")"
+],
+"description":"** 100\n 子类标记 (AcDbLayerTableRecord)\n ** 2\n 图层名\n ** 70\n 标准标记（按位编码值）：\n 1 = 冻结图层，否则解冻图层\n 2 = 默认情况下在新视口中冻结图层\n 4 = 锁定图层\n 16 = 如果设定了此位，则表条目外部依赖于外部参照\n 32 = 如果同时设定了此位和位 16，则表明已成功融入了外部依赖的外部参照\n 64 = 如果设定了此位，则表明在上次编辑图形时，图形中至少有一个图元参照了表条目。（此标志对 AutoCAD 命令很有用。大多数读取 DXF 文件的程序都可以忽略它，并且无需由写入 DXF 文件的程序对其进行设定）\n ** 62\n 颜色编号（如果为负值，则表明图层处于关闭状态）\n ** 6\n 线型名\n ** 290\n 打印标志。如果设定为 0，则不打印此图层\n ** 370\n 线宽枚举值\n ** 390\n PlotStyleName 对象的硬指针 ID/句柄\n ** 347\n Material 对象的硬指针 ID/句柄"
+},
+"dxfltype": {
+"prefix" : "dxfltype",
+"body": [
+"(0 . \"ltype\")"
+],
+"description":"** 100\n 子类标记 (AcDbLinetypeTableRecord)\n ** 2\n 线型名\n ** 70\n 标准标记值（按位编码值）：\n 16 = 如果设定了此位，则表条目外部依赖于外部参照\n 32 = 如果同时设定了此位和位 16，则表明已成功融入了外部依赖的外部参照\n 64 = 如果设定了此位，则表明在上次编辑图形时，图形中至少有一个图元参照了表条目。（此标志对 AutoCAD 命令很有用。大多数读取 DXF 文件的程序都可以忽略它，并且无需由写入 DXF 文件的程序对其进行设定）\n ** 3\n 线型的说明文字\n ** 72\n 对齐代码；值通常为 65，A 的 ASCII 代码\n ** 73\n 线型元素的数目\n ** 40\n 图案总长度\n ** 49\n 虚线、点或空间长度（每个元素一个条目）\n ** 74\n 复杂线型元素类型（每个元素一种类型）。默认值为 0（无嵌入的形/文字）\n 以下代码是位值：\n 1 = 如果设定了此位，则代码 50 指定绝对旋转；如果未设置此位，则代码 50 指定相对旋转\n 2 = 嵌入元素是字符串\n 4 = 嵌入元素是形\n ** 75\n 如果代码 74 指定嵌入的形，则表示形编号（每个元素一个编号）\n 如果代码 74 指定嵌入的字符串，此值将设定为 0\n 如果代码 74 设定为 0，则省略代码 75\n ** 340\n 指向 STYLE 对象的指针（如果代码 74 > 0，则每个元素一个指针）\n ** 46\n S = 比例值（可选）；可存在多个条目\n ** 50\n R = 嵌入的形或文字的相对旋转值（以弧度为单位），A = 嵌入的形或文字的绝对旋转值（以弧度为单位）；如果代码 74 指定了嵌入的形或字符串，则每个元素一个\n ** 44\n X = X 偏移值（可选）；可存在多个条目\n ** 45\n Y = Y 偏移值（可选）；可存在多个条目\n ** 9\n 字符串（如果代码 74 = 2，则每个元素一个字符串）"
+},
+"dxf线型": {
+"prefix" : "dxf线型",
+"body": [
+"(0 . \"线型\")"
+],
+"description":"** 100\n 子类标记 (AcDbLinetypeTableRecord)\n ** 2\n 线型名\n ** 70\n 标准标记值（按位编码值）：\n 16 = 如果设定了此位，则表条目外部依赖于外部参照\n 32 = 如果同时设定了此位和位 16，则表明已成功融入了外部依赖的外部参照\n 64 = 如果设定了此位，则表明在上次编辑图形时，图形中至少有一个图元参照了表条目。（此标志对 AutoCAD 命令很有用。大多数读取 DXF 文件的程序都可以忽略它，并且无需由写入 DXF 文件的程序对其进行设定）\n ** 3\n 线型的说明文字\n ** 72\n 对齐代码；值通常为 65，A 的 ASCII 代码\n ** 73\n 线型元素的数目\n ** 40\n 图案总长度\n ** 49\n 虚线、点或空间长度（每个元素一个条目）\n ** 74\n 复杂线型元素类型（每个元素一种类型）。默认值为 0（无嵌入的形/文字）\n 以下代码是位值：\n 1 = 如果设定了此位，则代码 50 指定绝对旋转；如果未设置此位，则代码 50 指定相对旋转\n 2 = 嵌入元素是字符串\n 4 = 嵌入元素是形\n ** 75\n 如果代码 74 指定嵌入的形，则表示形编号（每个元素一个编号）\n 如果代码 74 指定嵌入的字符串，此值将设定为 0\n 如果代码 74 设定为 0，则省略代码 75\n ** 340\n 指向 STYLE 对象的指针（如果代码 74 > 0，则每个元素一个指针）\n ** 46\n S = 比例值（可选）；可存在多个条目\n ** 50\n R = 嵌入的形或文字的相对旋转值（以弧度为单位），A = 嵌入的形或文字的绝对旋转值（以弧度为单位）；如果代码 74 指定了嵌入的形或字符串，则每个元素一个\n ** 44\n X = X 偏移值（可选）；可存在多个条目\n ** 45\n Y = Y 偏移值（可选）；可存在多个条目\n ** 9\n 字符串（如果代码 74 = 2，则每个元素一个字符串）"
+},
+"dxfstyle": {
+"prefix" : "dxfstyle",
+"body": [
+"(0 . \"style\")"
+],
+"description":"** 100\n 子类标记 (AcDbTextStyleTableRecord)\n ** 2\n 样式名\n ** 70\n 标准标记值（按位编码值）：\n 1 = 如果设定了此位，则此条目用于说明形\n 4 = 垂直文字\n 16 = 如果设定了此位，则表条目外部依赖于外部参照\n 32 = 如果同时设定了此位和位 16，则表明已成功融入了外部依赖的外部参照\n 64 = 如果设定了此位，则表明在上次编辑图形时，图形中至少有一个图元参照了表条目。（此标志对 AutoCAD 命令很有用。大多数读取 DXF 文件的程序都可以忽略它，并且无需由写入 DXF 文件的程序对其进行设定）\n ** 40\n 固定的文字高度；如果文字高度未固定，则为 0\n ** 41\n 宽度因子\n ** 50\n 倾斜角度\n ** 71\n 文字生成标志：\n 2 = 文字反向（在 X 轴方向镜像）\n 4 = 文字倒置（在 Y 轴方向镜像）\n ** 42\n 上次使用的高度\n ** 3\n 主要字体文件名\n ** 4\n 大字体文件名；如果无，则为空\n ** 1071\n 包含 Truetype 字体的字宽与字族、字符集以及斜体和粗体标志的长值"
+},
+"dxf样式": {
+"prefix" : "dxf样式",
+"body": [
+"(0 . \"样式\")"
+],
+"description":"** 100\n 子类标记 (AcDbTextStyleTableRecord)\n ** 2\n 样式名\n ** 70\n 标准标记值（按位编码值）：\n 1 = 如果设定了此位，则此条目用于说明形\n 4 = 垂直文字\n 16 = 如果设定了此位，则表条目外部依赖于外部参照\n 32 = 如果同时设定了此位和位 16，则表明已成功融入了外部依赖的外部参照\n 64 = 如果设定了此位，则表明在上次编辑图形时，图形中至少有一个图元参照了表条目。（此标志对 AutoCAD 命令很有用。大多数读取 DXF 文件的程序都可以忽略它，并且无需由写入 DXF 文件的程序对其进行设定）\n ** 40\n 固定的文字高度；如果文字高度未固定，则为 0\n ** 41\n 宽度因子\n ** 50\n 倾斜角度\n ** 71\n 文字生成标志：\n 2 = 文字反向（在 X 轴方向镜像）\n 4 = 文字倒置（在 Y 轴方向镜像）\n ** 42\n 上次使用的高度\n ** 3\n 主要字体文件名\n ** 4\n 大字体文件名；如果无，则为空\n ** 1071\n 包含 Truetype 字体的字宽与字族、字符集以及斜体和粗体标志的长值"
+},
+"dxfucs": {
+"prefix" : "dxfucs",
+"body": [
+"(0 . \"ucs\")"
+],
+"description":"** 100\n 子类标记 (AcDbUCSTableRecord)\n ** 2\n UCS 名称\n ** 70\n 标准标记值（按位编码值）：\n 16 = 如果设定了此位，则表条目外部依赖于外部参照\n 32 = 如果同时设定了此位和位 16，则表明已成功融入了外部依赖的外部参照\n 64 = 如果设定了此位，则表明在上次编辑图形时，图形中至少有一个图元参照了表条目。（此标志对 AutoCAD 命令很有用。大多数读取 DXF 文件的程序都可以忽略它，并且无需由写入 DXF 文件的程序对其进行设定）\n ** 10\n 原点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：原点的 Y 值和 Z 值（在 WCS 中）\n ** 11\n X 轴方向（在 WCS 中）\n DXF：X 值；APP：三维矢量\n ** 21, 31\n DXF：X 轴方向的 Y 值和 Z 值（在 WCS 中）\n ** 12\n Y 轴方向（在 WCS 中）\n DXF：X 值；APP：三维矢量\n ** 22, 32\n DXF：Y 轴方向的 Y 值和 Z 值（在 WCS 中）\n ** 79\n 总是为 0\n ** 146\n 标高\n ** 346\n 基准 UCS 的 ID/句柄（如果为正交）。如果 79 代码为 0，则不显示此代码。如果未显示此代码，且 79 代码不为零，则假定基准 UCS 为 WORLD\n ** 71\n 正交类型（可选；通常与 13、23 和 33 代码成对出现）：\n 1 = 俯视图；2 = 仰视图\n 3 = 主视图；4 = 后视图\n 5 = 左视图；6 = 右视图\n ** 13\n 与此 UCS 相关的正交类型的原点\n DXF：原点的 X 值；APP：三维点\n ** 23, 33\n DXF：原点的 Y 值和 Y 值"
+},
+"dxf用户坐标系": {
+"prefix" : "dxf用户坐标系",
+"body": [
+"(0 . \"用户坐标系\")"
+],
+"description":"** 100\n 子类标记 (AcDbUCSTableRecord)\n ** 2\n UCS 名称\n ** 70\n 标准标记值（按位编码值）：\n 16 = 如果设定了此位，则表条目外部依赖于外部参照\n 32 = 如果同时设定了此位和位 16，则表明已成功融入了外部依赖的外部参照\n 64 = 如果设定了此位，则表明在上次编辑图形时，图形中至少有一个图元参照了表条目。（此标志对 AutoCAD 命令很有用。大多数读取 DXF 文件的程序都可以忽略它，并且无需由写入 DXF 文件的程序对其进行设定）\n ** 10\n 原点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：原点的 Y 值和 Z 值（在 WCS 中）\n ** 11\n X 轴方向（在 WCS 中）\n DXF：X 值；APP：三维矢量\n ** 21, 31\n DXF：X 轴方向的 Y 值和 Z 值（在 WCS 中）\n ** 12\n Y 轴方向（在 WCS 中）\n DXF：X 值；APP：三维矢量\n ** 22, 32\n DXF：Y 轴方向的 Y 值和 Z 值（在 WCS 中）\n ** 79\n 总是为 0\n ** 146\n 标高\n ** 346\n 基准 UCS 的 ID/句柄（如果为正交）。如果 79 代码为 0，则不显示此代码。如果未显示此代码，且 79 代码不为零，则假定基准 UCS 为 WORLD\n ** 71\n 正交类型（可选；通常与 13、23 和 33 代码成对出现）：\n 1 = 俯视图；2 = 仰视图\n 3 = 主视图；4 = 后视图\n 5 = 左视图；6 = 右视图\n ** 13\n 与此 UCS 相关的正交类型的原点\n DXF：原点的 X 值；APP：三维点\n ** 23, 33\n DXF：原点的 Y 值和 Y 值"
+},
+"dxfview": {
+"prefix" : "dxfview",
+"body": [
+"(0 . \"view\")"
+],
+"description":"** 100\n 子类标记 (AcDbViewTableRecord)\n ** 2\n 视图名称\n ** 70\n 标准标记值（按位编码值）：\n 1 = 如果设定了此位，则为图纸空间视图\n 16 = 如果设定了此位，则表条目外部依赖于外部参照\n 32 = 如果同时设定了此位和位 16，则表明已成功融入了外部依赖的外部参照\n 64 = 如果设定了此位，则表明在上次编辑图形时，图形中至少有一个图元参照了表条目。（此标志对 AutoCAD 命令很有用。大多数读取 DXF 文件的程序都可以忽略它，并且无需由写入 DXF 文件的程序对其进行设定）\n ** 40\n 视图高度（在 DCS 中）\n ** 10\n 视口中心点（在 DCS 中）\n DXF：X 值；APP：二维点\n ** 20\n DXF：视图中心点的 Y 值（在 DCS 中）\n ** 41\n 视图宽度（在 DCS 中）\n ** 11\n 来自目标的观察方向（在 WCS 中）\n DXF：X 值；APP：三维矢量\n ** 21, 31\n DXF：来自目标的观察方向的 Y 值和 Z 值（在 WCS 中）\n ** 12\n 目标点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 22, 32\n DXF：目标点的 Y 值和 Z 值（在 WCS 中）\n ** 42\n 焦距\n ** 43\n 前向剪裁平面（距目标点的偏移）\n ** 44\n 后向剪裁平面（距目标点的偏移）\n ** 50\n 扭曲角度\n ** 71\n 视图模式（参见 VIEWMODE 系统变量）\n ** 281\n 渲染模式：\n 0 = 二维优化（传统二维）\n 1 = 线框\n 2 = 隐藏线\n 3 = 平面着色\n 4 = 体着色\n 5 = 带线框平面着色\n 6 = 带线框体着色\n 所有非二维优化渲染模式均使用新三维图形管道。这些值直接与 SHADEMODE 命令和 AcDbAbstractViewTableRecord::RenderMode 枚举相对应\n ** 72\n 如果存在与此视图相关联的 UCS，则为 1；否则为 0\n ** 73\n 如果相机可打印，则为 1\n ** 332\n 背景对象的软指针 ID/句柄（可选）\n ** 334\n 活动剖切对象的软指针 ID/句柄（可选）\n ** 348\n 视觉样式对象的硬指针 ID/句柄（可选）\n ** 361\n Sun 硬所有权 ID"
+},
+"dxf视图": {
+"prefix" : "dxf视图",
+"body": [
+"(0 . \"视图\")"
+],
+"description":"** 100\n 子类标记 (AcDbViewTableRecord)\n ** 2\n 视图名称\n ** 70\n 标准标记值（按位编码值）：\n 1 = 如果设定了此位，则为图纸空间视图\n 16 = 如果设定了此位，则表条目外部依赖于外部参照\n 32 = 如果同时设定了此位和位 16，则表明已成功融入了外部依赖的外部参照\n 64 = 如果设定了此位，则表明在上次编辑图形时，图形中至少有一个图元参照了表条目。（此标志对 AutoCAD 命令很有用。大多数读取 DXF 文件的程序都可以忽略它，并且无需由写入 DXF 文件的程序对其进行设定）\n ** 40\n 视图高度（在 DCS 中）\n ** 10\n 视口中心点（在 DCS 中）\n DXF：X 值；APP：二维点\n ** 20\n DXF：视图中心点的 Y 值（在 DCS 中）\n ** 41\n 视图宽度（在 DCS 中）\n ** 11\n 来自目标的观察方向（在 WCS 中）\n DXF：X 值；APP：三维矢量\n ** 21, 31\n DXF：来自目标的观察方向的 Y 值和 Z 值（在 WCS 中）\n ** 12\n 目标点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 22, 32\n DXF：目标点的 Y 值和 Z 值（在 WCS 中）\n ** 42\n 焦距\n ** 43\n 前向剪裁平面（距目标点的偏移）\n ** 44\n 后向剪裁平面（距目标点的偏移）\n ** 50\n 扭曲角度\n ** 71\n 视图模式（参见 VIEWMODE 系统变量）\n ** 281\n 渲染模式：\n 0 = 二维优化（传统二维）\n 1 = 线框\n 2 = 隐藏线\n 3 = 平面着色\n 4 = 体着色\n 5 = 带线框平面着色\n 6 = 带线框体着色\n 所有非二维优化渲染模式均使用新三维图形管道。这些值直接与 SHADEMODE 命令和 AcDbAbstractViewTableRecord::RenderMode 枚举相对应\n ** 72\n 如果存在与此视图相关联的 UCS，则为 1；否则为 0\n ** 73\n 如果相机可打印，则为 1\n ** 332\n 背景对象的软指针 ID/句柄（可选）\n ** 334\n 活动剖切对象的软指针 ID/句柄（可选）\n ** 348\n 视觉样式对象的硬指针 ID/句柄（可选）\n ** 361\n Sun 硬所有权 ID"
+},
+"dxfvport": {
+"prefix" : "dxfvport",
+"body": [
+"(0 . \"vport\")"
+],
+"description":"** 100\n 子类标记 (AcDbViewportTableRecord)\n ** 2\n 视口名\n ** 70\n 标准标记值（按位编码值）：\n 16 = 如果设定了此位，则表条目外部依赖于外部参照\n 32 = 如果同时设定了此位和位 16，则表明已成功融入了外部依赖的外部参照\n 64 = 如果设定了此位，则表明在上次编辑图形时，图形中至少有一个图元参照了表条目。（此标志对 AutoCAD 命令很有用。大多数读取 DXF 文件的程序都可以忽略它，并且无需由写入 DXF 文件的程序对其进行设定）\n ** 10\n 视口的左下角\n DXF：X 值；APP：二维点\n ** 20\n DXF：视口左下角的 Y 值\n ** 11\n 视口右上角\n DXF：X 值；APP：二维点\n ** 21\n DXF：视口右上角的 Y 值\n ** 12\n 视口中心点（在 DCS 中）\n DXF：X 值；APP：二维点\n ** 22\n DXF：视图中心点的 Y 值（在 DCS 中）\n ** 13\n 捕捉基点（在 DCS 中）\n DXF：X 值；APP：二维点\n ** 23\n DXF：捕捉基点的 Y 值（在 DCS 中）\n ** 14\n 捕捉间距 X 和 Y\n DXF：X 值；APP：二维点\n ** 24\n DXF：捕捉间距 X 和 Y 的 Y 值\n ** 15\n 栅格间距 X 和 Y\n DXF：X 值；APP：二维点\n ** 25\n DXF：栅格间距 X 和 Y 的 Y 值\n ** 16\n 相对于目标点的观察方向（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 26, 36\n DXF：相对于目标点的观察方向的 Y 值和 Z 值\n （在 WCS 中）\n ** 17\n 观察目标点（在 WCS 中）\n DXF：X 值；APP：三维点\n ** 27, 37\n DXF：观察目标点的 Y 值和 Z 值（在 WCS 中）\n ** 42\n 焦距\n ** 43\n 前向剪裁平面（距目标点的偏移）\n ** 44\n 后向剪裁平面（距目标点的偏移）\n ** 45\n 视图高度\n ** 50\n 捕捉旋转角度\n ** 51\n 视图扭转角度\n ** 72\n 圆形边\n ** 331 或 441\n 冻结图层对象的软指针 ID/句柄或硬指针 ID/句柄；为每个冻结图层重复\n ** 1\n 打印样式表\n ** 281\n 渲染模式：\n 0 = 二维优化（传统二维）\n 1 = 线框\n 2 = 隐藏线\n 3 = 平面着色\n 4 = 体着色\n 5 = 带线框平面着色\n 6 = 带线框体着色\n 所有非二维优化渲染模式均使用新三维图形管道。这些值直接与 SHADEMODE 命令和 AcDbAbstractViewTableRecord::RenderMode 枚举相对应\n ** 71\n 视图模式（参见 VIEWMODE 系统变量）\n ** 74\n UCSICON 设置\n ** 110\n UCS 原点\n DXF：X 值；APP：三维点\n ** 120, 130\n DXF：UCS 原点的 Y 值和 Z 值\n ** 111\n UCS X 轴\n DXF：X 值；APP：三维矢量\n ** 121, 131\n DXF：UCS X 轴的 Y 值和 Z 值\n ** 112\n UCS Y 轴\n DXF：X 值；APP：三维矢量\n ** 122, 132\n DXF：UCS Y 轴的 Y 值和 Z 值\n ** 345\n 如果 UCS 是命名 UCS，则为 AcDbUCSTableRecord 的 ID/句柄。如果不存在，则为未命名 UCS\n ** 346\n 如果 UCS 为正交 UCS，则为基准 UCS 的 AcDbUCSTableRecord 的 ID/句柄（代码 79 非零）。如果不存在，且代码 79 非零，则将基准 UCS 作为 WORLD\n ** 79\n UCS 的正交类型\n 0 = UCS 为非正交视图\n 1 = 俯视\n 2 = 仰视\n 3 = 前视\n 4 = 后视\n 5 = 左视\n 6 = 右视\n ** 146\n 标高\n ** 170\n 着色打印设置\n ** 61\n 主栅格线\n ** 332\n 背景对象的软指针 ID/句柄（可选）\n ** 333\n 着色打印对象的软指针 ID/句柄（可选）\n ** 348\n 视觉样式对象的硬指针 ID/句柄（可选）\n ** 292\n 标志上的默认光源\n ** 282\n 默认光源类型\n 0 = 一条平行光\n 1 = 两条平行光\n ** 141\n 亮度\n ** 142\n 对比度\n ** 63, 421, 431\n 环境色（仅当不是黑色时输出）"
+},
+"dxfblock": {
+"prefix" : "dxfblock",
+"body": [
+"(0 . \"block\")"
+],
+"description":"** 0\n 图元类型 (BLOCK)\n ** 5\n 句柄\n ** 102\n 应用程序定义的组的开始“{application_name”。例如，“{ACAD_REACTORS”表示 AutoCAD 永久反应器组的开始（可选）\n 应用程序定义的代码\n ** 102 组中的代码和值由应用程序定义（可选）\n ** 102\n 组的结束“}”（可选）\n ** 330\n 所有者对象的软指针 ID/句柄\n ** 100\n 子类标记 (AcDbEntity)\n ** 8\n 图层名\n ** 100\n 子类标记 (AcDbBlockBegin)\n ** 2\n 块名\n ** 70\n 块类型标志（按位编码值，可以组合使用）：\n =dxf70=\n ** 10\n 基点\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：基点的 Y 值和 Y 值\n ** 3\n 块名\n ** 1\n 外部参照路径名\n ** 4\n 块说明（可选）"
+},
+"dxf块": {
+"prefix" : "dxf块",
+"body": [
+"(0 . \"块\")"
+],
+"description":"** 0\n 图元类型 (BLOCK)\n ** 5\n 句柄\n ** 102\n 应用程序定义的组的开始“{application_name”。例如，“{ACAD_REACTORS”表示 AutoCAD 永久反应器组的开始（可选）\n 应用程序定义的代码\n ** 102 组中的代码和值由应用程序定义（可选）\n ** 102\n 组的结束“}”（可选）\n ** 330\n 所有者对象的软指针 ID/句柄\n ** 100\n 子类标记 (AcDbEntity)\n ** 8\n 图层名\n ** 100\n 子类标记 (AcDbBlockBegin)\n ** 2\n 块名\n ** 70\n 块类型标志（按位编码值，可以组合使用）：\n =dxf70=\n ** 10\n 基点\n DXF：X 值；APP：三维点\n ** 20, 30\n DXF：基点的 Y 值和 Y 值\n ** 3\n 块名\n ** 1\n 外部参照路径名\n ** 4\n 块说明（可选）"
+},
+"dxfendblock": {
+"prefix" : "dxfendblock",
+"body": [
+"(0 . \"endblock\")"
+],
+"description":"** 0\n 图元类型 (ENDBLK)\n ** 5\n 句柄\n ** 102\n 应用程序定义的组的开始“{application_name”。例如，“{ACAD_REACTORS”表示 AutoCAD 永久反应器组的开始（可选）\n 应用程序定义的代码\n ** 102 组中的代码和值由应用程序定义（可选）\n ** 102\n 组的结束“}”（可选）\n ** 330\n 所有者对象的软指针 ID/句柄\n ** 100\n 子类标记 (AcDbEntity)\n ** 8\n 图层名\n ** 100\n 子类标记 (AcDbBlockEnd)\n 适用于所有图形对象的组码"
+},
+"dxfcommon": {
+"prefix" : "dxfcommon",
+"body": [
+";| $1 |;"
+],
+"description":"仅查看用 \n ** -1\n APP：图元名（每次打开图形时都会发生变化）\n ** 0\n 图元类型\n ** 5\n 句柄\n ** 102\n 应用程序定义的组的开始\n “{application_name”（可选）\n ** 102\n 组的结束“}”（可选）\n ** 102\n “{ACAD_REACTORS”表示 AutoCAD 永久反应器组的开始。仅当将永久反应器附加到此对象时，此组才存在（可选）\n ** 330\n 所有者词典的软指针 ID/句柄（可选）\n ** 102\n 组的结束“}”（可选）\n ** 102\n “{ACAD_XDICTIONARY”表示扩展词典组的开始。仅当将扩展词典附加到此对象时，此组才存在（可选）\n ** 360\n 所有者词典的硬所有者 ID/句柄（可选）\n ** 102\n 组的结束“}”（可选）\n ** 330\n 所有者 BLOCK_RECORD 对象的软指针 ID/句柄\n ** 100\n 子类标记 (AcDbEntity)\n ** 67\n 不存在或零表示图元位于模型空间中。1 表示图元位于图纸空间中（可选）\n ** 410\n APP：布局选项卡名\n ** 8\n 图层名\n ** 6\n 线型名（如果不是“BYLAYER”，则出现）。特殊名称“BYBLOCK”表示可变的线型（可选）\n BYLAYER\n ** 347\n 材质对象的硬指针 ID/句柄（如果不是“BYLAYER”，则出现）\n BYLAYER\n ** 62\n 颜色号（如果不是“BYLAYER”，则出现）；零表示“BYBLOCK”（可变的）颜色；256 表示“BYLAYER”；负值表示层已关闭（可选）\n BYLAYER\n ** 370\n 线宽枚举值。作为 16 位整数存储和移动。\n ** 48\n 线型比例（可选）1.0\n ** 60\n 对象可见性（可选）：\n 0 = 可见\n 1 = 不可见\n ** 92\n 后面的 310 组（二进制数据块记录）中表示的代理图元图形中的字节数（可选）\n ** 310\n 代理图元图形数据（多行；每行最多 256 个字符）（可选）\n ** 420\n 一个 24 位颜色值，应按照值为 0 到 255 的字节进行处理。最低字节是蓝色值，中间字节是绿色值，第三个字节是红色值。最高字节始终为 0。该组码不能用于自定义图元本身的数据，因为该组码是为 AcDbEntity 类级别颜色数据和 AcDbEntity 类级别透明度数据保留的。\n ** 430\n 颜色名。该组码不能用于自定义图元本身的数据，因为该组码是为 AcDbEntity 类级别颜色数据和 AcDbEntity 类级别透明度数据保留的。\n ** 440\n 透明度值。该组码不能用于自定义图元本身的数据，因为该组码是为 AcDbEntity 类级别颜色数据和 AcDbEntity 类级别透明度数据保留的。\n ** 390\n 打印样式对象的硬指针 ID/句柄\n ** 284\n 阴影模式\n 0 = 投射和接收阴影\n 1 = 投射阴影\n 2 = 接收阴影\n 3 = 忽略阴影\n 注意:从基于 AutoCAD 2016 的产品开始，该特性已弃用，但是为了实现向后兼容性，该特性仍受支持。"
+}
+}

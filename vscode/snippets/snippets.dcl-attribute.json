@@ -1,0 +1,247 @@
+{
+    "action ": {
+        "prefix": "action ",
+        "body": [
+            "action=\"($1)\";"
+        ],
+        "description": "用于框件: All active tiles\n AutoLISP action expression\n 指定AutoLISP表达式以在选择此控件时执行操作。也称为回调。"
+    },
+    "alignment": {
+        "prefix": "alignment",
+        "body": [
+            "alignment=${1:left};"
+        ],
+        "description": "用于框件: All tiles\n 框集中的水平或垂直位置\n 指定框件在其框集内的水平或垂直定位（对齐）。\n 可用值\n 在column中: left,right,centered \n 在 row 中：top,bottom,centered"
+    },
+    "allow_accept": {
+        "prefix": "allow_accept",
+        "body": [
+            "allow_accept=${1:true};"
+        ],
+        "description": "用于框件: edit_box, image_button, list_box\n 选择此互动程序时激活is_default按钮\n 警告：Mac OS上的edit_box互动程序不支持此属性。\n 指定当用户按下接受键（通常为Enter）时是否激活互动程序。"
+    },
+    "aspect_ratio": {
+        "prefix": "aspect_ratio",
+        "body": [
+            "aspect_ratio=${1:1};"
+        ],
+        "description": "用于框件: image, image_button\n 图像的纵横比\n 指定图像的宽度与高度的比率（宽度除以高度）。"
+    },
+    "big_increment": {
+        "prefix": "big_increment",
+        "body": [
+            "big_increment=$1;"
+        ],
+        "description": "用于框件: slider\n 要移动的增量距离\n 警告：仅在Windows上支持。\n 指定滑块的增量控件使用的值。 值为整数"
+    },
+    "children_alignment": {
+        "prefix": "children_alignment",
+        "body": [
+            "children_alignment=$1;"
+        ],
+        "description": "用于框件: row, column, radio_row, radio_column, boxed_row, boxed_column, boxed_radio_row, boxed_radio_column\n 框集子级的对齐\n 指定框集中所有框件的默认对齐方式（类似于对齐方式）。\n 可用值\n 在column中: left,right,centered \n 在 row 中：top,bottom,centered"
+    },
+    "children_fixed_height": {
+        "prefix": "children_fixed_height",
+        "body": [
+            "children_fixed_height=$1;"
+        ],
+        "description": "用于框件: row, column, radio_row, radio_column, boxed_row, boxed_column, boxed_radio_row, boxed_radio_column\n 在布局期间，框集子级的高度不会增长\n 指定框集中所有框件的默认高度（类似于高度）。"
+    },
+    "children_fixed_width": {
+        "prefix": "children_fixed_width",
+        "body": [
+            "children_fixed_width=$1;"
+        ],
+        "description": "用于框件: row, column, radio_row, radio_column, boxed_row, boxed_column, boxed_radio_row, boxed_radio_column\n 框集的子级宽度在布局期间不会增长\n 指定框集中所有框件的默认宽度（类似于宽度）。"
+    },
+    "color": {
+        "prefix": "color attribute",
+        "body": [
+            "color attribute=$1;"
+        ],
+        "description": "用于框件: image, image_button\n 图像的背景（填充）颜色\n 指定图像的背景（填充）颜色。\n 可用值 0~255"
+    },
+    "edit_limit": {
+        "prefix": "edit_limit",
+        "body": [
+            "edit_limit=$1;"
+        ],
+        "description": "用于框件: edit_box\n 用户可以输入的最大字符数\n 警告：仅在Windows上支持。\n 指定允许用户在编辑框中输入的最大字符数。"
+    },
+    "edit_width": {
+        "prefix": "edit_width",
+        "body": [
+            "edit_width=$1;"
+        ],
+        "description": "用于框件: edit_box, popup_list\n 框件的编辑（输入）部分的宽度\n 以字符宽度单位指定框的编辑（输入）部分的宽度，即edit_box图块的实际框部分。"
+    },
+    "fixed_height": {
+        "prefix": "fixed_height",
+        "body": [
+            "fixed_height=${1:false};"
+        ],
+        "description": "用于框件: All tiles\n 布局期间高度不会增长\n 指定是否允许框件的高度填充可用空间。"
+    },
+    "fixed_width": {
+        "prefix": "fixed_width",
+        "body": [
+            "fixed_width=${1:false};"
+        ],
+        "description": "用于框件: All tiles\n 布局期间宽度不增长\n 指定是否允许框件的宽度填充可用空间。"
+    },
+    "fixed_width_font": {
+        "prefix": "fixed_width_font",
+        "body": [
+            "fixed_width_font=${1:false};"
+        ],
+        "description": "用于框件: list_box, popup_list\n 以固定间距字体显示文本\n 警告：仅在Windows上支持。\n 指定列表框或弹出列表是否以固定间距字体显示文本。"
+    },
+    "height": {
+        "prefix": "height",
+        "body": [
+            "height=$1;"
+        ],
+        "description": "用于框件: All tiles\n 框件的高度\n 指定框件的高度。"
+    },
+    "initial_focus": {
+        "prefix": "initial_focus",
+        "body": [
+            "initial_focus=$1;"
+        ],
+        "description": "用于框件: Dialog\n 具有初始焦点的互动程序的键\n 警告：仅在Windows上支持。\n 指定对话框中接收初始键盘焦点的互动程序的键。"
+    },
+    "is_bold": {
+        "prefix": "is_bold",
+        "body": [
+            "is_bold=${1:false};"
+        ],
+        "description": "用于框件: Text\n 显示为粗体\n 指定文本是否以粗体字符显示。"
+    },
+    "is_cancel": {
+        "prefix": "is_cancel",
+        "body": [
+            "is_cancel=${1:false};"
+        ],
+        "description": "用于框件: Button\n 当取消键通常按下ESC时，按钮被激活\n 指定用户按Esc键时是否选中该按钮。"
+    },
+    "is_default": {
+        "prefix": "is_default",
+        "body": [
+            "is_default=${1:false};"
+        ],
+        "description": "用于框件: Button\n 当按下接受键（通常为ENTER键）时，按钮被激活\n 指定当用户按下接受键时，该按钮是否为默认选中（“按下”）按钮。"
+    },
+    "is_enabled": {
+        "prefix": "is_enabled",
+        "body": [
+            "is_enabled=${1:false};"
+        ],
+        "description": "用于框件: All active tiles\n 框件最初已启用\n 指定框件最初是否可用。"
+    },
+    "is_tab_stop": {
+        "prefix": "is_tab_stop",
+        "body": [
+            "is_tab_stop=${1:true};"
+        ],
+        "description": "用于框件: All active tiles\n 框件是制表位\n 警告：仅在Windows上支持。\n 指定当用户通过按Tab键在框件之间移动时，框件是否接收键盘焦点。"
+    },
+    "key": {
+        "prefix": "key",
+        "body": [
+            "key=\"$1\";"
+        ],
+        "description": "用于框件: All active tiles\n 应用程序使用的磁贴名称\n 指定程序用于引用此特定磁贴的名称。"
+    },
+    "label": {
+        "prefix": "label",
+        "body": [
+            "label=\"$1\";"
+        ],
+        "description": "用于框件: boxed_row, boxed_column, boxed_radio_row, boxed_radio_column, button, dialog, edit_box, list_box, popup_list, radio_button, text, toggle\n 互动程序的显示标签\n 指定框件中显示的文本。"
+    },
+    "layout": {
+        "prefix": "layout",
+        "body": [
+            "layout=${1:horizontal};"
+        ],
+        "description": "用于框件: slider\n 滑块是水平还是垂直\n 指定框件中显示的文本。\n 可用值 horizontal or vertical (default: horizontal)"
+    },
+    "list": {
+        "prefix": "list",
+        "body": [
+            "list=\"$1\";"
+        ],
+        "description": "用于框件: list_box, popup_list\n 要在列表中显示的初始值\n 指定要放置在popup_list或list_box中的初始行集（选项）。"
+    },
+    "max_value": {
+        "prefix": "max_value",
+        "body": [
+            "max_value=$1;"
+        ],
+        "description": "用于框件: slider\n 滑块的最大值\n 指定滑块返回的值的上限范围。"
+    },
+    "min_value": {
+        "prefix": "min_value",
+        "body": [
+            "min_value=$1;"
+        ],
+        "description": "用于框件: slider\n 滑块的最小值\n 指定滑块返回的值的下限范围。"
+    },
+    "mnemonic": {
+        "prefix": "mnemonic",
+        "body": [
+            "mnemonic=\"$1\";"
+        ],
+        "description": "用于框件: all active tiles\n 磁贴的记忆字符\n 警告：仅在Windows上支持。\n 为互动程序指定键盘助记符。"
+    },
+    "multiple_select": {
+        "prefix": "multiple_select",
+        "body": [
+            "multiple_select=${1:false};"
+        ],
+        "description": "用于框件: list_box\n 列表框允许选择多个项目\n 指定是否可以同时选择（突出显示）列表框中的多个项目。"
+    },
+    "password_char": {
+        "prefix": "password_char",
+        "body": [
+            "password_char=\"${1:*}\";"
+        ],
+        "description": "用于框件: edit_box\n 屏蔽编辑框中输入的字符\n 指定用于屏蔽用户输入的字符。"
+    },
+    "small_increment": {
+        "prefix": "small_increment",
+        "body": [
+            "small_increment=$1;"
+        ],
+        "description": "用于框件: slider\n 要移动的增量距离\n 指定滑块的增量控件使用的值。"
+    },
+    "tabs": {
+        "prefix": "tabs",
+        "body": [
+            "tabs=\"${1:8 16 24 32}\";"
+        ],
+        "description": "用于框件: list_box, popup_list\n 列表显示的制表位\n 以字符宽度单位指定制表符的位置。"
+    },
+    "tab_truncate": {
+        "prefix": "tab_truncate",
+        "body": [
+            "tab_truncate=${1:false};"
+        ],
+        "description": "用于框件: list_box, popup_list\n 截断大于相关制表位的文本\n 警告：仅在Windows上支持。\n 指定如果列表框或弹出列表中的文本大于关联的制表位，则是否截断该文本。"
+    },
+    "value": {
+        "prefix": "value",
+        "body": [
+            "value=\"$1\";"
+        ],
+        "description": "用于框件: Text, active tiles (except buttons and image buttons)\n 框件的初始值\n 指定框件的初始值。可能的值是带引号的字符串。"
+    },
+    "width": {
+        "prefix": "width",
+        "body": [
+            "width=${1:25};"
+        ],
+        "description": "用于框件: All tiles\n 框件的宽度\n 指定框件的宽度。"
+    }
+}

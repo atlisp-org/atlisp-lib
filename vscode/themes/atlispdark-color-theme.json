@@ -3,7 +3,7 @@
 	"type": "dark",
 	"colors": {
 		"editor.background": "#222222",
-		"editor.foreground": "#aaaaaa"
+		"editor.foreground": "#ccc"
 	},
 	"tokenColors": [
 		{
@@ -74,7 +74,7 @@
 				"support.type"
 			],
 			"settings": {
-				"foreground": "#ee11ff"
+				"foreground": "#854a8a"
 			}
 		},
 		{
@@ -142,7 +142,7 @@
 			"scope": "property",
 			"settings": {
 				"fontStyle": "bold",
-				"foreground": "#307acf"
+				"foreground": "#199fc0"
 			}
 		},
 		{
@@ -159,7 +159,7 @@
 	],
 	"semanticHighlighting": true,
 	"semanticTokenColors": {
-	  "variable.readonly:java": "#ff0011",
+	  "variable.readonly": "#ff0011",
 	  "function": "#ff00bb",
 	  "property": "#ee00ff",
 	  "method": "#00ff00",
