@@ -1,17 +1,27 @@
-# @lisp函数库 vscode 扩展
+# @lisp函数库
 
 @lisp 函数库是一个开源、共享、可云端加载的 autolisp 函数库。由像您一样热爱开源共享的爱好者所构筑并维护。可依据开放许可协议自由使用。
 
 @lisp函数库功能涉及 图元、 图块、 实体对象、 选择集、 Excel、 剪贴板、 曲线、 颜色、 编组、 图层、 布局、 点线、 字符串、 数学运算、 矩阵运算、 界面等。更多内容持续迭代中.
 
-@lisp 可运行于 AutoCAD,浩辰CAD,中望CAD以及 BricsCAD等多种兼容 autolisp/visuallisp 的CAD平台。
+@lisp 可运行于 AutoCAD,浩辰CAD,中望CAD 以及 BricsCAD等多种兼容 autolisp/visuallisp 的CAD平台。
 
-## 主要功能
+## vscode 扩展
 ### 语法提示与自动补全
-- autlisp基本函数
+Autolisp:
+- autolisp基本函数
 - vla-get-* vla-put-* vla-* 系列属性和方法
 - vlr 系列反应器函数
 - @lisp 函数
+- DXF 查询，输入dxf+数字，或 dxf+图元名,如 dxf-3 , dxf8 ,dclcircle 可查看 dxf 组码说明，并输入组码点对。
+  输入 dxfcommon 可查看图元通用组码
+
+DCL:
+- DCL 框件与属性
+
+### 配色与主题
+- 提供明暗两个配色主题
+- 支持 基本函数、对象属性、方法，只读变量 ，@lisp库函数 的分色显示。
 
 ## 社区驱动
 @lisp 函数库是一个多元化的信息分享社区，它充满激情，并且每天都在成长。我们的参与者包括 lisp 程序共享爱好者、lisp开发编程人员、CAD从业人员、服务器维护工程师，以及其他很多各界人士。
@@ -37,6 +47,13 @@
 安装完成后，即可直接调用 @lisp函数库和管理安装 @lisp应用。
 
 ## 更多信息 For more information
+
+开发初期，持续更新中。有问题请及时反馈，万分感谢。
+
+* QQ群：@lisp:CAD应用云 (群号: 1071980591)
+* 微信公众号：CAD应用云 (微信号: atlisp)
+
 * https://atlisp.cn
+* http://atlisp.org
 * https://gitee.com/atlisp
 * https://github.com/atlisp-org

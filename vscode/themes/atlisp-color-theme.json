@@ -152,7 +152,7 @@
 			"name": "Propertys",
 			"scope": "property",
 			"settings": {
-				"foreground": "#307acf"
+				"foreground": "#1fbb60"
 			}
 		},
 		{
@@ -178,7 +178,7 @@
 	],
 	"semanticHighlighting": true,
 	"semanticTokenColors": {
-		"variable.readonly:java": "#ff0011",
+		"variable.readonly": "#ff0011",
 		"function": "#ff00bb",
 		"property": "#ee00ff",
 		"method": "#00ff00",
