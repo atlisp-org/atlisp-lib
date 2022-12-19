@@ -2,112 +2,112 @@
 "vlr-reactors": {
 "prefix" : "vlr-reactors",
 "body": [
-"(vlr-reactors  ${1:[reactor-types]})"
+"(vlr-reactors ${1:[reactor-types]})"
 ],
 "description":"返回由现有反应器组成的表"
 },
 "vlr-reaction-set": {
 "prefix" : "vlr-reaction-set",
 "body": [
-"(vlr-reaction-set  ${1:reactor}  ${2:event}  ${3:function})"
+"(vlr-reaction-set ${1:reactor} ${2:event} ${3:function})"
 ],
 "description":"添加或替换反应器中的一个回调函数"
 },
 "vlr-reaction-name": {
 "prefix" : "vlr-reaction-name",
 "body": [
-"(vlr-reaction-names  ${1:reactor-type})"
+"(vlr-reaction-names ${1:reactor-type})"
 ],
 "description":"返回由该类型反应器所有可能回调条件组成的表"
 },
 "vlr-pers-release": {
 "prefix" : "vlr-pers-release",
 "body": [
-"(vlr-pers-release  ${1:reactor})"
+"(vlr-pers-release ${1:reactor})"
 ],
 "description":"使反应器成为临时反应器"
 },
 "vlr-pers-p": {
 "prefix" : "vlr-pers-p",
 "body": [
-"(vlr-pers-p  ${1:reactor})"
+"(vlr-pers-p ${1:reactor})"
 ],
 "description":"确定反应器是否是永久反应器"
 },
 "vlr-pers-list": {
 "prefix" : "vlr-pers-list",
 "body": [
-"(vlr-pers-list  ${1:[reactor]})"
+"(vlr-pers-list ${1:[reactor]})"
 ],
 "description":"返回由当前图形文档中永久反应器组成的表"
 },
 "vlr-pers": {
 "prefix" : "vlr-pers",
 "body": [
-"(vlr-pers  ${1:reactor})"
+"(vlr-pers ${1:reactor})"
 ],
 "description":"使反应器成为永久反应器"
 },
 "vlr-owners": {
 "prefix" : "vlr-owners",
 "body": [
-"(vlr-owners  ${1:reactor})"
+"(vlr-owners ${1:reactor})"
 ],
 "description":"返回对象反应器的所有者列表"
 },
 "vlr-owner-remove": {
 "prefix" : "vlr-owner-remove",
 "body": [
-"(vlr-owner-remove  ${1:reactor}  ${2:owner})"
+"(vlr-owner-remove ${1:reactor} ${2:owner})"
 ],
 "description":"从对象反应器的所有者列表中删除对象"
 },
 "vlr-owner-add": {
 "prefix" : "vlr-owner-add",
 "body": [
-"(vlr-owner-add  ${1:reactor}  ${2:owner})"
+"(vlr-owner-add ${1:reactor} ${2:owner})"
 ],
 "description":"将对象添加到对象反应器的所有者列表"
 },
 "vlr-object-reactor": {
 "prefix" : "vlr-object-reactor",
 "body": [
-"(vlr-object-reactor  ${1:owners}  ${2:data}  ${3:callbacks})"
+"(vlr-object-reactor ${1:owners} ${2:data} ${3:callbacks})"
 ],
 "description":"构造对象反应器对象"
 },
 "vlr-data-set": {
 "prefix" : "vlr-data-set",
 "body": [
-"(vlr-data-set  ${1:objdata})"
+"(vlr-data-set ${1:objdata})"
 ],
 "description":"覆盖与反应器相关的应用程序特定数据"
 },
 "vlr-xref-reactor": {
 "prefix" : "vlr-xref-reactor",
 "body": [
-"(vlr-xref-reactor  ${1:data}  ${2:callbacks})"
+"(vlr-xref-reactor ${1:data} ${2:callbacks})"
 ],
 "description":"构造编辑器反应器对象，在发生附着或修改外部参照事件时通知应用程序"
 },
 "vlr-window-reactor": {
 "prefix" : "vlr-window-reactor",
 "body": [
-"(vlr-window-reactor  ${1:data}  ${2:callbacks})"
+"(vlr-window-reactor ${1:data} ${2:callbacks})"
 ],
 "description":"构造编辑器反应器对象，在发生与移动或缩放 AutoCAD 窗口相关的事件时通知应用程序"
 },
 "vlr-wblock-reactor": {
 "prefix" : "vlr-wblock-reactor",
 "body": [
-"(vlr-wblock-reactor  ${1:data}  ${2:callbacks})"
+"(vlr-wblock-reactor ${1:data} ${2:callbacks})"
 ],
 "description":"构造编辑器反应器对象，在发生与写块相关的事件时通知应用程序"
 },
 "vlr-undo-reactor": {
 "prefix" : "vlr-undo-reactor",
 "body": [
-"(vlr-undo-reactor  ${1:data}  ${2:callbacks})"
+"(vlr-undo-reactor ${1:data} ${2:callbacks})"
 ],
 "description":"构造通知放弃操作的编辑器反应器"
 },
@@ -121,7 +121,7 @@
 "vlr-type": {
 "prefix" : "vlr-type",
 "body": [
-"(vlr-type  ${1:reactor})"
+"(vlr-type ${1:reactor})"
 ],
 "description":"返回代表反应器类型的符号"
 },
@@ -135,126 +135,126 @@
 "vlr-toolbar-reactor": {
 "prefix" : "vlr-toolbar-reactor",
 "body": [
-"(vlr-toolbar-reactor  ${1:data}  ${2:callbacks})"
+"(vlr-toolbar-reactor ${1:data} ${2:callbacks})"
 ],
 "description":"构造编辑器反应器对象，在工具栏中的位图改变时通知应用程序"
 },
 "vlr-sysvar-reactor": {
 "prefix" : "vlr-sysvar-reactor",
 "body": [
-"(vlr-sysvar-reactor  ${1:data}  ${2:callbacks})"
+"(vlr-sysvar-reactor ${1:data} ${2:callbacks})"
 ],
 "description":"构造编辑器反应器对象，在修改系统变量时通知应用程序"
 },
 "vlr-set-notification": {
 "prefix" : "vlr-set-notification",
 "body": [
-"(vlr-set-notification  ${1:reactor} '${2:range})"
+"(vlr-set-notification ${1:reactor} '${2:range})"
 ],
 "description":"确定当反应器在其所关联的名称空间非活动时是否执行其回调函数"
 },
 "vlr-remove-all": {
 "prefix" : "vlr-remove-all",
 "body": [
-"(vlr-remove-all  ${1:[reactor-type]})"
+"(vlr-remove-all ${1:[reactor-type]})"
 ],
 "description":"禁用指定类型的所有反应器"
 },
 "vlr-remove": {
 "prefix" : "vlr-remove",
 "body": [
-"(vlr-remove  ${1:reactor})"
+"(vlr-remove ${1:reactor})"
 ],
 "description":"禁用反应器"
 },
 "vlr-reactions": {
 "prefix" : "vlr-reactions",
 "body": [
-"(vlr-reactions  ${1:reactor})"
+"(vlr-reactions ${1:reactor})"
 ],
 "description":"返回反应器的形如 (event-name . callback_function) 的点对表"
 },
 "vlr-notification": {
 "prefix" : "vlr-notification",
 "body": [
-"(vlr-notification  ${1:reactor})"
+"(vlr-notification ${1:reactor})"
 ],
 "description":"确定当反应器相关联的名称空间不在活动状态时是否激发反应器"
 },
 "vlr-mouse-reactor": {
 "prefix" : "vlr-mouse-reactor",
 "body": [
-"(vlr-mouse-reactor  ${1:data}  ${2:callbacks})"
+"(vlr-mouse-reactor ${1:data} ${2:callbacks})"
 ],
 "description":"构造编辑器反应器对象，通知鼠标事件（如双击）\n :vlr-beginDoubleClick | 双击事件\n :vlr-beginRightClick | 单击右键事件"
 },
 "vlr-miscellaneous-reactor": {
 "prefix" : "vlr-miscellaneous-reactor",
 "body": [
-"(vlr-miscellaneous-reactor  ${1:data}  ${2:callbacks})"
+"(vlr-miscellaneous-reactor ${1:data} ${2:callbacks})"
 ],
 "description":"构造编辑器反应器对象，它不属于任何其他编辑器反应器类型"
 },
 "vlr-lisp-reactor": {
 "prefix" : "vlr-lisp-reactor",
 "body": [
-"(vlr-lisp-reactor  ${1:data}  ${2:callbacks})"
+"(vlr-lisp-reactor ${1:data} ${2:callbacks})"
 ],
 "description":"构造编辑器反应器对象，通知 LISP 事件\n :vlr-lispWillStart | An AutoLISP expression is to be evaluated.\n :vlr-lispEnded | Evaluation of an AutoLISP expression has been completed.\n :vlr-lispCancelled | Evaluation of an AutoLISP expression has been canceled."
 },
 "vlr-linker-reactor": {
 "prefix" : "vlr-linker-reactor",
 "body": [
-"(vlr-linker-reactor  ${1:data}  ${2:callbacks})"
+"(vlr-linker-reactor ${1:data} ${2:callbacks})"
 ],
 "description":"构造反应器对象，在每次应用程序加载或卸载 ObjectARX 应用程序时通知应用程序\n :vlr-rxAppLoaded  | 加载 ARX \n :vlr-rxAppUnLoaded | 卸载 ARX"
 },
 "vlr-insert-reactor": {
 "prefix" : "vlr-insert-reactor",
 "body": [
-"(vlr-insert-reactor  ${1:data}  ${2:callbacks})"
+"(vlr-insert-reactor ${1:data} ${2:callbacks})"
 ],
 "description":"构造反应器对象，通知与块插入相关的事件\n *** :vlr-beginInsert\n *** :vlr-beginInsertM\n *** :vlr-otherInsert\n *** :vlr-endInsert\n *** :vlr-abortInsert"
 },
 "vlr-editor-reactor": {
 "prefix" : "vlr-editor-reactor",
 "body": [
-"(vlr-editor-reactor  ${1:data}  ${2:callbacks})"
+"(vlr-editor-reactor ${1:data} ${2:callbacks})"
 ],
 "description":"构造编辑器反应器对象"
 },
 "vlr-dxf-reactor": {
 "prefix" : "vlr-dxf-reactor",
 "body": [
-"(vlr-dxf-reactor  ${1:datacallbacks})"
+"(vlr-dxf-reactor ${1:datacallbacks})"
 ],
 "description":"构造编辑器反应器对象，通知与读写 DXF 文件相关的事件\n *** :vlr-beginDxfIn\n *** :vlr-abortDxfIn\n *** :vlr-dxfInComplete\n *** :vlr-beginDxfOut\n *** :vlr-abortDxfOut\n *** :vlr-dxfOutComplete"
 },
 "vlr-dwg-reactor": {
 "prefix" : "vlr-dwg-reactor",
 "body": [
-"(vlr-dwg-reactor  ${1:data}  ${2:callbacks})"
+"(vlr-dwg-reactor ${1:data} ${2:callbacks})"
 ],
 "description":"构造反应器对象，通知图形事件（如打开或关闭图形文件）\n *** :vlr-beginClose\n *** :vlr-databaseConstructed\n *** :vlr-databaseToBeDestroyed\n *** :vlr-beginDwgOpen\n *** :vlr-endDwgOpen\n *** :vlr-dwgFileOpened\n *** :vlr-beginSave\n *** :vlr-saveComplete"
 },
 "vlr-docmanager-reactor": {
 "prefix" : "vlr-docmanager-reactor",
 "body": [
-"(vlr-docmanager-reactor  ${1:data}  ${2:callbacks})"
+"(vlr-docmanager-reactor ${1:data} ${2:callbacks})"
 ],
 "description":"构造反应器对象，通知与图形文档相关的事件\n *** :vlr-documentCreated\n *** :vlr-documentToBeDestroyed\n *** :vlr-documentLockModeWillChange\n *** :vlr-documentLockModeChangeVetoed\n *** :vlr-documentLockModeChanged\n *** :vlr-documentBecameCurrent\n *** :vlr-documentToBeActivated\n *** :vlr-documentToBeDeactivated"
 },
 "vlr-deepclone-reactor": {
 "prefix" : "vlr-deepclone-reactor",
 "body": [
-"(vlr-deepclone-reactor  ${1:datacallbacks})"
+"(vlr-deepclone-reactor ${1:datacallbacks})"
 ],
 "description":"构造编辑器反应器对象，在发生 deepclone 事件时给出通知\n :vlr-beginDeepClone\n :vlr-beginDeepCloneXlation\n :vlr-abortDeepClone\n :vlr-endDeepClone"
 },
 "vlr-data": {
 "prefix" : "vlr-data",
 "body": [
-"(vlr-data  ${1:obj})"
+"(vlr-data ${1:obj})"
 ],
 "description":"返回与反应器相关的应用程序特定数据"
 },
@@ -268,35 +268,35 @@
 "vlr-command-reactor": {
 "prefix" : "vlr-command-reactor",
 "body": [
-"(vlr-command-reactor  ${1:data}  ${2:callbacks})"
+"(vlr-command-reactor ${1:data} ${2:callbacks})"
 ],
 "description":"构造 AutoCAD 命令反应器，对命令事件给出通知\n :vlr-commandFailed | 未能完成 AutoCAD 命令。\n :vlr-commandCancelled | 以取消 AutoCAD 命令。\n :vlr-commandEnded | 已完成完成 AutoCAD 命令。\n :vlr-commandWillStart | 产生了 AutoCAD 命令调用。\n :vlr-unknownCommand | 发出了 AutoCAD 未知的命令。"
 },
 "vlr-beep-reaction": {
 "prefix" : "vlr-beep-reaction",
 "body": [
-"(vlr-beep-reaction  ${1:[args]})"
+"(vlr-beep-reaction ${1:[args]})"
 ],
 "description":"产生声音提示的回调函数"
 },
 "vlr-added-p": {
 "prefix" : "vlr-added-p",
 "body": [
-"(vlr-added-p  ${1:obj})"
+"(vlr-added-p ${1:obj})"
 ],
 "description":"测试以确定是否已启用反应器对象"
 },
 "vlr-add": {
 "prefix" : "vlr-add",
 "body": [
-"(vlr-add  ${1:obj})"
+"(vlr-add ${1:obj})"
 ],
 "description":"启动当前禁用的反应器对象"
 },
 "vlr-acdb-reactor": {
 "prefix" : "vlr-acdb-reactor",
 "body": [
-"(vlr-acdb-reactor  ${1:data}  ${2:callbacks})"
+"(vlr-acdb-reactor ${1:data} ${2:callbacks})"
 ],
 "description":"构造 AutoCAD 数据库反应器对象，在从图形数据库中加入、修改或删除对象时通知应用程序."
 }

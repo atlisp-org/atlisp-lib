@@ -16,14 +16,14 @@
 "@:add-menus": {
 "prefix" : "@:add-menus",
 "body": [
-"(@:add-menus  ${1:lst})"
+"(@:add-menus ${1:lst})"
 ],
 "description":"向@lisp添加一组菜单"
 },
 "@:define-config": {
 "prefix" : "@:define-config",
 "body": [
-"(@:define-config '${1:prefix:sym}  ${2:value} \"${3:配置项说明}\")"
+"(@:define-config '${1:prefix:sym} ${2:value} \"${3:配置项说明}\")"
 ],
 "description":"定义配置项，用于永久保存。"
 },
@@ -37,14 +37,14 @@
 "@:set-config": {
 "prefix" : "@:set-config",
 "body": [
-"(@:set-config '${1:sym}  ${2:value})"
+"(@:set-config '${1:sym} ${2:value})"
 ],
 "description":"设置 @lisp配置项的值\n 示例: (@:set-config '@:user-phone \"1398888888\")"
 },
 "@:help": {
 "prefix" : "@:help",
 "body": [
-"(@:help  ${1:lst-str})"
+"(@:help ${1:lst-str})"
 ],
 "description":"功能提示"
 },
