@@ -50,9 +50,12 @@ DCL:
 
 开发初期，持续更新中。有问题请及时反馈，万分感谢。
 
-* QQ群：@lisp:CAD应用云 (群号: 1071980591)
-* 微信公众号：CAD应用云 (微信号: atlisp)
+* QQ群：[点我加群 @lisp:CAD应用云](https://qm.qq.com/cgi-bin/qm/qr?k=bgbBl2QIdHP0pOgRjvxddH28A3SXmYxv&jump_from=webapi&authKey=FdfoaEMbQbJ7Fg2QVCZNshGlbB7W5wKeRX63oAzB3k1NohvbfWfEfSyc1AkgdATS)
 
+  ![@lisp:CAD应用云](https://atlisp.cn/static/qr-code-qq.png)
+* 微信公众号：
+
+  ![CAD应用云](https://atlisp.cn/static/img/weixin-atlisp.png)
 * https://atlisp.cn
 * http://atlisp.org
 * https://gitee.com/atlisp
