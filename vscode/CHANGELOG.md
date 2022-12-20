@@ -1,5 +1,20 @@
 # Change Log
 @lisp 函数库更新日志
+## 1.2.2
+- snippets 加入 vlr 自解析符号。
+## 1.2.0
+- 尽量使用系统配色。
+- visuallisp 中对象属性支持 vla-get-* vla-put-* 和'property 写法统一着色 
+- visuallisp 中对象方法支持 vla-* 和 'method 写法统一着色
+- dxf 组码的提示和便捷输入。 
+## 1.1.37
+- 支持 visuallisp的配色方案：红色（淡蓝)为方法 绿色（紫色）为属性，蓝色为函数，支持两种写法
+```
+  (vlax-invoke obj  'Activate)
+  (vla-activate obj)
+  (vlax-get obj 'ActiveDocument)
+  (vla-get-activedocument obj)
+```
 ## 1.1.36
 - 根据默认配色 添加 属性 方法，及外部函数色彩
 ## 1.1.33
