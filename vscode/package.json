@@ -19,7 +19,7 @@
 	"pricing": "Free",
 	"sponsor": {
 		"url": "https://gitee.com/atlisp/atlisp-lib"
-	  },
+	},
 	"keywords": [
 		"atlisp",
 		"autolisp",
@@ -33,7 +33,6 @@
 		"Programming Languages"
 	],
 	"icon": "images/atlisp.png",
-
 	"contributes": {
 		"languages": [
 			{
@@ -46,7 +45,8 @@
 					".lsp",
 					".mnl"
 				]
-			},{
+			},
+			{
 				"id": "autolispdcl",
 				"aliases": [
 					"AutoLISPDCL",
