@@ -196,7 +196,7 @@
 			"scope": "function",
 			"settings": {
 				"fontStyle": "bold",
-				"foreground": "#6c1c80"
+				"foreground": "#8c14aa"
 			}
 		},
 		{
@@ -204,14 +204,14 @@
 			"scope": "method",
 			"settings": {
 				"fontStyle": "bold",
-				"foreground": "#463eb3"
+				"foreground": "#c5303c"
 			}
 		},
 		{
 			"name": "Propertys",
 			"scope": "property",
 			"settings": {
-				"foreground": "#1fbb60"
+				"foreground": "#0a7052be"
 			}
 		},
 		{

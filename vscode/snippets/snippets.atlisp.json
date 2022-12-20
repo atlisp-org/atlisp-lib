@@ -4660,5 +4660,5 @@
 "(word:write-line ${1:ax-doc} ${2:text})"
 ],
 "description":"向 word 的文档对象最后写入文本。"
-},
+}
 }
