@@ -5,7 +5,8 @@
 	"version": "1.2.2",
 	"license": "https://gitee.com/atlisp/atlisp-lib/blob/main/LICENSE",
 	"bugs": {
-		"url": "https://gitee.com/atlisp/atlisp-lib/issues"
+		"url": "https://gitee.com/atlisp/atlisp-lib/issues",
+		"email": "vitalgg@gmail.com"
 	},
 	"repository": {
 		"type": "git",
