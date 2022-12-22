@@ -12,7 +12,8 @@ Autolisp:
 - autolisp基本函数
 - vla-get-* vla-put-* vla-* 系列属性和方法
 - vlr 系列反应器函数
-- @lisp 函数
+- @lisp 函数 (支持悬停提示)
+- 系统变量
 - DXF 查询，输入dxf+数字，或 dxf+图元名,如 dxf-3 , dxf8 ,dclcircle 可查看 dxf 组码说明，并输入组码点对。
   输入 dxfcommon 可查看图元通用组码
 
@@ -60,3 +61,6 @@ DCL:
 * http://atlisp.org
 * https://gitee.com/atlisp
 * https://github.com/atlisp-org
+
+## 特别感谢
+- remember

@@ -81,7 +81,7 @@
 "body": [
 "(block:insert ${1:blkname} ${2:path} ${3:pt} ${4:ang} ${5:scale})"
 ],
-"description":"插入块参照，\n blkname 块名，\n path 块文件路径(以/结尾,不含块文件名)， \n pt 插入点, \n ang 旋转角度，\n scale 比例。\n 返回值:块实体"
+"description":"插入块参照，\n blkname 块名，\n path 块文件路径(以/结尾,不含块文件名), \n pt 插入点, \n ang 旋转角度，\n scale 比例。\n 返回值:块实体"
 },
 "block:list-blk-objs": {
 "prefix" : "block:list-blk-objs",
