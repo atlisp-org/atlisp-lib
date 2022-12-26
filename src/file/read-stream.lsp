@@ -1,7 +1,7 @@
 (defun file:read-stream (filename encoding / str stream *error*)
   "读入指定编码的文件内容"
   "String"
-  "(file:read-stream \"d:\\hzfile.txt\" \"utf-8\")"
+  "(file:read-stream \"d:/hzfile.txt\" \"utf-8\")"
   (defun *error*(msg)
     (if (= 'file (type stream))(close stream))
     (princ msg)
