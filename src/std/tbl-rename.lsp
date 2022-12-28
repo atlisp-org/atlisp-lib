@@ -1,5 +1,5 @@
 (defun std:tbl-rename (tbl-name old-name new-name) 
-  "重命名DXF表格中的项目的名称。 表格为:block,dimstyle,layer,layout,linetype,textstyle,view,vports. 
+  "重命名DXF表格中的项目的名称。 表格为:block,dimstyle,layer,layout,linetype,textstyle,view,vport. 
   参数:tbl-name tbl表格名, old-name 原名称，new-name 新名称"
   "T 成功，nil 失败"
   ""
