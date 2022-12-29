@@ -1,8 +1,7 @@
 (defun color:rgb (red green blue)
     "计算rgb颜色对应的整数值。red green blue 取值范围为 [0,255]的整数或[0,1)的小数。"
 "rgb颜色值"
-"(color:rgb 255 0 0)
-or (color:rgb 0.999 0 0);红色"
+"(color:rgb 255 0 0) or (color:rgb 0.999 0 0);红色"
 (cond ((and (<= 0 red)
             (< red 1)
             (<= 0 green)
