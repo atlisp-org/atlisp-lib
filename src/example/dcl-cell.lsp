@@ -3,9 +3,8 @@
   ""
   ""
   (require (quote dcl:*))
-  (setq lst-cell (quote (("里程L"
-          "高程H"
-          "半径R")
+  "1. Model 建立数据模型。"
+  (setq lst-cell (quote (("里程L" "高程H" "半径R")
         (0.0 218.0 0.0)
         (315.589 226.02 1000)
         (815.589 261.02 1000)
@@ -47,7 +46,6 @@
         (2168.39 237.57 1000)
         (2439.11 215.91 1000)
         (2527.98 213.9 10.0))))
-  "1. Model 建立数据模型。"
   (setq accept-hook nil)
   (setq lst-cellraw lst-cell)
   (setq cell1tmp-data lst-cell)
@@ -59,6 +57,7 @@
     t t t t)
   (dcl:dialog-end-ok-cancel)
   "3. Control 创建控制流程"
+  "4. New"
   (dcl:new "example")
   "5. Init 初始化对话框"
   (set_tile "title"
