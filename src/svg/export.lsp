@@ -16,7 +16,7 @@
   (setq oy (cadr (car box)))
   (setq out (open path "w"))
   (write-line "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>" out)
-  (write-line (strcat "<svg width=\"200\" height=\"200\" viewBox=\"0 0 "
+  (write-line (strcat "<svg width=\"256\" height=\"256\" viewBox=\"0 0 "
 		      (rtos w 2 1)" "(rtos h 2 1)
 		      "\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">")
     out)
