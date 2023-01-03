@@ -43,7 +43,7 @@
 				 (setq pts (append pts (list (car pts))))
 			       pts)))
 			  " ")
-			 "\" style=\"fill:white;stroke:"color";stroke-width:"
+			 "\" style=\"fill:none;stroke:"color";stroke-width:"
 			 (rtos bold 2 3)
 			 "\" />") 
 		 out))
