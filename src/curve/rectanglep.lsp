@@ -1,5 +1,5 @@
 (defun curve:rectanglep (ent)
-  "测试一个多段线是否为矩形"
+  "测试一个多段线是否为矩形,判断矩形"
   "T or nil"
   (and
    (= 'ename (type ent))
@@ -16,15 +16,15 @@
 	    (- (angle (nth 0 pts)(nth 1 pts))
 	       (angle (nth 1 pts)(nth 2 pts)))))
      (if (> ang pi)(setq ang (- ang pi)))
-     ;; 邻边垂直且对角长度相等
+     ;; 邻边垂直,对边相等且对角长度相等
      (and
       (equal ang (* pi 0.5) 1e-6)
-      (- (angle (nth 0 pts)(nth 1 pts))
-	 (angle (nth 0 pts)(nth 1 pts)))
+      (equal (distance (nth 0 pts)(nth 1 pts))
+	     (distance (nth 2 pts)(nth 3 pts))
+	     1e-6)
       (equal (distance (nth 0 pts)(nth 2 pts))
 	     (distance (nth 1 pts)(nth 3 pts))
-	     (* (distance (nth 1 pts)(nth 3 pts))
-		1e-6))
+	     1e-6)
       (if (nth 4 pts) ;; 存在第5点时，第5点同第1点
 	  (< (distance (nth 0 pts)(nth 4 pts)) 1e-6)
 	t)
