@@ -11,8 +11,16 @@
 	 (= (entity:getdxf ent 70) 0)))
    (progn
      (setq pts (curve:get-points ent))
-     ;; 对角长度相等
-     (and 
+     (setq ang
+	   (abs
+	    (- (angle (nth 0 pts)(nth 1 pts))
+	       (angle (nth 1 pts)(nth 2 pts)))))
+     (if (> ang pi)(setq ang (- ang pi)))
+     ;; 邻边垂直且对角长度相等
+     (and
+      (equal ang (* pi 0.5) 1e-6)
+      (- (angle (nth 0 pts)(nth 1 pts))
+	 (angle (nth 0 pts)(nth 1 pts)))
       (equal (distance (nth 0 pts)(nth 2 pts))
 	     (distance (nth 1 pts)(nth 3 pts))
 	     (* (distance (nth 1 pts)(nth 3 pts))
