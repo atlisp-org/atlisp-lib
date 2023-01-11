@@ -34,6 +34,11 @@
 ```
 
 ### 必备工具
+#### VSCode 之 @lisp函数库扩展
+链接： https://marketplace.visualstudio.com/items?itemName=VitalGG.atlisp-funlib
+
+支持@lisp函数 和 autolisp 函数的语法提示，高亮、缩进等。
+
 #### git 源码管理工具
 
 请先阅读： [git-使用说明.org](https://gitee.com/atlisp/atlisp-docs/blob/main/Git%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.org)
