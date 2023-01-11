@@ -10,7 +10,7 @@
         "")
       ":image{key=\""
       key "\";height=0.3;color=253;fixed_height=true;vertical_margin=none;"
-      style "}"
+      (dcl:lst2dcl style) "}"
       (if show-txt? (strcat ":text{key=\""
           key "txt\";width=4;fixed_width=true;}}")
         ""))
