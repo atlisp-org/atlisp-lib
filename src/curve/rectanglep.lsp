@@ -9,6 +9,7 @@
 	 (= (entity:getdxf ent 70) 1))
     (and (= (entity:getdxf ent 90) 5)
 	 (= (entity:getdxf ent 70) 0)))
+   (apply '= (entity:getdxf ent 42))
    (progn
      (setq pts (curve:get-points ent))
      (setq ang
