@@ -1,5 +1,5 @@
 (defun example:dcl-mtext2 (/ curr-page total-page dcl-fp dcl-tmp)
-  "MVCNIS 方法: 6 步进行动态 DCL 开发。Model-View-Control-New-Init-Show."
+  "MVCNIS 方法示例5: 6 步进行动态 DCL 开发。Model-View-Control-New-Init-Show."
   ""
   "(example:dcl-dialog)"
   (require (quote dcl:*))

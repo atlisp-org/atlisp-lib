@@ -1,5 +1,5 @@
 (defun example:dcl-dialog (/ *error* curr-page total-page dcl-fp dcl-tmp)
-  "MVCNIS 法: 6 步进行动态 DCL 开发。"
+  "MVCNIS 法示例2: 6 步进行动态 DCL 开发。"
   ""
   "(example:dcl-dialog)"
   (require (quote dcl:*))
