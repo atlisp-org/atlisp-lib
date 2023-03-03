@@ -1,5 +1,5 @@
 (defun example:dcl-progressbar2 (/ dcl-fp dcl-tmp valuebar v1 v2 v3)
-  "MVCNIS 法: 6 步进行动态 DCL 开发之进度条"
+  "MVCNIS 法示例7: 6 步进行动态 DCL 开发之进度条2"
   ""
   ""
   (require (quote dcl:*))

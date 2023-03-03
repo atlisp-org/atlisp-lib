@@ -1,5 +1,5 @@
 (defun example:dcl-mtext (/ dcl-fp dcl-tmp)
-  "MVCNIS 法: 6 步进行动态 DCL 开发之多行文本"
+  "MVCNIS 法示例4: 6 步进行动态 DCL 开发之多行文本"
   ""
   "(example:dcl-mtext)"
   (require (quote dcl:*))

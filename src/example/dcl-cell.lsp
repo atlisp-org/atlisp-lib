@@ -1,5 +1,5 @@
 (defun example:dcl-cell (/ curr-page total-page dcl-fp dcl-tmp)
-  "MVCNIS 方法: 6 步进行动态 DCL 开发。表格示例。Model-View-Control-New-Init-Show."
+  "MVCNIS 方法示例3: 6 步进行动态 DCL 开发。表格示例。Model-View-Control-New-Init-Show."
   ""
   ""
   (require (quote dcl:*))
