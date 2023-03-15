@@ -1,10 +1,7 @@
 (defun ui:button-select (str-subject lst / dcl_fp dcl-tmp dcl_id para% result initget%)
   "显示按钮列表选择面板。\n选择所需项并返回，无需点击确定。"
   "选中的内容"
-  "(ui:button-select \"请选择你需要操作的项\"
-    '(\"我愿意\"
-      \"不愿意\"
-       \"你是一个好人\"))"
+  ""
   (setq result nil)
   (if lst (if (= 1 (getvar "filedia"))
       (progn (progn (setq dcl-tmp (strcat @:*tmp-path* "tmp-bselect.dcl"))
