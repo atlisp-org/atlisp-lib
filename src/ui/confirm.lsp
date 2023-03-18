@@ -1,12 +1,7 @@
 (defun ui:confirm (lst-str / *error* result dcl-fp dcl-tmp)
   "确认对话框. 参数：lst-str 单个字符串，或字符串列表。"
   "T or nil"
-  "(ui:confirm \"你遇到真爱了吗?\")\n(ui:confirm '(\"你家门口有两双鞋。\"
-      \"一双是你的。\"
-      \"另一双也是你的。\"
-      \"你感觉孤独吗？\"
-      )
-    "
+  "(ui:confirm \"你遇到真爱了吗?\")"
     (defun *error* (msg)
       (if (= (quote file)
           (type dcl-fp))
@@ -22,8 +17,8 @@
       (setq lst-str (list lst-str)))
     (foreach str (mapcar (quote @:to-string)
         lst-str)
-      (write-line (strcat ":text{label=\"
-            "
+	     (write-line (strcat ":text{label="
+				 (chr 34)
           (string:subst-dqm str)
           "\";}")
         dcl-fp))
