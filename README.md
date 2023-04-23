@@ -48,6 +48,10 @@ Git（读音为/gɪt/）是一个开源的分布式版本控制系统，可以�
 提取码：zgl5
 
 ### 使用 git 交付代码为@lisp提供贡献 (无 fork)
+如要进行@lisp应用包的开发，建议 clone @lisp 根仓库，然后拉取仓库子模块。
+
+子模块包含了 @lisp函数库，应用中心，@lisp文档 和 VSCode扩展的源码。
+
 #### 首先 clone
 ```lisp
 git clone https://gitee.com/atlisp/atlisp-lib.git
