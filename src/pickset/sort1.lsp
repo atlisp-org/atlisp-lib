@@ -10,15 +10,17 @@
 			       (t (- xyz 120))))
 		       keys))
   (defun equal-compare (fun a b fuzz)
-    (if (not (equal a b fuzz))
-	(fun a b)))
+    (if equaled
+	(if (not (equal a b fuzz))
+	    (progn (setq equaled nil)  (fun a b)))))
   (if (atom fuzz)(setq fuzz (list fuzz)))
   (while (< (length fuzz) (length keys))
     (setq fuzz (append fuzz (list (last fuzz)))))
 
   (if (p:picksetp sspts)
       (setq sspts(pickset:to-list sspts)))
-  (vl-sort sspts '(lambda(x y)
+  (vl-sort sspts '(lambda(x y / i equaled)
+		    (setq equaled t)
 		    (apply 'or
 			   (mapcar 'equal-compare
 				   funs
