@@ -1,6 +1,7 @@
 (defun pickset:sort1 (sspts key fuzz / e en fun lst n sortpts sortpts1)
-  "通用选择集，点表，图元列表排序\n参数:ssPts:选择集，点表，图元列表\n参数:KEY:xyzXYZ 任意组合 ,例如\"yX\",y在前表示y坐标优先，小y表示从小到大(注:二维点时，不能有z)\n参数:FUZZ:数值，允许偏差；"
+  "图元列表排序\n参数:ssPts:图元列表\n参数:KEY:xyzXYZ 任意组合 ,例如\"yX\",y在前表示y坐标优先，小y表示从小到大(注:二维点时，不能有z)\n参数:FUZZ:数值或列表，允许偏差；"
   "图元列表"
+  "(pickset:sort1 (ssget) \"Yx\" '(3000 10)"
   (setq keys (vl-string->list key))
   (setq funs (mapcar '(lambda(xyz) (if (< xyz 100) > <))
 		     keys))
