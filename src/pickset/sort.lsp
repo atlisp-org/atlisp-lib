@@ -1,4 +1,4 @@
-(defun pickset:sort (sspts key fuzz / e en fun lst n sortpts sortpts1)
+(defun pickset:sort (sspts key fuzz / keys funs orders equaled )
   "图元列表按组码10的坐标进行排序。参数:ssPts:图元列表;参数:KEY:xyzXYZ 任意组合 ,例如\"yX\",y在前表示y坐标优先，小y表示从小到大(注:二维点时，不能有z);参数:Fuzz:数值或列表，允许偏差；"
   "图元列表"
   "(pickset:sort (ssget) \"Yx\" '(3000 10)"
