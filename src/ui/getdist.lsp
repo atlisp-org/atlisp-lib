@@ -1,6 +1,6 @@
-(defun ui:getdist (/ flag r)
+(defun ui:getdist (msg / flag r)
   "当按下键盘数字键时，返回数值，当鼠标左键点取文字或标注时，取文字或标注的值。"
-  (setq r 100.0)
+  (princ msg)
   (setq sn "")
   (setq flag t)
   (while flag
@@ -13,7 +13,6 @@
 	     "数字键"
 	     (setq sn (strcat sn (chr (cadr gr))))
 	     (princ (chr (cadr gr)))
-	     ;; (strcat "\n输入值" sn ""))
 	     )
 	    ((member (cadr gr) '(13 32))
 	     "回车 或空格"
