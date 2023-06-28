@@ -1,4 +1,4 @@
-(defun ui:getdist (msg / flag r)
+(defun ui:getdist (msg / flag sn)
   "当按下键盘数字键时，返回数值，当鼠标左键点取文字或标注时，取文字或标注的值。"
   (princ msg)
   (setq sn "")
@@ -23,16 +23,18 @@
 	  ((= 3 (car gr))
 	   "按下鼠标左键"
 	   (setq ents (pickset:to-list (ssget (cadr gr) '((0 . "DIM*,TEXT")))))
-	   (if (/= (entity:getdxf (car ents) 1) "")
-	       (setq sn (entity:getdxf (car ents) 1))
-	     (if (entity:getdxf (car ents) 42)
-		 (setq sn (entity:getdxf (car ents) 42))))
-	   (setq flag nil)
-	   )
+	   (if ents
+	       (progn
+		 (if (/= (entity:getdxf (car ents) 1) "")
+		     (setq sn (entity:getdxf (car ents) 1))
+		   (if (entity:getdxf (car ents) 42)
+		       (setq sn (entity:getdxf (car ents) 42))))
+		 (setq flag nil)
+	     )))
 	  )
     )
   (if (= 'str (type sn))
       (atof sn)
     (if (numberp sn)
 	sn))
-    )
+  )
