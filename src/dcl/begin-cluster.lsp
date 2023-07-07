@@ -5,12 +5,16 @@
     \"\")(progn (dcl:mtext \"mt\"
       8 100 )(dcl:paging t)
     (dcl:end-cluster))"
-  (if (member cluster-type (quote ("row"
-          "column"
-          "boxed_row"
-          "boxed_column"
-          "boxed_radio_row"
-          "boxed_radio_column")))
+  (if (member cluster-type
+	      (quote
+	       ("row"
+		"column"
+		"radio_row"
+		"radio_column"
+		"boxed_row"
+		"boxed_column"
+		"boxed_radio_row"
+		"boxed_radio_column")))
     (write-line (strcat ":"
         cluster-type "{"
         (if (/= ""
