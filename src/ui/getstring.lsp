@@ -1,7 +1,7 @@
-(defun ui:getdist (msg / flag sn ents ss)
-  "当按下键盘数字键时，返回数值，当鼠标左键点取文字或标注时，取文字或标注的值。"
-  "Number"
-  "(ui:getdist \"Please input number or select text/dimension\")"
+(defun ui:getstring (msg / flag sn ents ss)
+  "当按下键盘字符键时，返回字符串，当鼠标左键点取文字或标注时，取文字或标注的值。"
+  "String"
+  "(ui:getstring \"Please input string or select text/dimension\")"
   (princ msg)
   (setq sn "")
   (setq flag t)
@@ -11,16 +11,18 @@
     (cond ((= 2 (car gr))
 	   "按下了键盘按键"
 	   (cond
-	    ((member (cadr gr) (vl-string->list "0123456789." ))
-	     "持续输入数字键"
-	     (setq sn (strcat sn (chr (cadr gr))))
-	     (princ (chr (cadr gr)))
-	     )
 	    ((member (cadr gr) '(13 32))
 	     "回车 或空格，返回输入的值"
 	     (princ "\n")
 	     (setq flag nil)
 	     )
+	    (t
+	     "持续输入字符"
+	     (setq sn (strcat (chr (cadr gr))(getstring (chr (cadr gr)))))
+	     (setq flag nil)
+	     ;;(setq sn (strcat sn (chr (cadr gr))))
+	     ;;(princ (chr (cadr gr)))
+	    )
 	    ))
 	  ((= 3 (car gr))
 	   "按下鼠标左键，选中图元，读值"
@@ -40,8 +42,5 @@
 	   (if ss(redraw (ssname ss 0) 3))
 	   )
 	  ))
-  (if (= 'str (type sn))
-      (atof sn)
-    (if (numberp sn)
-	sn))
+  sn
   )
