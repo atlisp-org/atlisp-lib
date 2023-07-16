@@ -2,9 +2,11 @@
   "曲线控制点及端点列表，返回点坐标。"
   "点坐标列表"
   "(curve:get-points (car (entsel)))"
+  (if (p:vlap ent)
+      (setq ent (o2e ent)))
   (if (= (quote ename) (type ent))
       (cond
-       ((wcmatch (entity:getdxf ent 0) "*POLYLINE,LINE,CIRCLE,SPLINE,REGION")
+       ((wcmatch (entity:getdxf ent 0) "*POLYLINE,LINE,MLINE,CIRCLE,SPLINE,REGION")
 	(mapcar 'cdr 
 		(vl-remove-if-not '(lambda(x)
 				     (or
