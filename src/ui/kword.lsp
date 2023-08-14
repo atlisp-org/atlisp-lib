@@ -1,10 +1,12 @@
-(defun ui:kword (title lst-str / olddyn *error* short?)
+(defun ui:kword (title lst-str / olddyn olddynprompt *error* short?)
   "下拉列表选择,当 lst-str字符串表中有空格和汉字，提示信息将显示选择序号"
   "选中的字符串"
   "(ui:kword \"Please select:\" '(\"a\"\"b\"\"c\"))"
   (defun *error* (msg)
     (if olddyn
 	(setvar "dynmode" olddyn))
+    (if olddynprompt
+	(setvar "dynprompt" olddynprompt))
     (princ msg)
     (princ)
     )
@@ -21,6 +23,8 @@
 		   (> (apply 'max  lst) 128))
 	       (setq short? nil)))
 	 lst-str)
+	(if (setq olddynprompt (getvar "dynprompt"))
+	     (setvar "dynprompt" 1))
 	(if (setq olddyn (getvar "dynmode"))
 	    (setvar "dynmode" 3))
 	(setq lst-n 
@@ -43,6 +47,8 @@
 			 "]")))
 	(if olddyn
 	    (setvar "dynmode" olddyn))
+	(if olddynprompt
+	    (setvar "dynprompt" olddynprompt))
 	(if short?
 	    res
 	    (cdr (assoc res (mapcar 'cons lst-n lst-str))))
