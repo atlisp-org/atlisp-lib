@@ -2,8 +2,10 @@
   "求曲线中点"
   "中点坐标"
   "(curve:midpoint (car (entsel)))"
+  (if (= 'vla-object (type curve))
+      (setq curve  (o2e curve)))
   (if(= 'ename (type curve))
-      (cond
+     (cond
        ((= "MLINE" (entity:getdxf curve 0))
 	(setq midlen (* 0.5 (curve:length curve)))
 	(setq pts (curve:get-points curve))
@@ -16,6 +18,6 @@
 	       (angle (car pts)(cadr pts))
 	       (- midlen (distance (car pts)(cadr pts)))))
        (t
-	(setq curve (e2o curve)))
-       (vlax-curve-getpointatdist curve (/ (curve:length curve)
-					   2)))))
+	(setq o-curve (e2o curve))
+	(vlax-curve-getpointatdist o-curve (/ (curve:length curve)
+					      2))))))
