@@ -9,6 +9,6 @@
     (setq usetime (* 86400000 (- (getvar "TDUSRTIMER")
           time))))
   (if p (print (strcat "use time: "
-        (rtos usttime 2 0)
-        "micro second.")))
+        (rtos usetime 2 0)
+        " micro second.")))
   usetime)
