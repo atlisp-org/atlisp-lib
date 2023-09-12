@@ -20,4 +20,6 @@
        (t
 	(setq o-curve (e2o curve))
 	(vlax-curve-getpointatdist o-curve (/ (curve:length curve)
-					      2))))))
+					      2))))
+     '(0 0 0)
+     ))
