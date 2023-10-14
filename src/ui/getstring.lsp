@@ -33,7 +33,7 @@
 		     (setq sn (entity:getdxf (car ents) 1))
 		   (if (entity:getdxf (car ents) 42)
 		       (setq sn (entity:getdxf (car ents) 42))))
-		 (setq flag nil)
+		 (if (> (strlen sn) 0) (setq flag nil))
 		 )))
 	  ((= 5 (car gr))
            "移动鼠标,高亮图元"
