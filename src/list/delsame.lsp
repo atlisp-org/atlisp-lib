@@ -1,8 +1,10 @@
-(defun list:delsame (lst buzz)
-    "删除表中相同元素，保留第一次出现的位置"
-    (if lst (cons (car lst)
-            (list:delsame (vl-remove-if (quote (lambda (x)
-                            (equal (car lst)
-                                x buzz)))
-                    (cdr lst))
-                buzz))))
+(defun list:delsame (lst fuzz)
+    "删除表中相同项目，保留第一次出现的位置（支持容差）"
+    (if lst
+	(cons (car lst)
+	      (list:delsame
+	       (vl-remove-if (quote (lambda (x)
+				      (list:equal (car lst)
+						  x fuzz)))
+			     (cdr lst))
+	       fuzz))))
