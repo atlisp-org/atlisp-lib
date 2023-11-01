@@ -1,5 +1,5 @@
 (defun re:match (pattern string / regex s pos len str l flags)
-  "正则表达式匹配索字串. pattern 为以/开头及以/+修饰符结尾的字串，\ 需写成 \\ 形式。"
+  "正则表达式匹配索字串. pattern 为以/开头及以/+修饰符结尾的字串，\\ 需写成 \\\\ 形式。"
   "List"
   "(re:match \"/ab/g\" \"cabcdabcd\")"
   (setq lst-p (string:to-list pattern "/"))

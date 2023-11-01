@@ -1,5 +1,5 @@
 (defun re:replace (pattern string newstr / regex s pos len str l flags)
-  "正则表达式替换字符串. pattern 为以/开头及以/+修饰符结尾的字串，\ 需写成 \\ 形式。"
+  "正则表达式替换字符串. pattern 为以/开头及以/+修饰符结尾的字串，\\ 需写成 \\\\ 形式。"
   "String"
   "(re:replace \"/ab/g\" \"cabcdabcd\" \"mm\")"
   (setq lst-p (string:to-list pattern "/"))
