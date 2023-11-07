@@ -3,5 +3,5 @@
   "lst"
   
   (vl-remove-if-not
-   '(lambda(x)(wcmatch x "*\.Application\.*" ))
+   '(lambda(x)(wcmatch x "*\.Application\.*,*\.App" ))
    (vl-registry-descendents "HKEY_CLASSES_ROOT")))
