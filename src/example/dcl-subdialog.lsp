@@ -4,7 +4,7 @@
   "(example:dcl-subdialog)"
   (require (quote dcl:*))
   
-  (defun subdialog (m n / curr-page total-page dcl-fp dcl-tmp cb-flush-page page-init)
+  (defun sub-dialog (m n / curr-page total-page dcl-fp dcl-tmp cb-flush-page page-init)
     "m n 表示图像的 行 列个数"
     "1. Model 建立数据模型。"
     (setq curr-page 0)
