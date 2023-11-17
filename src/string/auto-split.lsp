@@ -1,4 +1,4 @@
-(defun string:auto-split (str / curr-type lst tmp%)
+(defun string:auto-split (str / curr-type lst tmp% res unitp)
   "自动分段，按数字-字母-汉字自动断开字符串为字符串列表。不支持科学计数法的数字。"
   "由字符串组成的列表"
   "(string:auto-split \"aa33.3bb汉字\")"
@@ -18,7 +18,7 @@
     (or (and (>= asc 65)
              (<= asc 90))
 	(and (>= asc 97)
-             (<= asc 112))))
+             (<= asc 122))))
   (defun is-hannum (asc)
     (member asc (string:s2l-ansi "零一二三四五六七六九十百千万亿"))
     )
@@ -61,5 +61,22 @@
 		    (setq curr-type (cdr asc))))))
   (setq lst (reverse (cons (reverse tmp%)
 			   lst)))
-  (mapcar (quote string:l2s-ansi)
-	  lst))
+  (setq res (mapcar (quote string:l2s-ansi)
+		    lst))
+  (setq unitp (member(car res) @:*units*))
+  (setq lst (quote nil))
+  (setq tmp% "")
+  (foreach word res
+	   (cond
+	     ((and unitp
+		   (member word @:*units*))
+	      (setq tmp% (strcat tmp% word)))
+	     (t
+	      (progn
+		(setq lst (cons tmp% lst))
+		(setq tmp% word)
+		(setq unitp (member word @:*units*))))))
+  (setq lst (reverse (cons tmp%
+			   lst)))
+  
+  )
