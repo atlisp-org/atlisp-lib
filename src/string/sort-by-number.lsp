@@ -1,5 +1,5 @@
 (defun string:sort-by-number (lst-str)
-  "按数字排序字符串\n在夹杂数字时，如果数字前后的字符串相同，按数字大小排序"
+  "按数字排序字符串\n在夹杂数字时，如果数字前后的字符串相同，按数字大小排序,支持中文数字"
   "排序后的字符串表"
   "(string:sort-by-number '(\"a5\"
        \"a1\"
@@ -9,7 +9,7 @@
       \"a110\"
       \"a13\"))"
   (vl-sort lst-str
-	   (quote (lambda (x y / n a b)
+	   (quote (lambda (x y / n a b lx ly)
 		    (setq n 0)
 		    (setq lx (string:auto-split x))
 		    (setq ly (string:auto-split y))
