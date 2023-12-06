@@ -64,7 +64,7 @@
   (setq res (mapcar (quote string:l2s-ansi)
 		    lst))
   (setq unitp (member(car res) @:*units*))
-  (setq lst (quote nil))
+  (setq lst nil)
   (setq tmp% "")
   (foreach word res
 	   (cond
@@ -73,10 +73,11 @@
 	      (setq tmp% (strcat tmp% word)))
 	     (t
 	      (progn
-		(setq lst (cons tmp% lst))
+		(if (/= "" tmp%)
+		    (setq lst (cons tmp% lst)))
 		(setq tmp% word)
 		(setq unitp (member word @:*units*))))))
   (setq lst (reverse (cons tmp%
 			   lst)))
-  
+  lst  
   )
