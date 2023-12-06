@@ -13,7 +13,7 @@
 		    (setq n 0)
 		    (setq lx (string:auto-split x))
 		    (setq ly (string:auto-split y))
-		    (while (= (nth n lx)(nth n ly))
+		    (while(and (< n (length lx))(< n (length ly)) (= (nth n lx)(nth n ly)))
 		      (setq n (1+ n)))
 		    (setq a (nth n lx)
 			  b (nth n ly))
