@@ -32,3 +32,6 @@
 				  (string:hannumber2number b)))
 			      (t (< a b))))))
 	   ))
+;; (string:sort-by-number '("A3" "B2" "B1" "A5" "B11" "A20"))
+;; (string:sort-by-number '("第一页" "第三页" "第十五页" "第二十页" "第二十一"))
+;; (string:sort-by-number '("第壹页" "第叁页" "第拾伍页" "第贰拾页" "第贰拾壹"))
