@@ -20,7 +20,7 @@
 	(and (>= asc 97)
              (<= asc 122))))
   (defun is-hannum (asc)
-    (member asc (string:s2l-ansi "零一二三四五六七六九十百千万亿"))
+    (member asc (string:s2l-ansi "零一二三四五六七六九十百千万亿壹贰叁肆伍陆柒捌玖拾佰仟"))
     )
   (defun is-han (asc)
     (if (and (getvar "lispsys")
