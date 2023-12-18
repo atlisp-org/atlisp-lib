@@ -7,9 +7,9 @@
   (defun is-operator (asc)
     (member asc (vl-string->list "+-*/·")))
   (defun is-unitsuffix (asc)
-    (member asc (vl-string->list "²³")))
+    (member asc (list 178 179))) ;;平方、立米
   (defun is-unitprefix(asc)
-    (member asc (vl-string->list "µ")))
+    (member asc (list 181))) ;; miu
   (defun is-number (asc)
     (or (= asc 46)
 	(and (>= asc 48)
