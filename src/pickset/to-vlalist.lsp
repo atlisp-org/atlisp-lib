@@ -7,4 +7,4 @@
   (if ss
       (mapcar (quote vlax-ename->vla-object)
 	      ss)
-      nil))
+      ))
