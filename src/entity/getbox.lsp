@@ -4,8 +4,8 @@
   "example:(entity:getbox (car(entsel))
     0.1)"
   (if (= (quote pickset)
-      (type ent))
-    (pickset:getbox ent offset)
+	 (type ent))
+      (pickset:getbox ent offset)
     (progn (setq obj (vlax-ename->vla-object ent))
       (vla-getboundingbox obj (quote p1)
         (quote p3))

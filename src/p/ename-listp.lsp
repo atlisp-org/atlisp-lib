@@ -4,5 +4,5 @@
        lst
        (listp lst))
       (apply (quote and)
-	     (mapcar (quote enamep)
+	     (mapcar (quote p:enamep)
 		     lst))))

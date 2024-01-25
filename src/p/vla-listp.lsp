@@ -3,5 +3,5 @@
   (if (and lst
 	   (listp lst))
       (apply (quote and)
-	     (mapcar (quote vlap)
+	     (mapcar (quote p:vlap)
 		     lst))))
