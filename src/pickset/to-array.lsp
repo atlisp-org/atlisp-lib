@@ -2,6 +2,6 @@
   "选择集->数"
   "数组"
   "(pickset->Array (ssget))"
-  (if ss (vla-list->array (pickset->vlalist ss)
-      9)
-    nil))
+  (if ss (vla:list->array (pickset:to-vlalist ss)
+			  9)
+      nil))

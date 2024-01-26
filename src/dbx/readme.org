@@ -1,0 +1,23 @@
+#+title:DBX接口
+
+我们可以以 DBX 方式打开外部dwg 文件，进一步操作dwg数据。这就是俗称的不开图方式。
+
+DBX  方式是在CAD应用程序中建立一个接口，用于操作外部dwg的数据库对象和实体。
+
+@lisp函数库封装了dbx对象的操作。使用公有变量 *dbx* 操作DBX对象。
+
+可以直接使用函数 dbx:open 打开外部 dwg文件的dbx接口。函数会自动实例化接口对象。
+
+#+BEGIN_SRC lisp
+(dbx:open "d:/a.dwg")
+
+...
+(dbx:release)
+#+END_SRC
+
+操作完成后，需使用函数 dbx:release 释放接口资源，以便其它程序操作外部dwg文件。
+
+实例化的*dbx* 对象与 cad的 document 对象功能类似，只是没有界面操作功能，如菜单、选择集和命令交互之类的功能。
+
+其它如图形数据库的操作与docment 对象一致。
+

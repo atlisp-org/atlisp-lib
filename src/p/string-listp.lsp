@@ -1,5 +1,7 @@
 (defun p:string-listp (lst)
   "判断是否为字符串列表"
-  (apply (quote and)
-    (mapcar (quote stringp)
-      lst)))
+  (if (and lst
+	   (listp lst))
+      (apply (quote and)
+	     (mapcar (quote p:stringp)
+		     lst))))

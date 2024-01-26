@@ -17,7 +17,9 @@
     *vps* (vla-get-viewports *doc*)
     *vs* (vla-get-views *doc*)
     *dics* (vla-get-dictionaries *doc*)
-    *layouts* (vla-get-layouts *doc*))
+    *layouts* (vla-get-layouts *doc*)
+    *DISPLAY* (vla-get-display (vla-get-preferences (vla-get-application *acad*)))
+    )
   "用于剪贴板的全局函数"
   (setq @:*clipboard* (vlax-get (vlax-get (vlax-get-or-create-object "HTMLFILE")
         (quote parentwindow))

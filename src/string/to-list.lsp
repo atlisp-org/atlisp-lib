@@ -1,5 +1,6 @@
 (defun string:to-list (str separator / pos)
-  "字符串转成列表"
+  "字符串转成列表，拆分字符串，指定字符来分隔字符串。"
+  "拆分后的列表"
   (if (= ""
       separator)
     (mapcar (quote (lambda (x)
