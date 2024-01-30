@@ -21,10 +21,7 @@
 	*layouts* (vla-get-layouts *doc*)
 	*DISPLAY* (vla-get-display (vla-get-preferences (vla-get-application *acad*)))
 	)
-  "用于剪贴板的全局函数"
-  (setq @:*clipboard* (vlax-get (vlax-get (vlax-get-or-create-object "HTMLFILE")
-					  (quote parentwindow))
-				(quote clipboarddata)))
+  
   "简化函数"
   (setq o2e vlax-vla-object->ename)
   (setq e2o vlax-ename->vla-object)
