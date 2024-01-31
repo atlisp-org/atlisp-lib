@@ -25,7 +25,7 @@
   "简化函数"
   (setq o2e vlax-vla-object->ename)
   (setq e2o vlax-ename->vla-object)
-
+  
   (setq vlap p:vlap
 	stringp p:stringp
 	realp p:realp
