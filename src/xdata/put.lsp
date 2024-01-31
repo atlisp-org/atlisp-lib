@@ -1,15 +1,40 @@
-(defun xdata:put (appid ename lst / lst1 x)    ; 写入扩展数据1
-  "向图元 ename 附加扩展数据 lst"
-  (dedata ename)
-  (setq lst1 '())
-  (foreach x lst
-	   (setq lst1 (cons (get_tile x) lst1))
-	   )
-  (setq lst1 (reverse lst1))
+(defun xdata:put (ename appid values / xdata xdata-new )
+  "向图元 ename 附加扩展数据 values,values 为一个值或一些值的列表"
+  "ename"
+  "(xdata:put(car(entsel))  '(10 100))"
   (regapp appid)
+  (if (atom values)
+      (setq values (list values)))
+  (setq xdata-new
+	(vl-remove nil
+		   (mapcar '(lambda(x)
+			     (cond
+			       ((p:stringp x)
+				(cons 1000 x))
+			       ((and (p:intp x)(< (abs x) 32767))
+				(cons 1070 x))
+			       ((and (p:intp x)(> (abs x) 32767))
+				(cons 1071 x))
+			       ((p:realp x)
+				(cons 1040 x))
+			       ))
+			   values)))
+  (setq xdata (cdr (assoc -3 (entget ename '("*")))))
+  (if (assoc appid xdata)
+      (setq xdata
+	    (subst
+	     (cons appid
+		   (append (cdr (assoc appid xdata))
+			   xdata-new))
+	     (assoc appid xdata)
+	     xdata))
+      (setq xdata
+	    (append
+	     xdata
+	     (list
+	      (cons appid xdata-new)))))
   (entmod (append
 	   (entget ename)
-	   (list (list -3 (list appid (cons 1000 (lst2str1 lst1)))))
-	   )
+	   (list (cons -3 xdata )))
 	  )
   )
