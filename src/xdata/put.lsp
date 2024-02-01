@@ -1,7 +1,8 @@
 (defun xdata:put (ename appid values / xdata xdata-new )
   "向图元 ename 附加扩展数据 values,values 为一个值或一些值的列表"
   "ename"
-  "(xdata:put(car(entsel))  '(10 100))"
+  "(xdata:put(car(entsel)) \"atlisp\"  '(10 100))"
+  (setq appid (strcase appid))
   (regapp appid)
   (if (atom values)
       (setq values (list values)))
