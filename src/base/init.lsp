@@ -64,50 +64,48 @@
 	      ))
   ;; ² 178 ³179 µ181
 
-  
-  (defun defconstant (name value)
-    "定义全局常量。全局常量通常以 + 开始和结尾。逻辑意义上的。"
-    ""
-    "(defconstant '+aaa+ 2)"
-    (setq name (vl-symbol-name name))
-    (eval (list (quote pragma)
-		(list (quote quote)
-		      (list (cons (quote unprotect-assign)
-				  name)))))
-    (set (read name)
-	 value)
-    (eval (list (quote pragma)
-		(list (quote quote)
-		      (list (cons (quote protect-assign)
-				  name))))))
-  (defun string (para)
-    "将其它类型转化为字符串。"
-    (@:to-string  para)
-    )
-  (defun string-upcase (str)
-    (strcase str))
-  (defun string-downcase (str)
-    (strcase str T))
-  (defun string-capitalize (str)
-    (strcat (string-upcase (substr str 1 1))
-	    (substr str 2)))
-
-  (defun consp (alist)
-    "Verifies that an item is cons." 
-    (if (and (listp alist)
-	     (not alisp))
-	T
-	nil))
-
-  (defun pair (x y)
-    (cond ((and (null x) (null y)) '())
-          ((and (not (atom x)) (not (atom y)))
-           (cons (list (car x) (car y))
-		 (pair (cdr x) (cdr y))))))
-
-  (defun getf (plist property)
-    (cadr (member property plist)))
-
-  (defun incf (x)
-    (setq x (1+ x)))
+  (setq *linefile*
+	(cond
+	  (is-bricscad
+	   "default.lin")
+	  (is-gcad
+	   "gcad.lin")
+	  (is-zwcad
+	   "zwcad.lin")
+	  (t
+	   "acad.lin")
+	  ))
+  (setq *isolinefile*
+	(cond
+	  (is-bricscad
+	   "iso.lin")
+	  (is-gcad
+	   "gcadiso.lin")
+	  (is-zwcad
+	   "zwcadiso.lin")
+	  (t
+	   "acadiso.lin")
+	  ))
+  (setq *patfile*
+	(cond
+	  (is-bricscad
+	   "default.pat")
+	  (is-gcad
+	   "gcad.pat")
+	  (is-zwcad
+	   "zwcad.pat")
+	  (t
+	   "acad.pat")
+	  ))
+  (setq *isopatfile*
+	(cond
+	  (is-bricscad
+	   "iso.pat")
+	  (is-gcad
+	   "gcadiso.pat")
+	  (is-zwcad
+	   "zwcadiso.pat")
+	  (t
+	   "acadiso.pat")
+	  ))
   t)
