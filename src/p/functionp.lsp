@@ -4,8 +4,10 @@
   "(p:functionp boole)=> T"
   (or (member  (type sym)
 	       '(SUBR USUBR EXRXSUBR))
-      (and (listp sym)
-	   (listp (car sym))
-	   (apply 'and
-		  (mapcar 'vl-symbolp (caar sym))))
+      (and
+       (not (null sym))
+       (listp sym)
+       (listp (car sym))
+       (apply 'and
+	      (mapcar 'vl-symbolp (caar sym))))
       ))
