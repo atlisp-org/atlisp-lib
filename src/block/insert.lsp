@@ -9,7 +9,7 @@
 	  (vla-insertblock
 	   (if (string-equal "Model" (getvar "ctab"))
 	       *MS*
-	       (vla-get-activeLayout *DOC*)
+	       (vla-get-block(vla-get-activeLayout *DOC*))
 	       )
 	   (point:to-ax pt)
 	   blkname scale scale scale ang)
