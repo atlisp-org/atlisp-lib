@@ -1,4 +1,4 @@
-(defun block:set-dynprop (blk prp val)
+(defun block:set-dynprop (blkref prp val)
   "设置动态块特性值"
   (setq prp (strcase prp))
   (vl-some (quote (lambda (x)
@@ -6,5 +6,5 @@
           (progn (vla-put-value x (vlax-make-variant val (vlax-variant-type (vla-get-value x))))
             (cond (val)
               (t))))))
-    (vlax-invoke (vlax-ename->vla-object blk)
+    (vlax-invoke (vlax-ename->vla-object blkref)
       (quote getdynamicblockproperties))))
