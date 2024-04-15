@@ -1,5 +1,5 @@
 (defun xdata:remove-all (ename / lst)
-  "删除图元的扩展数据"
+  "删除图元的所有扩展数据"
   (cond
     ((p:enamep ename)
      (entmod
