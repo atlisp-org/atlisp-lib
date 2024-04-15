@@ -1,11 +1,18 @@
-(defun stat:draw (/ n pt)
+(defun stat:draw (/ n pt ent-table *error*)
   "绘制最后一次统计的结果"
-  (setq pt (getpoint "请输入要绘制的位置:"))
+  (defun *error*(msg)
+    (if ent-table
+	(entdel ent-table))
+    (princ msg))
+  (setq pt '(0 0 0))
   (setq n 0)
-  (table:make pt "统计结果"
-    (quote ("项目"
-        "个数"))
-    (mapcar (quote (lambda (x)
-          (list (car x)
-            (cdr x))))
-      @:tmp-stat-result)))
+  (setq ent-table
+	(table:make pt "统计结果"
+		    (quote ("项目"
+			    "个数"))
+		    (mapcar (quote (lambda (x)
+				     (list (car x)
+					   (cdr x))))
+			    @:tmp-stat-result)))
+  (ui:dyndraw ent-table pt))
+ 
