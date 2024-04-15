@@ -5,6 +5,7 @@
   (if (= 'ename (type ents))(setq ents (list ents)))
   (if (= 'pickset (type ents))
       (setq ents (pickset:to-list ents)))
+  (setq scale-base 1)
   (setq flag t)
   (while flag
     (setq gr (grread t 16))
@@ -24,13 +25,17 @@
       ((= 5 (car gr))
        "移动鼠标"
        (mapcar (function(lambda(x)
-		 (vla-scaleentity (e2o x)
-			     (point:to-ax pt-base)
-			     (* 0.001 (distance pt-base
-						(cadr gr)))
-			     )))
+		 (vla-scaleentity
+		  (e2o x)
+		  (point:to-ax pt-base)
+		  (/ (* 0.001 (distance pt-base
+					(cadr gr)))
+		     scale-base)
+		  )))
 	       ents)
-       (setq pt-base (cadr gr))
+       (setq scale-base (* 0.001 (distance pt-base
+					(cadr gr))))
+       ;;(setq pt-base (cadr gr))
        )
       (t "其它情况"
 	 (princ gr)))

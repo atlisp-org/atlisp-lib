@@ -6,6 +6,7 @@
   (if (= 'pickset (type ents))
       (setq ents (pickset:to-list ents)))
   (setq flag t)
+  (setq ang-base 0)
   (while flag
     (setq gr (grread t 16))
     (cond
@@ -26,11 +27,15 @@
        (mapcar (function(lambda(x)
 		 (vla-rotate (e2o x)
 			     (point:to-ax pt-base)
-			     (angle pt-base
-				    (cadr gr))
+			     (- (angle pt-base
+				       (cadr gr))
+				ang-base)
 			     )))
 	       ents)
-       (setq pt-base (cadr gr))
+       (setq ang-base (angle pt-base (cadr gr)))
+       (princ "\n")
+       (princ (angtos ang-base 0 3))
+       ;; (setq pt-base (cadr gr))
        )
       (t "其它情况"
 	 (princ gr)))
