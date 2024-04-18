@@ -4,15 +4,18 @@
     (if ent-table
 	(entdel ent-table))
     (princ msg))
-  (setq pt '(0 0 0))
-  (setq n 0)
-  (setq ent-table
-	(table:make pt "统计结果"
-		    (quote ("项目"
-			    "个数"))
-		    (mapcar (quote (lambda (x)
-				     (list (car x)
-					   (cdr x))))
+  (if  @:tmp-stat-result
+       (progn
+	 (setq pt '(0 0 0))
+	 (setq n 0)
+	 (setq ent-table
+	       (table:make pt "统计结果"
+			   (quote ("项目"
+				   "个数"))
+			   (mapcar (quote (lambda (x)
+					    (list (car x)
+						  (cdr x))))
 			    @:tmp-stat-result)))
-  (ui:dyndraw ent-table pt))
+	 (ui:dyndraw ent-table pt)
+	 )))
  
