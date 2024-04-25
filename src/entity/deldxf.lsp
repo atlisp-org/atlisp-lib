@@ -16,7 +16,7 @@
 		       (entmod (vl-remove (assoc code ent)
 					  ent)))
 		   (entupd ename))))
-      (@:log "WARR" "this function CANNOT support proxy entity.")))
+      (@:log "WARN" "this function CANNOT support proxy entity.")))
    ((p:picksetp ename)
     (foreach s1 (pickset:to-list ename)
              (entity:deldxf s1 code)))
