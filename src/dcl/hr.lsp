@@ -5,7 +5,7 @@
   (or (setq color theme:bg-color)
     (setq color 152))
   (write-line (strcat ":image{ height="
-      (rtos size 2)
+      (rtos size 2 2)
       "; color="
       (itoa color)
       "; fixed_height=true;vertical_margin=none;}")
