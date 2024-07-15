@@ -19,7 +19,7 @@
         lst-str)
 	     (write-line (strcat ":text{label="
 				 (chr 34)
-          (string:subst-dqm str)
+          (string::subst-dqm str)
           "\";}")
         dcl-fp))
     (write-line "} :spacer{} ok_cancel;}"
