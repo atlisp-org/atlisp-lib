@@ -3,7 +3,7 @@
   "bool"
   "(curve:similar-p (car(entsel))(car(entsel)))"
   (if (@::get-config 'curve:similarity)
-      (setq similarity (@::get-config 'curve:similarity))
+      (setq similarity (- 1 (@::get-config 'curve:similarity)))
       (setq similarity 0.05))
   (setq o1 (e2o curve1)
 	o2 (e2o curve2))
