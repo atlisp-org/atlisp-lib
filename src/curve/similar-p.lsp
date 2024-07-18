@@ -23,20 +23,20 @@
 		 1 similarity))
 	 ))
    ;; 面积
-   (if (and
-	(/= "LINE" (entity:getdxf curve1 0))
-	(/= "LINE" (entity:getdxf curve2 0)))
-       (cond
-	 ((equal (vla-get-area o1)(vla-get-area o2) 1e-6)
-	  t)
-	 ((/= (vla-get-area o2) 0)
-	  (equal (/ (float (vla-get-area o1))
-		    (float (vla-get-area o2)))
-		 1 similarity))
-	 (t nil))
-       (if(= (entity:getdxf curve1 0)(entity:getdxf curve2 0))
-	  t)
-       )
+   (progn
+     (setq area1 
+	   (if (= "LINE" (entity:getdxf curve1 0))
+	       0 (vla-get-area o1)))
+     (setq area2
+	   (if (= "LINE" (entity:getdxf curve2 0))
+	       0 (vla-get-area o2)))
+     (cond
+       ((equal area1  area2  1e-6)t)
+       ((/= area2 0)
+	(equal (/ area1 area2)
+	       1 similarity))
+       (t nil))
+     )
    ))
       
       
