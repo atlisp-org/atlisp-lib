@@ -1,0 +1,33 @@
+* 创建数据库连接对象
+(setq conn (vlax-create-object "ADODB.Connection"))
+* 创建数据集对象
+(setq rs (vlax-create-object "ADODB.Recordset"))
+(setq connectionstring "Driver={MySQL ODBC 5.2w Driver};Server=localhost;Database=myDataBase;User=myUsername; Password=myPassword;Option=3;Port=3306")
+* 打开连接
+(vlax-invoke-method conn 'open connectionstring)
+* 查询语句
+(setq sql = " select * from tb_col")
+* 打开数据集（即执行查询语句）
+(vlax-invoke-method rs 'open sql conn);
+
+(vlax-invoke-method conn 'execute sql)
+;; 或者rs=conn.execute(sql)
+18     //遍历所有记录
+19 while(!rs.eof){
+20     //WScript是Windows 的脚本宿主对象，详细情况请在windows帮助里查找。
+21     //WScript.Echo输出记录的内容
+22     WScript.Echo(rs.Fields("id") + "\t" + rs.Fields("name") + "\n");
+23   
+24     //下一条记录
+25     rs.moveNext();
+26 }
+27     //关闭记录集
+28     rs.close();
+29     //关闭数据库连接
+30     conn.close();
+31 } catch(e){
+32     //异常报告
+33     WScript.Echo(e.message);
+34 } finally{
+35     //
+36 }
