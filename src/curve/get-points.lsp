@@ -13,9 +13,14 @@
 				      (= 10 (car x))
 				      (= 11 (car x))))
 				  (entget ent))))
-       ((wcmatch (entity:getdxf ent 0) "ELLIPSE,ARC")
+       ((wcmatch (entity:getdxf ent 0) "ELLIPSE")
 	(mapcar 'cdr 
 		(vl-remove-if-not '(lambda(x)
 				     (= 10 (car x)))
 				  (entget ent)))
-	))))
+	)
+       ((wcmatch (entity:getdxf ent 0) "ARC")
+	(list
+	 (polar (entity:getdxf ent  10)(entity:getdxf ent 50)(entity:getdxf ent 40))
+	 (polar (entity:getdxf ent  10)(entity:getdxf ent 51)(entity:getdxf ent 40))))
+       )))
