@@ -8,7 +8,7 @@
 	(setq res (cons (car lst) res))
       (progn
 	(setq tmp (cons (car res)nil))
-	(while ((eval fun)(car lst)(car tmp))
+	(while (and (> (length res) 0)((eval fun)(car lst)(car tmp)))
 	  (setq tmp (cons (car (setq res (cdr res))) tmp)))
 	(setq res (append (reverse (cdr tmp))
 			   (list (car lst))

@@ -12,7 +12,7 @@
     (write-line ":text{key=\"num\";}"
       dcl-fp)
     (dcl:hr 0.08)
-    (dcl:table 8 8 nil t t nil)
+    (dcl:cell "cell" 8 8 nil t t nil)
     (dcl:hr 0.08)
     (dcl:paging t))
   (dcl:dialog-end-ok-cancel)
