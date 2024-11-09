@@ -1,7 +1,8 @@
 (defun example:cmd-reactor()
   "命令反应器示例：当执行LINE PLINE ARC时，临时调整对象捕捉功能，完成后恢复原设置"
   ""
-  ;; 反转最近点捕捉命令，可加 ' 进行透明执行
+  ""
+  ";;反转最近点捕捉命令，可加 ' 进行透明执行"
   (defun c:nea ()
     (setvar "osmode"  (boole 6 (getvar  "osmode") 512))
     (if (= 0 (logand (getvar  "osmode") 512))
@@ -9,19 +10,19 @@
 	(prompt " 开启最近点捕捉"))
     (princ)
     )
-  ;; 当执行命令 line pline arc 时，保存当前osmode变量
+  ";;当执行命令 line pline arc 时，保存当前osmode变量"
   (defun react-start-cmd(param1 param2)
     (if (member (car param2) '("LINE" "PLINE"  "ARC"))
 	(push-var "OSMODE"))
     (princ)
     )
-  ;; 当结束命令 line pline arc 时，保存恢复当前osmode变量
+  ";; 当结束命令 line pline arc 时，保存恢复当前osmode变量"
   (defun react-end-cmd(param1 param2)
     (if (member (car param2) '("LINE" "PLINE" "ARC"))
 	(pop-var))
     (princ)
     )
-  ;; 定义命令反应器
+  ";; 定义命令反应器"
   (defun @::enable-tempvar-reactor ()
     (if (null at-tempvar-cmd-start)
 	(setq at-tempvar-cmd-start (vlr-command-reactor nil '((:vlr-commandWillStart . react-start-cmd))))
