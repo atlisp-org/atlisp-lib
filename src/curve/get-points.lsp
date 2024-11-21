@@ -9,9 +9,9 @@
        ((wcmatch (entity:getdxf ent 0) "*POLYLINE,LINE,MLINE,CIRCLE,SPLINE,REGION")
 	(mapcar 'cdr 
 		(vl-remove-if-not '(lambda(x)
-				     (or
-				      (= 10 (car x))
-				      (= 11 (car x))))
+				    (or
+				     (= 10 (car x))
+				     (= 11 (car x))))
 				  (entget ent))))
        ((wcmatch (entity:getdxf ent 0) "ELLIPSE")
 	(mapcar 'cdr 
