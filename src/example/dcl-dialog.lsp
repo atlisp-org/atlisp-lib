@@ -5,14 +5,14 @@
   (require (quote dcl:*))
   "1. Model 建立数据模型。"
   (setq curr-page 0)
-  (setq total-page 5)
+  (setq total-page 1)
   "2. View 建立显示视图。"
   (dcl:dialog "example")
   (progn (dcl:hr 0.08)
     (write-line ":text{key=\"num\";}"
       dcl-fp)
     (dcl:hr 0.08)
-    (dcl:cell "cell" 8 8 nil t t nil)
+    (dcl:cell "cell" 8 8 nil t nil nil)
     (dcl:hr 0.08)
     (dcl:paging t))
   (dcl:dialog-end-ok-cancel)
