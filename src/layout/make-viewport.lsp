@@ -1,8 +1,14 @@
-(defun layout:make-viewport (layout pt-center width height pt-model / obj-pv)
+(defun layout:make-viewport (layout pt-center width height twistang pt-model / obj-pv)
   "从模型空间生成布局"
   "ename"
   (or (member layout (layout:list))
       (vla-add *layouts* layout))
+  (if (null twistang)
+      (setq twistang 0.0)
+    (if (not (zerop twistang))
+	(setq pt-model
+	      (m:coordinate-rotate pt-model  twistang)
+	      )))
   (if (/= layout (getvar "ctab"))(setvar "ctab" layout))
   (setvar "cmdecho" 0)
   (@::cmd "mview"
@@ -21,6 +27,7 @@
   (vla-put-width obj-pv width)
   (vla-put-height obj-pv height)
   (vla-put-customscale obj-pv 1.0)
+  (vla-put-twistangle obj-pv twistang)
   (o2e obj-pv)
   )
 
