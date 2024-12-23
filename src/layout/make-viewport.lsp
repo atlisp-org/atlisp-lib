@@ -1,8 +1,13 @@
 (defun layout:make-viewport (layout pt-center width height twistang pt-model / obj-pv)
   "从模型空间生成布局"
   "ename"
-  (or (member layout (layout:list))
-      (vla-add *layouts* layout))
+  (if (null (member layout (layout:list)))
+      (progn
+	(vla-add *layouts* layout)
+	(if (/= layout (getvar "ctab"))(setvar "ctab" layout))
+	(pickset:erase (ssget "x" (list (cons 410 layout))))
+	)
+      (if (/= layout (getvar "ctab"))(setvar "ctab" layout)))
   (if (null twistang)
       (setq twistang 0.0)
     (if (not (zerop twistang))
