@@ -2,7 +2,7 @@
   "字符串转字byte or word 整数值列表。
 当小于128时，单字节，当两个连续的大于128时，双字节值。用于转换非英文字串时防止重码。
 当AutoCAD2021且lispsys=1时，返回 unicode 码。"
-  (if (<= 1 (getvar "lispsys"))
+  (if (and (getvar "lispsys") (<= 1 (getvar "lispsys")))
     (vl-string->list str)
     (progn
       (setq h% 0)
