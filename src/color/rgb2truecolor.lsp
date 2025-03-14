@@ -3,8 +3,5 @@
   "long"
   "(color:rgb2truecolor (list 3 5 8))"
   (setq ci (color:interface))
-  (vla-put-red ci (car rgb))
-  (vla-put-green (cadr ci))
-  (vla-put-blue (caddr ci))
-  (vla-get-entitycolor ci)
+  (vla-put-entitycolor ci (apply 'color:rgb rgb))
   )
