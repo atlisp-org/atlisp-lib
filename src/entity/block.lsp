@@ -16,6 +16,10 @@
   ;; (vla-insertblock *ms* (vlax-3d-point insertionpoint)
   ;; 		   (vla-get-name block)
   ;; 		   1 1 1 0)
-  (foreach obj (vlax-safearray->list ss)
-	   (vla-delete obj))
+  (if (vl-catch-all-error-p
+       (setq return (vl-catch-all-apply
+		     '(lambda()
+		       (foreach obj (vlax-safearray->list ss)
+			(vla-delete obj))))))
+      (vl-catch-all-error-message return))
   block)
