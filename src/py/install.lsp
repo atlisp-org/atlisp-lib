@@ -5,5 +5,5 @@
 	  (@::check-pgp)
 	  (@::patch-pgp) 
 	  )
-  (@::cmd "powershell-bg"
+  (@::cmd "powershell"
 	  "winget install python.python.3.13"))
