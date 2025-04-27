@@ -13,9 +13,15 @@
   (setq fp (open (setq file (@::path-os(strcat @::*tmp-path* "get-winget.ps1")))"w"))
   (foreach ln ps1 (write-line ln fp))
   (close fp)
-  (@::cmd  "start"
-		     (strcat
-		      "powershell " file))
+  (or @::enable-start
+      (@::check-pgp)
+      (@::patch-pgp) 
+      )
+  (setvar "cmdecho" 0)
+  (@::cmd  "powershell"
+	   (strcat
+	    "Get-Content " file "| Invoke-Expression"))
+  (setvar "cmdecho" 1)
   t
-)
-  
+  )
+
