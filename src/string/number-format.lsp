@@ -12,7 +12,14 @@
   (setq part-int (car lst-num))
   (setq part-fraction (cadr lst-num))
   (repeat (- int-n (strlen part-int))
-    (setq part-int (strcat pre-str part-int)))
+	  (setq part-int (strcat pre-str part-int)))
+  (if (> (strlen part-fraction) int-fraction)
+      (setq  part-fraction
+	     (cadr (string:to-list 
+		    (rtos (atof (strcat "0." part-fraction))
+			  2
+			  int-fraction)
+		    "."))))
   (if part-fraction (repeat (- int-fraction (strlen part-fraction))
       (setq part-fraction (strcat part-fraction post-str)))
     (progn (setq part-fraction "")

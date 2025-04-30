@@ -5,5 +5,8 @@
 	  (@::check-pgp)
 	  (@::patch-pgp) 
 	  )
+  (setvar "cmdecho" 0)
   (@::cmd "powershell"
-	  "winget install python.python.3.13"))
+	  "winget install python.python.3.13")
+  (setvar "cmdecho" 1)
+  )
