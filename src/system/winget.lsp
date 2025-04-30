@@ -20,7 +20,7 @@
   (setvar "cmdecho" 0)
   (@::cmd  "powershell"
 	   (strcat
-	    "Get-Content " file "| Invoke-Expression"))
+	    "Get-Content " file " | Invoke-Expression"))
   (setvar "cmdecho" 1)
   t
   )
