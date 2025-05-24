@@ -8,12 +8,14 @@
     (setq str-fill (rtos str-fill 2 0)))
   (setq pre-str (string:l2s-ansi(list(car(string:s2l-ansi str-fill)))))
   (setq post-str (string:l2s-ansi(list(last(string:s2l-ansi str-fill)))))
-  (setq lst-num (string:to-list str-num "."))
-  (setq part-int (car lst-num))
-  (setq part-fraction (cadr lst-num))
-  (repeat (- int-n (strlen part-int))
-	  (setq part-int (strcat pre-str part-int)))
-  (if (> (strlen part-fraction) int-fraction)
+  (progn
+    (setq lst-num (string:to-list str-num "."))
+    (setq part-int (car lst-num))
+    (setq part-fraction (cadr lst-num))
+    (repeat (- int-n (strlen part-int))
+	    (setq part-int (strcat pre-str part-int))))
+  (if (and part-fraction
+	   (> (strlen part-fraction) int-fraction))
       (setq  part-fraction
 	     (cadr (string:to-list 
 		    (rtos (atof (strcat "0." part-fraction))
@@ -24,8 +26,8 @@
       (setq part-fraction (strcat part-fraction post-str)))
     (progn (setq part-fraction "")
       (repeat int-fraction (setq part-fraction (strcat part-fraction post-str)))))
-  (if (= ""
-      part-fraction)
-    (strcat part-int)
-    (strcat part-int "."
-      part-fraction)))
+  (if (or  (= "" part-fraction)
+	   (null part-fraction))
+      (strcat part-int)
+      (strcat part-int "."
+	      part-fraction)))
