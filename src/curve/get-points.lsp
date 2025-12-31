@@ -1,4 +1,4 @@
-(defun curve:get-points (ent / pldata)
+(defun curve:get-points (ent / pldata nextent)
   "曲线控制点及端点列表，返回点坐标。"
   "点坐标列表"
   "(curve:get-points (car (entsel)))"
@@ -14,7 +14,7 @@
 	      (setq pldata (vl-remove-if '(lambda(x)
 					    (= 10 (car x)))
 					 pldata))
-	      (while (/= "SEQEND" (entity:getdxf (setq nextent (entnext nextent)) 0))
+	      (while (= "VERTEX" (entity:getdxf (setq nextent (entnext nextent)) 0))
 		(setq pldata
 		      (append pldata
 			      (entget nextent))))))
