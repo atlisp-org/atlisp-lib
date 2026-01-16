@@ -3,10 +3,14 @@
   "dcl格式字符串"
   "(dcl:hr 0.08)"
   (or (setq color theme:bg-color)
-    (setq color 152))
+      (setq color 152))
+  (setq  size (rtos size 2 2))
+  
   (write-line (strcat ":image{ height="
-      (rtos size 2 2)
+		      (if (= 46 (ascii size))
+			  (strcat "0" size)
+			size)
       "; color="
       (itoa color)
       "; fixed_height=true;vertical_margin=none;}")
-    dcl-fp))
+	      dcl-fp))
