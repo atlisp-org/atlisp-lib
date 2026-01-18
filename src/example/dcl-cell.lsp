@@ -2,7 +2,6 @@
   "MVCNIS 方法示例3: 6 步进行动态 DCL 开发。表格示例。Model-View-Control-New-Init-Show."
   ""
   ""
-  (require (quote dcl:*))
   "1. Model 建立数据模型。"
   (setq lst-cell (quote (("里程L" "高程H" "半径R")
         (0.0 218.0 0.0)
