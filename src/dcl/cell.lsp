@@ -36,8 +36,8 @@
       (setq lst-r% (quote nil))
       (repeat (length (car tmp-data%))
         (setq lst-r% (cons (vl-string-left-trim (chr 32)
-              (get_tile (strcat key (chr (setq c% (1+ c%)))
-                  (itoa r%))))
+						(get_tile (strcat key (itoa (setq c% (1+ c%)))"_"
+								  (itoa r%))))
             lst-r%)))
       (setq lst-dcl (cons (reverse lst-r%)
           lst-dcl)))
@@ -61,9 +61,9 @@
             per-page%))
         (setq tmp-data-last (cons (nth (setq i% (1+ i%))
               tmp-data%)
-            tmp-data-last))))
+				  tmp-data-last))))
     (set (read (strcat key "tmp-data"))
-      (setq tmp-data% (append (list (car tmp-data%))
+	 (setq tmp-data% (append (list (car tmp-data%))
           (reverse tmp-data-pre)
           lst-dcl (reverse tmp-data-last)))))
   (defun dcl:show-celldata (key / tmp-unit curr-page% tmp-data% per-page%)
@@ -73,9 +73,9 @@
     (setq i% 0)
     (repeat (length (car tmp-data%))
       (set_tile (strcat key "header"
-          (itoa (setq i% (1+ i%))))
-        (nth (1- i%)
-          (car tmp-data%))))
+			(itoa (setq i% (1+ i%))))
+		(nth (1- i%)
+		     (car tmp-data%))))
     (setq c% 64)
     (repeat (length (car tmp-data%))
       (setq r% 0 c% (1+ c%))
@@ -85,8 +85,8 @@
             (nth (1- (+ (setq r% (1+ r%))
                   (* per-page% curr-page%)))
               (cdr tmp-data%))))
-        (set_tile (strcat key (chr c%)
-            (itoa r%))
+        (set_tile (strcat key (itoa c%)"_"
+			  (itoa r%))
           (cond ((or (p:intp tmp-unit)
                 (and (= (quote str)
                     (type tmp-unit))
@@ -102,23 +102,23 @@
                   (@:to-string tmp-unit))
                 5 3 (chr 32)))
             (t (@:to-string tmp-unit))))
-        (mode_tile (strcat key (chr c%)
-            (itoa r%))
-          0)
+        (mode_tile (strcat key (itoa c%)"_"
+			   (itoa r%))
+		   0)
         (set_tile (strcat key "rno"
-            (itoa r%))
+			  (itoa r%))
           (string:number-format (@:to-string (+ r% (* per-page% curr-page%)))
             7 0 (chr 32))))
       (while (< r% per-page%)
         (repeat (length (car tmp-data%))
-          (set_tile (strcat key (chr c%)
-              (itoa (setq r% (1+ r%))))
-            "")
-          (mode_tile (strcat key (chr c%)
-              (itoa r%))
-            1)
-          (set_tile (strcat key "rno"
-              (itoa r%))
+		(set_tile (strcat key (itoa c%)"_"
+				  (itoa (setq r% (1+ r%))))
+			  "")
+		(mode_tile (strcat key (itoa c%)"_"
+				   (itoa r%))
+			   1)
+		(set_tile (strcat key "rno"
+				  (itoa r%))
             "")))))
   (setq dcl:accept-hook (cons (list key (quote dcl:get-celldata)
         key)
@@ -136,7 +136,7 @@
       (set (read (strcat key "curr-page"))
         (- (1- (eval (read (strcat key "total-page"))))
           (atoi (get_tile (strcat key "scrollbar")))))
-      (print (eval (read (strcat key "curr-page"))))
+      ;; (print (eval (read (strcat key "curr-page"))))
       (dcl:show-celldata key)))
   (if (and ui:*table-widths* (apply (quote and)
         (mapcar (quote numberp)
@@ -147,7 +147,7 @@
       (= (length ui:*table-widths*)
         columns))
     (setq tbl-widths ui:*table-widths*)
-    (progn (repeat rows (setq tbl-widths (cons 10 tbl-widths)))))
+    (progn (repeat columns (setq tbl-widths (cons 10 tbl-widths)))))
   (write-line ":row{:column{"
     dcl-fp)
   (if show-column-number? (progn (write-line (strcat ": row { ")
@@ -156,7 +156,7 @@
           dcl-fp))
       (setq c% 64)
       (repeat columns (write-line (strcat ":edit_box{value=\""
-            (chr (setq c% (1+ c%)))
+            (itoa (setq c% (1+ c%)))
             "\";width="
             (itoa (nth (- c% 65)
                 tbl-widths))
@@ -183,15 +183,15 @@
   (repeat rows (write-line (strcat ":row{")
       dcl-fp)
     (setq r% (1+ r%)
-      c% 64)
+	  c% 64)
     (if show-line-number? (write-line (strcat ":edit_box{key=\""
           key "rno"
           (itoa r%)
           "\";value=\"\";width=2;fixed_width=true;horizontal_margin=none;vertical_margin=none;is_enabled=false;}")
         dcl-fp))
     (repeat columns (write-line (strcat ":edit_box{key=\""
-          key (chr (setq c% (1+ c%)))
-          (itoa r%)
+					key (itoa (setq c% (1+ c%)))"_"
+					(itoa r%)
           "\";value=\"\";width="
           (itoa (nth (- c% 65)
               tbl-widths))
