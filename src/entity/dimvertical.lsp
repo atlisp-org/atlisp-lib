@@ -9,5 +9,5 @@
       (quote (100 . "AcDbAlignedDimension"))
       (cons 13 p1)
       (cons 14 p2)
-      (quote (50 . 1.5708))
+      (cons 50  (* 0.5 pi))
       (quote (100 . "AcDbRotatedDimension")))))
