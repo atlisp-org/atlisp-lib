@@ -1,5 +1,6 @@
 ; ini:parse 函数测试用例
 ; 使用方法: (test:suite 'ini-parse) 然后添加测试用例
+; 依赖: @::*prefix* 变量由 @lisp kernel 定义，需先加载 kernel 环境
 
 (test:suite 'ini-parse)
 
