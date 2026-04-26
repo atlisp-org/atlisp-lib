@@ -2,6 +2,7 @@
   "插入块参照，参数：blkname 块名，path 块文件路径(以/结尾,不含块文件名)， pt 插入点, ang 旋转角度，scale 比例。"
   "块实体"
   "(block:insert \"aa\" \"C:/design/\" (getpoint) 0 1)"
+  (setq path (strcat (vl-string-right-trim "\\/" path)"\\"))
   (if (tblsearch "block" blkname)
       ;; 使用 ax 方法可以避免属性块的同步问题
       (progn
