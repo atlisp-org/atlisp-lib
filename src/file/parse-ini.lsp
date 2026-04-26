@@ -1,4 +1,4 @@
-(defun-q file:parse-ini ( filename / fp  result *error*)
+(defun-q file:parse-ini ( filename / fp result sub str-line a&v *error*)
   "解析 ini 文件。"
   "list"
   
