@@ -1,4 +1,4 @@
-(defun text:get-matrix (/ ss-txt result lst-tmp row)
+(defun text:get-matrix (/ ss-txt result lst-tmp row target-col)
   "从dwg图中框取文本，形成二维列表数据"
   "由字符串组成的二维列表"
   ""
@@ -47,7 +47,7 @@
 		(progn
                   (setq row-tmp (append row-tmp (list (nth j row))))
                   (setq i (1+ i))
-                  (setq j (1+ i)))
+                  (setq j (1+ j)))
               ;; 不同列，插入空位
               (progn
                 (setq row-tmp (append row-tmp (list "")))
@@ -61,8 +61,7 @@
   ;; 将实体名转换为字符串内容，返回二维列表
   (mapcar (quote (lambda (x)
 		   (mapcar (quote (lambda (y)
-				    (if (= (quote ename)
-					   (type y))
+				    (if (eq (type y) 'ename)
 					(text:remove-fmt
 					 (text:get-mtext y ))
 				      y)))

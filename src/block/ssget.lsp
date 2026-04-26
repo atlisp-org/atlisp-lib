@@ -36,7 +36,7 @@
 					    (member x (block:get-attributes ent%))))
 				   lst-attr))))
 	   (ssadd ent% ss-res))))
-  (sssetfirst nil ss-res)
+  ;; (sssetfirst nil ss-res)
   ss-res)
 
 ;; 用法示例
