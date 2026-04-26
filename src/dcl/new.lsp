@@ -1,4 +1,4 @@
-(defun dcl:new (name)
+(defun dcl:new (name / dcl-id dcl-tmp)
   "载入DCL，并创建对话框名为 name 的对象。"
   ""
   (setq dcl-id (load_dialog dcl-tmp))

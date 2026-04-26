@@ -1,7 +1,6 @@
-(defun block:get-attributes (blkref / lst)
+(defun block:get-attributes (blkref / lst att)
   "获取块属性,返回属性名和值的点对列表。"
-  (if (= (quote ename)
-	 (type blkref))
+  (if (eq (type blkref) 'ename)
       (setq blkref (e2o blkref)))
   (if (p:functionp vla-getattributes)
       ;; vlax 方式

@@ -1,4 +1,4 @@
-(defun block:get-clip-boundary (blkref / ent-sf boundary-in-blk mt ms mr)
+(defun block:get-clip-boundary (blkref / ent-sf boundary-in-blk mt ms mr matrixs pts)
   "取剪裁块参照的边界线点WCS坐标"
   "list"
   "(block:get-clip-boundary (car(ensel)))"
