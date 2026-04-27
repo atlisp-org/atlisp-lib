@@ -24,7 +24,6 @@
   (setq result (list (car ss-txt)))
   ;; 第一行的个数作为目标列数
   (setq target-col (length (car ss-txt)))
-  (print (strcat "列数:"(itoa target-col)))
   ;; 遍历剩余行，对齐列数
   (foreach
    row lst-tmp
