@@ -6,13 +6,13 @@
 
   (setq layers
 	(mapcar '(lambda(x)
-		  (cond
+  (cond
 		    ((p:stringp x)
 		     (e2o(tblobjname "layer" x)))
 		    ((p:enamep x)
 		     (e2o x))
 		    ((p:vlap x)
-	       x)))
+    x)))
 		layers))
   (if (null (ssget"x" (list (cons 8 (string:from-list (mapcar '(lambda(x)(vla-get-name x))layers)",")))))
       (apply 'and (mapcar vla-delete layers))

@@ -9,12 +9,12 @@
       (@::patch-pgp) 
       )
   (cond
-    ((p:stringp uri)
+  ((p:stringp uri)
      (@::cmd "powershell"
 	     "winget source remove winget;winget source add winget " uri))
-    ((null uri)
+  ((null uri)
      (@::cmd"powershell" "winget source reset winget"))
-    (t
+  (t
      (@::cmd "powershell"
 	     "winget source remove winget;winget source add winget \"https://mirrors.ustc.edu.cn/winget-source\"")))
   )

@@ -2,8 +2,8 @@
   "生成水平标注"
   "return:标注图元名"
   "example:(entity:dimhorizontal (getpoint)
-    (getpoint)
-    (getpoint))"
+  (getpoint)
+  (getpoint))"
   (entmakex (list (quote (0 . "DIMENSION"))
       (quote (100 . "AcDbEntity"))
       (quote (100 . "AcDbDimension"))

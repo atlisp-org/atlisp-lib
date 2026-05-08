@@ -6,18 +6,18 @@
       1000))\n(grtext)\n"
   (require (quote music-die:multi-element))
   (grtext -1 (strcat (substr "████████████████████"
-        1 (* 2 (fix (* 10 (/ current max-number 1.0)))))
+    1 (* 2 (fix (* 10 (/ current max-number 1.0)))))
       (nth (fix (* 7 (- (* 10 (/ current max-number 1.0))
               (fix (* 10 (/ current max-number 1.0))))))
-        (quote ("▏"
-            "▎"
-            "▍"
-            "▌"
-            "▋"
-            "▊"
-            "▉")))
+    (quote ("▏"
+      "▎"
+      "▍"
+      "▌"
+      "▋"
+      "▊"
+      "▉")))
       (apply (quote strcat)
-        (music-die:multi-element "
+    (music-die:multi-element "
           "
           (- 20 (* 2 (fix (* 10 (/ current max-number 1.0)))))))
       (rtos current)

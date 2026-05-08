@@ -37,8 +37,8 @@
 		 scale scale scale ang)
 		(progn (setvar "attreq" 0)
 		       (command "-insert"
-				(strcat path blkname)
-				pt scale scale (angtos ang 0 0))
+  (strcat path blkname)
+  pt scale scale (angtos ang 0 0))
 		       (setvar "attreq" 1)))
 	    (entlast)
 	    ))

@@ -3,14 +3,14 @@
   "list"
   
   (defun *error* (msg)
-    (if (= 'file (type fp)) (close fp))
-    (@:*error* msg))
+  (if (= 'file (type fp)) (close fp))
+  (@:*error* msg))
   (setq fp (open filename "r"))
   (setq result '())
   (setq sub '())
   (while (setq str-line (read-line fp))
-    (setq str-line (car (string:parse-by-lst (vl-string-trim " " str-line) '(";""#"))))
-    (cond
+  (setq str-line (car (string:parse-by-lst (vl-string-trim " " str-line) '(";""#"))))
+  (cond
      ((= 91 (ascii str-line))
       (if sub
 	  (setq result (cons (reverse sub) result))
@@ -21,7 +21,7 @@
      (t (prompt (strcat "parse error " str-line)))))
   (if sub
       (setq result (cons (reverse sub) result))
-    )
+  )
   (close fp)
   (reverse result)
   )

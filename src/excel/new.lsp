@@ -3,8 +3,8 @@
   "一个表示Excel工作簿的vla对象"
   "(excel:New t)"
   (if (setq rtn (vlax-get-or-create-object "Excel.Application"))
-    (progn (vlax-invoke (vlax-get-property rtn (quote workbooks))
-        (quote add))
+  (progn (vlax-invoke (vlax-get-property rtn (quote workbooks))
+    (quote add))
       (if ishide (vla-put-visible rtn 1)
-        (vla-put-visible rtn 0))))
+    (vla-put-visible rtn 0))))
   rtn)

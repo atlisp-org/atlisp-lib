@@ -4,8 +4,8 @@
   "(point:div (getpoint(@:speak\"起点:\")) (getpoint(@:speak\"终点:\")) 5)"
   (setq n (fix n))
   (if (and (> n 1)
-	   (= 'point (type-of pt1))
-	   (= 'point (type-of pt2)))
+  (= 'point (type-of pt1))
+  (= 'point (type-of pt2)))
       (cons (setq pt (polar pt1
 			    (angle pt1 pt2)
 			    (/ (distance pt1 pt2)

@@ -9,8 +9,8 @@
   (setq res sym)
   ;; (setq obj-tree (cdr obj-tree))
   (while (and (p:vlap res)  (cdr obj-tree))
-    (setq porm (string:to-list (cadr obj-tree) "("))
-    (cond
+  (setq porm (string:to-list (cadr obj-tree) "("))
+  (cond
       ((vlax-property-available-p res (read (car porm)))
        (setq res (vlax-get-property res (read (car (setq obj-tree (cdr obj-tree)))))))
       ((vlax-method-applicable-p res (read (car porm)))

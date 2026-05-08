@@ -5,10 +5,10 @@
   (foreach
    offset lst-offset
    (entity:dimaligned
-    pt-tmp
-    (setq pt-tmp1 (polar pt-tmp angle1 offset))
-    (polar (point:mid pt-tmp pt-tmp1)
-	   (+ (* 0.5 pi) angle1)
-	   text-offset))
+  pt-tmp
+  (setq pt-tmp1 (polar pt-tmp angle1 offset))
+  (polar (point:mid pt-tmp pt-tmp1)
+  (+ (* 0.5 pi) angle1)
+  text-offset))
    (setq pt-tmp  pt-tmp1))
   )

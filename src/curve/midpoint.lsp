@@ -15,8 +15,8 @@
 	  )
 	(setq pts (cdr pts))
 	(polar (car pts)
-	       (angle (car pts)(cadr pts))
-	       (- midlen (distance (car pts)(cadr pts)))))
+    (angle (car pts)(cadr pts))
+    (- midlen (distance (car pts)(cadr pts)))))
        (t
 	(setq o-curve (e2o curve))
 	(vlax-curve-getpointatdist o-curve (/ (curve:length curve)

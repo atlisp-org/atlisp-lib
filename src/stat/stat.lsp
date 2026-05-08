@@ -3,8 +3,8 @@
   "元素和个数组成的点对表"
   "(stat:stat '(3 a a 2 2))
   => ((3 . 1)
-    (A . 2)
-    (2 . 2))"
+  (A . 2)
+  (2 . 2))"
   (setq res (quote nil))
   (foreach atom% lst (if (assoc atom% res)
       (setq res (subst (cons atom% (+ 1 (cdr (assoc atom% res))))

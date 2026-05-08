@@ -9,15 +9,15 @@
   (setq xdata-new
 	(vl-remove nil
 		   (mapcar '(lambda(x)
-			     (cond
+    (cond
 			       ((p:stringp x)
-				(cons 1000 x))
+  (cons 1000 x))
 			       ((and (p:intp x)(< (abs x) 32767))
-				(cons 1070 x))
+  (cons 1070 x))
 			       ((and (p:intp x)(> (abs x) 32767))
-				(cons 1071 x))
+  (cons 1071 x))
 			       ((p:realp x)
-				(cons 1040 x))
+  (cons 1040 x))
 			       ))
 			   values)))
   (setq xdata (cdr (assoc -3 (entget ename '("*")))))
@@ -35,7 +35,7 @@
 	     (list
 	      (cons appid xdata-new)))))
   (entmod (append
-	   (entget ename)
-	   (list (cons -3 xdata )))
+  (entget ename)
+  (list (cons -3 xdata )))
 	  )
   )

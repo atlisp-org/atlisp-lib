@@ -3,6 +3,6 @@
   "工作表名列表"
   "(excel:sheets exobj)"
   (vlax-for sh (vlax-get-property xlapp "sheets")
-    (setq rtn (cons (vlax-get-property sh "Name")
-        rtn)))
+  (setq rtn (cons (vlax-get-property sh "Name")
+    rtn)))
   (reverse rtn))

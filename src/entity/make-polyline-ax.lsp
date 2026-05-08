@@ -11,6 +11,6 @@
       (setq modelspace (vla-get-modelspace doc))
       (setq polyobj (vla-add3dpoly modelspace points))
       (if (= closed? t)
-        (vla-put-closed (vlax-ename->vla-object (entlast))
+    (vla-put-closed (vlax-ename->vla-object (entlast))
           :vlax-true))))
   (entlast))

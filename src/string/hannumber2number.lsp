@@ -12,26 +12,26 @@
                  ("八" . 8)("捌" . 8)
                  ("九" . 9)("玖" . 9)
                  )
-        alst1  '(("十" . 10)("拾" . 10)
+    alst1  '(("十" . 10)("拾" . 10)
                  ("百" . 100)("佰" . 100)
                  ("千" . 1000.0)("仟" . 1000.0)
                  )
-        alst2  '(("万" . 10000.0)
+    alst2  '(("万" . 10000.0)
                  ("亿" . 100000000.0)
                  )
-        num    0
-        lnum1  0
-        lnum2  0
+    num    0
+    lnum1  0
+    lnum2  0
 	)
   (foreach word (mapcar '(lambda(x)(string:l2s-ansi(list x))) (string:s2l-ansi str))
-	   (cond
+  (cond
 	    ((setq a (assoc word alst2))
              (setq num   (+ num (* (+ lnum1 lnum2) (cdr a)))
                    lnum1 0
                    lnum2 0
 		   )
              )
-            ((setq a (assoc word alst1))
+      ((setq a (assoc word alst1))
              (if (and (zerop lnum2) (zerop num))
 		 (setq num (cdr a))
                (setq lnum1 (+ lnum1 (* lnum2 (cdr a)))
@@ -39,9 +39,9 @@
 		     )
                )
              )
-            ((setq a (assoc word numlst)) (setq lnum2 (cdr a)))
-            (t nil)
+      ((setq a (assoc word numlst)) (setq lnum2 (cdr a)))
+      (t nil)
 	    )
-	   )
+  )
   (+ num lnum1 lnum2)
   )

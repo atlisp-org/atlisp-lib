@@ -13,7 +13,7 @@
   (setq len(+ (strlen fun) (strlen fun1) 28))
   (setq file (strcat @:*prefix* ".cache" (chr 92)  (string:subst-all "-" ":" fun) ".fas"))
   (setq dat
-        (append
+    (append
          '(13 266 32)
 	 (vl-string->list "FAS4-FILE ; Do not change it!")
 	 '(13 266 49 13 266 49 32 36 32 36)
@@ -26,7 +26,7 @@
          '(256 256 1 67 256 256 2 256 266 266 131 1 256 160 134 256 256 1 22 36 59 )
 	 (vl-string->list "@lisp")
 	 )
-        )
+    )
   (setq dat (mapcar '(lambda (x)(if (= x 0)(+ 256 x) x)) dat))
   (if (setq fo (open file "w"))
       (progn
@@ -34,6 +34,6 @@
 	(close fo)
 	(load file)
 	(read fun1))
-    (princ (strcat "Manifest faile."))
-    )
+  (princ (strcat "Manifest faile."))
+  )
   )

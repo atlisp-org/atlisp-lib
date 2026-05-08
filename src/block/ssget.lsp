@@ -6,19 +6,19 @@
   "满足条件的选择集"
   "(block:ssget \"x\" '(\"块1\" \"块2\")'((\"属性1\" . \"值1\")(\"属性2\" . \"值2\")))"
   (cond
-    ((= (quote str)(type blknames))
+  ((= (quote str)(type blknames))
      (setq blknames (list blknames)))
-    )     
+  )     
   (setq ss-res (ssadd))
   (cond
-    ((null sel-method)
+  ((null sel-method)
      (setq ss0 (ssget '((0 . "insert")))))
-    ((p:stringp sel-method)
+  ((p:stringp sel-method)
      (setq ss0 (ssget sel-method '((0 . "insert")))))
-    ((and sel-method (listp sel-method))
+  ((and sel-method (listp sel-method))
      (setq ss0 (apply 'ssget (append sel-method (list '((0 . "insert"))))))
      )
-    (t (setq ss0 (ssget "x" '((0 . "insert"))))
+  (t (setq ss0 (ssget "x" '((0 . "insert"))))
        ))
   (if (setq lst-ent (pickset:to-list ss0))
       (foreach
@@ -26,16 +26,16 @@
        (if (and (or
 		 (null blknames)
 		 (member (block:get-effectivename ent%)
-			 blknames)
+  blknames)
 		 (apply 'or
 			(mapcar '(lambda(x)(wcmatch (block:get-effectivename ent%) x))
-				blknames)))
+  blknames)))
 		(or (null lst-attr)
 		    (apply (quote and)
 			   (mapcar (quote (lambda (x)
 					    (member x (block:get-attributes ent%))))
 				   lst-attr))))
-	   (ssadd ent% ss-res))))
+  (ssadd ent% ss-res))))
   ;; (sssetfirst nil ss-res)
   ss-res)
 

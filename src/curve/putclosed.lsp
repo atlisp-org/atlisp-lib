@@ -3,6 +3,6 @@
   "无"
   "(curve:putClosed (car (entsel)))"
   (or (p:vlap obj)
-    (setq obj (vlax-ename->vla-object obj)))
+  (setq obj (vlax-ename->vla-object obj)))
   (if (not (vlax-curve-isclosed obj))
-    (vla-put-closed obj :vlax-true)))
+  (vla-put-closed obj :vlax-true)))

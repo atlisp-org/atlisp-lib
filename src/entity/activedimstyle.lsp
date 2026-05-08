@@ -6,8 +6,8 @@
   (setq entname (tblobjname "DIMSTYLE"
       dimname))
   (setq acadobject (vlax-get-acad-object)
-    acaddocument (vla-get-activedocument acadobject)
-    mspace (vla-get-modelspace acaddocument))
+  acaddocument (vla-get-activedocument acadobject)
+  mspace (vla-get-modelspace acaddocument))
   (setq currdimstyle (vlax-ename->vla-object entname))
   (vla-put-activedimstyle acaddocument currdimstyle)
   (princ))

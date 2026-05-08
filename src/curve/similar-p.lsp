@@ -25,16 +25,16 @@
    ;; 面积
    (progn
      (setq area1 
-	   (if (= "LINE" (entity:getdxf curve1 0))
-	       0 (vla-get-area o1)))
+  (if (= "LINE" (entity:getdxf curve1 0))
+    0 (vla-get-area o1)))
      (setq area2
-	   (if (= "LINE" (entity:getdxf curve2 0))
-	       0 (vla-get-area o2)))
+  (if (= "LINE" (entity:getdxf curve2 0))
+    0 (vla-get-area o2)))
      (cond
        ((equal area1  area2  1e-6)t)
        ((/= area2 0)
 	(equal (/ area1 area2)
-	       1 similarity))
+    1 similarity))
        (t nil))
      )
    ))

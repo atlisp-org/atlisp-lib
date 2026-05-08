@@ -3,5 +3,5 @@
   "颜色索引字符串 0-56 号"
   "(excel:get-Backcolor exobj \"A1\")"
   (excel:utils-getvalue (vlax-get-property (vlax-get-property (excel:get-range xlapp index)
-        (quote interior))
+    (quote interior))
       (quote colorindex))))

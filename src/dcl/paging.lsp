@@ -4,70 +4,70 @@
   "dcl格式字符串。"
   "(dcl:paging t)"
   (defun *error* (msg)
-    (if (/= (quote file)
-        (type dcl-fp))
+  (if (/= (quote file)
+    (type dcl-fp))
       (alert "请先运行 dcl:dialog ."))
-    (@:*error* msg))
+  (@:*error* msg))
   (defun cb-flush-page nil "一般函数，需根据功能要求重新定义."
-    (alert "请定义回调函数 (cb-flush-page)"))
+  (alert "请定义回调函数 (cb-flush-page)"))
   (defun paging-init nil (if (= 0 curr-page)
       (mode_tile "prev"
-        1)
+    1)
       (mode_tile "prev"
-        0))
-    (if (= (1- total-page)
-        curr-page)
+    0))
+  (if (= (1- total-page)
+    curr-page)
       (mode_tile "next"
-        1)
+    1)
       (mode_tile "next"
-        0))
-    (set_tile "curr_total"
+    0))
+  (set_tile "curr_total"
       (strcat (itoa (1+ curr-page))
-        "/"
-        (itoa total-page))))
+    "/"
+    (itoa total-page))))
   (defun cb-page-up nil (setq curr-page (1- curr-page))
-    (if (< curr-page 0)
+  (if (< curr-page 0)
       (setq curr-page 0))
-    (if (= 0 curr-page)
+  (if (= 0 curr-page)
       (mode_tile "prev"
-        1)
+    1)
       (mode_tile "prev"
-        0))
-    (if (= (1- total-page)
-        curr-page)
+    0))
+  (if (= (1- total-page)
+    curr-page)
       (mode_tile "next"
-        1)
+    1)
       (mode_tile "next"
-        0))
-    (set_tile "curr_total"
+    0))
+  (set_tile "curr_total"
       (strcat (itoa (1+ curr-page))
-        "/"
-        (itoa total-page)))
-    (cb-flush-page))
+    "/"
+    (itoa total-page)))
+  (cb-flush-page))
   (defun cb-page-down nil (setq curr-page (1+ curr-page))
-    (if (> curr-page total-page)
+  (if (> curr-page total-page)
       (setq curr-page total-page))
-    (if (= 0 curr-page)
+  (if (= 0 curr-page)
       (mode_tile "prev"
-        1)
+    1)
       (mode_tile "prev"
-        0))
-    (if (= (1- total-page)
-        curr-page)
+    0))
+  (if (= (1- total-page)
+    curr-page)
       (mode_tile "next"
-        1)
+    1)
       (mode_tile "next"
-        0))
-    (set_tile "curr_total"
+    0))
+  (set_tile "curr_total"
       (strcat (itoa (1+ curr-page))
-        "/"
-        (itoa total-page)))
-    (cb-flush-page))
+    "/"
+    (itoa total-page)))
+  (cb-flush-page))
   (write-line (strcat (if h-or-v ":row"
-        ":column")
+    ":column")
       "{alignment=centered;children_alignment=centered;"
       ":button{action=\"(cb-page-up)\";label=\"(<)Prev\";mnemonic=\"<\";key=\"prev\";is_enabled=false;alignment=centered;}"
       "spacer_0;"
       ":text_part{key=\"curr_total\"; value=\"\";alignment=centered;width=10;}"
       ":button{action=\"(cb-page-down)\";label=\"Next(>)\";mnemonic=\">\";key=\"next\";is_enabled=false;alignment=centered;}}")
-    dcl-fp))
+  dcl-fp))

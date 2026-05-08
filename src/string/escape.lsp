@@ -3,10 +3,10 @@
   "string"
   "(string:escape \"@*\" \"`\" \"@*\") => \"`@`*\""
   (foreach chr (string:s2l-ansi chars-need-to)
-	   (setq str
+  (setq str
 		 (string:subst-all
-		  (strcat escape-chr
+  (strcat escape-chr
 			  (string:l2s-ansi (list chr)))
-		  (string:l2s-ansi (list chr))
-		  str))))
+  (string:l2s-ansi (list chr))
+  str))))
   

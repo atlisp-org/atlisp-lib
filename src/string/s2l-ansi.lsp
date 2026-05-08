@@ -3,8 +3,8 @@
 当小于128时，单字节，当两个连续的大于128时，双字节值。用于转换非英文字串时防止重码。
 当AutoCAD2021且lispsys=1时，返回 unicode 码。"
   (if (and (getvar "lispsys") (<= 1 (getvar "lispsys")))
-    (vl-string->list str)
-    (progn
+  (vl-string->list str)
+  (progn
       (setq h% 0)
       (setq res (quote nil))
       (setq lst-src (vl-string->list str))
@@ -13,33 +13,33 @@
 	  ((and (= 0 h%)
 		(apply 'and 
 		       (mapcar '= (list 92 85 43) lst-src)))
-	   (setq lst-src (cdr lst-src))
-	   (setq lst-src (cdr lst-src))
-	   (setq lst-src (cdr lst-src))
-	   (setq res (cons
-		      (fix
+  (setq lst-src (cdr lst-src))
+  (setq lst-src (cdr lst-src))
+  (setq lst-src (cdr lst-src))
+  (setq res (cons
+    (fix
 		       (m:hex2dec
 			(strcat "0x"
-				(chr  (car lst-src))
-				(chr (cadr lst-src))
-				(chr (nth 2 lst-src))
-				(chr (nth 3 lst-src)))))
-		      res))
-	   (setq lst-src (cdr lst-src))
-	   (setq lst-src (cdr lst-src))
-	   (setq lst-src (cdr lst-src))
-	   )
+  (chr  (car lst-src))
+  (chr (cadr lst-src))
+  (chr (nth 2 lst-src))
+  (chr (nth 3 lst-src)))))
+    res))
+  (setq lst-src (cdr lst-src))
+  (setq lst-src (cdr lst-src))
+  (setq lst-src (cdr lst-src))
+  )
 	  ((and (= 0 h%)
 		(/= byte% 92)
 		(or (< byte% 128)
-                    (> byte% 255)))
+          (> byte% 255)))
            (setq res (cons byte% res)))
           ((and (= 0 h%)
 		(> 256 byte% 127))
            (setq h% byte%))
           ((or (and (> 170 h% 127)
 		    (< byte% 128))
-	       (and (> 256 h0 170)
+    (and (> 256 h0 170)
 		    (> 64 byte%)))
            (setq res (cons h% res))
            (setq res (cons byte% res))

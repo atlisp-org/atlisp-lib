@@ -1,5 +1,5 @@
 (defun vectra:set1 (lst key value / old)
   (if (setq old (assoc key lst))
-    (setq lst (subst (cons key value)
-        old lst))
-    (setq lst (append lst (list (cons key value))))))
+  (setq lst (subst (cons key value)
+    old lst))
+  (setq lst (append lst (list (cons key value))))))

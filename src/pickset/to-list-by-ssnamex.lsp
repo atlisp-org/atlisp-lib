@@ -4,6 +4,6 @@
   ""
   (setq ssx (reverse (ssnamex ss)))
   (while(< (caar ssx) 0)
-    (setq ssx(cdr ssx)))
+  (setq ssx(cdr ssx)))
   (setq lst (reverse (mapcar (quote cadr)
-			     ssx))))
+    ssx))))

@@ -4,7 +4,7 @@
   "(pickset:wblock ss \"d:/abc.dwg\")"
   (setq ssetobj (pickset:to-selectionset ss))
   (if (and ssetobj
-	   (> (vla-get-Count ssetObj) 3))
+  (> (vla-get-Count ssetObj) 3))
       (progn
 	(vla-wblock *DOC* filename  ssetObj)
 	(vla-Clear ssetObj)

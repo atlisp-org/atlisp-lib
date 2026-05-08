@@ -11,15 +11,15 @@
    pt (list (car pt) (cadr pt))
    )
   (cond
-    ((or (vl-some (function <) pt pt1)
+  ((or (vl-some (function <) pt pt1)
          (vl-some (function >) pt pt2)
          )
      nil  ;点在曲线外
      )
-    ((equal pt (setq cp (vlax-curve-getclosestpointto curve pt)) 0.000001) ;检测点到曲线的最近点cp
+  ((equal pt (setq cp (vlax-curve-getclosestpointto curve pt)) 0.000001) ;检测点到曲线的最近点cp
      (vlax-curve-getparamatpoint curve cp) ;;点在曲线上
      )
-    (t
+  (t
      (setq
       p3 (vlax-curve-getclosestpointto curve pt3) ;曲线外一点到曲线的最近点
       pt3 (mapcar '- pt3 p3) ;p3 pt3向量

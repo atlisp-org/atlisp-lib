@@ -7,7 +7,7 @@
   (setq  size (rtos size 2 2))
   
   (write-line (strcat ":image{ height="
-		      (if (= 46 (ascii size))
+    (if (= 46 (ascii size))
 			  (strcat "0" size)
 			size)
       "; color="

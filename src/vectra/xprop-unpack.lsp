@@ -1,6 +1,6 @@
 (defun vectra:xprop-unpack (xdata / rv)
   (while xdata (setq rv (cons (cons (cdar xdata)
           (cdadr xdata))
-        rv)
+    rv)
       xdata (cddr xdata)))
   (reverse rv))

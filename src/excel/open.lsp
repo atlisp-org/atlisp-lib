@@ -4,9 +4,9 @@
   "(excel:open \"C:/Users/mimi/Desktop/1.xlsx\" t)"
   (if (and (findfile filename)
       (setq rtn (vlax-get-or-create-object "Excel.Application")))
-    (progn (vlax-invoke (vlax-get-property rtn (quote workbooks))
-        (quote open)
-        filename)
+  (progn (vlax-invoke (vlax-get-property rtn (quote workbooks))
+    (quote open)
+    filename)
       (if ishide (vla-put-visible rtn 1)
-        (vla-put-visible rtn 0))))
+    (vla-put-visible rtn 0))))
   rtn)

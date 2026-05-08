@@ -3,10 +3,10 @@
   "成功返回t，失败返回nil"
   "(entity:ActiveLayer \"layer1\")"
   (if (and (tblsearch "layer"
-        name)
+    name)
       (setq iloc (vl-position name (entity:layers))))
-    (progn (vla-put-activelayer (std:active-document)
-        (vla-item (std:layers)
+  (progn (vla-put-activelayer (std:active-document)
+    (vla-item (std:layers)
           iloc))
       t)
-    nil))
+  nil))

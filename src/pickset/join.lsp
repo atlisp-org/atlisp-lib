@@ -5,6 +5,6 @@
   (setq n (sslength ss1))
   (while (< (setq i (1+ i))
       n)
-    (setq ss2 (ssadd (ssname ss1 i)
-        ss2)))
+  (setq ss2 (ssadd (ssname ss1 i)
+    ss2)))
   ss2)

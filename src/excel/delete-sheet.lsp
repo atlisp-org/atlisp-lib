@@ -3,13 +3,13 @@
   "成功返回t"
   "(excel:deleteSheet exobj \"123\")"
   (setq rtn (excel:sheets xlapp)
-    old (vlax-get-property xlapp "DisplayAlerts"))
+  old (vlax-get-property xlapp "DisplayAlerts"))
   (vlax-put-property xlapp "DisplayAlerts"
-    0)
+  0)
   (vlax-for sh (vlax-get-property xlapp "sheets")
-    (if (= (vlax-get-property sh "Name")
-        name)
+  (if (= (vlax-get-property sh "Name")
+    name)
       (vlax-invoke-method sh "Delete")))
   (vlax-put-property xlapp "DisplayAlerts"
-    old)
+  old)
   (not (equal rtn (excel:sheets xlapp))))

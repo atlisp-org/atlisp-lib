@@ -13,7 +13,7 @@
 	pt '(1 1 0)
 	)
   (defun get-type (x)
-    (cond
+  (cond
      ((listp x)
       (cond
        ((equal x '(1 1 0))
@@ -22,9 +22,9 @@
      (t (type x))
      ))
   (defun iter ()
-    ;;(princ args)
-    (setq iter-depth (1+ iter-depth))
-    (if (and
+  ;;(princ args)
+  (setq iter-depth (1+ iter-depth))
+  (if (and
 	 (vl-catch-all-error-p
 	  (setq errobj
 		(vl-catch-all-apply
@@ -41,24 +41,24 @@
 	      (setq typeerr (string:to-list errmsg " "))
 	      (@:log "INFO" (vl-prin1-to-string typeerr))
 	      (cond
-	       ((wcmatch (cadr typeerr) "stringp*")
+    ((wcmatch (cadr typeerr) "stringp*")
 		(setq args (subst (last typeerr) (read (last typeerr)) args)))
-	       ((wcmatch (cadr typeerr) "listp*")
+    ((wcmatch (cadr typeerr) "listp*")
 		(setq args (subst '(L I S T) (read (last typeerr)) args)))
-	       ((wcmatch (cadr typeerr) "numberp*")
+    ((wcmatch (cadr typeerr) "numberp*")
 		(setq args (subst num (read (last typeerr)) args)))
-	       ((wcmatch (cadr typeerr) "fixnump*")
+    ((wcmatch (cadr typeerr) "fixnump*")
 		(setq args (subst intnum (read (last typeerr)) args)))
-	       ((wcmatch (cadr typeerr) "lselsetp*")
+    ((wcmatch (cadr typeerr) "lselsetp*")
 		(setq args (subst ss (read (last typeerr)) args)))
-	       ((wcmatch (cadr typeerr) "lentity*")
+    ((wcmatch (cadr typeerr) "lentity*")
 		(setq args (subst ent (read (last typeerr)) args)))
-	       ((wcmatch (cadr typeerr) "VLA-OBJECT*")
+    ((wcmatch (cadr typeerr) "VLA-OBJECT*")
 		(setq args (subst vlaobj (read (last typeerr)) args)))
-	       ((wcmatch (cadr typeerr) "二维/三维点*")
+    ((wcmatch (cadr typeerr) "二维/三维点*")
 		(setq args (subst pt (read (last typeerr)) args)))
-	       ;; TODO 参数类型错误扩展
-	       )
+    ;; TODO 参数类型错误扩展
+    )
 	      (iter))
 	     ((wcmatch errmsg "no function definition*")
 	      (setq args (subst 'princ (read (caddr typeerr)) args))
@@ -79,6 +79,6 @@
 	(cons fun (mapcar 'get-type (reverse args)))
 	)
       )
-    )
+  )
   (iter)
   )

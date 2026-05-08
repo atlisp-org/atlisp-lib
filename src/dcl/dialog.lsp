@@ -8,4 +8,4 @@
   (write-line (strcat name ":dialog {"
       "label = \""
       name "\";key=\"title\";")
-    dcl-fp))
+  dcl-fp))

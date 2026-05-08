@@ -2,6 +2,6 @@
   "使用坐标变换公式A'=TSRA进行坐标变换"
   (matrix:mxp translation
 	      (matrix:mxp scale
-			 (matrix:mxp rotation
-				    pt))))
+  (matrix:mxp rotation
+    pt))))
   

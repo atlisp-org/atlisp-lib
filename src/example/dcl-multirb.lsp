@@ -11,34 +11,34 @@
   (dcl:dialog "buttons")
   (dcl:begin-cluster "radio_row" "")
   (repeat 3 
-    (progn 
+  (progn 
       (dcl:begin-cluster "column" "")
       (repeat 3 
-        (write-line 
+    (write-line 
           (strcat 
-            ":radio_button{key=\""
-            group-rb
-            (itoa (setq rbn (1+ rbn)))
-            "\"; label=\""
-            "Select"
-            (itoa rbn)
-            "\";action=\"(cb-rb $key)\";}" )
+      ":radio_button{key=\""
+      group-rb
+      (itoa (setq rbn (1+ rbn)))
+      "\"; label=\""
+      "Select"
+      (itoa rbn)
+      "\";action=\"(cb-rb $key)\";}" )
           dcl-fp))
       (dcl:end-cluster)
-    ))
+  ))
   (dcl:end-cluster)
   (dcl:end-dialog str-yes-no)
   ;;;; Control
   ;; 控制 多行多列无线按钮的选中与否
   (defun cb-rb (key / i) 
-    (print key)
-    (setq i 0)
-    (repeat rbn 
+  (print key)
+  (setq i 0)
+  (repeat rbn 
       (if (/= key (strcat group-rb (itoa (setq i (1+ i))))) 
-        (set_tile (strcat group-rb (itoa i)) "0")
-        (set_tile (strcat group-rb (itoa i)) "1");;
+    (set_tile (strcat group-rb (itoa i)) "0")
+    (set_tile (strcat group-rb (itoa i)) "1");;
       ))
-    (setq rb-value key) ;; 最终选中的 rb
+  (setq rb-value key) ;; 最终选中的 rb
   )
   ;;;; New
   (dcl:new "buttons")

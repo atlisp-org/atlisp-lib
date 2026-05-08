@@ -8,4 +8,4 @@
       ";height="
       (rtos height 2)
       ";color=152;}")
-    dcl-fp))
+  dcl-fp))

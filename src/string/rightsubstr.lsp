@@ -2,4 +2,4 @@
   "从右侧求子串"
   (substr str (- (strlen str)
       len start -2)
-    len))
+  len))

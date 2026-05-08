@@ -9,14 +9,14 @@
 	      (mapcar (quote (lambda (x)
 			       (cons (vla-get-tagstring x)
 				     (vla-get-textstring x))))
-		      (vlax-safearray->list lst)))
+    (vlax-safearray->list lst)))
 	  nil)
       ;; dxf 方式
       (progn
 	(setq att (entnext blkref))
 	(while (eq "ATTRIB" (entity:getdxf att 0))
 	  (setq lst (cons (cons (entity:getdxf att 2)
-				(entity:getdxf att 1))
+  (entity:getdxf att 1))
 			  lst))
 	  (setq att (entnext att)))
 	(reverse lst))))

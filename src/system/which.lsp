@@ -9,16 +9,16 @@
   ;;     "}")))
   (cond
    ((eq $platform 'linux)
-    )
+  )
    (t
-    (if (or (null (vl-filename-extension exename))
+  (if (or (null (vl-filename-extension exename))
 	    (and (vl-filename-extension exename)
 		 (/= ".exe" (strcase (vl-filename-extension exename)  t))))
 	(setq exename (strcat exename ".exe")))
-    ))
+  ))
   (foreach path (vl-remove "" (string:to-list (getenv"path")";"))
-	   (if (findfile (strcat path"/" exename ))
-	       (setq res (@::path-os (strcat path"/"exename)))))
+  (if (findfile (strcat path"/" exename ))
+    (setq res (@::path-os (strcat path"/"exename)))))
   res
   )
   

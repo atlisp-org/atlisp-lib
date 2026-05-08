@@ -4,6 +4,6 @@
   (if (null *fuzz*)
       (setq *fuzz* 0.0001))
   (foreach a lst2
-	   (if (list:member a lst1 *fuzz*)
-	       (setq res (cons a res))))
+  (if (list:member a lst1 *fuzz*)
+    (setq res (cons a res))))
   res)

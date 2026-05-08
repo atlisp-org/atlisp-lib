@@ -2,12 +2,12 @@
   "将选择集、图元表、对象表创建为块。"
   (cond
    ((p:ename-listp ss)
-    (setq ss (vla:objarray (mapcar (quote vlax-ename->vla-object)
+  (setq ss (vla:objarray (mapcar (quote vlax-ename->vla-object)
 				   ss))))
    ((p:vla-listp ss)
-    (setq ss (vla:objarray ss)))
+  (setq ss (vla:objarray ss)))
    ((p:picksetp ss)
-    (setq ss (pickset:to-array ss))))
+  (setq ss (pickset:to-array ss))))
   (print (type ss))
   (setq block (vla-add (vla-get-blocks *doc*)
 		       (vlax-3d-point insertionpoint)

@@ -3,7 +3,7 @@
   "A1格式的索引"
   "(Excel:get-MergeIndex)"
   (if (excel:range-mergep xlapp index)
-    (progn (vlax-invoke-method (excel:get-range xlapp index)
-        (quote select))
+  (progn (vlax-invoke-method (excel:get-range xlapp index)
+    (quote select))
       (setq rtn (excel:get-selection xlapp))))
   rtn)

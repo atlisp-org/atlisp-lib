@@ -5,4 +5,4 @@
   (m:dec2hex
    (- (m:hex2dec sym-gb2312)
       39584)))
-   
+  

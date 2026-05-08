@@ -2,6 +2,6 @@
   "求差集."
   "list"
   (foreach a lst1
-	   (if (not (member a lst2))
-	       (setq res (cons a res))))
+  (if (not (member a lst2))
+    (setq res (cons a res))))
   res)

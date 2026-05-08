@@ -3,10 +3,10 @@
   "real"
   "(setq no1 (Ureal 1 \"\" \"实数\" no1))"
   (if def
-    (setq msg (strcat "\n" msg "<" (rtos def 2) ">: ")
+  (setq msg (strcat "\n" msg "<" (rtos def 2) ">: ")
 	  bit (* 2 (fix (/ bit 2)))
-    )
-    (setq msg (strcat "\n" msg ": "))
+  )
+  (setq msg (strcat "\n" msg ": "))
   )
   (initget bit kwd)
   (setq inp (getreal msg))

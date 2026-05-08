@@ -10,14 +10,14 @@
   (setq end-ang (entity:getdxf ent-arc 51))
   
   (setq rad (- (entity:getdxf ent-arc 51)
-	       (entity:getdxf ent-arc 50)))
+    (entity:getdxf ent-arc 50)))
   (if (< rad 0)(setq rad (+ rad (* 2 pi))))
   (setq bulge (curve:o2bulge (polar pt-center begin-ang r)
-			     (polar pt-center (+ begin-ang
+    (polar pt-center (+ begin-ang
 						 (/ rad
 						    int))
-				    r)
-			     pt-center))
+    r)
+    pt-center))
   (setq i 0)
   (repeat (1+ int)
 	  (setq pts (cons (polar pt-center (+ begin-ang (* i (/ rad int)))
@@ -25,14 +25,14 @@
 			  pts))
 	  (setq i (1+ i))
 	  (setq convexity (cons (- bulge)
-				convexity)))
+  convexity)))
   (push-var)
   (setvar "osmode"
 	  0)
   (setq ent (entity:putdxf (entity:putdxf (entity:make-lwpline-bold pts convexity nil 0 0)
-        8 (entity:getdxf ent-arc 8))
+    8 (entity:getdxf ent-arc 8))
       62 (if (entity:getdxf ent-arc 62)
-        (entity:getdxf ent-arc 62)
-        256)))
+    (entity:getdxf ent-arc 62)
+    256)))
   (pop-var)
   ent)

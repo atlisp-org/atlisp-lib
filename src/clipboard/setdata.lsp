@@ -4,5 +4,5 @@
   "(clipboard:setdata \"the string in clipboard.\")"
   (clipboard:init)
   (vlax-invoke @:*clipboard* (quote setdata)
-    "text"
-    str))
+  "text"
+  str))

@@ -53,11 +53,11 @@
   "添加测试用例 (test:add-case 'suite 'test-name '(lambda () ... ) expected)"
   ;; 遍历所有套件，找到目标套件，使用 mapcar 返回新列表
   (setq *test-suite*
-        (mapcar '(lambda (s)
+    (mapcar '(lambda (s)
                    (if (= (car s) suite-name)
                        (append s (list (list test-name test-fn expected)))
                      s))
-                *test-suite*))
+        *test-suite*))
   nil)
 
 ;;;------------------------------------------------------------
@@ -77,10 +77,10 @@
   (cond
    ;; 两者都是数字，使用容差比较
    ((and (numberp expected) (numberp actual))
-    (equal expected actual fuzz))
+  (equal expected actual fuzz))
    ;; 两者都是列表，递归比较每个元素
    ((and (listp expected) (listp actual))
-    (list:equal expected actual fuzz))
+  (list:equal expected actual fuzz))
    ;; 其他类型直接比较
    (t (equal expected actual))))
 
@@ -139,13 +139,13 @@
   ;; 更新统计计数器
   (if pass
       (progn (setq *test-pass-count* (1+ *test-pass-count*)) t)
-    (progn (setq *test-fail-count* (1+ *test-fail-count*)) nil))
+  (progn (setq *test-fail-count* (1+ *test-fail-count*)) nil))
   ;; 保存测试结果
   (setq *test-results* (cons (list test-name pass result expected) *test-results*))
   ;; 输出测试结果
   (if pass
       (princ (string:format "[PASS] %s\n" test-name))
-    (princ (string:format "[FAIL] %s - Expected: %s, Got: %s\n" test-name expected result)))
+  (princ (string:format "[FAIL] %s - Expected: %s, Got: %s\n" test-name expected result)))
   pass)
 
 ;;;------------------------------------------------------------
@@ -159,8 +159,8 @@
 (defun test:run-suite (suite-name / suite cases)
   "运行测试套件"
   (foreach s *test-suite*
-    (if (= (car s) suite-name)
-        (progn
+  (if (= (car s) suite-name)
+    (progn
           ;; 获取套件数据
           (setq suite s)
           (setq cases (cdr s))
@@ -168,7 +168,7 @@
           (princ (string:format "\n=== Running Suite: %s ===\n" suite-name))
           ;; 运行每个测试用例
           (mapcar '(lambda(c)
-                    (test:run-case (car c) (cadr c) (caddr c)))
+          (test:run-case (car c) (cadr c) (caddr c)))
                   cases))))
   nil)
 
@@ -193,16 +193,16 @@
   (princ "========================================\n")
   ;; 运行每个套件
   (foreach s *test-suite*
-    (test:run-suite (car s)))
+  (test:run-suite (car s)))
   ;; 打印统计摘要
   (princ (string:format "\n--- Summary ---\nPassed: %d\nFailed: %d\nTotal: %d\n"
-                        *test-pass-count*
-                        *test-fail-count*
-                        (+ *test-pass-count* *test-fail-count*)))
+            *test-pass-count*
+            *test-fail-count*
+            (+ *test-pass-count* *test-fail-count*)))
   ;; 打印最终结论
   (if (= *test-fail-count* 0)
       (princ "\nAll tests passed! ✓\n")
-    (princ (strcat "\n" (itoa *test-fail-count*) " test(s) failed! ✗\n")))
+  (princ (strcat "\n" (itoa *test-fail-count*) " test(s) failed! ✗\n")))
   (princ "\n")
   ;; 返回测试结果
   (if (> *test-fail-count* 0) nil t))

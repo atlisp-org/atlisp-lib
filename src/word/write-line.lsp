@@ -4,8 +4,8 @@
 	(vlax-get-property
 	 (vlax-get-property
 	  (vlax-get-property
-	   ax-doc
-	   'Paragraphs)
+  ax-doc
+  'Paragraphs)
 	  'Last
 	  )
 	 'Range

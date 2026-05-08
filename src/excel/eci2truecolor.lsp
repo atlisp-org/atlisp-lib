@@ -4,4 +4,4 @@
   "(excel:ECI->Truecolor 6)"
   (cond ((setq tmp (assoc color *xls-color*))
       (caddr tmp))
-    (t 16711935)))
+  (t 16711935)))

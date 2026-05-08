@@ -4,8 +4,8 @@
   "(entity:change-Ltype cirobj \"DASHED\")"
   (cond ((entity:ltype-exists strltype)
       (cond ((and (vlax-read-enabled-p obj)
-            (vlax-write-enabled-p obj))
+      (vlax-write-enabled-p obj))
           (vla-put-linetype obj strltype)
           t)
-        (t nil)))
     (t nil)))
+  (t nil)))

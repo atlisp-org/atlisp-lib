@@ -5,8 +5,8 @@
   (if (null str)(setq str ""))
   (setq flag nil)
   (while (< (string:bytelength str) len)
-    (if flag
+  (if flag
 	  (setq str (strcat " " str))
       (setq str (strcat str " ")))
-    (setq flag (not flag)))
+  (setq flag (not flag)))
   str)

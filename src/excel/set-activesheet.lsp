@@ -3,9 +3,9 @@
   "成功返回t"
   "(excel:set-ActiveSheet exobj \"123\")"
   (if (member name (excel:sheets xlapp))
-    (vlax-for sh (vlax-get-property xlapp "sheets")
+  (vlax-for sh (vlax-get-property xlapp "sheets")
       (if (= (vlax-get-property sh "Name")
           name)
-        (vlax-invoke-method sh "Activate"))))
+    (vlax-invoke-method sh "Activate"))))
   (equal (excel:get-activesheet xlapp)
-    name))
+  name))

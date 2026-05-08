@@ -9,7 +9,7 @@
    *ACAD*
    (apply 'vlax-3D-point (point:centroid box))
    (* (if (and (setq magnify (@:get-config '@:magnify))
-	       (> magnify 0.01))
+    (> magnify 0.01))
 	  magnify
 	1)
       (/ 

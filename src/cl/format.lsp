@@ -1,5 +1,5 @@
 (defun cl:format (stream ctrl-string variables
-			 / flag-instruct  flag-comma number1 number2 result  to-string tmp-str init-flag)
+  / flag-instruct  flag-comma number1 number2 result  to-string tmp-str init-flag)
   ;; 内部函数支持 D X O B A S
   ;; D 十进制整数 
   ;; -- 处理D时的前置参数  @ 带正号 , : 每三位用,号分隔，如 +1,000,001 
@@ -17,23 +17,23 @@
   "String"
   "(cl:format \"~{~a ~}\" (list '(\"a\"\"b\"\"c\")))"
   (defun to-string (para)
-    (cond
+  (cond
      ((= 'INT (type-of para)) (itoa para))
      ((= 'REAL (type-of para)) (rtos para 2 3))
      ((= 'STR (type-of para)) para)
      ((= 'LIST (type-of para)) (vl-prin1-to-string para ))
      ((= 'SYM (type-of para)) (vl-symbol-name para))
      )
-    )
+  )
   (defun init-flag ()
-    (setq flag-instruct nil
+  (setq flag-instruct nil
 	  flag-comma nil
 	  number1 ""
 	  number2 ""))
   (init-flag)
   (setq result "")
   (while (/= "" ctrl-string)
-    (if flag-instruct
+  (if flag-instruct
 	(cond
 	 ;; 修饰符
 	 ((= (ascii ",")(ascii ctrl-string))
@@ -52,7 +52,7 @@
 	  )
 	 
 	 ((and (> (ascii ctrl-string) 47)
-	       (> 58 (ascii ctrl-string)))
+    (> 58 (ascii ctrl-string)))
 	  ;; 数字
 	  (if flag-comma
 	      (setq number2 (strcat number2 (substr ctrl-string 1 1)))
@@ -170,14 +170,14 @@
 	  (setq ctrl-string (substr ctrl-string 2))
 	  (setq sub-ctrl-string "")
 	  (while (and (<= 2 (strlen ctrl-string))
-		      (/= "~}" (substr ctrl-string 1 2)))
+    (/= "~}" (substr ctrl-string 1 2)))
 	    (setq sub-ctrl-string (strcat sub-ctrl-string (substr ctrl-string 1 1)))
 	    (setq ctrl-string (substr ctrl-string 2)))
 	  (setq ctrl-string (substr ctrl-string 3))
 	  (foreach para (car variables)
 		   (if (atom para)(setq para (list para)))
 		   (setq result
-			 (strcat result
+  (strcat result
 				 (cl:format nil sub-ctrl-string para))))
 	  (setq variables (cdr variables))
 	  (init-flag))
@@ -186,15 +186,15 @@
 	  (setq ctrl-string (substr ctrl-string 2))
 	  (setq sub-ctrl-string "")
 	  (while (and (<= 2 (strlen ctrl-string))
-		      (/= "~]" (substr ctrl-string 1 2)))
+    (/= "~]" (substr ctrl-string 1 2)))
 	    (setq sub-ctrl-string (strcat sub-ctrl-string (substr ctrl-string 1 1)))
 	    (setq ctrl-string (substr ctrl-string 2)))
 	  (setq ctrl-string (substr ctrl-string 3))
 	  (setq sub-lst (string:parse-by-lst sub-ctrl-string '("~;" "~:;")))
 	  (cond
-	   ((< (car variables) (length sub-lst))
+  ((< (car variables) (length sub-lst))
 	    (setq result (strcat result (nth (car variables) sub-lst))))
-	   (t
+  (t
 	    (if (vl-string-search "`~:;" sub-ctrl-string)
 		(setq result (strcat result (last sub-lst))))))
 	  (setq variables (cdr variables))
@@ -209,16 +209,16 @@
       
 
       )
-    (setq ctrl-string (substr ctrl-string 2)))
+  (setq ctrl-string (substr ctrl-string 2)))
 
   (cond
    ((= T stream)
-    (princ result)
-    (princ))
+  (princ result)
+  (princ))
    ((= nil stream)
-    result)
+  result)
    ((= (type stream) 'FILE)
-    (write-line result stream))
+  (write-line result stream))
    )
   )
 

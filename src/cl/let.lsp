@@ -3,9 +3,9 @@
   "any"
   "(let '((a 3) (b 5)) '(* a b)) => 15"
   (eval
-    (cons
+  (cons
       (list 'lambda (mapcar 'car bindings) body)
       (mapcar 'cadr bindings)
       )
-    )
+  )
   )

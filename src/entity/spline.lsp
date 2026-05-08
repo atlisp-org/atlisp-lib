@@ -1,8 +1,8 @@
 (defun entity:spline (pts)
   (command "_SPLINE")
   (mapcar (quote command)
-    pts)
+  pts)
   (command ""
-    ""
-    "")
+  ""
+  "")
   (entlast))

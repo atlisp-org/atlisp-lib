@@ -5,9 +5,9 @@
   (vlax-for
    each (vla-get-layers *doc*)
    (if (member (strcase (vla-get-name each))
-	       (mapcar (quote strcase)
+    (mapcar (quote strcase)
 		       laylist))
        (if (vlax-write-enabled-p each)
            (if on-off (vla-put-plottable each :vlax-true)
-	       (vla-put-plottable each :vlax-false))))
+    (vla-put-plottable each :vlax-false))))
    (vlax-release-object each)))

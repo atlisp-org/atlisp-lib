@@ -3,8 +3,8 @@
   "excel颜色索引"
   "(excel:ACI->ECI 2)"
   (if (setq tmp (vl-remove-if-not (quote (lambda (x)
-            (= (cadr x)
+      (= (cadr x)
               color)))
-        *xls-color*))
-    (caar tmp)
-    0))
+    *xls-color*))
+  (caar tmp)
+  0))

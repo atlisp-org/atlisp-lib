@@ -2,4 +2,4 @@
   (setq a (vectra:angle-include (vectra:line-getangle l1)
       (vectra:line-getangle l2)))
   (or (equal a pi 0.01)
-    (equal a 0.0 0.01)))
+  (equal a 0.0 0.01)))

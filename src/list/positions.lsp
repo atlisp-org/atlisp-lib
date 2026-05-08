@@ -4,6 +4,6 @@
   "(list:postions 'a '(a b a)) => (0 2)"
   (setq l (length lst))
   (while (setq lst (member item lst))
-    (setq res (cons (- l (length lst)) res))
-    (setq lst (cdr lst)))
+  (setq res (cons (- l (length lst)) res))
+  (setq lst (cdr lst)))
   (reverse res))

@@ -17,46 +17,46 @@
   (setq out (open path "w"))
   (write-line "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>" out)
   (write-line (strcat "<svg width=\"256\" height=\"256\" viewBox=\"0 0 "
-		      (rtos w 2 1)" "(rtos h 2 1)
-		      "\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">")
-    out)
+    (rtos w 2 1)" "(rtos h 2 1)
+    "\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">")
+  out)
   (foreach
    curve lst-ss
    (setq color (color:rgb2css (entity:get-truecolor curve)))
    (setq bold (entity:getdxf curve 43))
    (if (or (null bold)
-	   (and bold (= 0 bold)))
+  (and bold (= 0 bold)))
        (setq bold 1))
 
    (cond
-    ((wcmatch (entity:getdxf curve 0) "LWPOLYLINE,LINE")
+  ((wcmatch (entity:getdxf curve 0) "LWPOLYLINE,LINE")
      (write-line (strcat "<polyline points=\""
-			 (string:from-list
+  (string:from-list
 			  (mapcar 
 			   '(lambda (x) 
 			      (strcat (rtos (- (car x) ox) 2 3)","(rtos (- h (- (cadr x) oy)) 2 3)
 				      ))
 			   (progn
-			     (setq pts (curve:get-points curve))
-			     (if (and (setq closed (entity:getdxf curve 70))
-				    (= 1 closed))
+    (setq pts (curve:get-points curve))
+    (if (and (setq closed (entity:getdxf curve 70))
+    (= 1 closed))
 				 (setq pts (append pts (list (car pts))))
 			       pts)))
 			  " ")
-			 "\" style=\"fill:none;stroke:"color";stroke-width:"
-			 (rtos bold 2 3)
-			 "\" />") 
+  "\" style=\"fill:none;stroke:"color";stroke-width:"
+  (rtos bold 2 3)
+  "\" />") 
 		 out))
-    ((wcmatch (entity:getdxf curve 0) "CIRCLE")
+  ((wcmatch (entity:getdxf curve 0) "CIRCLE")
      (setq x (entity:getdxf curve 10))
      (write-line (strcat "<circle cx=\""(rtos (- (car x) ox) 2 3) "\" "
-			 "cy=\"" (rtos (- h (- (cadr x) oy)) 2 3) "\" "
-			 "r=\"" (rtos (entity:getdxf curve 40) 2 3)"\" "
-			 "stroke=\"" color "\" "
-			 "stroke-width=\""(rtos bold  2 3)"\" "
-			 "fill=\"white\" />")
+  "cy=\"" (rtos (- h (- (cadr x) oy)) 2 3) "\" "
+  "r=\"" (rtos (entity:getdxf curve 40) 2 3)"\" "
+  "stroke=\"" color "\" "
+  "stroke-width=\""(rtos bold  2 3)"\" "
+  "fill=\"white\" />")
 		 out))
-    ))
+  ))
     
   (write-line "</svg>" out)
   (close out)

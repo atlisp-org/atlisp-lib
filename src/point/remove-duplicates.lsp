@@ -3,7 +3,7 @@
   ""
   (setq lst (cons (car pts) nil))
   (foreach pt pts
-	   (if (> (distance pt (car lst))
-		  1e-4)
-	       (setq lst (cons pt lst))))
+  (if (> (distance pt (car lst))
+  1e-4)
+    (setq lst (cons pt lst))))
   lst)

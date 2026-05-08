@@ -8,7 +8,7 @@
    ((if (> (geometry:turn-right-p pt1 pt2 pt3) 0)
 	curve:o2bulge
 	curve:o2bulge-clockwise)
-    pt1 pt3
-    (curve:3pt2o pt1 pt2 pt3)))
+  pt1 pt3
+  (curve:3pt2o pt1 pt2 pt3)))
   )
 	   

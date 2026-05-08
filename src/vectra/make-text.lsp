@@ -1,37 +1,37 @@
 (defun vectra:make-text (text point align height width ang / c)
   (vectra:textstyle-get $addnew-textstyle "gbenor.shx"
-    "hztxt.shx"
-    0.7)
+  "hztxt.shx"
+  0.7)
   (setq c (cdr (assoc (strcase align)
-        (quote (("L"
+    (quote (("L"
               0 0)
-            ("C"
+      ("C"
               1 0)
-            ("R"
+      ("R"
               2 0)
-            ("A"
+      ("A"
               3 0)
-            ("M"
+      ("M"
               4 3)
-            ("F"
+      ("F"
               5 0)
-            ("TL"
+      ("TL"
               0 3)
-            ("TC"
+      ("TC"
               1 3)
-            ("TR"
+      ("TR"
               2 3)
-            ("ML"
+      ("ML"
               0 2)
-            ("MC"
+      ("MC"
               1 2)
-            ("MR"
+      ("MR"
               2 2)
-            ("BL"
+      ("BL"
               0 1)
-            ("BC"
+      ("BC"
               1 1)
-            ("BR"
+      ("BR"
               2 1))))))
   (vectra:entmake (list (quote (0 . "TEXT"))
       (cons 1 text)

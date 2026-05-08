@@ -3,14 +3,14 @@
   ""
   "(ui:dyndraw (ssget)(getpoint))"
   (defun *error* (msg)
-    (if ents
+  (if ents
 	(progn
 	  (if (= 'ename (type ents))(setq ents (list ents)))
 	  (if (= 'pickset (type ents))
 	      (setq ents (pickset:to-list ents)))
 	  (if (p:ename-listp ents)
 	      (mapcar 'entdel ents))))
-    (princ msg))
+  (princ msg))
   (if (= 'ename (type ents))(setq ents (list ents)))
   (if (= 'pickset (type ents))
       (setq ents (pickset:to-list ents)))
@@ -44,7 +44,7 @@
 	     (setq pt-base (cadr gr))
 	     )
 	    (t "其它情况"
-	       (princ gr)))
+    (princ gr)))
 	  )
 	ents
 	)

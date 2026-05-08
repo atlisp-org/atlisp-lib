@@ -4,8 +4,8 @@
   "(m:dec2base 3323 16)"
   (if (< fixnum int-b)
       (chr (+ fixnum (if (< fixnum 10)
-                    48 55)))
-    (strcat (m:dec2base (/ fixnum int-b)
-			 int-b)
-            (m:dec2base (rem fixnum int-b)
-			 int-b))))
+          48 55)))
+  (strcat (m:dec2base (/ fixnum int-b)
+  int-b)
+      (m:dec2base (rem fixnum int-b)
+  int-b))))

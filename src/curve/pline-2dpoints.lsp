@@ -3,9 +3,9 @@
   "二维点坐标列表"
   "(curve:Pline-2dpoints (car (entsel)))"
   (mapcar (quote cdr)
-    (vl-remove-if-not (quote (lambda (x)
+  (vl-remove-if-not (quote (lambda (x)
           (or (= (car x)
               10)
-            (= (car x)
+      (= (car x)
               11))))
       (entget ent))))

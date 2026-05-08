@@ -3,5 +3,5 @@
   ;; 检查是否有python
   (if (null (system:which "python"))
       (@::cmd  "start"
-	       "winget install python.python.3.12"))
+    "winget install python.python.3.12"))
   )

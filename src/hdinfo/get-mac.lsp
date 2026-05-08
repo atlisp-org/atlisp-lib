@@ -7,7 +7,7 @@
   (setq mac (vlax-invoke svr (quote execquery)
       str))
   (vlax-for i mac (setq s (cons (vlax-get i (quote macaddress))
-        s)))
+    s)))
   (vlax-release-object mac)
   (vlax-release-object svr)
   (vlax-release-object wmi)

@@ -4,4 +4,4 @@
   "(entity:Ltype-Exists \"continuous\")"
   (and (member (strcase strltype)
       (mapcar (quote strcase)
-        (entity:linetypes)))))
+    (entity:linetypes)))))

@@ -7,14 +7,14 @@
   "2. View 建立显示视图。"
   (dcl:dialog "example")
   (progn (dcl:hr 0.08)
-    (dcl:button "btn1"
+  (dcl:button "btn1"
       "按钮1"
       "")
-    (dcl:hr 0.08)
-    (dcl:button "btn2"
+  (dcl:hr 0.08)
+  (dcl:button "btn2"
       "按钮2"
       "")
-    (dcl:hr 0.08))
+  (dcl:hr 0.08))
   (dcl:dialog-end-ok-cancel)
   "3. Control 创建控制流程"
   (defun cb-btn1 nil (alert "按下了按钮1"))
@@ -23,7 +23,7 @@
   (dcl:new "example")
   "5. Init 初始化对话框"
   (set_tile "title"
-    "dcl示例1")
+  "dcl示例1")
   "6. Show dialog 显示并进行交互"
   (dcl:show)
   (princ))

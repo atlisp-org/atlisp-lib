@@ -4,4 +4,4 @@
   "(Excel:ECI->ACI 6)"
   (cond ((setq tmp (assoc color *xls-color*))
       (cadr tmp))
-    (t 256)))
+  (t 256)))

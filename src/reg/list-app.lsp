@@ -6,10 +6,10 @@
   (setq clsids
 	(vl-remove-if-not
 	 '(lambda(x / ax)
-	   (setq sub (mapcar 'strcase (vl-registry-descendents (strcat axroot "\\"x))))
-	   (and (member (strcase "InProcServer32") sub)
+  (setq sub (mapcar 'strcase (vl-registry-descendents (strcat axroot "\\"x))))
+  (and (member (strcase "InProcServer32") sub)
 	    (member (strcase "ProgID")sub))
-	   )
+  )
 	 (vl-registry-descendents axroot)))
   (mapcar '(lambda(x)
 	    (vl-registry-read (strcat axroot "\\"x"\\ProgID")))

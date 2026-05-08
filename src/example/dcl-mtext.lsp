@@ -8,14 +8,14 @@
   (dcl:dialog "example")
   (progn (dcl:mtext "mt"
       3 50)
-    (dcl:begin-cluster "row"
+  (dcl:begin-cluster "row"
       "")
-    (progn (dcl:button "btn1"
-        "按钮1"
-        "")
+  (progn (dcl:button "btn1"
+    "按钮1"
+    "")
       (dcl:button "btn2"
-        "按钮2"
-        "")
+    "按钮2"
+    "")
       (dcl:end-cluster)))
   (dcl:dialog-end-ok-cancel)
   "3. Control 创建控制流程"
@@ -27,9 +27,9 @@
   (dcl:new "example")
   "5. Init 初始化对话框"
   (set_tile "title"
-    "dcl-多行文本示例")
+  "dcl-多行文本示例")
   (dcl:set-mtext "mt"
-    "初始化多行文本内容。初始化多行文本内容。初始化多行文本内容。初始化多行文本内容。初始化多行文本内容。")
+  "初始化多行文本内容。初始化多行文本内容。初始化多行文本内容。初始化多行文本内容。初始化多行文本内容。")
   "6. Show dialog 显示并进行交互"
   (dcl:show)
   (princ))

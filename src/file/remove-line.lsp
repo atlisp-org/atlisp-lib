@@ -10,7 +10,7 @@
 	(while (setq content (read-line fp))
 	  (setq n (1+ n))
 	  (if (not
-	       (or (member n lines)
+    (or (member n lines)
 		   (member content lines)))
 	      (write-line content tmpfp)))
 	(close fp)
@@ -18,5 +18,5 @@
 	(vl-file-delete file)
 	(vl-file-rename tmpfile
 			file))
-    (princ "Not found file"))
+  (princ "Not found file"))
   (princ))

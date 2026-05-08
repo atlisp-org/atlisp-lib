@@ -5,14 +5,14 @@
   (setq pts (append (list (last pts)) pts (list (car pts))))
   (setq angles '())
   (while (> (length pts) 2)
-    (setq angles
+  (setq angles
 	  (cons
-	   (m:fix-angle
+  (m:fix-angle
 	    (-(angle  (cadr pts)(caddr pts))
 	      (angle (car pts)(cadr pts))))
-	   angles))
-    (setq pts (cdr pts))
-    )
+  angles))
+  (setq pts (cdr pts))
+  )
   (reverse angles)
   )
 

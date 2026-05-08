@@ -4,7 +4,7 @@
   "(list:sort '(1 2 3 1 2) '<)"
   (setq res (cons (car lst) nil))
   (while (setq lst (cdr lst))
-    (if ((eval fun) (car res)(car lst))
+  (if ((eval fun) (car res)(car lst))
 	(setq res (cons (car lst) res))
       (progn
 	(setq tmp (cons (car res)nil))

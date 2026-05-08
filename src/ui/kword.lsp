@@ -3,25 +3,25 @@
   "选中的字符串"
   "(ui:kword \"Please select:\" '(\"a\"\"b\"\"c\"))"
   (defun *error* (msg)
-    (if olddyn
+  (if olddyn
 	(setvar "dynmode" olddyn))
-    (if olddynprompt
+  (if olddynprompt
 	(setvar "dynprompt" olddynprompt))
-    (princ msg)
-    (princ)
-    )
+  (princ msg)
+  (princ)
+  )
   (if (and (listp lst-str)
-	   (> (length lst-str) 0)
-	   (p:stringp title)
-	   )
+  (> (length lst-str) 0)
+  (p:stringp title)
+  )
       (progn
 	(setq short? t)
 	(mapcar
 	 '(lambda(x / lst)
-	   (setq lst (string:s2l-ansi x))
-	   (if (or (member 32 lst)
+  (setq lst (string:s2l-ansi x))
+  (if (or (member 32 lst)
 		   (> (apply 'max  lst) 128))
-	       (setq short? nil)))
+    (setq short? nil)))
 	 lst-str)
 	(if (setq olddynprompt (getvar "dynprompt"))
 	     (setvar "dynprompt" 1))
@@ -33,9 +33,9 @@
 	(initget (string:from-list (if short? lst-str lst-n) " "))
 	(setq res
 	      (getkword (strcat
-			 title
-			 "["
-			 (string:from-list
+  title
+  "["
+  (string:from-list
 			  (if short?
 			      lst-str
 			      (mapcar '(lambda(x y)
@@ -44,7 +44,7 @@
 				      lst-str lst-n))
 			  
 			  "/")
-			 "]")))
+  "]")))
 	(if olddyn
 	    (setvar "dynmode" olddyn))
 	(if olddynprompt

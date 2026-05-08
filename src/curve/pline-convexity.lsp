@@ -11,11 +11,11 @@
 	 (setq pldata (entget ent))
 	 (if (= "POLYLINE"(entity:getdxf ent 0))
 	     (progn
-	       (setq nextent ent)
-	       (setq pldata (vl-remove-if '(lambda(x)
+    (setq nextent ent)
+    (setq pldata (vl-remove-if '(lambda(x)
 					     (= 10 (car x)))
 					  pldata))
-	       (while (= "VERTEX" (entity:getdxf (setq nextent (entnext nextent)) 0))
+    (while (= "VERTEX" (entity:getdxf (setq nextent (entnext nextent)) 0))
 		 (setq pldata
 		       (append pldata
 			       (entget nextent))))))

@@ -3,12 +3,12 @@
   "pickset"
   (if en (progn (setq ss (ssadd))
       (while (setq en (entnext en))
-        (if (not (member (cdr (assoc 0 (entget en)))
+    (if (not (member (cdr (assoc 0 (entget en)))
               (quote ("ATTRIB"
                   "VERTEX"
                   "SEQEND"))))
           (ssadd en ss)))
       (if (zerop (sslength ss))
-        (setq ss nil))
+    (setq ss nil))
       ss)
-    (ssget "_x")))
+  (ssget "_x")))

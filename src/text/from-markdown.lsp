@@ -3,21 +3,21 @@
   "String"
   (setq lst-str (string:to-list str "\n"))
   (defun handle-strong (str / tmp i res)
-    (setq tmp (string:to-list str "**"))
-    (setq i 0)
-    (foreach
+  (setq tmp (string:to-list str "**"))
+  (setq i 0)
+  (foreach
      unit% tmp
      (if (= 1 (rem i 2))
 	 (setq res
-	       (cons (strcat "{\\fSimHei|b0|i0|c134|p49;"unit%"}")
+    (cons (strcat "{\\fSimHei|b0|i0|c134|p49;"unit%"}")
 		     res))
 	 (setq res (cons unit% res)))
      (setq i (1+ i))
      )
-    (string:from-lst (reverse res) ""))
+  (string:from-lst (reverse res) ""))
 
   (defun handle-header (str )
-    (cond
+  (cond
       ((= "* "(substr str 1 2))
        (strcat "\\C2;· \\C3;" (substr str 3)))
       ((= "** "(substr str 1 3))

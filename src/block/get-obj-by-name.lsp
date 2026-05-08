@@ -3,5 +3,5 @@
   "vla-object"
   (car (vl-remove-if-not
 	'(lambda(x)
-	   (= (vla-get-name x) blk-name))
+  (= (vla-get-name x) blk-name))
 	(block:list-blk-objs))))

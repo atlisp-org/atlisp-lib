@@ -3,15 +3,15 @@
   "特性的值"
   "(excel:get-property range \"MergeArea.Rows.Count\")"
   (cond ((= (type prop)
-        (quote sym))
+    (quote sym))
       (setq rtn (vlax-get-property obj prop)))
-    ((= (type prop)
-        (quote str))
+  ((= (type prop)
+    (quote str))
       (if (null (vl-string-search "."
-            prop))
-        (setq rtn (vlax-get-property obj prop))
-        (foreach item (bf-str->lst prop ".")
+      prop))
+    (setq rtn (vlax-get-property obj prop))
+    (foreach item (bf-str->lst prop ".")
           (if (null rtn)
-            (setq rtn (vlax-get-property obj item))
-            (setq rtn (vlax-get-property rtn item)))))))
+      (setq rtn (vlax-get-property obj item))
+      (setq rtn (vlax-get-property rtn item)))))))
   rtn)

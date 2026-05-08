@@ -8,11 +8,11 @@
           (vla-put-visible ax-word :vlax-false))
 	(if (findfile filename)
 	    (vlax-invoke (vlax-get-property ax-word (quote documents))
-			 (quote open)
-			 filename)
+  (quote open)
+  filename)
 	  (progn
 	    (vlax-invoke (vlax-get-property ax-word (quote documents))
-			 (quote add))
+  (quote add))
 	    (vlax-invoke
 	     (vlax-get-property ax-word 'ActiveDocument)
 	     'saveas filename)))

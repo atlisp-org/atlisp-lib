@@ -3,18 +3,18 @@
   (numberp (vl-catch-all-apply (quote read)
       (list (cond ((= "."
               (substr str 1 1))
-            (strcat "0"
+      (strcat "0"
               str))
           ((and (= "-."
-                (substr str 1 2))
+        (substr str 1 2))
               (> (strlen str)
-                2))
-            (strcat "-0"
+        2))
+      (strcat "-0"
               (substr str 2)))
           ((and (= "+."
-                (substr str 1 2))
+        (substr str 1 2))
               (> (strlen str)
-                2))
-            (strcat "+0"
+        2))
+      (strcat "+0"
               (substr str 2)))
           (t str))))))

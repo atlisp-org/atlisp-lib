@@ -10,5 +10,5 @@
 	 (vla-get-red obj-color)
 	 (vla-get-green obj-color)
 	 (vla-get-blue obj-color)))
-    '(0 0 0)))
-   
+  '(0 0 0)))
+  

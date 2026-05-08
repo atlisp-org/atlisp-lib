@@ -4,7 +4,7 @@
   (setq hatchobj (vla-addhatch (std:model-space)
       achatchpatterntypepredefined name :vlax-true))
   (vla-appendouterloop hatchobj (vla:objarray (mapcar (quote vlax-ename->vla-object)
-        outarray)))
+    outarray)))
   (if inarray (vla-appendinnerloop hatchobj (vla:objarray (mapcar (quote vlax-ename->vla-object)
           inarray))))
   (vla-put-patternscale hatchobj 40)

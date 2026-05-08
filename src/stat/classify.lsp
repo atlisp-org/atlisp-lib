@@ -4,14 +4,14 @@
   "(stat:classify '((a . 5)(b . 3)(a . 2)(b . 6)))"
   (setq res nil)
   (foreach cons% lst-cons
-	   (if (assoc (car cons%) res)
-	       (setq res
+  (if (assoc (car cons%) res)
+    (setq res
 		     (subst
-		      (cons (car cons%)
+    (cons (car cons%)
 			    (+ (cdr (assoc (car cons%) res))
 			       (cdr cons%)))
-		      (assoc (car cons%) res)
-		      res))
+    (assoc (car cons%) res)
+    res))
 	     (setq res
 		   (cons
 		    cons%

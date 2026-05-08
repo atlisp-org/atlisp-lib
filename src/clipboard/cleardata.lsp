@@ -4,4 +4,4 @@
   "(clipboard:cleardata)"
   (clipboard:init)
   (vlax-invoke @:*clipboard* (quote cleardata)
-    "text"))
+  "text"))

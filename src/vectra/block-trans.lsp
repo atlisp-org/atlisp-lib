@@ -1,5 +1,5 @@
 (defun vectra:block-trans (p geom /)
   (mapcar (quote +)
-    (vectra:mxv (car geom)
+  (vectra:mxv (car geom)
       p)
-    (cadr geom)))
+  (cadr geom)))
