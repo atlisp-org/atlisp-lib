@@ -51,11 +51,10 @@
 ;;;------------------------------------------------------------
 (defun test:add-case (suite-name test-name test-fn expected)
   "添加测试用例 (test:add-case 'suite 'test-name '(lambda () ... ) expected)"
-  ;; 遍历所有套件，找到目标套件，使用 mapcar 返回新列表
   (setq *test-suite*
         (mapcar '(lambda (s)
-                   (if (= (car s) suite-name)
-                       (append s (list (list test-name test-fn expected)))
+                   (if (eq (car s) suite-name)
+                       (cons s (list (list test-name test-fn expected)))
                      s))
                 *test-suite*))
   nil)
