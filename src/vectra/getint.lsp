@@ -4,6 +4,6 @@
   ""
   (if init (initget init))
   (if (null (setq r (getint (strcat msg "<"
-            (itoa default)
-            ">"))))
-    default r))
+      (itoa default)
+      ">"))))
+  default r))

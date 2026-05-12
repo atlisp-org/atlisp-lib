@@ -1,6 +1,6 @@
 (defun vectra:commandrun (func / *error*)
   (defun *error* (s)
-    (vectra:error-handler s))
+  (vectra:error-handler s))
   (vectra:error-start0)
   (vectra:startundomark)
   (eval func)

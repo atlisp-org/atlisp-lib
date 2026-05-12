@@ -2,5 +2,5 @@
   "带okcancel结束DCL文件并关闭文件指针。"
   ""
   (write-line ":spacer{} ok_cancel;}"
-    dcl-fp)
+  dcl-fp)
   (close dcl-fp))

@@ -9,18 +9,18 @@
   (if 
       (and
        (or (string-equal tbl-name "layout")
-	   (and (tblsearch tbl-name old-name)
+  (and (tblsearch tbl-name old-name)
 		(not (tblsearch tbl-name new-name))))
        (snvalid new-name))
       (progn 
       (if 
-        (vl-catch-all-error-p 
+    (vl-catch-all-error-p 
           (vl-catch-all-apply 
-            'vla-put-name
-            (list 
+      'vla-put-name
+      (list 
               (vla-item 
-                (vlax-get-property *DOC* (tbl:dxf2obj tbl-name))
-                old-name)
+        (vlax-get-property *DOC* (tbl:dxf2obj tbl-name))
+        old-name)
               new-name)))
-        nil
-        T))))
+    nil
+    T))))

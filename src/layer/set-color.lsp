@@ -5,16 +5,16 @@
   (setq int-color (fix int-color))
   (cond 
    ((p:stringp lay)
-    (setq lst
+  (setq lst
 	  (vl-remove-if-not '(lambda (x)
 			       (wcmatch (strcase x)(strcase lay)))
 			    (layer:list)))
-    (foreach layername lst
+  (foreach layername lst
 	     (setq %ent (entget (layer:ent layername)))
 	     (entmod (subst (cons 62 int-color)(assoc 62 %ent) %ent))))
    ((p:enamep lay)
-    (setq %ent (entget lay))
-    (entmod (subst (cons 62 int-color)(assoc 62 %ent) %ent)))
+  (setq %ent (entget lay))
+  (entmod (subst (cons 62 int-color)(assoc 62 %ent) %ent)))
    )
   )
 

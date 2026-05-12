@@ -2,7 +2,7 @@
   "删除图元的扩展数据"
   (cond
    ((p:enamep ename)
-    (entmod
+  (entmod
      (list
       (cons -1 ename)
       (cons -3
@@ -13,7 +13,7 @@
 	      (cdr (assoc -3 (entget ename '("*"))))
 	      ))))))
    ((p:listp ename)
-    (mapcar 'xdata:delete ename))
+  (mapcar 'xdata:delete ename))
    ((p:picksetp ename)
-    (mapcar 'xdata:delete (pickset:to-list ename)))))
-   
+  (mapcar 'xdata:delete (pickset:to-list ename)))))
+  

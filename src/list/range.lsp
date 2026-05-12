@@ -4,5 +4,5 @@
   "(list:range 1 4 1);; => (1 2 3 4)"
   (if (> start end)
       (quote nil)
-    (cons start (list:range (+ start step)
+  (cons start (list:range (+ start step)
 			    end step))))

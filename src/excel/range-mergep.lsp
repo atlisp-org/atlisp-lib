@@ -3,5 +3,5 @@
   "是，返回t，否，返回nil"
   "(excel:Range-Mergep exobj \"A1\")"
   (equal (vlax-variant-value (vlax-get-property (excel:get-range xlapp (excel:utils-index-cells->range index))
-        (quote mergecells)))
-    :vlax-true))
+    (quote mergecells)))
+  :vlax-true))

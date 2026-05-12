@@ -6,25 +6,25 @@
   (setq funs (mapcar '(lambda(xyz) (if (< xyz 100) > <))
 		     keys))
   (setq orders (mapcar '(lambda(xyz)
-			 (cond ((< xyz 100) (- xyz 88))
+  (cond ((< xyz 100) (- xyz 88))
 			       (t (- xyz 120))))
 		       keys))
   (defun equal-compare (fun a b fuzz)
-    (if equaled
+  (if equaled
 	(if (not (equal a b fuzz))
 	    (progn (setq equaled nil)  (fun a b)))))
   (if (atom fuzz)(setq fuzz (list fuzz)))
   (while (< (length fuzz) (length keys))
-    (setq fuzz (append fuzz (list (last fuzz)))))
+  (setq fuzz (append fuzz (list (last fuzz)))))
 
   (if (p:picksetp sspts)
       (setq sspts(pickset:to-list sspts)))
   (vl-sort sspts
-	   '(lambda(x y / i equaled)
+  '(lambda(x y / i equaled)
 	     (setq equaled t)
 	     (apply 'or
 	      (mapcar 'equal-compare
-	       funs
-	       (mapcar '(lambda(m)(nth m (point:centroid(entity:getbox x 0)))) orders)
-	       (mapcar '(lambda(m)(nth m (point:centroid(entity:getbox y 0)))) orders)
-	       fuzz)))))
+    funs
+    (mapcar '(lambda(m)(nth m (point:centroid(entity:getbox x 0)))) orders)
+    (mapcar '(lambda(m)(nth m (point:centroid(entity:getbox y 0)))) orders)
+    fuzz)))))

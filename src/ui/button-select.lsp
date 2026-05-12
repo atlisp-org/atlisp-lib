@@ -11,43 +11,43 @@
               str-subject "\"; "
               ":column {label=\""
               str-subject "\"; ")
-            dcl_fp)
+      dcl_fp)
           (setq i% 1)
           (setq bt-width 18)
           (foreach opt% lst (write-line (strcat ":button{ fixed_width=true; width="
-                (itoa bt-width)
-                ";key=\"S_"
-                (itoa i%)
-                "\";label=\""
-                opt% "\";action=\"(setq result \\\"" opt% "\\\")(done_dialog)\";}")
+        (itoa bt-width)
+        ";key=\"S_"
+        (itoa i%)
+        "\";label=\""
+        opt% "\";action=\"(setq result \\\"" opt% "\\\")(done_dialog)\";}")
               dcl_fp)
-            (setq i% (1+ i%)))
+      (setq i% (1+ i%)))
           (write-line "} :spacer {} ok_cancel; }"
-            dcl_fp)
+      dcl_fp)
           (close dcl_fp))
-        (setq dcl_id (load_dialog dcl-tmp))
-        (if (not (new_dialog "select"
+    (setq dcl_id (load_dialog dcl-tmp))
+    (if (not (new_dialog "select"
               dcl_id))
           (exit))
-        (action_tile "accept"
+    (action_tile "accept"
           "(done_dialog 1)")
-        (start_dialog)
-        (unload_dialog dcl_id)
-        (vl-file-delete dcl-tmp)
-        result)
+    (start_dialog)
+    (unload_dialog dcl_id)
+    (vl-file-delete dcl-tmp)
+    result)
       (progn (setq i% 0)
-        (setq opt% ""
+    (setq opt% ""
           initget% "0")
-        (foreach lst% lst (setq opt% (strcat opt% (itoa (1+ i%))
+    (foreach lst% lst (setq opt% (strcat opt% (itoa (1+ i%))
               ":"
               lst% "\n"))
           (setq initget% (strcat initget% "
               "
               (itoa (1+ i%))))
           (setq i% (1+ i%)))
-        (initget 1 initget%)
-        (nth (1- (atoi (getkword (strcat "请输入要操作的序号 : \n"
+    (initget 1 initget%)
+    (nth (1- (atoi (getkword (strcat "请输入要操作的序号 : \n"
                   opt%))))
           lst)))
-    (progn (alert (_ "parameter is nil."))
+  (progn (alert (_ "parameter is nil."))
       nil)))

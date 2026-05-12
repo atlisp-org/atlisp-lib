@@ -8,15 +8,15 @@
   (setq flag t)
   (setq ang-base 0)
   (while flag
-    (setq gr (grread t 16))
-    (cond
+  (setq gr (grread t 16))
+  (cond
       ((= 3 (car gr))
        "按下鼠标左键"
        ;;绘制并退出
        (setq flag nil)
        )
       ((or (= 25 (car gr))
-	   (= 11 (car gr)))
+  (= 11 (car gr)))
        "按下鼠标右键"
        ;; 删除并退出
        (mapcar 'entdel ents)
@@ -26,12 +26,12 @@
        "移动鼠标"
        (mapcar (function(lambda(x)
 		 (vla-rotate (e2o x)
-			     (point:to-ax pt-base)
-			     (- (angle pt-base
+    (point:to-ax pt-base)
+    (- (angle pt-base
 				       (cadr gr))
-				ang-base)
-			     )))
-	       ents)
+  ang-base)
+    )))
+    ents)
        (setq ang-base (angle pt-base (cadr gr)))
        (princ "\n")
        (princ (angtos ang-base 0 3))
@@ -39,6 +39,6 @@
        )
       (t "其它情况"
 	 (princ gr)))
-    ;; (princ "\n按左键定位，右键删除")
-    )
+  ;; (princ "\n按左键定位，右键删除")
+  )
   (princ))

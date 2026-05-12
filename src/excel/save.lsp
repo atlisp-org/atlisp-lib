@@ -4,4 +4,4 @@
   "(excel:save xlsobj)"
   (equal (vlax-invoke-method (vlax-get-property xlsapp "ActiveWorkbook")
       "Save")
-    :vlax-true))
+  :vlax-true))

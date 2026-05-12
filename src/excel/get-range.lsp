@@ -4,5 +4,5 @@
   "(excel:get-Range exobj \"A1\")"
   (vlax-get-property (vlax-get-property (vlax-get-property xlapp (quote activeworkbook))
       (quote activesheet))
-    (quote range)
-    (excel:utils-index-cells->range index)))
+  (quote range)
+  (excel:utils-index-cells->range index)))

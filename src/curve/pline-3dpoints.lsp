@@ -4,11 +4,11 @@
   "(curve:pline-3dpoints (car (entsel)))"
   (cond ((and (= (quote ename)
           (type ent))
-        (= "LINE"
+    (= "LINE"
           (entity:getdxf ent 0)))
       (list (entity:getdxf ent 10)
-        (entity:getdxf ent 11)))
-    (t (setq i -1)
+    (entity:getdxf ent 11)))
+  (t (setq i -1)
       (while (setq v (vlax-curve-getpointatparam ent (setq i (1+ i))))
-        (setq lst (cons v lst)))
+    (setq lst (cons v lst)))
       (reverse lst))))

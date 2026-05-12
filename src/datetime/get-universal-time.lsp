@@ -7,7 +7,7 @@
        (datetime:mktime
 	(datetime:rfc1123-to-lisp
 	 (vlax-invoke @:*request*
-		      'getresponseheader
-		      "Date"))))
-    0)
+    'getresponseheader
+    "Date"))))
+  0)
   )

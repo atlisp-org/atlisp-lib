@@ -4,4 +4,4 @@
   "(clipboard:getdata)"
   (clipboard:init)
   (vlax-invoke @:*clipboard* (quote getdata)
-    "TEXT"))
+  "TEXT"))

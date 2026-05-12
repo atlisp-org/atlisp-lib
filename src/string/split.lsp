@@ -3,6 +3,6 @@
   (cond
     ((= (type separator) 'STR)
      (string:to-list str separator))
-    ((listp separator)
+  ((listp separator)
      (string:parse-by-lst str separator)))
   )

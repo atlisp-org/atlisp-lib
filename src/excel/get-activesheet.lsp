@@ -4,4 +4,4 @@
   "(excel:getActiveSheet exobj)"
   (vlax-get-property (vlax-get-property (vlax-get-property xlapp (quote activeworkbook))
       (quote activesheet))
-    (quote name)))
+  (quote name)))

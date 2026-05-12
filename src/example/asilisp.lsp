@@ -45,16 +45,16 @@
 
   (vl-catch-all-apply 'asi_deallocstm(list obj_dsc)) ;取消分配的sql语句（后面其他函数可能会出错，因为sql语句已经取消了）
   (progn
-    (setq obj_dsc nil)
-    (setq env_dsc nil)
-    (vl-catch-all-apply
+  (setq obj_dsc nil)
+  (setq env_dsc nil)
+  (vl-catch-all-apply
      (function (lambda (a)
        (asi_disconnect (list "SQLSESSION" a)) ;断开连接
        ))
      (list 1.0 2.0 3.0 4.0 5.0 6.0 7.0 8.0 9.0 10.0)
      )
-    (setq csr_dsc nil)
-    (setq obj_dsc nil)
-    (setq env_dsc nil)
-    )
+  (setq csr_dsc nil)
+  (setq obj_dsc nil)
+  (setq env_dsc nil)
+  )
   (arxunload "asilisp"))

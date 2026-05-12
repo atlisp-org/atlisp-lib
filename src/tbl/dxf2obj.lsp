@@ -4,9 +4,9 @@
   "(tbl:dxf2obj \"layer\")"
   (read
    (cond
-    ((string-equal tbl-name "APPID") "RegisteredApplications")
-    ((string-equal tbl-name "LTYPE") "linetypes")
-    ((string-equal tbl-name "STYLE") "textstyles")
-    ((string-equal tbl-name "UCS") "UserCoordinateSystems")
-    ((string-equal tbl-name "VPORT") "Viewports")
-    (t (strcat tbl-name "s")))))
+  ((string-equal tbl-name "APPID") "RegisteredApplications")
+  ((string-equal tbl-name "LTYPE") "linetypes")
+  ((string-equal tbl-name "STYLE") "textstyles")
+  ((string-equal tbl-name "UCS") "UserCoordinateSystems")
+  ((string-equal tbl-name "VPORT") "Viewports")
+  (t (strcat tbl-name "s")))))

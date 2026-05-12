@@ -5,8 +5,8 @@
   (setq res nil)
   (setq g (cons (car lst) nil))
   (while (setq lst (cdr lst))
-    (setq a% (car lst))
-    (if ((eval fun) (car g) a%)
+  (setq a% (car lst))
+  (if ((eval fun) (car g) a%)
 	(setq g (cons a% g))
       (progn
 	(setq res (cons (reverse g) res))

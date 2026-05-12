@@ -10,7 +10,7 @@
       (if (/= layout (getvar "ctab"))(setvar "ctab" layout)))
   (if (null twistang)
       (setq twistang 0.0)
-    (if (not (zerop twistang))
+  (if (not (zerop twistang))
 	(setq pt-model
 	      (m:coordinate-rotate pt-model  twistang)
 	      )))

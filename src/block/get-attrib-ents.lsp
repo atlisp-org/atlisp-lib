@@ -8,7 +8,7 @@
   (if (and
        (= 'ename (type blkref))
        (eq "INSERT" (entity:getdxf blkref 0))
-	   (= 1 (entity:getdxf blkref 66)))
+  (= 1 (entity:getdxf blkref 66)))
       (progn
 	(setq att (entnext blkref))
 	(while (eq "ATTRIB" (entity:getdxf att 0))

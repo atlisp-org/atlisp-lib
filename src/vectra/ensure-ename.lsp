@@ -1,5 +1,5 @@
 (defun vectra:ensure-ename (obj)
   (if (/= (quote ename)
       (type obj))
-    (vlax-vla-object->ename obj)
-    obj))
+  (vlax-vla-object->ename obj)
+  obj))

@@ -4,8 +4,8 @@
   ""
   (setq dxfs (entget en-mtext))
   (apply (quote strcat)
-    (mapcar (quote cdr)
+  (mapcar (quote cdr)
       (vl-remove-if (quote (lambda (x)
-            (and (/= 3 (car x))
+      (and (/= 3 (car x))
               (/= 1 (car x)))))
-        dxfs))))
+    dxfs))))

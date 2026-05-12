@@ -24,7 +24,7 @@
 	(setq mr (matrix:rotation-z (- (*  2 pi)(entity:getdxf blkref 50))))
 	;; OCS到块参照的WCS坐标变换
 	(mapcar '(lambda(x)
-		  (matrix:transform
+  (matrix:transform
 		   mt ms mr x))
 		boundary-in-blk)
 	)))

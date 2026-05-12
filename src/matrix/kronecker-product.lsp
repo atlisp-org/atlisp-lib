@@ -5,21 +5,21 @@
   (apply
    'append
    (mapcar
-    '(lambda (a)
+  '(lambda (a)
       (mapcar
        '(lambda(x) (apply 'append x))
        (matrix:trp a)))
-    (mapcar
+  (mapcar
      '(lambda (m1%)
        (mapcar
 	'(lambda(m1%%)
 	  (mapcar
-	   '(lambda(m2%)
+  '(lambda(m2%)
 	     (mapcar
 	      '(lambda(m2%%)
 		(* m1%% m2%%))
 	      m2%))
-	   m2)
+  m2)
 	  )
 	m1%)
        )

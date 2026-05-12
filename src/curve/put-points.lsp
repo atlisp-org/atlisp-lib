@@ -11,9 +11,9 @@
 	 (mapcar '(lambda(dxf1011 pt)
 		   (if pt
 		       (setq dxfent
-			     (subst
+    (subst
 			      (cons (car dxf1011)
-				    pt)
+    pt)
 			      dxf1011
 			      dxfent))))
 		 (vl-remove-if-not '(lambda(x) ;; 原有点表

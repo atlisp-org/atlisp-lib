@@ -5,26 +5,26 @@
   ""
   ;; 表格 dxf 与 ActiveX 名称对照表
   (defun tbl-dxf2obj (tbl-name) 
-    (cond 
+  (cond 
       ((string-equal tbl-name "LTYPE") "linetypes")
       ((string-equal tbl-name "STYLE") "textstyles")
       ((string-equal tbl-name "UCS") "UserCoordinateSystems")
       ((string-equal tbl-name "VPORT") "Viewports")
       (t (strcat tbl-name "s"))))
   (if 
-    (and 
+  (and 
       (tblsearch tbl-name old-name)
       (not (tblsearch tbl-name new-name))
       (snvalid new-name))
-    (progn 
+  (progn 
       (if 
-        (vl-catch-all-error-p 
+    (vl-catch-all-error-p 
           (vl-catch-all-apply 
-            'vla-put-name
-            (list 
+      'vla-put-name
+      (list 
               (vla-item 
-                (vlax-get-property *DOC* (read (strcat (tbl-dxf2obj tbl-name))))
-                old-name)
+        (vlax-get-property *DOC* (read (strcat (tbl-dxf2obj tbl-name))))
+        old-name)
               new-name)))
-        nil
-        T))))
+    nil
+    T))))

@@ -6,8 +6,8 @@
 	     (vl-registry-read
 	      "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion" x)))
 	  (list
-	   "CurrentVersion"
-	   "ProductName"
-	   "EditionId"
-	   "DisplayVersion"
-	   "CurrentBuild")))
+  "CurrentVersion"
+  "ProductName"
+  "EditionId"
+  "DisplayVersion"
+  "CurrentBuild")))

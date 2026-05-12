@@ -3,7 +3,7 @@
   "T or nil"
   "(p:functionp boole)=> T"
   (or (member  (type sym)
-	       '(SUBR USUBR EXRXSUBR))
+    '(SUBR USUBR EXRXSUBR))
       (and
        (not (null sym))
        (listp sym)

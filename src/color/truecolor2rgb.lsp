@@ -5,5 +5,5 @@
   (setq ci (color:interface))
   (vla-put-entitycolor ci long)
   (list (vla-get-red ci)
-    (vla-get-green ci)
-    (vla-get-blue ci)))
+  (vla-get-green ci)
+  (vla-get-blue ci)))

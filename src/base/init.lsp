@@ -68,45 +68,45 @@
   (setq *linefile*
 	(cond
 	  (is-bricscad
-	   "default.lin")
+  "default.lin")
 	  (is-gcad
-	   "gcad.lin")
+  "gcad.lin")
 	  (is-zwcad
-	   "zwcad.lin")
+  "zwcad.lin")
 	  (t
-	   "acad.lin")
+  "acad.lin")
 	  ))
   (setq *isolinefile*
 	(cond
 	  (is-bricscad
-	   "iso.lin")
+  "iso.lin")
 	  (is-gcad
-	   "gcadiso.lin")
+  "gcadiso.lin")
 	  (is-zwcad
-	   "zwcadiso.lin")
+  "zwcadiso.lin")
 	  (t
-	   "acadiso.lin")
+  "acadiso.lin")
 	  ))
   (setq *patfile*
 	(cond
 	  (is-bricscad
-	   "default.pat")
+  "default.pat")
 	  (is-gcad
-	   "gcad.pat")
+  "gcad.pat")
 	  (is-zwcad
-	   "zwcad.pat")
+  "zwcad.pat")
 	  (t
-	   "acad.pat")
+  "acad.pat")
 	  ))
   (setq *isopatfile*
 	(cond
 	  (is-bricscad
-	   "iso.pat")
+  "iso.pat")
 	  (is-gcad
-	   "gcadiso.pat")
+  "gcadiso.pat")
 	  (is-zwcad
-	   "zwcadiso.pat")
+  "zwcadiso.pat")
 	  (t
-	   "acadiso.pat")
+  "acadiso.pat")
 	  ))
   t)

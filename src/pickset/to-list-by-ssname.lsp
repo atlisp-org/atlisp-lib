@@ -4,7 +4,7 @@
   ""
   (setq i -1)
   (if (p:picksetp ss)
-    (repeat (sslength ss)
+  (repeat (sslength ss)
       (setq lst (cons (ssname ss (setq i (1+ i)))
           lst))))
   (reverse lst))

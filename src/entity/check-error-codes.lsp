@@ -3,8 +3,8 @@
   "无"
   "(entity:Check-Error-Codes *DOC*)"
   (vlax-for txtstyle (vla-get-textstyles doc)
-    (if (findfile (vla-get-fontfile txtstyle))
+  (if (findfile (vla-get-fontfile txtstyle))
       nil (vla-put-fontfile txtstyle "tssdeng.shx"))
-    (if (findfile (vla-get-bigfontfile txtstyle))
+  (if (findfile (vla-get-bigfontfile txtstyle))
       nil (vla-put-bigfontfile txtstyle "tssdchn.shx")))
   (princ))

@@ -3,14 +3,14 @@
   (if (p:enamep curve)
       (setq curve (e2o curve)))
   (cond
-    ((equal 0 (distance (vlax-curve-getendpoint curve) pt2) 1e-10)
+  ((equal 0 (distance (vlax-curve-getendpoint curve) pt2) 1e-10)
      (-(vla-get-length curve)
        (vlax-curve-getdistatpoint curve pt1)))
-    (t
+  (t
      (cond
        ((and (listp pt1)
 	     (listp pt2))
 	(abs (- (vlax-curve-getdistatpoint curve pt1)
 		(vlax-curve-getdistatpoint curve pt2))))
        (t (abs (- (vlax-curve-getdistatparam curve pt1)
-		  (vlax-curve-getdistatparam curve pt2))))))))
+  (vlax-curve-getdistatparam curve pt2))))))))

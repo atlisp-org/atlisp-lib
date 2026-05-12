@@ -37,9 +37,9 @@
        (setq row-tmp (quote nil))
        (repeat
 	target-col
-        (if (< j (length row))
-            ;; 判断 X 坐标是否在同一列（容差 2.0 倍高度）
-            (if (equal (car (point:centroid (entity:getbox (nth j row) 0)))
+    (if (< j (length row))
+      ;; 判断 X 坐标是否在同一列（容差 2.0 倍高度）
+      (if (equal (car (point:centroid (entity:getbox (nth j row) 0)))
                        (car (point:centroid (entity:getbox (nth i (car result)) 0)))
                        200)
 		;; 同一列，加入原元素
@@ -49,18 +49,18 @@
                   (setq j (1+ j)))
               ;; 不同列，插入空位
               (progn
-                (setq row-tmp (append row-tmp (list "")))
-                (setq i (1+ i))))
+        (setq row-tmp (append row-tmp (list "")))
+        (setq i (1+ i))))
           ;; 当前行元素已取完，后续填空位
           (progn
-            (setq row-tmp (append row-tmp (list "")))
-            (setq i (1+ i))))
+      (setq row-tmp (append row-tmp (list "")))
+      (setq i (1+ i))))
 	)
        (setq result (append result (list row-tmp))))))
   ;; 将实体名转换为字符串内容，返回二维列表
   (mapcar (quote (lambda (x)
 		   (mapcar (quote (lambda (y)
-				    (if (eq (type y) 'ename)
+    (if (eq (type y) 'ename)
 					(text:remove-fmt
 					 (text:get-mtext y ))
 				      y)))

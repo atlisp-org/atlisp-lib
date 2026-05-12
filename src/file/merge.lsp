@@ -1,7 +1,7 @@
 (defun file:merge (dist lst-files / fp-out fp-in ln)
   "合并多个文件内容到 dist 文件中。"
   (if (and (getvar "lispsys")
-	   (> (getvar "lispssy") 0))
+  (> (getvar "lispssy") 0))
       (setq fp-out (open dist "w" "utf8"))
       (setq fp-out (open dist "w")))
   (foreach file% lst-files (if (findfile file%)

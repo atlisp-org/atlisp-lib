@@ -4,10 +4,10 @@
   "(ext:interior 'beep)"
   (cond 
    ((listp fun)
-    (foreach x fun (ext:interior x)))
+  (foreach x fun (ext:interior x)))
    ((atom fun)
-    (if (= (type fun) 'sym)(setq fun (strcase (vl-symbol-name fun) t)))
-    (if (= 'subr (type (eval (read fun))))
+  (if (= (type fun) 'sym)(setq fun (strcase (vl-symbol-name fun) t)))
+  (if (= 'subr (type (eval (read fun))))
 	(eval(read fun))
       (progn
 	(setq out (strcat @:*prefix* ".cache" (chr 92) "interior-"
@@ -17,7 +17,7 @@
 	    (load out)
 	  (progn
 	    (setq lst-int
-		  (append  (vl-string->list "\r\n FAS4-FILE ; Do not change it!\r\n")
+  (append  (vl-string->list "\r\n FAS4-FILE ; Do not change it!\r\n")
 			   '(49 13 49 32 36 7 36 13 )
 			   (vl-string->list (itoa (+ 26 (* 2 (strlen fun)))))
 			   (list 32 50 32 36 20 1 1 1 0 86)

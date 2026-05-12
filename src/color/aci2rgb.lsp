@@ -2,10 +2,10 @@
   "索引色转rgb, num 范围 1 - 255"
   "lst, 红绿蓝三色值"
   (if (numberp num) 
-    (setq num (fix num))
-    (setq num 0))
+  (setq num (fix num))
+  (setq num 0))
   (if (< 0 num 256) 
-    (progn 
+  (progn 
       (setq aci '((1 . (255 0 0))
                   (2 . (255 255 0))
                   (3 . (0 255 0))
@@ -262,4 +262,4 @@
                   (254 . (214 214 214))
                   (255 . (255 255 255))))
       (cdr (assoc num aci)))
-    '(0 0 0)))
+  '(0 0 0)))

@@ -3,6 +3,6 @@
   "最后一个被删除的图元"
   (while (> (sslength ss)
       0)
-    (setq e (ssname ss 0))
-    (setq ss (ssdel e ss))
-    (entdel e)))
+  (setq e (ssname ss 0))
+  (setq ss (ssdel e ss))
+  (entdel e)))

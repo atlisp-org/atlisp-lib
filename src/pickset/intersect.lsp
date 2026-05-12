@@ -7,7 +7,7 @@
   (if (p:picksetp ss2)
       (setq ss2 (pickset:to-list ss2)))
   (if (and (p:ename-listp ss1)
-	   (p:ename-listp ss2))
+  (p:ename-listp ss2))
       (vl-remove-if
        '(lambda (x)
 	 (not (member x ss2)))

@@ -1,18 +1,18 @@
 (defun vectra:getkword1 (msg kwords default / r)
   (initget (vectra:string-connect (mapcar (quote car)
-        kwords)
+    kwords)
       "
       "))
   (setq r (getkword (strcat msg "
-        ["
-        (vectra:string-connect (mapcar (function (lambda (e)
-                (strcat (cadr e)
+    ["
+    (vectra:string-connect (mapcar (function (lambda (e)
+        (strcat (cadr e)
                   "("
-                    (car e)
-                    ")")))
-            kwords)
+          (car e)
+          ")")))
+      kwords)
           "/")
-        "] <"
-        default ">: ")))
+    "] <"
+    default ">: ")))
   (if (null r)
-    default r))
+  default r))

@@ -4,5 +4,5 @@
   (if filter (ssget "f"
       (entity:getdxf ent (quote (10 11)))
       filter)
-    (ssget "f"
+  (ssget "f"
       (entity:getdxf ent (quote (10 11))))))

@@ -5,7 +5,7 @@
       (setq *fuzz* 0.001))
   (setq lst lst1)
   (foreach a lst2
-	   (if (not (list:member a lst *fuzz*))
-	       (setq lst (cons a lst))))
+  (if (not (list:member a lst *fuzz*))
+    (setq lst (cons a lst))))
   lst)
   

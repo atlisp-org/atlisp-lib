@@ -5,17 +5,17 @@
    (= 'ename (type ent))
    (wcmatch (entity:getdxf ent 0) "*POLYLINE") ;; 是多段线
    (or ;; 4点且闭合 或 5点首尾点相同
-    (and (= (entity:getdxf ent 90) 4)
+  (and (= (entity:getdxf ent 90) 4)
 	 (= (entity:getdxf ent 70) 1))
-    (and (= (entity:getdxf ent 90) 5)
+  (and (= (entity:getdxf ent 90) 5)
 	 (= (entity:getdxf ent 70) 0)))
    (apply '= (entity:getdxf ent 42))
    (progn
      (setq pts (curve:get-points ent))
      (setq ang
-	   (abs
+  (abs
 	    (- (angle (nth 0 pts)(nth 1 pts))
-	       (angle (nth 1 pts)(nth 2 pts)))))
+    (angle (nth 1 pts)(nth 2 pts)))))
      (if (> ang pi)(setq ang (- ang pi)))
      ;; 邻边垂直,对边相等且对角长度相等
      (and

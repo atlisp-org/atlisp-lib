@@ -12,7 +12,7 @@
   (setq angle1 (angle center pt-on-arc))
   ;; 计算另一个点的角度
 	(if (> (geometry:turn-right-p pt1 pt2 pt3) 0)
-				(setq angle2 (+ angle1 half-chord-angle)) ; 顺时针方向
+  (setq angle2 (+ angle1 half-chord-angle)) ; 顺时针方向
 		(setq angle2 (- angle1 half-chord-angle)) ; 逆时针方向，根据实际情况选择
 
 	)

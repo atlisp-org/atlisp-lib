@@ -3,7 +3,7 @@
   ""
   "(xdata:remove-appid (car(entsel)) \"ACAD\")"
   (cond
-    ((p:enamep ename)
+  ((p:enamep ename)
      (entmod
       (list
        (cons -1 ename)
@@ -16,7 +16,7 @@
 		)
 	      (cdr (assoc -3 (entget ename '("*"))))
 	      )))))
-    ((p:ename-listp ename)
+  ((p:ename-listp ename)
      (mapcar '(lambda(x)(xdata:remove-appid x appid)) ename))
-    ((p:picksetp ename)
+  ((p:picksetp ename)
      (mapcar '(lambda(x)(xdata:remove-appid x appid)) (pickset:to-list ename)))))

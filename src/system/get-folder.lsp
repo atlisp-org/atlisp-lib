@@ -7,14 +7,14 @@
   (setq shFolder (vlax-invoke-method WinShell 'BrowseForFolder 0 msg 1))
   (setq
    catchit (vl-catch-all-apply
-            '(lambda ()
+      '(lambda ()
                (setq shFolder (vlax-get-property shFolder 'self))
                (setq path (vlax-get-property shFolder 'path))
                )
-            )
+      )
    )
   (if (vl-catch-all-error-p catchit)
       nil
-    path
-    )
+  path
+  )
   )

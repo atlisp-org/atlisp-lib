@@ -4,6 +4,6 @@
   "(list:flatten '(a (b c)
       (d (e))))"
   (foreach x lst (cond ((atom x)
-        (setq lst1 (append lst1 (list x))))
+    (setq lst1 (append lst1 (list x))))
       ((listp x)
-        (setq lst1 (append lst1 (list:flatten x)))))))
+    (setq lst1 (append lst1 (list:flatten x)))))))

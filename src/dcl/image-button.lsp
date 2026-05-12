@@ -7,12 +7,12 @@
        (eval (read (strcat "(lambda()(alert (strcat \"需要定义回调函数 (cb-"
 			   key ")\")))"))))
   (write-line (strcat ":image_button{key=\""
-		      key "\";width="
-		      (rtos width 2)
-		      ";height="
-		      (rtos height 2)
-		      ";color=152;"
-		      "action=\"(cb-"
-		      key ")\";"
-		      (dcl:lst2dcl style) "}")
+    key "\";width="
+    (rtos width 2)
+    ";height="
+    (rtos height 2)
+    ";color=152;"
+    "action=\"(cb-"
+    key ")\";"
+    (dcl:lst2dcl style) "}")
 	      dcl-fp))

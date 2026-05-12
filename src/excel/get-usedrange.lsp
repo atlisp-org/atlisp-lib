@@ -3,9 +3,9 @@
   "成功返回range对象"
   "(excel:get-UsedRange exobj \"345\")"
   (if (null name)
-    (setq name (excel:get-activesheet xlapp)))
+  (setq name (excel:get-activesheet xlapp)))
   (vlax-for sh (vlax-get-property xlapp "sheets")
-    (if (= (vlax-get-property sh "Name")
-        name)
+  (if (= (vlax-get-property sh "Name")
+    name)
       (setq rtn (vlax-get-property sh "UsedRange"))))
   rtn)

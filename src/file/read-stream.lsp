@@ -3,10 +3,10 @@
   "String"
   "(file:read-stream \"d:/hzfile.txt\" \"utf-8\")"
   (defun *error*(msg)
-    (if (= 'file (type stream))(close stream))
-    (princ msg)
-    (princ)
-    )
+  (if (= 'file (type stream))(close stream))
+  (princ msg)
+  (princ)
+  )
   (if (>= (atof (getvar "acadver")) 24)
       (progn
 	(setq stream (open filename "r"))
@@ -15,7 +15,7 @@
 	  (setq str (strcat str "\n" str-line)))
 	(close stream)
 	)
-    (progn
+  (progn
       (setq stream (vlax-create-object "ADODB.Stream"))
       (vlax-put-Property stream 'type 2)
       (Vlax-Put-Property stream 'Charset encoding)

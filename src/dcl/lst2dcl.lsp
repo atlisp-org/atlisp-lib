@@ -3,7 +3,7 @@
   "String"
   "(dcl:lst2dcl '(button (key . btn)(label . BTN)(width . 20)(height . 3)) ;; => :button {key=\"btn\";label=\"BTN\";width=20;height=3;}"
   (defun handle-value (sym)
-    (cond
+  (cond
      ((p:intp sym)
       (itoa sym))
      ((numberp sym)
@@ -17,7 +17,7 @@
   
   (if (p:stringp lst)
       lst
-    (cond
+  (cond
      ;; 子表达式为点对表
      ((null lst) "")
      ((p:dotpairp lst)
@@ -30,4 +30,4 @@
 		(dcl:lst2dcl (cdr lst))
 		"}"))
        (t (string:from-lst (mapcar 'dcl:lst2dcl lst)"")))))))
-   
+  

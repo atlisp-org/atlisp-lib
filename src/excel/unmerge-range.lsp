@@ -4,7 +4,7 @@
   "(excel:UnmergeRange exobj \"A1\")"
   (setq index (excel:utils-index-cells->range index))
   (if (excel:range-mergep xlapp index)
-    (progn (vlax-invoke-method (excel:get-range xlapp index)
-        (quote unmerge))
+  (progn (vlax-invoke-method (excel:get-range xlapp index)
+    (quote unmerge))
       (setq rtn (excel:get-range xlapp index))))
   rtn)

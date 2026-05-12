@@ -4,11 +4,11 @@
   
   (strcat "#"
 	  (string:from-list
-	   (mapcar
+  (mapcar
 	    '(lambda(x / c)
-	       (setq c (substr (vl-symbol-name (m:dec2hex x)) 3))
-	       (if (= 1 (strlen c))
+    (setq c (substr (vl-symbol-name (m:dec2hex x)) 3))
+    (if (= 1 (strlen c))
 		   (strcat "0" c)
 		 c))
 	    lst-color)
-	   "")))
+  "")))

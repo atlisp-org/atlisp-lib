@@ -5,4 +5,4 @@
   (setq p2 (cadr pp))
   (if (< (distance pt p1)
       (distance pt p2))
-    p1 p2))
+  p1 p2))

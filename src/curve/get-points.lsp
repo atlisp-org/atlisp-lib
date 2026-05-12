@@ -16,7 +16,7 @@
 					 pldata))
 	      (while (= "VERTEX" (entity:getdxf (setq nextent (entnext nextent)) 0))
 		(setq pldata
-		      (append pldata
+    (append pldata
 			      (entget nextent))))))
 	(mapcar 'cdr 
 		(vl-remove-if-not '(lambda(x)

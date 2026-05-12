@@ -3,7 +3,7 @@
   (vl-load-com)
   (setq vlist (quote nil))
   (if (setq vobj (vlax-create-object "wbemscripting.swbemlocator"))
-    (progn (setq lcom (vlax-invoke vobj (quote connectserver)
+  (progn (setq lcom (vlax-invoke vobj (quote connectserver)
           "."
           "\\root\\cimv2"
           ""

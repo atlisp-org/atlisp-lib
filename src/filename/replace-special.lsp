@@ -3,15 +3,15 @@
   "String"
   "(filename:replace-special \":s->l.lsp\")"
   (foreach x '(("+" . "*")
-	       ("／" . "/")
-	       ("：" . ":")
-	       ("；" . ";")
-	       ("｜" . "|")
-	       ("、" . "\\")
-	       ("-to-" . "->")
-	       ("gt-" . ">")
-	       ("-" . "\"")
-	       )
-	   (setq str (@:string-subst
-		      (car x)(cdr x)
-		      str))))
+    ("／" . "/")
+    ("：" . ":")
+    ("；" . ";")
+    ("｜" . "|")
+    ("、" . "\\")
+    ("-to-" . "->")
+    ("gt-" . ">")
+    ("-" . "\"")
+    )
+  (setq str (@:string-subst
+    (car x)(cdr x)
+    str))))

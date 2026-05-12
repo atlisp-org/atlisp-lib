@@ -92,7 +92,7 @@
       (cons 340 (tblobjname "STYLE"
           "标注"))
       (cons 342 (cdr (assoc 330 (entget (tblobjname "BLOCK"
-                "_Oblique")))))))
+        "_Oblique")))))))
   (entupd (tblobjname "Dimstyle"
       name))
   (princ))

@@ -1,5 +1,5 @@
 (defun dcl:accept nil (setq dcl:dialog-result (mapcar (quote (lambda (x)
           (cons (car x)
-            (eval (cdr x)))))
+      (eval (cdr x)))))
       dcl:accept-hook))
   (done_dialog 2))
