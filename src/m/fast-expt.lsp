@@ -2,5 +2,5 @@
   (cond ((zerop n)
       1)
     ((m:evenp n)
-      (m:square (fast-expt b (/ n 2))))
-    (t (* b (fast-expt b (1- n))))))
+      (m:square (m:fast-expt b (/ n 2))))
+    (t (* b (m:fast-expt b (1- n))))))

@@ -10,4 +10,4 @@
 			    (angle pt1 pt2)
 			    (/ (distance pt1 pt2)
 			       (float n))))
-	    (div pt pt2 (1- n)))))
+	    (point:div pt pt2 (1- n)))))

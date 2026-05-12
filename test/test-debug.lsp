@@ -1,0 +1,7 @@
+(test:clear)
+(test:suite 'string)
+(print "*test-suite* before:")
+(print *test-suite*)
+(test:add-case 'string 'test1 '((lambda () "result")) "result")
+(print "*test-suite* after:")
+(print *test-suite*)
