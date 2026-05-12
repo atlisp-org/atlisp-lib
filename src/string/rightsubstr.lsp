@@ -1,5 +1,3 @@
-(defun string:rightsubstr (str start len)
-  "从右侧求子串"
-  (substr str (- (strlen str)
-      len start -2)
-  len))
+(defun string:rightsubstr (str len)
+  "从右侧取 len 个字符"
+  (substr str (- (strlen str) len -1) len))
