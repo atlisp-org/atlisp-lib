@@ -32,10 +32,13 @@
 ;;;------------------------------------------------------------
 (defun test:suite (name)
   "创建测试套件"
-  ;; 将新套件添加到列表头部
-  (setq *test-suite* (cons (list name '()) *test-suite*))
-  ;; 返回创建的套件
-  (car *test-suite*))
+  ;; 检查套件是否已存在
+  (if (not (member name (mapcar 'car *test-suite*)))
+      (progn
+        ;; 将新套件添加到列表头部
+        (setq *test-suite* (cons (list name) *test-suite*))))
+  ;; 返回套件
+  (assoc name *test-suite*))
 
 ;;;------------------------------------------------------------
 ;;; test:add-case - 添加测试用例
@@ -54,7 +57,7 @@
   (setq *test-suite*
         (mapcar '(lambda (s)
                    (if (eq (car s) suite-name)
-                       (cons s (list (list test-name test-fn expected)))
+                       (append s (list (list test-name test-fn expected)))
                      s))
         *test-suite*))
   nil)
@@ -125,10 +128,21 @@
 ;;;   pass   - 测试是否通过
 ;;; 返回: t 或 nil
 ;;;------------------------------------------------------------
-(defun test:run-case (test-name test-fn expected / result pass)
+(defun test:run-case (test-name test-fn expected / result pass fn)
   "运行单个测试用例"
+  ;; 检查参数有效性（expected 可以为 nil）
+  (if (or (null test-name) (null test-fn))
+      (progn
+        (princ (string:format "[ERROR] Invalid test parameters: name=%s fn=%s expected=%s\n"
+                              (vl-symbol-name test-name) test-fn expected))
+        (setq *test-fail-count* (1+ *test-fail-count*))
+        (return nil)))
+  ;; 提取 lambda 函数（支持 '((lambda () ...)) 和 '(lambda () ...) 两种格式）
+  (setq fn (if (and (listp test-fn) (listp (car test-fn)))
+               (car test-fn)
+             test-fn))
   ;; 使用 vl-catch-all-apply 安全执行测试函数
-  (setq result (vl-catch-all-apply test-fn (list)))
+  (setq result (vl-catch-all-apply fn (list)))
   ;; 检查是否发生错误，并比较结果
   (setq pass (if (vl-catch-all-error-p result)
                  ;; 如果发生错误，测试失败
@@ -143,8 +157,8 @@
   (setq *test-results* (cons (list test-name pass result expected) *test-results*))
   ;; 输出测试结果
   (if pass
-      (princ (string:format "[PASS] %s\n" test-name))
-  (princ (string:format "[FAIL] %s - Expected: %s, Got: %s\n" test-name expected result)))
+      (princ (string:format "[PASS] %s\n" (if test-name (vl-symbol-name test-name) "unknown")))
+  (princ (string:format "[FAIL] %s - Expected: %s, Got: %s\n" (if test-name (vl-symbol-name test-name) "unknown") expected result)))
   pass)
 
 ;;;------------------------------------------------------------
@@ -158,13 +172,13 @@
 (defun test:run-suite (suite-name / suite cases)
   "运行测试套件"
   (foreach s *test-suite*
-  (if (= (car s) suite-name)
+  (if (eq (car s) suite-name)
     (progn
           ;; 获取套件数据
           (setq suite s)
           (setq cases (cdr s))
           ;; 输出套件标题
-          (princ (string:format "\n=== Running Suite: %s ===\n" suite-name))
+          (princ (string:format "\n=== Running Suite: %s ===\n" (vl-symbol-name suite-name)))
           ;; 运行每个测试用例
           (mapcar '(lambda(c)
           (test:run-case (car c) (cadr c) (caddr c)))
