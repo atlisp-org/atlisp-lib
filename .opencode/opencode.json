@@ -1,0 +1,12 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "atlisp-mcp": {
+      "type": "local",
+      "command": [
+        "atlisp-mcp",
+        "--stdio"
+      ]
+    }
+  }
+}
