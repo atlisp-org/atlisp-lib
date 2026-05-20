@@ -5,9 +5,9 @@
   (setq allproperties
 	  (mapcar '(lambda(x)
 		    (substr x 9))
-  (vl-remove-if-not
+		  (vl-remove-if-not
 		   '(lambda(x) (wcmatch x "VLA-GET-*"))
-		   atoms)))
+		   (setq atoms (atoms-family 1)))))
   (setq allmethods
 	  (mapcar '(lambda(x)
 		    (substr x 5))
