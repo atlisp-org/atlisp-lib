@@ -10,36 +10,36 @@
 	    (vla-insertblock
 	     (if (string-equal "Model" (getvar "ctab"))
 		 *MS*
-		 (vla-get-block(vla-get-activeLayout *DOC*))
-		 )
+	       (vla-get-block(vla-get-activeLayout *DOC*))
+	       )
 	     (point:to-ax pt)
 	     blkname scale scale scale ang)
-	    (entmakex (list (quote (0 . "INSERT"))
-			    (quote (100 . "AcDbEntity"))
-			    (quote (100 . "AcDbBlockReference"))
-			    (cons 2 blkname)
-			    (cons 10 pt)
-			    (cons 41 scale)
-			    (cons 42 scale)
-			    (cons 43 scale)
-			    (cons 50 ang))))
+	  (entmakex (list (quote (0 . "INSERT"))
+			  (quote (100 . "AcDbEntity"))
+			  (quote (100 . "AcDbBlockReference"))
+			  (cons 2 blkname)
+			  (cons 10 pt)
+			  (cons 41 scale)
+			  (cons 42 scale)
+			  (cons 43 scale)
+			  (cons 50 ang))))
 	(entlast))
-      (if (findfile (strcat path blkname ".dwg"))
-	  (progn
-	    (if vla-insertblock
-		(vla-insertblock
-		 (if (string-equal "Model" (getvar "ctab"))
-		     *MS*
-		     (vla-get-block(vla-get-activeLayout *DOC*))
-		   )
-		 (point:to-ax pt)
-		 (findfile (strcat path blkname ".dwg"))
-		 scale scale scale ang)
-		(progn (setvar "attreq" 0)
-		       (command "-insert"
-  (strcat path blkname)
-  pt scale scale (angtos ang 0 0))
-		       (setvar "attreq" 1)))
-	    (entlast)
-	    ))
-      ))
+    (if (findfile (strcat path blkname ".dwg"))
+	(progn
+	  (if vla-insertblock
+	      (vla-insertblock
+	       (if (string-equal "Model" (getvar "ctab"))
+		   *MS*
+		 (vla-get-block(vla-get-activeLayout *DOC*))
+		 )
+	       (point:to-ax pt)
+	       (findfile (strcat path blkname ".dwg"))
+	       scale scale scale ang)
+	    (progn (setvar "attreq" 0)
+		   (command "-insert"
+			    (strcat path blkname)
+			    pt scale scale (angtos ang 0 0))
+		   (setvar "attreq" 1)))
+	  (entlast)
+	  ))
+    ))
