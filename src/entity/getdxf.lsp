@@ -4,15 +4,15 @@
   "(entity:getdxf (car (entsel))
   10)"
   (defun getdxf (ent i / res)
-  (setq res
+    (setq res
 	  (mapcar (quote cdr)
-  (vl-remove-if-not (quote (lambda (x)
+		  (vl-remove-if-not (quote (lambda (x)
 					     (= (car x)
 						i)))
-    (entget ent (quote ("*"))))))
-  (if (= 1 (length res))
+				    (entget ent (quote ("*"))))))
+    (if (= 1 (length res))
 	(car res)
-	res))
+      res))
   (if (p:vlap ent)
       (setq ent (vlax-vla-object->ename ent)))
   ;; (cond ((p:enamep ent)
@@ -21,7 +21,7 @@
 	 (setq result (getdxf ent i)))
 	((listp i)
 	 (setq result 
-    (mapcar (quote (lambda (x)
-  (getdxf ent x)))
-		       i))))
+	       (mapcar (quote (lambda (x)
+		     (getdxf ent x)))
+	    i))))
   result)
