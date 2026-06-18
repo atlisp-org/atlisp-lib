@@ -41,5 +41,9 @@
 			    pt scale scale (angtos ang 0 0))
 		   (setvar "attreq" 1)))
 	  (entlast)
-	  ))
+	  )
+      (progn
+	(@::@log "ERROR" (strcat "没有发现块文件" blkname))
+	(princ))
+      )
     ))
