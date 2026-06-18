@@ -10,6 +10,8 @@
   ;; Add the mleader object to model space
   (setq mLeader (vla-AddMLeader *MS* points i))
   (vla-put-textstring mLeader str)
+  (if (zerop (vla-get-textheight mLeader))
+    (vla-put-textheight mLeader 2.5))
   (o2e mleader)
   )
 ;; ((-1 . <图元名: 210e5c99020>)
