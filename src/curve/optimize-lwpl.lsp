@@ -1,5 +1,5 @@
 (defun curve:optimize-lwpl (ent / segs res n1 n2 n3 fuzz)
-  "优化多段线顶点。当连续多点共线或共圆时，减少顶点。优化顺时针的多段线有问题待修复。优化会丢失宽度信息！！"
+  "优化多段线顶点。当连续多点共线或共圆时，减少顶点。连续 5 点以上共圆（相邻两段夹角 175~185 度）的多点折线转为一段圆弧。优化顺时针的多段线有问题待修复。优化会丢失宽度信息！！"
   "优化后的新图元"
   (if (numberp tmp-fuzz)
       (setq fuzz tmp-fuzz)
@@ -8,6 +8,8 @@
           (cons x y)))
       (curve:pline-3dpoints ent)
       (curve:pline-convexity ent)))
+  ;; 连续共圆(5点以上)的多点折线合并为一段圆弧
+  (setq segs (curve:optimize-lwpl-cocircle-all segs fuzz))
   ;; 当闭合时
   (setq n1 (car segs))
   (setq res (cons n1 nil))
@@ -119,3 +121,92 @@
       res)
   0 (entity:getdxf ent 70)
   0))
+
+(defun curve:lwpl-cocircle-bulge (first second last o / r half sag)
+  "求共圆点列 first..last（圆心 o）所成圆弧的凸度，方向由点列走向决定。"
+  "number - 凸度"
+  (setq r (distance o first))
+  (setq half (* 0.5 (distance first last)))
+  (setq sag (- r (distance o (point:mid first last))))
+  (if (> (geometry:turn-right-p first second o) 0)
+      (/ sag half)
+    (- (/ sag half))))
+
+(defun curve:lwpl-turn (p1 p2 p3 / a)
+  "求折线相邻两段 p1p2 与 p2p3 的转角弧度，值域为开区间 -pi 到 pi。接近 0 表示接近直线，即两段夹角接近 180 度。"
+  "number - 转角弧度"
+  (setq a (- (angle p2 p3)
+	     (angle p1 p2)))
+  (cond ((> a pi)
+	 (- a pi pi))
+	((<= a (- pi))
+	 (+ a pi pi))
+	(t a)))
+
+(defun curve:optimize-lwpl-cocircle (segs fuzz / turnlim first second a b c o r cnt tail turnsum dir lastseg)
+  "检测从 segs 首点开始的连续共圆折线（5 点以上，相邻两段夹角在 175~185 度之间）。"
+  "((首点 . 弧凸度) (末点 . 末凸度) . 剩余段列表) 或 nil"
+  (setq turnlim (* 5.0 (/ pi 180.0)))
+  (setq first (caar segs))
+  (setq tail (cdr segs))
+  (setq a first)
+  (setq cnt 1)
+  (setq turnsum 0)
+  (if (and tail (= 0 (cdar tail)))
+      (progn
+	(setq b (caar tail))
+	(setq second b)
+	(setq tail (cdr tail))
+	(setq cnt 2)
+	(if (and tail (= 0 (cdar tail))
+		 (<= (abs (curve:lwpl-turn a b (caar tail))) turnlim))
+	    (progn
+	      (setq c (caar tail))
+	      (setq lastseg (car tail))
+	      (setq tail (cdr tail))
+	      (setq cnt 3)
+	      (setq turnsum (curve:lwpl-turn a b c))
+	      (setq dir (cond ((> turnsum 0) 1)
+			      ((< turnsum 0) -1)
+			      (t 0)))
+	      (setq o (curve:3pt2o a b c))
+	      (if (and o (equal (distance o a) (distance o b) fuzz))
+		  (progn
+		    (setq r (distance o a))
+		    (while (and tail
+				(= 0 (cdar tail))
+				(<= (abs (curve:lwpl-turn b c (caar tail))) turnlim)
+				(or (= dir 0)
+				    (>= (* dir (curve:lwpl-turn b c (caar tail))) 0))
+				(equal r (distance o (caar tail)) fuzz))
+		      (setq a b)
+		      (setq b c)
+		      (setq c (caar tail))
+		      (setq lastseg (car tail))
+		      (setq turnsum (+ turnsum (curve:lwpl-turn a b c)))
+		      (setq tail (cdr tail))
+		      (setq cnt (1+ cnt)))
+		    (if (and (>= cnt 5)
+			     (<= (abs turnsum) pi))
+			(cons (list (cons first
+					  (curve:lwpl-cocircle-bulge first second c o))
+				    lastseg)
+			      tail)
+		      nil)))
+		nil)))
+    nil))
+
+(defun curve:optimize-lwpl-cocircle-all (segs fuzz / res run)
+  "遍历多段线段列表，将连续共圆（5 点以上）的多点折线合并为一段圆弧。"
+  "合并后的段列表"
+  (setq res nil)
+  (while segs
+    (if (setq run (curve:optimize-lwpl-cocircle segs fuzz))
+	(progn
+	  (setq res (cons (cadr (car run)) res))
+	  (setq res (cons (car (car run)) res))
+	  (setq segs (cdr run)))
+      (progn
+	(setq res (cons (car segs) res))
+	(setq segs (cdr segs)))))
+  (reverse res))
