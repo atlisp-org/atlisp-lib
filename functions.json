@@ -1,10 +1,10 @@
 {
   "_meta": {
     "generated": "2026-05-13",
-    "total_categories": 64,
-    "total_functions": 844,
-    "total_with_documentation": 662,
-    "total_without_documentation": 182,
+    "total_categories": 63,
+    "total_functions": 858,
+    "total_with_documentation": 673,
+    "total_without_documentation": 185,
     "description": "@lisp 函数库 - AI Agent 可读清单",
     "naming_convention": "category:function-name (e.g. m:gcd, entity:getdxf)",
     "dependency_syntax": "(require 'category:*) 或 (require '(cat1:* cat2:*))"
@@ -218,7 +218,9 @@
             "blkname"
           ],
           "locals": [
-            "blk"
+            "blk",
+            "ent",
+            "entlst"
           ],
           "description": "返回块内各图元的列表",
           "returns": "图元列表",
@@ -1243,7 +1245,7 @@
             "n3",
             "fuzz"
           ],
-          "description": "优化多段线顶点。当连续多点共线或共圆时，减少顶点。优化顺时针的多段线有问题待修复。优化会丢失宽度信息！！",
+          "description": "优化多段线顶点。当连续多点共线或共圆时，减少顶点。连续 5 点以上共圆（相邻两段夹角 175~185 度）的多点折线转为一段圆弧。优化顺时针的多段线有问题待修复。优化会丢失宽度信息！！",
           "returns": "优化后的新图元",
           "examples": [],
           "dependencies": []
@@ -2264,7 +2266,7 @@
     },
     "entity": {
       "description": "图元操作相关函数。",
-      "count": 62,
+      "count": 65,
       "functions": [
         {
           "name": "entity:activedimstyle",
@@ -2629,7 +2631,15 @@
             "p1",
             "p2",
             "p3",
-            "p4"
+            "p4",
+            "box",
+            "blkname",
+            "blk-ents",
+            "ply-ents",
+            "pt-base",
+            "pt-ins",
+            "ang",
+            "sca"
           ],
           "description": "图元的最小包围盒",
           "returns": "return:外框（偏移后）的左下，右上角点",
@@ -3210,6 +3220,23 @@
           "dependencies": []
         },
         {
+          "name": "entity:properties",
+          "original_name": "entity:properties",
+          "file": "entity/properties.lsp",
+          "params": [
+            "ent"
+          ],
+          "locals": [
+            "obj",
+            "object-name",
+            "result"
+          ],
+          "description": "",
+          "returns": "",
+          "examples": [],
+          "dependencies": []
+        },
+        {
           "name": "entity:putdxf",
           "original_name": "entity:putdxf",
           "file": "entity/putdxf.lsp",
@@ -3298,6 +3325,19 @@
           "dependencies": []
         },
         {
+          "name": "entity:to-list",
+          "original_name": "entity:to-list",
+          "file": "entity/to-list.lsp",
+          "params": [
+            "val"
+          ],
+          "locals": [],
+          "description": "",
+          "returns": "",
+          "examples": [],
+          "dependencies": []
+        },
+        {
           "name": "entity:to-obj",
           "original_name": "entity:to-obj",
           "file": "entity/to-obj.lsp",
@@ -3306,6 +3346,23 @@
           ],
           "locals": [],
           "description": "图元类型转为ActiveX对象,e2o",
+          "returns": "",
+          "examples": [],
+          "dependencies": []
+        },
+        {
+          "name": "entity:try-get",
+          "original_name": "entity:try-get",
+          "file": "entity/try-get.lsp",
+          "params": [
+            "obj",
+            "names"
+          ],
+          "locals": [
+            "result",
+            "val"
+          ],
+          "description": "",
           "returns": "",
           "examples": [],
           "dependencies": []
@@ -4466,28 +4523,6 @@
           "returns": "String",
           "examples": [
             "(filename:replace-special \\\":s->l.lsp\\\")"
-          ],
-          "dependencies": []
-        }
-      ]
-    },
-    "fun": {
-      "description": "",
-      "count": 1,
-      "functions": [
-        {
-          "name": "fun:test",
-          "original_name": "fun:test",
-          "file": "fun/test.lsp",
-          "params": [
-            "fun",
-            "usecases"
-          ],
-          "locals": [],
-          "description": "函数测试，fun:函数名，usecases:测试用例，测试用例为参数和返回值组成的点对表。",
-          "returns": "lst,对应测试用例的测试结果，t为通过，nil为失败",
-          "examples": [
-            "(fun:test point:mid '((((0 0)(2 2)) . (1 1))(((3 3)(5 5)) . (4 4))))"
           ],
           "dependencies": []
         }
@@ -10369,17 +10404,226 @@
     },
     "test": {
       "description": "",
-      "count": 1,
+      "count": 13,
       "functions": [
+        {
+          "name": "test:add-case",
+          "original_name": "test:add-case",
+          "file": "test/add-case.lsp",
+          "params": [
+            "suite-name",
+            "test-name",
+            "test-fn",
+            "expected"
+          ],
+          "locals": [],
+          "description": "添加测试用例到指定套件",
+          "returns": "参数: suite-name - 套件名称（符号）；test-name - 测试用例名称（符号）；test-fn - 测试函数，格式为 '((lambda () ...)) 或 '(lambda () ...)；expected - 期望的返回值",
+          "examples": [
+            "返回: nil",
+            "示例: (test:add-case 'math 'add '((lambda () (+ 1 2))) 3)",
+            "示例: (test:add-case 'math 'gcd '((lambda () (m:gcd 12 8))) 4)"
+          ],
+          "dependencies": []
+        },
+        {
+          "name": "test:assert-equal",
+          "original_name": "test:assert-equal",
+          "file": "test/assert-equal.lsp",
+          "params": [
+            "expected",
+            "actual",
+            "fuzz"
+          ],
+          "locals": [],
+          "description": "断言两个值相等，支持浮点数容差比较",
+          "returns": "参数: expected - 期望值；actual - 实际值；fuzz - 浮点数比较的容差（数字和列表中的浮点数元素）",
+          "examples": [
+            "返回: t 或 nil",
+            "说明: 数字使用 equal 加容差比较；列表使用 list:equal 递归比较；其他类型直接使用 equal",
+            "示例: (test:assert-equal 3.14 3.14159 0.01) => t",
+            "示例: (test:assert-equal '(1.0 2.0) '(1.0 2.0) 1e-6) => t"
+          ],
+          "dependencies": []
+        },
+        {
+          "name": "test:assert-nil",
+          "original_name": "test:assert-nil",
+          "file": "test/assert-nil.lsp",
+          "params": [
+            "val"
+          ],
+          "locals": [],
+          "description": "断言值为 nil",
+          "returns": "参数: val - 要测试的值",
+          "examples": [
+            "返回: t - 值为 nil；nil - 值不为 nil",
+            "示例: (test:assert-nil nil) => t",
+            "示例: (test:assert-nil '()) => t",
+            "示例: (test:assert-nil 0) => nil"
+          ],
+          "dependencies": []
+        },
+        {
+          "name": "test:assert-t",
+          "original_name": "test:assert-t",
+          "file": "test/assert-t.lsp",
+          "params": [
+            "val"
+          ],
+          "locals": [],
+          "description": "断言值为真（不为 nil）",
+          "returns": "参数: val - 要测试的值",
+          "examples": [
+            "返回: t - 值不为 nil；nil - 值为 nil",
+            "示例: (test:assert-t t) => t",
+            "示例: (test:assert-t 1) => t",
+            "示例: (test:assert-t nil) => nil"
+          ],
+          "dependencies": []
+        },
+        {
+          "name": "test:assert-throw",
+          "original_name": "test:assert-throw",
+          "file": "test/assert-throw.lsp",
+          "params": [
+            "fn",
+            "args",
+            "expected-error"
+          ],
+          "locals": [],
+          "description": "断言函数执行时抛出异常",
+          "returns": "参数: fn - 要调用的函数（符号）；args - 函数参数列表；expected-error - 期望的错误类型（暂未使用）",
+          "examples": [
+            "返回: t - 抛出异常；nil - 未抛出异常",
+            "说明: 使用 vl-catch-all-apply 安全调用，不会中断测试执行",
+            "示例: (test:assert-throw '/ '(1 0) \\\"divide by zero\\\")"
+          ],
+          "dependencies": []
+        },
+        {
+          "name": "test:clear",
+          "original_name": "test:clear",
+          "file": "test/clear.lsp",
+          "params": [],
+          "locals": [],
+          "description": "清空所有测试套件、结果和计数器",
+          "returns": "返回: nil",
+          "examples": [
+            "说明: 重置所有全局变量 *test-suite*, *test-results*, *test-pass-count*, *test-fail-count*",
+            "示例: (test:clear)"
+          ],
+          "dependencies": []
+        },
+        {
+          "name": "test:init",
+          "original_name": "test:init",
+          "file": "test/init.lsp",
+          "params": [],
+          "locals": [],
+          "description": "初始化测试变量，在运行测试之前，对必要的变量初始化",
+          "returns": "",
+          "examples": [],
+          "dependencies": []
+        },
+        {
+          "name": "test:run-all",
+          "original_name": "test:run-all",
+          "file": "test/run-all.lsp",
+          "params": [],
+          "locals": [],
+          "description": "运行所有测试套件并生成测试报告",
+          "returns": "返回: t - 全部通过；nil - 有失败的测试",
+          "examples": [
+            "说明: 自动重置计数器，逐个运行所有套件，打印完整测试报告（包含标题、各套件结果、通过/失败/总数统计和总体结论）",
+            "示例: (test:run-all)"
+          ],
+          "dependencies": []
+        },
+        {
+          "name": "test:run-case",
+          "original_name": "test:run-case",
+          "file": "test/run-case.lsp",
+          "params": [
+            "test-name",
+            "test-fn",
+            "expected"
+          ],
+          "locals": [
+            "result",
+            "pass",
+            "fn"
+          ],
+          "description": "运行单个测试用例并输出结果",
+          "returns": "参数: test-name - 测试用例名称（符号）；test-fn - 测试函数，格式为 '((lambda () ...)) 或 '(lambda () ...)；expected - 期望的返回值",
+          "examples": [
+            "返回: t - 测试通过；nil - 测试失败",
+            "说明: 自动处理两种 lambda 格式，使用 vl-catch-all-apply 安全执行",
+            "示例: (test:run-case 'add '((lambda () (+ 1 2))) 3)",
+            "示例: (test:run-case 'bad-test '((lambda () (/ 1 0))) nil)"
+          ],
+          "dependencies": []
+        },
+        {
+          "name": "test:run-suite",
+          "original_name": "test:run-suite",
+          "file": "test/run-suite.lsp",
+          "params": [
+            "suite-name"
+          ],
+          "locals": [
+            "cases"
+          ],
+          "description": "运行指定测试套件中的所有用例",
+          "returns": "参数: suite-name - 套件名称（符号）",
+          "examples": [
+            "返回: nil",
+            "说明: 自动打印套件标题，逐个运行套件内的测试用例",
+            "示例: (test:run-suite 'math)"
+          ],
+          "dependencies": []
+        },
+        {
+          "name": "test:suite",
+          "original_name": "test:suite",
+          "file": "test/suite.lsp",
+          "params": [
+            "name"
+          ],
+          "locals": [],
+          "description": "创建测试套件",
+          "returns": "参数: name - 套件名称（符号）",
+          "examples": [
+            "返回: list - 新创建的套件，包含该套件的所有测试信息",
+            "示例: (test:suite 'math)"
+          ],
+          "dependencies": []
+        },
+        {
+          "name": "test:summary",
+          "original_name": "test:summary",
+          "file": "test/summary.lsp",
+          "params": [],
+          "locals": [],
+          "description": "输出当前测试结果的通过/失败摘要",
+          "returns": "返回: nil",
+          "examples": [
+            "说明: 打印格式为 Pass: N, Fail: N 的摘要信息",
+            "示例: (test:summary)"
+          ],
+          "dependencies": []
+        },
         {
           "name": "test:test-framework",
           "original_name": "test:test-framework",
-          "file": "fun/test-framework.lsp",
+          "file": "test/test-framework.lsp",
           "params": [],
           "locals": [],
-          "description": "测试框架，开发中",
-          "returns": "",
-          "examples": [],
+          "description": "测试框架占位函数",
+          "returns": "返回: nil",
+          "examples": [
+            "说明: 目前仅作为标记，框架功能通过各独立函数提供\")\n"
+          ],
           "dependencies": []
         }
       ]
@@ -14040,7 +14284,9 @@
         "blkname"
       ],
       "locals": [
-        "blk"
+        "blk",
+        "ent",
+        "entlst"
       ],
       "description": "返回块内各图元的列表",
       "returns": "图元列表",
@@ -15035,7 +15281,7 @@
         "n3",
         "fuzz"
       ],
-      "description": "优化多段线顶点。当连续多点共线或共圆时，减少顶点。优化顺时针的多段线有问题待修复。优化会丢失宽度信息！！",
+      "description": "优化多段线顶点。当连续多点共线或共圆时，减少顶点。连续 5 点以上共圆（相邻两段夹角 175~185 度）的多点折线转为一段圆弧。优化顺时针的多段线有问题待修复。优化会丢失宽度信息！！",
       "returns": "优化后的新图元",
       "examples": [],
       "dependencies": []
@@ -16385,7 +16631,15 @@
         "p1",
         "p2",
         "p3",
-        "p4"
+        "p4",
+        "box",
+        "blkname",
+        "blk-ents",
+        "ply-ents",
+        "pt-base",
+        "pt-ins",
+        "ang",
+        "sca"
       ],
       "description": "图元的最小包围盒",
       "returns": "return:外框（偏移后）的左下，右上角点",
@@ -16965,6 +17219,23 @@
       "examples": [],
       "dependencies": []
     },
+    "entity:properties": {
+      "name": "entity:properties",
+      "original_name": "entity:properties",
+      "file": "entity/properties.lsp",
+      "params": [
+        "ent"
+      ],
+      "locals": [
+        "obj",
+        "object-name",
+        "result"
+      ],
+      "description": "",
+      "returns": "",
+      "examples": [],
+      "dependencies": []
+    },
     "entity:putdxf": {
       "name": "entity:putdxf",
       "original_name": "entity:putdxf",
@@ -17053,6 +17324,19 @@
       "examples": [],
       "dependencies": []
     },
+    "entity:to-list": {
+      "name": "entity:to-list",
+      "original_name": "entity:to-list",
+      "file": "entity/to-list.lsp",
+      "params": [
+        "val"
+      ],
+      "locals": [],
+      "description": "",
+      "returns": "",
+      "examples": [],
+      "dependencies": []
+    },
     "entity:to-obj": {
       "name": "entity:to-obj",
       "original_name": "entity:to-obj",
@@ -17062,6 +17346,23 @@
       ],
       "locals": [],
       "description": "图元类型转为ActiveX对象,e2o",
+      "returns": "",
+      "examples": [],
+      "dependencies": []
+    },
+    "entity:try-get": {
+      "name": "entity:try-get",
+      "original_name": "entity:try-get",
+      "file": "entity/try-get.lsp",
+      "params": [
+        "obj",
+        "names"
+      ],
+      "locals": [
+        "result",
+        "val"
+      ],
+      "description": "",
       "returns": "",
       "examples": [],
       "dependencies": []
@@ -18186,22 +18487,6 @@
       "returns": "String",
       "examples": [
         "(filename:replace-special \\\":s->l.lsp\\\")"
-      ],
-      "dependencies": []
-    },
-    "fun:test": {
-      "name": "fun:test",
-      "original_name": "fun:test",
-      "file": "fun/test.lsp",
-      "params": [
-        "fun",
-        "usecases"
-      ],
-      "locals": [],
-      "description": "函数测试，fun:函数名，usecases:测试用例，测试用例为参数和返回值组成的点对表。",
-      "returns": "lst,对应测试用例的测试结果，t为通过，nil为失败",
-      "examples": [
-        "(fun:test point:mid '((((0 0)(2 2)) . (1 1))(((3 3)(5 5)) . (4 4))))"
       ],
       "dependencies": []
     },
@@ -23893,15 +24178,224 @@
       ],
       "dependencies": []
     },
+    "test:add-case": {
+      "name": "test:add-case",
+      "original_name": "test:add-case",
+      "file": "test/add-case.lsp",
+      "params": [
+        "suite-name",
+        "test-name",
+        "test-fn",
+        "expected"
+      ],
+      "locals": [],
+      "description": "添加测试用例到指定套件",
+      "returns": "参数: suite-name - 套件名称（符号）；test-name - 测试用例名称（符号）；test-fn - 测试函数，格式为 '((lambda () ...)) 或 '(lambda () ...)；expected - 期望的返回值",
+      "examples": [
+        "返回: nil",
+        "示例: (test:add-case 'math 'add '((lambda () (+ 1 2))) 3)",
+        "示例: (test:add-case 'math 'gcd '((lambda () (m:gcd 12 8))) 4)"
+      ],
+      "dependencies": []
+    },
+    "test:assert-equal": {
+      "name": "test:assert-equal",
+      "original_name": "test:assert-equal",
+      "file": "test/assert-equal.lsp",
+      "params": [
+        "expected",
+        "actual",
+        "fuzz"
+      ],
+      "locals": [],
+      "description": "断言两个值相等，支持浮点数容差比较",
+      "returns": "参数: expected - 期望值；actual - 实际值；fuzz - 浮点数比较的容差（数字和列表中的浮点数元素）",
+      "examples": [
+        "返回: t 或 nil",
+        "说明: 数字使用 equal 加容差比较；列表使用 list:equal 递归比较；其他类型直接使用 equal",
+        "示例: (test:assert-equal 3.14 3.14159 0.01) => t",
+        "示例: (test:assert-equal '(1.0 2.0) '(1.0 2.0) 1e-6) => t"
+      ],
+      "dependencies": []
+    },
+    "test:assert-nil": {
+      "name": "test:assert-nil",
+      "original_name": "test:assert-nil",
+      "file": "test/assert-nil.lsp",
+      "params": [
+        "val"
+      ],
+      "locals": [],
+      "description": "断言值为 nil",
+      "returns": "参数: val - 要测试的值",
+      "examples": [
+        "返回: t - 值为 nil；nil - 值不为 nil",
+        "示例: (test:assert-nil nil) => t",
+        "示例: (test:assert-nil '()) => t",
+        "示例: (test:assert-nil 0) => nil"
+      ],
+      "dependencies": []
+    },
+    "test:assert-t": {
+      "name": "test:assert-t",
+      "original_name": "test:assert-t",
+      "file": "test/assert-t.lsp",
+      "params": [
+        "val"
+      ],
+      "locals": [],
+      "description": "断言值为真（不为 nil）",
+      "returns": "参数: val - 要测试的值",
+      "examples": [
+        "返回: t - 值不为 nil；nil - 值为 nil",
+        "示例: (test:assert-t t) => t",
+        "示例: (test:assert-t 1) => t",
+        "示例: (test:assert-t nil) => nil"
+      ],
+      "dependencies": []
+    },
+    "test:assert-throw": {
+      "name": "test:assert-throw",
+      "original_name": "test:assert-throw",
+      "file": "test/assert-throw.lsp",
+      "params": [
+        "fn",
+        "args",
+        "expected-error"
+      ],
+      "locals": [],
+      "description": "断言函数执行时抛出异常",
+      "returns": "参数: fn - 要调用的函数（符号）；args - 函数参数列表；expected-error - 期望的错误类型（暂未使用）",
+      "examples": [
+        "返回: t - 抛出异常；nil - 未抛出异常",
+        "说明: 使用 vl-catch-all-apply 安全调用，不会中断测试执行",
+        "示例: (test:assert-throw '/ '(1 0) \\\"divide by zero\\\")"
+      ],
+      "dependencies": []
+    },
+    "test:clear": {
+      "name": "test:clear",
+      "original_name": "test:clear",
+      "file": "test/clear.lsp",
+      "params": [],
+      "locals": [],
+      "description": "清空所有测试套件、结果和计数器",
+      "returns": "返回: nil",
+      "examples": [
+        "说明: 重置所有全局变量 *test-suite*, *test-results*, *test-pass-count*, *test-fail-count*",
+        "示例: (test:clear)"
+      ],
+      "dependencies": []
+    },
+    "test:init": {
+      "name": "test:init",
+      "original_name": "test:init",
+      "file": "test/init.lsp",
+      "params": [],
+      "locals": [],
+      "description": "初始化测试变量，在运行测试之前，对必要的变量初始化",
+      "returns": "",
+      "examples": [],
+      "dependencies": []
+    },
+    "test:run-all": {
+      "name": "test:run-all",
+      "original_name": "test:run-all",
+      "file": "test/run-all.lsp",
+      "params": [],
+      "locals": [],
+      "description": "运行所有测试套件并生成测试报告",
+      "returns": "返回: t - 全部通过；nil - 有失败的测试",
+      "examples": [
+        "说明: 自动重置计数器，逐个运行所有套件，打印完整测试报告（包含标题、各套件结果、通过/失败/总数统计和总体结论）",
+        "示例: (test:run-all)"
+      ],
+      "dependencies": []
+    },
+    "test:run-case": {
+      "name": "test:run-case",
+      "original_name": "test:run-case",
+      "file": "test/run-case.lsp",
+      "params": [
+        "test-name",
+        "test-fn",
+        "expected"
+      ],
+      "locals": [
+        "result",
+        "pass",
+        "fn"
+      ],
+      "description": "运行单个测试用例并输出结果",
+      "returns": "参数: test-name - 测试用例名称（符号）；test-fn - 测试函数，格式为 '((lambda () ...)) 或 '(lambda () ...)；expected - 期望的返回值",
+      "examples": [
+        "返回: t - 测试通过；nil - 测试失败",
+        "说明: 自动处理两种 lambda 格式，使用 vl-catch-all-apply 安全执行",
+        "示例: (test:run-case 'add '((lambda () (+ 1 2))) 3)",
+        "示例: (test:run-case 'bad-test '((lambda () (/ 1 0))) nil)"
+      ],
+      "dependencies": []
+    },
+    "test:run-suite": {
+      "name": "test:run-suite",
+      "original_name": "test:run-suite",
+      "file": "test/run-suite.lsp",
+      "params": [
+        "suite-name"
+      ],
+      "locals": [
+        "cases"
+      ],
+      "description": "运行指定测试套件中的所有用例",
+      "returns": "参数: suite-name - 套件名称（符号）",
+      "examples": [
+        "返回: nil",
+        "说明: 自动打印套件标题，逐个运行套件内的测试用例",
+        "示例: (test:run-suite 'math)"
+      ],
+      "dependencies": []
+    },
+    "test:suite": {
+      "name": "test:suite",
+      "original_name": "test:suite",
+      "file": "test/suite.lsp",
+      "params": [
+        "name"
+      ],
+      "locals": [],
+      "description": "创建测试套件",
+      "returns": "参数: name - 套件名称（符号）",
+      "examples": [
+        "返回: list - 新创建的套件，包含该套件的所有测试信息",
+        "示例: (test:suite 'math)"
+      ],
+      "dependencies": []
+    },
+    "test:summary": {
+      "name": "test:summary",
+      "original_name": "test:summary",
+      "file": "test/summary.lsp",
+      "params": [],
+      "locals": [],
+      "description": "输出当前测试结果的通过/失败摘要",
+      "returns": "返回: nil",
+      "examples": [
+        "说明: 打印格式为 Pass: N, Fail: N 的摘要信息",
+        "示例: (test:summary)"
+      ],
+      "dependencies": []
+    },
     "test:test-framework": {
       "name": "test:test-framework",
       "original_name": "test:test-framework",
-      "file": "fun/test-framework.lsp",
+      "file": "test/test-framework.lsp",
       "params": [],
       "locals": [],
-      "description": "测试框架，开发中",
-      "returns": "",
-      "examples": [],
+      "description": "测试框架占位函数",
+      "returns": "返回: nil",
+      "examples": [
+        "说明: 目前仅作为标记，框架功能通过各独立函数提供\")\n"
+      ],
       "dependencies": []
     },
     "text:box": {
