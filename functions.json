@@ -2,8 +2,8 @@
   "_meta": {
     "generated": "2026-05-13",
     "total_categories": 63,
-    "total_functions": 858,
-    "total_with_documentation": 673,
+    "total_functions": 862,
+    "total_with_documentation": 677,
     "total_without_documentation": 185,
     "description": "@lisp 函数库 - AI Agent 可读清单",
     "naming_convention": "category:function-name (e.g. m:gcd, entity:getdxf)",
@@ -110,8 +110,8 @@
             "node",
             "stream"
           ],
-          "description": "",
-          "returns": "",
+          "description": "将base64串，解码保存到文件",
+          "returns": "成功返回t",
           "examples": [],
           "dependencies": []
         },
@@ -836,7 +836,7 @@
     },
     "curve": {
       "description": "曲线操作相关函数。",
-      "count": 45,
+      "count": 49,
       "functions": [
         {
           "name": "curve:3pt+chord2pt",
@@ -1148,6 +1148,26 @@
           "dependencies": []
         },
         {
+          "name": "curve:lwpl-cocircle-bulge",
+          "original_name": "curve:lwpl-cocircle-bulge",
+          "file": "curve/lwpl-cocircle-bulge.lsp",
+          "params": [
+            "first",
+            "second",
+            "last",
+            "o"
+          ],
+          "locals": [
+            "r",
+            "half",
+            "sag"
+          ],
+          "description": "求共圆点列 first..last（圆心 o）所成圆弧的凸度，方向由点列走向决定。",
+          "returns": "number - 凸度",
+          "examples": [],
+          "dependencies": []
+        },
+        {
           "name": "curve:lwpl-is-circle-p",
           "original_name": "curve:lwpl-is-circle-p",
           "file": "curve/lwpl-is-circle-p.lsp",
@@ -1178,6 +1198,23 @@
           ],
           "description": "反转多段线，调整顺时针或逆时针方向。",
           "returns": "新多段线图元",
+          "examples": [],
+          "dependencies": []
+        },
+        {
+          "name": "curve:lwpl-turn",
+          "original_name": "curve:lwpl-turn",
+          "file": "curve/lwpl-turn.lsp",
+          "params": [
+            "p1",
+            "p2",
+            "p3"
+          ],
+          "locals": [
+            "a"
+          ],
+          "description": "求折线相邻两段 p1p2 与 p2p3 的转角弧度，值域为开区间 -pi 到 pi。接近 0 表示接近直线，即两段夹角接近 180 度。",
+          "returns": "number - 转角弧度",
           "examples": [],
           "dependencies": []
         },
@@ -1231,6 +1268,34 @@
           "dependencies": []
         },
         {
+          "name": "curve:optimize-lwpl-cocircle-all",
+          "original_name": "curve:optimize-lwpl-cocircle-all",
+          "file": "curve/optimize-lwpl-cocircle-all.lsp",
+          "params": [
+            "segs",
+            "fuzz"
+          ],
+          "locals": [
+            "res",
+            "run"
+          ],
+          "description": "遍历多段线段列表，将连续共圆（5 点以上）的多点折线合并为一段圆弧。",
+          "returns": "合并后的段列表",
+          "examples": [],
+          "dependencies": []
+        },
+        {
+          "name": "curve:optimize-lwpl-cocircle",
+          "original_name": "curve:optimize-lwpl-cocircle",
+          "file": "curve/optimize-lwpl-cocircle.lsp",
+          "params": [],
+          "locals": [],
+          "description": "",
+          "returns": "",
+          "examples": [],
+          "dependencies": []
+        },
+        {
           "name": "curve:optimize-lwpl",
           "original_name": "curve:optimize-lwpl",
           "file": "curve/optimize-lwpl.lsp",
@@ -1240,6 +1305,7 @@
           "locals": [
             "segs",
             "res",
+            "closed",
             "n1",
             "n2",
             "n3",
@@ -14168,8 +14234,8 @@
         "node",
         "stream"
       ],
-      "description": "",
-      "returns": "",
+      "description": "将base64串，解码保存到文件",
+      "returns": "成功返回t",
       "examples": [],
       "dependencies": []
     },
@@ -15183,6 +15249,26 @@
       ],
       "dependencies": []
     },
+    "curve:lwpl-cocircle-bulge": {
+      "name": "curve:lwpl-cocircle-bulge",
+      "original_name": "curve:lwpl-cocircle-bulge",
+      "file": "curve/lwpl-cocircle-bulge.lsp",
+      "params": [
+        "first",
+        "second",
+        "last",
+        "o"
+      ],
+      "locals": [
+        "r",
+        "half",
+        "sag"
+      ],
+      "description": "求共圆点列 first..last（圆心 o）所成圆弧的凸度，方向由点列走向决定。",
+      "returns": "number - 凸度",
+      "examples": [],
+      "dependencies": []
+    },
     "curve:lwpl-is-circle-p": {
       "name": "curve:lwpl-is-circle-p",
       "original_name": "curve:lwpl-is-circle-p",
@@ -15198,6 +15284,23 @@
       ],
       "description": "检测多段线是否为圆",
       "returns": "T or nil",
+      "examples": [],
+      "dependencies": []
+    },
+    "curve:lwpl-turn": {
+      "name": "curve:lwpl-turn",
+      "original_name": "curve:lwpl-turn",
+      "file": "curve/lwpl-turn.lsp",
+      "params": [
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "locals": [
+        "a"
+      ],
+      "description": "求折线相邻两段 p1p2 与 p2p3 的转角弧度，值域为开区间 -pi 到 pi。接近 0 表示接近直线，即两段夹角接近 180 度。",
+      "returns": "number - 转角弧度",
       "examples": [],
       "dependencies": []
     },
@@ -15276,6 +15379,7 @@
       "locals": [
         "segs",
         "res",
+        "closed",
         "n1",
         "n2",
         "n3",
@@ -15283,6 +15387,34 @@
       ],
       "description": "优化多段线顶点。当连续多点共线或共圆时，减少顶点。连续 5 点以上共圆（相邻两段夹角 175~185 度）的多点折线转为一段圆弧。优化顺时针的多段线有问题待修复。优化会丢失宽度信息！！",
       "returns": "优化后的新图元",
+      "examples": [],
+      "dependencies": []
+    },
+    "curve:optimize-lwpl-cocircle": {
+      "name": "curve:optimize-lwpl-cocircle",
+      "original_name": "curve:optimize-lwpl-cocircle",
+      "file": "curve/optimize-lwpl-cocircle.lsp",
+      "params": [],
+      "locals": [],
+      "description": "",
+      "returns": "",
+      "examples": [],
+      "dependencies": []
+    },
+    "curve:optimize-lwpl-cocircle-all": {
+      "name": "curve:optimize-lwpl-cocircle-all",
+      "original_name": "curve:optimize-lwpl-cocircle-all",
+      "file": "curve/optimize-lwpl-cocircle-all.lsp",
+      "params": [
+        "segs",
+        "fuzz"
+      ],
+      "locals": [
+        "res",
+        "run"
+      ],
+      "description": "遍历多段线段列表，将连续共圆（5 点以上）的多点折线合并为一段圆弧。",
+      "returns": "合并后的段列表",
       "examples": [],
       "dependencies": []
     },
